@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using WWI.Core3.Core.ExtensionMethods;
+using WWI.Core3.Models.Models;
 
 namespace WWI.Core3.API
 {
@@ -36,14 +38,24 @@ namespace WWI.Core3.API
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            var info = Configuration.GetSection("Swagger");
+
+            #region -- Swagger -- 
 
             Configuration.GetSection("Swagger").Bind(_info);
             Configuration.GetSection("ApiKeyScheme").Bind(_openApiSecurityScheme);
 
-            // services.AddSwaggerDocumentation(_info, _openApiSecurityScheme);
             services.AddSwaggerDocumentation(_info, _openApiSecurityScheme);
 
+            #endregion
+
+            #region -- Database Configuration --
+
+            services.AddDbContext<WideWorldImportersContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("WideWorldDb"));
+            });
+
+            #endregion
 
             services.AddControllers();
         }

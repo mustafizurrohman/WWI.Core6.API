@@ -1,15 +1,19 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using WWI.Core3.API.Controllers.Base;
+using WWI.Core3.Models.Models;
 
 namespace WWI.Core3.API.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="WWI.Core3.API.Controllers.Base.BaseAPIController" />
+    public class WeatherForecastController : BaseAPIController
     {
         private static readonly string[] Summaries = new[]
         {
@@ -18,7 +22,12 @@ namespace WWI.Core3.API.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WeatherForecastController"/> class.
+        /// </summary>
+        /// <param name="logger">The logger.</param>
+        /// <param name="context">The context.</param>
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, WideWorldImportersContext context) : base(context)
         {
             _logger = logger;
         }
