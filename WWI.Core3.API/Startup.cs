@@ -77,6 +77,8 @@ namespace WWI.Core3.API
 
             app.UseHttpsRedirection();
 
+            app.UseCustomExceptionHandler();
+
             app.UseSerilogRequestLogging();
 
             app.UseRouting();

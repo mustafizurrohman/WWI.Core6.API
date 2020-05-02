@@ -33,30 +33,19 @@
             </summary>
             <param name="wideWorldImportersContext">The wide world importers context.</param>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.TestController.GetInfo">
+        <member name="M:WWI.Core3.API.Controllers.TestController.Exception(System.Int32)">
             <summary>
-            Gets the information.
+            Exceptions the specified number.
             </summary>
+            <param name="number">The number.</param>
             <returns></returns>
-        </member>
-        <member name="T:WWI.Core3.API.Controllers.WeatherForecastController">
-            <summary>
-            
-            </summary>
-            <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{WWI.Core3.API.Controllers.WeatherForecastController},WWI.Core3.Models.Models.WideWorldImportersContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.WeatherForecastController"/> class.
-            </summary>
-            <param name="logger">The logger.</param>
-            <param name="context">The context.</param>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.WeatherForecastController.Get">
-            <summary>
-            Gets this instance.
-            </summary>
-            <returns></returns>
+            <exception cref="T:System.ArgumentException">
+            number
+            or
+            number
+            or
+            number
+            </exception>
         </member>
         <member name="T:WWI.Core3.API.Program">
             <summary>

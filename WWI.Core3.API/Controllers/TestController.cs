@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System;
-using System.Linq;
-using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
 using WWI.Core3.Models.Models;
 
@@ -25,25 +22,32 @@ namespace WWI.Core3.API.Controllers
         }
 
         /// <summary>
-        /// Gets the information.
+        /// Exceptions the specified number.
         /// </summary>
+        /// <param name="number">The number.</param>
         /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> GetInfo()
-        {
-            var test = await DbContext.Colors.Take(10).ToListAsync();
-
-            var task1 = DbContext.Colors.Skip(0).Take(10);
-            var task2 = DbContext.Colors.Skip(10).Take(10);
-
-
-            return Ok(test);
-        }
-
+        /// <exception cref="System.ArgumentException">
+        /// number
+        /// or
+        /// number
+        /// or
+        /// number
+        /// </exception>
         [HttpGet("ex")]
-        public IActionResult Exception()
+        public IActionResult Exception(int number = 0)
         {
-            throw new NotImplementedException();
+            if (number <= 0)
+            {
+                throw new ArgumentException(nameof(number) + " must be positive");
+            }
+            if (number % 2 == 0)
+            {
+                throw new ArgumentException(nameof(number) + " must be even");
+            }
+            if (number % 2 == 1)
+            {
+                throw new ArgumentException(nameof(number) + " must be odd");
+            }
 
             return Ok();
         }
