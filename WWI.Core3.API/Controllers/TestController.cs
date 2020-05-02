@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
@@ -32,9 +33,19 @@ namespace WWI.Core3.API.Controllers
         {
             var test = await DbContext.Colors.Take(10).ToListAsync();
 
-            var task1 = DbContext.Colors.Skip(0).Take(10).ToListAsync();
+            var task1 = DbContext.Colors.Skip(0).Take(10);
+            var task2 = DbContext.Colors.Skip(10).Take(10);
+
 
             return Ok(test);
+        }
+
+        [HttpGet("ex")]
+        public IActionResult Exception()
+        {
+            throw new NotImplementedException();
+
+            return Ok();
         }
 
     }

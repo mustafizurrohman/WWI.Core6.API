@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using WWI.Core3.Core.ExtensionMethods;
 using WWI.Core3.Models.Models;
 
@@ -75,6 +76,8 @@ namespace WWI.Core3.API
             app.UseSwaggerDocumentation(_info);
 
             app.UseHttpsRedirection();
+
+            app.UseSerilogRequestLogging();
 
             app.UseRouting();
 

@@ -6,7 +6,7 @@
     <members>
         <member name="T:WWI.Core3.API.Controllers.Base.BaseAPIController">
             <summary>
-            
+            Base Controller
             </summary>
             <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
         </member>
@@ -51,6 +51,30 @@
             </summary>
             <param name="logger">The logger.</param>
             <param name="context">The context.</param>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.WeatherForecastController.Get">
+            <summary>
+            Gets this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WWI.Core3.API.Program">
+            <summary>
+            The program
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WWI.Core3.API.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">The arguments.</param>
+            <returns></returns>
         </member>
         <member name="T:WWI.Core3.API.Startup">
             <summary>

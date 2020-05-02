@@ -32,6 +32,10 @@ namespace WWI.Core3.API.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Gets this instance.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
