@@ -339,3 +339,5 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 Logs/
+
+WWI.Core3.API/appsettings.Development.json
