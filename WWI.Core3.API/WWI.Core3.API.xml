@@ -21,22 +21,35 @@
             </summary>
             <param name="docAppointmentContext">The database context.</param>
         </member>
-        <member name="T:WWI.Core3.API.Controllers.TestController">
+        <member name="T:WWI.Core3.API.Controllers.DataController">
             <summary>
             
             </summary>
             <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
         </member>
-        <member name="M:WWI.Core3.API.Controllers.TestController.#ctor(WWI.Core3.Models.DatabaseContext.DocAppointmentContext)">
+        <member name="M:WWI.Core3.API.Controllers.DataController.#ctor(WWI.Core3.Models.DatabaseContext.DocAppointmentContext)">
             <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.TestController"/> class.
+            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DataController"/> class.
             </summary>
             <param name="docAppointmentContext">The wide world importers context.</param>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.TestController.GetSpecialities">
+        <member name="M:WWI.Core3.API.Controllers.DataController.GetSpecialities">
             <summary>
             Gets the specialities.
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.DataController.GetDoctors">
+            <summary>
+            Gets the doctors.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.DataController.DoctorsBySpeciality(System.Int32)">
+            <summary>
+            Gets Doctors by speciality.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
             <returns></returns>
         </member>
         <member name="T:WWI.Core3.API.Program">

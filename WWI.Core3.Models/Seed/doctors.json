@@ -1,0 +1,14 @@
+[
+	{
+		"DoctorID": 1,
+		"Firstname": "Sujit",
+		"Middlename": "",
+		"Lastname": "Sarkar"
+	},
+	{
+		"DoctorID": 2,
+		"Firstname": "Ramananda",
+		"Middlename": "",
+		"Lastname": "Pathak"
+	}
+]

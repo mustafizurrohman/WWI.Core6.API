@@ -9,6 +9,20 @@
     <Compile Remove="Migrations\20200508205105_AddedHopitalAndAddress.Designer.cs" />
     <Compile Remove="Migrations\20200509052445_HospitalHasManyDoctors.cs" />
     <Compile Remove="Migrations\20200509052445_HospitalHasManyDoctors.Designer.cs" />
+    <Compile Remove="Migrations\20200509092726_AddedDoctorsSeed.cs" />
+    <Compile Remove="Migrations\20200509092726_AddedDoctorsSeed.Designer.cs" />
+    <Compile Remove="Migrations\20200509092838_AddedDoctorsSeed.cs" />
+    <Compile Remove="Migrations\20200509092838_AddedDoctorsSeed.Designer.cs" />
+    <Compile Remove="Migrations\20200509092948_AddedDoctorsSeed.cs" />
+    <Compile Remove="Migrations\20200509092948_AddedDoctorsSeed.Designer.cs" />
+    <Compile Remove="Migrations\20200509093249_AddedDoctorsSeed.cs" />
+    <Compile Remove="Migrations\20200509093249_AddedDoctorsSeed.Designer.cs" />
+    <Compile Remove="Migrations\20200509093422_AddedDoctorsSeed.cs" />
+    <Compile Remove="Migrations\20200509093422_AddedDoctorsSeed.Designer.cs" />
+    <Compile Remove="Migrations\20200509141924_DoctorSeed.cs" />
+    <Compile Remove="Migrations\20200509141924_DoctorSeed.Designer.cs" />
+    <Compile Remove="Migrations\20200509142315_DoctorSeed.cs" />
+    <Compile Remove="Migrations\20200509142315_DoctorSeed.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +36,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>

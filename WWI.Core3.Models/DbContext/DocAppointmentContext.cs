@@ -1,5 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Linq;
 using WWI.Core3.Models.Models;
+using WWI.Core3.Models.Utils;
 
 namespace WWI.Core3.Models.DatabaseContext
 {
@@ -47,10 +53,6 @@ namespace WWI.Core3.Models.DatabaseContext
                 .WithMany(doctor => doctor.Hospitals)
                 .HasForeignKey(doctor => doctor.HospitalID);
 
-            modelBuilder.Entity<Speciality>()
-                .HasMany(s => s.Doctors)
-                .WithOne();
-
             #endregion
 
             SeedData(modelBuilder);
@@ -58,8 +60,12 @@ namespace WWI.Core3.Models.DatabaseContext
             OnModelCreatingPartial(modelBuilder);
         }
 
+        [ExcludeFromCodeCoverage]
         private void SeedData(ModelBuilder modelBuilder)
         {
+
+            #region -- 'Speciality' Seed -- 
+
             modelBuilder.Entity<Speciality>().HasData(
                     new Speciality
                     {
@@ -79,7 +85,7 @@ namespace WWI.Core3.Models.DatabaseContext
                     new Speciality
                     {
                         SpecialityID = 4,
-                        Name = "Allerfy and Immunology"
+                        Name = "Allergy and Immunology"
                     },
                     new Speciality
                     {
@@ -157,6 +163,51 @@ namespace WWI.Core3.Models.DatabaseContext
                         Name = "Urology"
                     }
                 );
+
+            #endregion
+
+            #region -- 'Doctor Seed' --
+
+            var basePath = "../WWI.Core3.Models/Seed/";
+
+            var firstNamesContents = File.ReadAllText(basePath + "firstnames.json");
+            var middleNamesContents = File.ReadAllText(basePath + "middlenames.json");
+            var lastNamesContents = File.ReadAllText(basePath + "lastnames.json");
+
+            List<string> firstNames = JsonConvert.DeserializeObject<List<string>>(firstNamesContents)
+                .Select(fn => fn.Trim()).Distinct().Shuffle().ToList();
+
+            List<string> middlenames = JsonConvert.DeserializeObject<List<string>>(middleNamesContents)
+                .Select(mn => mn.Trim()).Distinct().Shuffle().ToList();
+
+            List<string> lastNames = JsonConvert.DeserializeObject<List<string>>(lastNamesContents)
+                .Select(ln => ln.Trim()).Distinct().Shuffle().ToList();
+
+            var doctors = new List<Doctor>();
+
+            for (int i = 1; i < 10000; i++)
+            {
+                doctors.Add(GetRandomDoctor(i));
+            }
+
+            // Local function
+            Doctor GetRandomDoctor(int doctorID)
+            {
+                return new Doctor
+                {
+                    DoctorID = doctorID,
+                    SpecialityID = RandomHelpers.Next(1, 19),
+                    Firstname = firstNames.GetRandomShuffled(),
+                    Middlename = middlenames.GetRandomShuffled(),
+                    Lastname = lastNames.GetRandomShuffled()
+                };
+            }
+
+            modelBuilder.Entity<Doctor>().HasData(doctors);
+
+
+
+            #endregion
 
         }
 

@@ -27,7 +27,7 @@ namespace WWI.Core3.Models
         public string Name { get; set; }
 
 
-        public IEnumerable<Doctor> Doctors { get; set; }
+        public virtual IEnumerable<Doctor> Doctors { get; set; }
 
     }
 }

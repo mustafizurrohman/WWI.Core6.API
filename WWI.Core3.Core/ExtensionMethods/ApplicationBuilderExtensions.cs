@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
+using System;
 using WWI.Core3.Middleware.ExceptionHandler;
 using WWI.Core3.Models.DatabaseContext;
 
@@ -30,8 +32,20 @@ namespace WWI.Core3.Core.ExtensionMethods
         {
             using IServiceScope serviceScope = applicationBuilder.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
             {
-                using var context = serviceScope.ServiceProvider.GetService<DocAppointmentContext>();
-                context.Database.Migrate();
+                using (var context = serviceScope.ServiceProvider.GetService<DocAppointmentContext>())
+                {
+
+                    try
+                    {
+                        context.Database.Migrate();
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(ex.ToString());
+
+                        context.Database.RollbackTransaction();
+                    }
+                }
             }
         }
 
