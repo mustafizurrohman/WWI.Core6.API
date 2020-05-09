@@ -15,11 +15,11 @@
             The database context
             </summary>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core3.Models.Models.WideWorldImportersContext)">
+        <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core3.Models.DatabaseContext.DocAppointmentContext)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController"/> class.
             </summary>
-            <param name="wideWorldImportersContext">The wide world importers context.</param>
+            <param name="docAppointmentContext">The database context.</param>
         </member>
         <member name="T:WWI.Core3.API.Controllers.TestController">
             <summary>
@@ -27,25 +27,17 @@
             </summary>
             <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
         </member>
-        <member name="M:WWI.Core3.API.Controllers.TestController.#ctor(WWI.Core3.Models.Models.WideWorldImportersContext)">
+        <member name="M:WWI.Core3.API.Controllers.TestController.#ctor(WWI.Core3.Models.DatabaseContext.DocAppointmentContext)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.TestController"/> class.
             </summary>
-            <param name="wideWorldImportersContext">The wide world importers context.</param>
+            <param name="docAppointmentContext">The wide world importers context.</param>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.TestController.Exception(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.TestController.GetSpecialities">
             <summary>
-            Exceptions the specified number.
+            Gets the specialities.
             </summary>
-            <param name="number">The number.</param>
             <returns></returns>
-            <exception cref="T:System.ArgumentException">
-            number
-            or
-            number
-            or
-            number
-            </exception>
         </member>
         <member name="T:WWI.Core3.API.Program">
             <summary>

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using WWI.Core3.Core.ExtensionMethods;
-using WWI.Core3.Models.Models;
+using WWI.Core3.Models.DatabaseContext;
 
 namespace WWI.Core3.API
 {
@@ -57,9 +57,9 @@ namespace WWI.Core3.API
 
             #region -- Database Configuration --
 
-            services.AddDbContext<WideWorldImportersContext>(options =>
+            services.AddDbContext<DocAppointmentContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("WideWorldDb"));
+                options.UseSqlServer(Configuration.GetConnectionString("AppointmentDb"));
             });
 
             #endregion
@@ -90,16 +90,6 @@ namespace WWI.Core3.API
             //  - used for avoid click-jacking attacks.
             app.UseXfo(options => options.SameOrigin());
 
-            app.UseCsp(options => options
-                .BlockAllMixedContent()
-                .StyleSources(sc => sc.Self())
-                .StyleSources(sc => sc.UnsafeInline())
-                .FontSources(fs => fs.Self())
-                .FormActions(fa => fa.Self())
-                .FrameAncestors(fa => fa.Self())
-                .ImageSources(imgsrc => imgsrc.Self())
-                .ScriptSources(ss => ss.Self()));
-
             // Blocks any content sniffing that could happen that might change an innocent MIME type (e.g. text/css) 
             // into something executable that could do some real damage.
             app.UseXContentTypeOptions();
@@ -119,6 +109,8 @@ namespace WWI.Core3.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.MigrateDatabase();
 
             app.UseEndpoints(endpoints =>
             {

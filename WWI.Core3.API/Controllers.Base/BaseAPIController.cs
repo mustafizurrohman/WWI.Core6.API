@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WWI.Core3.Models.Models;
+using WWI.Core3.Models.DatabaseContext;
 
 namespace WWI.Core3.API.Controllers.Base
 {
@@ -17,15 +17,15 @@ namespace WWI.Core3.API.Controllers.Base
         /// <summary>
         /// The database context
         /// </summary>
-        public WideWorldImportersContext DbContext;
+        public DocAppointmentContext DbContext;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseAPIController"/> class.
         /// </summary>
-        /// <param name="wideWorldImportersContext">The wide world importers context.</param>
-        public BaseAPIController(WideWorldImportersContext wideWorldImportersContext)
+        /// <param name="docAppointmentContext">The database context.</param>
+        public BaseAPIController(DocAppointmentContext docAppointmentContext)
         {
-            DbContext = wideWorldImportersContext;
+            DbContext = docAppointmentContext;
         }
 
     }

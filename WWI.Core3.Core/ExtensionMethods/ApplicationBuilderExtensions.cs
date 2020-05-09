@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using WWI.Core3.Middleware.ExceptionHandler;
-using WWI.Core3.Models.Models;
+using WWI.Core3.Models.DatabaseContext;
 
 namespace WWI.Core3.Core.ExtensionMethods
 {
@@ -30,7 +30,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         {
             using IServiceScope serviceScope = applicationBuilder.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
             {
-                using var context = serviceScope.ServiceProvider.GetService<WideWorldImportersContext>();
+                using var context = serviceScope.ServiceProvider.GetService<DocAppointmentContext>();
                 context.Database.Migrate();
             }
         }

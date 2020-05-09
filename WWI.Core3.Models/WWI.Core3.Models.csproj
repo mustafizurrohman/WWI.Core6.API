@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200508205105_AddedHopitalAndAddress.cs" />
+    <Compile Remove="Migrations\20200508205105_AddedHopitalAndAddress.Designer.cs" />
+    <Compile Remove="Migrations\20200509052445_HospitalHasManyDoctors.cs" />
+    <Compile Remove="Migrations\20200509052445_HospitalHasManyDoctors.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

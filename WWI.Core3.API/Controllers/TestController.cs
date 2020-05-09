@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
-using WWI.Core3.Models.Models;
+using WWI.Core3.Models.DatabaseContext;
 
 namespace WWI.Core3.API.Controllers
 {
@@ -15,42 +17,28 @@ namespace WWI.Core3.API.Controllers
         /// <summary>
         /// Initializes a new instance of the <see cref="TestController"/> class.
         /// </summary>
-        /// <param name="wideWorldImportersContext">The wide world importers context.</param>
-        public TestController(WideWorldImportersContext wideWorldImportersContext) : base(wideWorldImportersContext)
+        /// <param name="docAppointmentContext">The wide world importers context.</param>
+        public TestController(DocAppointmentContext docAppointmentContext) : base(docAppointmentContext)
         {
 
         }
 
         /// <summary>
-        /// Exceptions the specified number.
+        /// Gets the specialities.
         /// </summary>
-        /// <param name="number">The number.</param>
         /// <returns></returns>
-        /// <exception cref="System.ArgumentException">
-        /// number
-        /// or
-        /// number
-        /// or
-        /// number
-        /// </exception>
-        [HttpGet("ex")]
-        public IActionResult Exception(int number = 0)
+        [HttpGet("specialities")]
+        public async Task<IActionResult> GetSpecialities()
         {
-            if (number <= 0)
-            {
-                throw new ArgumentException(nameof(number) + " must be positive");
-            }
-            if (number % 2 == 0)
-            {
-                throw new ArgumentException(nameof(number) + " must be even");
-            }
-            if (number % 2 == 1)
-            {
-                throw new ArgumentException(nameof(number) + " must be odd");
-            }
+            var specilities = await DbContext.Specialities
+                .Select(s => s.Name)
+                .OrderBy(s => s)
+                .ToListAsync();
 
-            return Ok();
+            return Ok(specilities);
+
         }
+
 
     }
 }
