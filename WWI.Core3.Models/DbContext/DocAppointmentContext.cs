@@ -63,12 +63,13 @@ namespace WWI.Core3.Models.DatabaseContext
         [ExcludeFromCodeCoverage]
         private void SeedData(ModelBuilder modelBuilder)
         {
-            var basePath = "../WWI.Core3.Models/Seed/";
+            const string basePath = "../WWI.Core3.Models/Seed/";
 
             #region -- 'Speciality' Seed -- 
 
-            modelBuilder.Entity<Speciality>().HasData(
-                    new Speciality
+            var specialityList = new List<Speciality>()
+            {
+                new Speciality
                     {
                         SpecialityID = 1,
                         Name = "Pediatrics"
@@ -163,7 +164,9 @@ namespace WWI.Core3.Models.DatabaseContext
                         SpecialityID = 19,
                         Name = "Urology"
                     }
-                );
+            };
+
+            modelBuilder.Entity<Speciality>().HasData(specialityList);
 
             #endregion
 
@@ -182,11 +185,11 @@ namespace WWI.Core3.Models.DatabaseContext
             List<string> lastNames = JsonConvert.DeserializeObject<List<string>>(lastNamesContents)
                 .Select(ln => ln.Trim()).Distinct().Shuffle().ToList();
 
-            var doctors = new List<Doctor>();
+            var doctorList = new List<Doctor>();
 
             for (int i = 1; i < 10000; i++)
             {
-                doctors.Add(GetRandomDoctor(i));
+                doctorList.Add(GetRandomDoctor(i));
             }
 
             // Local function
@@ -202,7 +205,7 @@ namespace WWI.Core3.Models.DatabaseContext
                 };
             }
 
-            modelBuilder.Entity<Doctor>().HasData(doctors);
+            modelBuilder.Entity<Doctor>().HasData(doctorList);
 
             #endregion
 
@@ -230,37 +233,24 @@ namespace WWI.Core3.Models.DatabaseContext
 
             List<HospitalDoctor> hospitalDoctors = new List<HospitalDoctor>();
 
-
-            hospitalDoctors.Add(
-                    new HospitalDoctor
-                    {
-                        HospitalDoctorID = 1,
-                        HospitalID = 1,
-                        DoctorID = 1,
-                    });
-
-            hospitalDoctors.Add(
-                    new HospitalDoctor
-                    {
-                        HospitalDoctorID = 2,
-                        HospitalID = 5,
-                        DoctorID = 15,
-                    });
-
-            for (int i = 3; i <= 1000; i++)
+            for (int i = 1; i <= 1000; i++)
             {
                 hospitalDoctors.Add(GetRandomHospitalDoctor(i));
             }
 
-            hospitalDoctors = hospitalDoctors.Distinct().ToList();
+            hospitalDoctors = hospitalDoctors.ToList();
+
+            hospitalDoctors = hospitalDoctors.OrderBy(hd => hd.HospitalDoctorID)
+                .DistinctBy(hd => new { hd.HospitalID, hd.DoctorID })
+                .ToList();
 
             HospitalDoctor GetRandomHospitalDoctor(int ID)
             {
                 return new HospitalDoctor
                 {
                     HospitalDoctorID = ID,
-                    HospitalID = RandomHelpers.Next(2, hospitalList.Count - 2),
-                    DoctorID = RandomHelpers.Next(2, doctors.Count - 2)
+                    HospitalID = hospitalList.GetRandomShuffled().HospitalID,
+                    DoctorID = doctorList.GetRandomShuffled().DoctorID
                 };
             }
 
