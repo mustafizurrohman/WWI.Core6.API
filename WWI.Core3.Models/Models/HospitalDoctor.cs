@@ -11,7 +11,6 @@ namespace WWI.Core3.Models.Models
         [Column("ID")]
         public int HospitalDoctorID { get; set; }
 
-
         public int DoctorID { get; set; }
         public Doctor Doctor { get; set; }
 

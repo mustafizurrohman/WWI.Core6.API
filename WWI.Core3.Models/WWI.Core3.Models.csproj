@@ -23,6 +23,36 @@
     <Compile Remove="Migrations\20200509141924_DoctorSeed.Designer.cs" />
     <Compile Remove="Migrations\20200509142315_DoctorSeed.cs" />
     <Compile Remove="Migrations\20200509142315_DoctorSeed.Designer.cs" />
+    <Compile Remove="Migrations\20200509205143_AddedHospitalDoctorSeed2.cs" />
+    <Compile Remove="Migrations\20200509205143_AddedHospitalDoctorSeed2.Designer.cs" />
+    <Compile Remove="Migrations\20200509205510_AddedHospitalDoctorSeed2.cs" />
+    <Compile Remove="Migrations\20200509205510_AddedHospitalDoctorSeed2.Designer.cs" />
+    <Compile Remove="Migrations\20200509210502_AddedHospitalDoctorSeed2.cs" />
+    <Compile Remove="Migrations\20200509210502_AddedHospitalDoctorSeed2.Designer.cs" />
+    <Compile Remove="Migrations\20200509210957_AddedHospitalDoctorSeed2.cs" />
+    <Compile Remove="Migrations\20200509210957_AddedHospitalDoctorSeed2.Designer.cs" />
+    <Compile Remove="Migrations\20200509211513_AddedHospitalDoctorSeed3.cs" />
+    <Compile Remove="Migrations\20200509211513_AddedHospitalDoctorSeed3.Designer.cs" />
+    <Compile Remove="Migrations\20200509211834_AddedHospitalDoctorSeed3.cs" />
+    <Compile Remove="Migrations\20200509211834_AddedHospitalDoctorSeed3.Designer.cs" />
+    <Compile Remove="Migrations\20200509212210_AddedHospitalDoctorSeed3.cs" />
+    <Compile Remove="Migrations\20200509212210_AddedHospitalDoctorSeed3.Designer.cs" />
+    <Compile Remove="Migrations\20200510065313_AddedHospitalDoctorSeed3.cs" />
+    <Compile Remove="Migrations\20200510065313_AddedHospitalDoctorSeed3.Designer.cs" />
+    <Compile Remove="Migrations\20200510073032_AddedHospitalDoctorSeed3.cs" />
+    <Compile Remove="Migrations\20200510073032_AddedHospitalDoctorSeed3.Designer.cs" />
+    <Compile Remove="Migrations\20200510092630_AddedHospitalDoctorSeed3.cs" />
+    <Compile Remove="Migrations\20200510092630_AddedHospitalDoctorSeed3.Designer.cs" />
+    <Compile Remove="Migrations\20200510094727_AddedHospitalDoctorSeed4.cs" />
+    <Compile Remove="Migrations\20200510094727_AddedHospitalDoctorSeed4.Designer.cs" />
+    <Compile Remove="Migrations\20200510140912_AddedHospitalDoctorSeed4.cs" />
+    <Compile Remove="Migrations\20200510140912_AddedHospitalDoctorSeed4.Designer.cs" />
+    <Compile Remove="Migrations\20200510145014_AddedHospitalDoctorSeed4.cs" />
+    <Compile Remove="Migrations\20200510145014_AddedHospitalDoctorSeed4.Designer.cs" />
+    <Compile Remove="Migrations\20200510150010_AddedHospitalDoctorSeed4.cs" />
+    <Compile Remove="Migrations\20200510150010_AddedHospitalDoctorSeed4.Designer.cs" />
+    <Compile Remove="Migrations\20200510150255_AddedHospitalDoctorSeed4.cs" />
+    <Compile Remove="Migrations\20200510150255_AddedHospitalDoctorSeed4.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

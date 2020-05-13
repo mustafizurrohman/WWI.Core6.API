@@ -38,6 +38,7 @@ namespace WWI.Core3.API
             finally
             {
                 Log.CloseAndFlush();
+                Console.ReadLine();
             }
 
         }

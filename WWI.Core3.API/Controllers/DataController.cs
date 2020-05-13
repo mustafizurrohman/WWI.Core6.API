@@ -32,13 +32,13 @@ namespace WWI.Core3.API.Controllers
         [HttpGet("specialities")]
         public async Task<IActionResult> GetSpecialities()
         {
+            Log.Information("Retrieved list of specialities");
+
             var specilities = await DbContext.Specialities
                 .Select(s => s.Name)
                 .OrderBy(s => s)
                 .AsNoTracking()
                 .ToListAsync();
-
-            Log.Information("Retrieved list of specialities");
 
             return Ok(specilities);
 
@@ -51,6 +51,8 @@ namespace WWI.Core3.API.Controllers
         [HttpGet("doctors")]
         public async Task<IActionResult> GetDoctors()
         {
+            Log.Information("Retrieved list of all doctors");
+
             var doctors = (await DbContext.Doctors
                 .Include(doc => doc.Speciality)
                 .Select(doc => new
@@ -62,6 +64,7 @@ namespace WWI.Core3.API.Controllers
                 .ToListAsync())
                 .OrderBy(doc => doc.Speciality)
                 .ThenBy(doc => doc.Name)
+                .Select(doc => doc.Name + " (" + doc.Speciality + ")")
                 .ToList();
 
             return Ok(doctors);
@@ -88,6 +91,9 @@ namespace WWI.Core3.API.Controllers
                 .OrderBy(doc => doc.Speciality)
                 .ThenBy(doc => doc.Name)
                 .ToList();
+
+            var speciality = doctors.FirstOrDefault()?.Speciality ?? "None";
+            Log.Information($"Retrieved list of doctors for '{speciality}'.");
 
             return Ok(doctors);
         }

@@ -4,6 +4,23 @@
         <name>WWI.Core3.API</name>
     </assembly>
     <members>
+        <member name="T:WWI.Core3.API.ActionFilters.BenchmarkAttribute">
+            <summary>
+            Benchmark attribute
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.ActionFilters.BenchmarkAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Executed before the start of execution
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:WWI.Core3.API.ActionFilters.BenchmarkAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            Executed after the end of execution
+            </summary>
+            <param name="context"></param>
+        </member>
         <member name="T:WWI.Core3.API.Controllers.Base.BaseAPIController">
             <summary>
             Base Controller

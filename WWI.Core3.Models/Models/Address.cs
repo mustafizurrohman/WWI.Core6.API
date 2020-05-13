@@ -30,7 +30,13 @@ namespace WWI.Core3.Models.Models
         public string District { get; set; }
 
         [MaxLength(50)]
+        public string State { get; set; }
+
+        [MaxLength(50)]
         public string Country { get; set; }
+
+        [MaxLength(50)]
+        public string PIN { get; set; }
 
         public virtual IEnumerable<Hospital> Hospitals { get; set; }
 

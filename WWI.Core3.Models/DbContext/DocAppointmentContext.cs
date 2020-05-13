@@ -63,6 +63,7 @@ namespace WWI.Core3.Models.DatabaseContext
         [ExcludeFromCodeCoverage]
         private void SeedData(ModelBuilder modelBuilder)
         {
+            var basePath = "../WWI.Core3.Models/Seed/";
 
             #region -- 'Speciality' Seed -- 
 
@@ -166,9 +167,7 @@ namespace WWI.Core3.Models.DatabaseContext
 
             #endregion
 
-            #region -- 'Doctor Seed' --
-
-            var basePath = "../WWI.Core3.Models/Seed/";
+            #region -- 'Doctor Seed' --            
 
             var firstNamesContents = File.ReadAllText(basePath + "firstnames.json");
             var middleNamesContents = File.ReadAllText(basePath + "middlenames.json");
@@ -205,7 +204,67 @@ namespace WWI.Core3.Models.DatabaseContext
 
             modelBuilder.Entity<Doctor>().HasData(doctors);
 
+            #endregion
 
+            #region -- 'Address' Seed --
+
+            var addressFileContents = File.ReadAllText(basePath + "addresses.json");
+
+            List<Address> addressList = JsonConvert.DeserializeObject<List<Address>>(addressFileContents);
+
+            modelBuilder.Entity<Address>().HasData(addressList);
+
+            #endregion
+
+            #region -- 'Hospital' Seed --
+
+            var hospitalFileContents = File.ReadAllText(basePath + "hospitals.json");
+
+            List<Hospital> hospitalList = JsonConvert.DeserializeObject<List<Hospital>>(hospitalFileContents);
+
+            modelBuilder.Entity<Hospital>().HasData(hospitalList);
+
+            #endregion
+
+            #region -- 'HospitalDoctors' Seed -- 
+
+            List<HospitalDoctor> hospitalDoctors = new List<HospitalDoctor>();
+
+
+            hospitalDoctors.Add(
+                    new HospitalDoctor
+                    {
+                        HospitalDoctorID = 1,
+                        HospitalID = 1,
+                        DoctorID = 1,
+                    });
+
+            hospitalDoctors.Add(
+                    new HospitalDoctor
+                    {
+                        HospitalDoctorID = 2,
+                        HospitalID = 5,
+                        DoctorID = 15,
+                    });
+
+            for (int i = 3; i <= 1000; i++)
+            {
+                hospitalDoctors.Add(GetRandomHospitalDoctor(i));
+            }
+
+            hospitalDoctors = hospitalDoctors.Distinct().ToList();
+
+            HospitalDoctor GetRandomHospitalDoctor(int ID)
+            {
+                return new HospitalDoctor
+                {
+                    HospitalDoctorID = ID,
+                    HospitalID = RandomHelpers.Next(2, hospitalList.Count - 2),
+                    DoctorID = RandomHelpers.Next(2, doctors.Count - 2)
+                };
+            }
+
+            modelBuilder.Entity<HospitalDoctor>().HasData(hospitalDoctors);
 
             #endregion
 

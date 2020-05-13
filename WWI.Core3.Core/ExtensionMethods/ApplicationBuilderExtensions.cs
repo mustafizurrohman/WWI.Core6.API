@@ -37,13 +37,17 @@ namespace WWI.Core3.Core.ExtensionMethods
 
                     try
                     {
+                        Log.Information("Starting to migrate database ...");
                         context.Database.Migrate();
                     }
                     catch (Exception ex)
                     {
+                        Log.Error("An exception occured during migrating database ...");
                         Log.Error(ex.ToString());
-
-                        context.Database.RollbackTransaction();
+                    }
+                    finally
+                    {
+                        Log.Information("Database Migration completed ...");
                     }
                 }
             }

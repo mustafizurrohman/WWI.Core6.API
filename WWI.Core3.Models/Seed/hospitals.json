@@ -1,0 +1,77 @@
+[
+	{
+		"HospitalID": 1,
+		"AddressID": 1,
+		"Name": "Solace Hospital"
+	},
+	{
+		"HospitalID": 2,
+		"AddressID": 2,
+		"Name": "Aggarwala Nursing Home"
+	},
+	{
+		"HospitalID": 3,
+		"AddressID": 3,
+		"Name": "Lower Assam Hospital and Research Center"
+	},
+	{
+		"HospitalID": 4,
+		"AddressID": 4,
+		"Name": "Old Civil Hospital"
+	},
+	{
+		"HospitalID": 5,
+		"AddressID": 5,
+		"Name": "NE Higher Medical Science and Hospital"
+	},
+	{
+		"HospitalID": 6,
+		"AddressID": 6,
+		"Name": "Seven Sisters Hospital and Research Center"
+	},
+	{
+		"HospitalID": 7,
+		"AddressID": 7,
+		"Name": "Aggarwala Nursing Home"
+	},
+	{
+		"HospitalID": 8,
+		"AddressID": 8,
+		"Name": "Al-Salam Hospital"
+	},
+	{
+		"HospitalID": 9,
+		"AddressID": 9,
+		"Name": "Railway Hospital"
+	},
+	{
+		"HospitalID": 10,
+		"AddressID": 10,
+		"Name": "Kinaborgaon Public Health Center"
+	},
+	{
+		"HospitalID": 11,
+		"AddressID": 11,
+		"Name": "Chilaray Hospital and Research Center"
+	},
+	{
+		"HospitalID": 12,
+		"AddressID": 12,
+		"Name": "St. Augistine's Hospital"
+	},
+	{
+		"HospitalID": 13,
+		"AddressID": 13,
+		"Name": "Apollo Hospital"
+	},
+	{
+		"HospitalID": 14,
+		"AddressID": 14,
+		"Name": "Downtown Hospital"
+	},
+	{
+		"HospitalID": 15,
+		"AddressID": 15,
+		"Name": "Swagat Super Speciality Hospital"
+	}
+]

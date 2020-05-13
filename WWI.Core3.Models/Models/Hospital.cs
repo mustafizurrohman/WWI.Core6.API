@@ -24,10 +24,12 @@ namespace WWI.Core3.Models.Models
 
         public string Name { get; set; }
 
+        [ForeignKey("Address")]
+        public int AddressID { get; set; }
 
         public Address Address { get; set; }
 
-        public IEnumerable<HospitalDoctor> Doctors { get; set; }
+        public virtual IEnumerable<HospitalDoctor> Doctors { get; set; }
 
     }
 }

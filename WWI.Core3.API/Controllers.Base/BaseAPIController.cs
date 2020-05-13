@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WWI.Core3.API.ActionFilters;
 using WWI.Core3.Models.DatabaseContext;
 
 namespace WWI.Core3.API.Controllers.Base
@@ -9,6 +10,7 @@ namespace WWI.Core3.API.Controllers.Base
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     [ApiController]
+    [Benchmark]
     [Route("[controller]")]
     [Produces("application/json")]
     public class BaseAPIController : ControllerBase

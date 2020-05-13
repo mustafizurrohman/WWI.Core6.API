@@ -37,7 +37,7 @@ namespace WWI.Core3.Models
 
         public Speciality Speciality { get; set; }
 
-        public List<HospitalDoctor> Hospitals { get; set; }
+        public virtual List<HospitalDoctor> Hospitals { get; set; }
 
 
 
