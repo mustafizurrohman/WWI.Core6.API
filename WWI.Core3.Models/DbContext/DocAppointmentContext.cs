@@ -46,12 +46,12 @@ namespace WWI.Core3.Models.DatabaseContext
             modelBuilder.Entity<HospitalDoctor>()
                 .HasOne(hd => hd.Hospital)
                 .WithMany(hospital => hospital.Doctors)
-                .HasForeignKey(hospital => hospital.DoctorID);
+                .HasForeignKey(hospital => hospital.HospitalID);
 
             modelBuilder.Entity<HospitalDoctor>()
                 .HasOne(hd => hd.Doctor)
                 .WithMany(doctor => doctor.Hospitals)
-                .HasForeignKey(doctor => doctor.HospitalID);
+                .HasForeignKey(doctor => doctor.DoctorID);
 
             #endregion
 
@@ -233,26 +233,25 @@ namespace WWI.Core3.Models.DatabaseContext
 
             List<HospitalDoctor> hospitalDoctors = new List<HospitalDoctor>();
 
-            for (int i = 1; i <= 1000; i++)
+            for (int i = 1; i <= 10000; i++)
             {
-                hospitalDoctors.Add(GetRandomHospitalDoctor(i));
-            }
+                var doctor = doctorList.GetRandomElement();
+                var hospital = hospitalList.GetRandomElement();
 
-            hospitalDoctors = hospitalDoctors.ToList();
+                var hospitalDoctor = new HospitalDoctor()
+                {
+                    HospitalDoctorID = i,
+                    HospitalID = hospital.HospitalID,
+                    DoctorID = doctor.DoctorID
+                };
+
+                hospitalDoctors.Add(hospitalDoctor);
+
+            }
 
             hospitalDoctors = hospitalDoctors.OrderBy(hd => hd.HospitalDoctorID)
                 .DistinctBy(hd => new { hd.HospitalID, hd.DoctorID })
                 .ToList();
-
-            HospitalDoctor GetRandomHospitalDoctor(int ID)
-            {
-                return new HospitalDoctor
-                {
-                    HospitalDoctorID = ID,
-                    HospitalID = hospitalList.GetRandomShuffled().HospitalID,
-                    DoctorID = doctorList.GetRandomShuffled().DoctorID
-                };
-            }
 
             modelBuilder.Entity<HospitalDoctor>().HasData(hospitalDoctors);
 
