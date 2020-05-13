@@ -69,6 +69,26 @@
             <param name="specialityID">The speciality identifier.</param>
             <returns></returns>
         </member>
+        <member name="M:WWI.Core3.API.Controllers.DataController.GetHospitals">
+            <summary>
+            Gets the hospitals.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.DataController.GetHospitalById(System.Int32)">
+            <summary>
+            Gets the hospital by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.DataController.GetDoctorsForHospitalById(System.Int32)">
+            <summary>
+            Gets the doctors for hospital by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
         <member name="T:WWI.Core3.API.Program">
             <summary>
             The program
