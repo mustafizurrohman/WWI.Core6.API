@@ -85,7 +85,7 @@ namespace WWI.Core3.API.Controllers
                 .ToListAsync())
                 .Select(doc => new
                 {
-                    Name = Regex.Replace(doc.Firstname + " " + doc.Middlename + " " + doc.Lastname, @"\s+", " "),
+                    Name = doc.FullName,
                     Speciality = doc.Speciality.Name
                 })
                 .OrderBy(doc => doc.Speciality)
@@ -140,21 +140,14 @@ namespace WWI.Core3.API.Controllers
                 .Where(h => h.HospitalID == id)
                 .SelectMany(h => h.Doctors)
                 .Select(hd => hd.Doctor)
-                .Select(d => new
-                {
-                    d.Firstname,
-                    d.Middlename,
-                    d.Lastname,
-                    SpecialityName = d.Speciality.Name
-                })
-                .ToListAsync())
                 .Select(doc => new
                 {
-                    Name = Regex.Replace(doc.Firstname + " " + doc.Middlename + " " + doc.Lastname, @"\s+", " "),
-                    Speciality = doc.SpecialityName
+                    doc.FullName,
+                    SpecialityName = doc.Speciality.Name
                 })
-                .OrderBy(doc => doc.Speciality)
-                .ThenBy(doc => doc.Name)
+                .ToListAsync())
+                .OrderBy(doc => doc.SpecialityName)
+                .ThenBy(doc => doc.FullName)
                 .ToList();
 
             return Ok(doctorsInHospital);

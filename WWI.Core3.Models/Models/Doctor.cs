@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using WWI.Core3.Models.Models;
+using WWI.Core3.Models.Utils;
 
 namespace WWI.Core3.Models
 {
@@ -39,7 +40,8 @@ namespace WWI.Core3.Models
 
         public virtual List<HospitalDoctor> Hospitals { get; set; }
 
-
+        [NotMapped]
+        public string FullName => (Firstname + " " + Middlename + " " + Lastname).RemoveConsequtiveSpaces();
 
     }
 }

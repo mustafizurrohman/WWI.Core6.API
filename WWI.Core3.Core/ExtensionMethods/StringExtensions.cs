@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace WWI.Core3.Core.ExtensionMethods
 {
@@ -74,7 +75,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// <summary>
         /// Randomizes a string
         /// </summary>
-        /// <param name="input"></param>
+        /// <param name="input">The input string.</param>
         /// <returns></returns>
         public static string Randomize(this string input)
         {
@@ -84,11 +85,21 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// <summary>
         /// Remove duplicate characters from a string
         /// </summary>
-        /// <param name="input"></param>
+        /// <param name="input">The input string.</param>
         /// <returns></returns>
         public static string RemoveDuplicates(this string input)
         {
             return new string(input.ToCharArray().Distinct().ToArray());
+        }
+
+        /// <summary>
+        /// Removes the consequtive spaces.
+        /// </summary>
+        /// <param name="input">The input string.</param>
+        /// <returns></returns>
+        public static string RemoveConsequtiveSpaces(this string input)
+        {
+            return Regex.Replace(input, @"\s+", " ");
         }
 
 
