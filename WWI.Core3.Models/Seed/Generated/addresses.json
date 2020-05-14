@@ -1,0 +1,152 @@
+﻿[
+  {
+    "AddressID": 1,
+    "Street": "Opposite Gandhi Chowk",
+    "City": "Bilashipara",
+    "District": "Dhubri",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783348",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 2,
+    "Street": "SHC Hospital",
+    "City": "Bilashipara",
+    "District": "Dhubri",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783351",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 3,
+    "Street": "North, Chapaguri Rd, North Bongaigaon, Amguri",
+    "City": "Bongaigaon",
+    "District": "Bongaigaon",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783380",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 4,
+    "Street": "NH 17",
+    "City": "Chapar",
+    "District": "Dhubri",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783371",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 5,
+    "Street": "Agia Road",
+    "City": "Goalpara",
+    "District": "Goalpara",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783121",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 6,
+    "Street": "Goalpara-Helapakhri Rd, Moila-Pathar, Geetanagar",
+    "City": "Goalpara",
+    "District": "Goalpara",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783121",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 7,
+    "Street": "Pancharatna Rd",
+    "City": "Goalpara",
+    "District": "Goalpara",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783121",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 8,
+    "Street": "A.K.Choudhury Path, Borpara, Mayapuri",
+    "City": "Bongaigaon",
+    "District": "Bongaigaon",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783380",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 9,
+    "Street": "Dr. C. M. Das Path, North Bongaigaon",
+    "City": "Bongaigaon",
+    "District": "Bongaigaon",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783381",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 10,
+    "Street": "Chapaguri Rd, North Bongaigaon, Gurunanak Nagar,",
+    "City": "Bongaigaon",
+    "District": "Bongaigaon",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783380",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 11,
+    "Street": "NH 31C, Chapaguri",
+    "City": "Bongaigaon",
+    "District": "Bongaigaon",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783380",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 12,
+    "Street": "Paglastan Crossing, New Colony, Mayapuri",
+    "City": "Bongaigaon",
+    "District": "Bongaigaon",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783121",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 13,
+    "Street": "Jyoti Nagar, Bongaigaon, SH-2, Chapaguri Road",
+    "City": "Bongaigaon",
+    "District": "Bongaigaon",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783380",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 14,
+    "Street": "Natunpara",
+    "City": "Bongaigaon",
+    "District": "Bongaigaon",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783381",
+    "Hospitals": []
+  },
+  {
+    "AddressID": 15,
+    "Street": "North Bongaigaon, Amguri",
+    "City": "Bongaigaon",
+    "District": "Bongaigaon",
+    "State": "Assam",
+    "Country": "India",
+    "PIN": "783380",
+    "Hospitals": []
+  }
+]

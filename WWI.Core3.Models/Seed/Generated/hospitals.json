@@ -1,0 +1,107 @@
+﻿[
+  {
+    "HospitalID": 1,
+    "Name": "Solace Hospital",
+    "AddressID": 1,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 2,
+    "Name": "Aggarwala Nursing Home",
+    "AddressID": 2,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 3,
+    "Name": "Lower Assam Hospital and Research Center",
+    "AddressID": 3,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 4,
+    "Name": "Old Civil Hospital",
+    "AddressID": 4,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 5,
+    "Name": "NE Higher Medical Science and Hospital",
+    "AddressID": 5,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 6,
+    "Name": "Seven Sisters Hospital and Research Center",
+    "AddressID": 6,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 7,
+    "Name": "Aggarwala Nursing Home",
+    "AddressID": 7,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 8,
+    "Name": "Al-Salam Hospital",
+    "AddressID": 8,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 9,
+    "Name": "Railway Hospital",
+    "AddressID": 9,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 10,
+    "Name": "Kinaborgaon Public Health Center",
+    "AddressID": 10,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 11,
+    "Name": "Chilaray Hospital and Research Center",
+    "AddressID": 11,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 12,
+    "Name": "St. Augistine's Hospital",
+    "AddressID": 12,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 13,
+    "Name": "Apollo Hospital",
+    "AddressID": 13,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 14,
+    "Name": "Downtown Hospital",
+    "AddressID": 14,
+    "Address": null,
+    "Doctors": []
+  },
+  {
+    "HospitalID": 15,
+    "Name": "Swagat Super Speciality Hospital",
+    "AddressID": 15,
+    "Address": null,
+    "Doctors": []
+  }
+]

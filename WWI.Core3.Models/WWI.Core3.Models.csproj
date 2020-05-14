@@ -63,6 +63,10 @@
     <Compile Remove="Migrations\20200513191034_HospitalDoctorsAdded.Designer.cs" />
     <Compile Remove="Migrations\20200513191937_HospitalDoctorsAdded.cs" />
     <Compile Remove="Migrations\20200513191937_HospitalDoctorsAdded.Designer.cs" />
+    <Compile Remove="Migrations\20200513201943_Test2.cs" />
+    <Compile Remove="Migrations\20200513201943_Test2.Designer.cs" />
+    <Compile Remove="Migrations\20200514051848_DoctorSeedUpdated2.cs" />
+    <Compile Remove="Migrations\20200514051848_DoctorSeedUpdated2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -80,6 +84,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Seed\Generated\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 

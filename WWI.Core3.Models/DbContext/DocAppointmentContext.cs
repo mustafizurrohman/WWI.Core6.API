@@ -2,15 +2,30 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Linq;
 using WWI.Core3.Models.Models;
+using WWI.Core3.Models.Seed.Helper;
 using WWI.Core3.Models.Utils;
 
 namespace WWI.Core3.Models.DatabaseContext
 {
     public partial class DocAppointmentContext : Microsoft.EntityFrameworkCore.DbContext
     {
+
+        const string basePathGeneratedSeed = "../WWI.Core3.Models/Seed/Generated";
+        const string basePath = "../WWI.Core3.Models/Seed/";
+
+        const string doctorFileName = "doctors.json";
+        const string addressesFileName = "addresses.json";
+        const string firstNamesFileName = "firstnames.json";
+        const string middleNamesFileName = "middlenames.json";
+        const string lastNamesFileName = "lastnames.json";
+        const string hospitalsFileName = "hospitals.json";
+        const string specialitiesFileName = "specialities.json";
+        const string hospitalDoctorsFileName = "hospitalDoctors.json";
+
+        private readonly JsonSerializerSettings _defaultJsonSerializerSettings = new JsonSerializerSettings { Formatting = Formatting.Indented };
+
         public DocAppointmentContext()
         {
         }
@@ -18,6 +33,7 @@ namespace WWI.Core3.Models.DatabaseContext
         public DocAppointmentContext(DbContextOptions<DocAppointmentContext> options)
             : base(options)
         {
+
         }
 
         #region -- Tables --
@@ -55,142 +71,58 @@ namespace WWI.Core3.Models.DatabaseContext
 
             #endregion
 
+            GenerateSeedData();
             SeedData(modelBuilder);
 
             OnModelCreatingPartial(modelBuilder);
         }
 
-        [ExcludeFromCodeCoverage]
-        private void SeedData(ModelBuilder modelBuilder)
+        private void GenerateSeedData(bool overwrite = false)
         {
-            const string basePath = "../WWI.Core3.Models/Seed/";
 
-            #region -- 'Speciality' Seed -- 
+            #region -- Generate Seed for Speciality --
 
-            var specialityList = new List<Speciality>()
+            // Do not overwrite if file already exists.
+            if (SeedHelper.SeedSourceFileExists(specialitiesFileName) && !overwrite)
             {
-                new Speciality
-                    {
-                        SpecialityID = 1,
-                        Name = "Pediatrics"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 2,
-                        Name = "Anesthesiology"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 3,
-                        Name = "Dermatology"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 4,
-                        Name = "Allergy and Immunology"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 5,
-                        Name = "Anesthesiology"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 6,
-                        Name = "Diagonistic Radiology"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 7,
-                        Name = "Emergency Medicine"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 8,
-                        Name = "Family Medicine"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 9,
-                        Name = "Internal Medicine"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 10,
-                        Name = "Medical Genetics"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 11,
-                        Name = "Neurology"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 12,
-                        Name = "Neuclear Medicine"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 13,
-                        Name = "Obstetrics and Gynecology"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 14,
-                        Name = "Opthalmology"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 15,
-                        Name = "Physical Medicine & Rehabilitation"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 16,
-                        Name = "Psychiatry"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 17,
-                        Name = "Radiation Oncology"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 18,
-                        Name = "Surgery"
-                    },
-                    new Speciality
-                    {
-                        SpecialityID = 19,
-                        Name = "Urology"
-                    }
-            };
+                //return;
+            }
 
-            modelBuilder.Entity<Speciality>().HasData(specialityList);
+            List<Speciality> specialityList = SeedHelper.ParseSourceFile<Speciality>(specialitiesFileName);
+
+            var specialitiesJsonString = JsonConvert.SerializeObject(specialityList, new JsonSerializerSettings { Formatting = Formatting.Indented });
+
+            SeedHelper.SaveGeneratedFileContent(specialitiesFileName, specialitiesJsonString);
 
             #endregion
 
-            #region -- 'Doctor Seed' --            
+            #region -- Generate Seed for doctors -- 
 
-            var firstNamesContents = File.ReadAllText(basePath + "firstnames.json");
-            var middleNamesContents = File.ReadAllText(basePath + "middlenames.json");
-            var lastNamesContents = File.ReadAllText(basePath + "lastnames.json");
+            // Do not overwrite if file already exists.
+            if (SeedHelper.SeedSourceFileExists(doctorFileName) && !overwrite)
+            {
+                //return;
+            }
 
-            List<string> firstNames = JsonConvert.DeserializeObject<List<string>>(firstNamesContents)
+            List<string> firstNames = SeedHelper.ParseSourceFile<string>(firstNamesFileName)
                 .Select(fn => fn.Trim()).Distinct().Shuffle().ToList();
 
-            List<string> middlenames = JsonConvert.DeserializeObject<List<string>>(middleNamesContents)
+            List<string> middlenames = SeedHelper.ParseSourceFile<string>(middleNamesFileName)
                 .Select(mn => mn.Trim()).Distinct().Shuffle().ToList();
 
-            List<string> lastNames = JsonConvert.DeserializeObject<List<string>>(lastNamesContents)
+            List<string> lastNames = SeedHelper.ParseSourceFile<string>(lastNamesFileName)
                 .Select(ln => ln.Trim()).Distinct().Shuffle().ToList();
 
             var doctorList = new List<Doctor>();
 
-            for (int i = 1; i < 10000; i++)
+            for (int i = 1; i < 500; i++)
             {
                 doctorList.Add(GetRandomDoctor(i));
             }
+
+            var doctorListJsonString = JsonConvert.SerializeObject(doctorList, _defaultJsonSerializerSettings);
+
+            SeedHelper.SaveGeneratedFileContent(doctorFileName, doctorListJsonString);
 
             // Local function
             Doctor GetRandomDoctor(int doctorID)
@@ -198,65 +130,96 @@ namespace WWI.Core3.Models.DatabaseContext
                 return new Doctor
                 {
                     DoctorID = doctorID,
-                    SpecialityID = RandomHelpers.Next(1, 19),
+                    SpecialityID = specialityList.GetRandomShuffled().SpecialityID,
                     Firstname = firstNames.GetRandomShuffled(),
                     Middlename = middlenames.GetRandomShuffled(),
                     Lastname = lastNames.GetRandomShuffled()
                 };
             }
 
-            modelBuilder.Entity<Doctor>().HasData(doctorList);
-
             #endregion
 
-            #region -- 'Address' Seed --
+            #region -- Generate Seed for Addresses --
 
-            var addressFileContents = File.ReadAllText(basePath + "addresses.json");
-
-            List<Address> addressList = JsonConvert.DeserializeObject<List<Address>>(addressFileContents);
-
-            modelBuilder.Entity<Address>().HasData(addressList);
-
-            #endregion
-
-            #region -- 'Hospital' Seed --
-
-            var hospitalFileContents = File.ReadAllText(basePath + "hospitals.json");
-
-            List<Hospital> hospitalList = JsonConvert.DeserializeObject<List<Hospital>>(hospitalFileContents);
-
-            modelBuilder.Entity<Hospital>().HasData(hospitalList);
-
-            #endregion
-
-            #region -- 'HospitalDoctors' Seed -- 
-
-            List<HospitalDoctor> hospitalDoctors = new List<HospitalDoctor>();
-
-            for (int i = 1; i <= 10000; i++)
+            // Do not overwrite if file already exists.
+            if (SeedHelper.SeedSourceFileExists(addressesFileName) && !overwrite)
             {
-                var doctor = doctorList.GetRandomElement();
-                var hospital = hospitalList.GetRandomElement();
-
-                var hospitalDoctor = new HospitalDoctor()
-                {
-                    HospitalDoctorID = i,
-                    HospitalID = hospital.HospitalID,
-                    DoctorID = doctor.DoctorID
-                };
-
-                hospitalDoctors.Add(hospitalDoctor);
-
+                //return;
             }
 
-            hospitalDoctors = hospitalDoctors.OrderBy(hd => hd.HospitalDoctorID)
-                .DistinctBy(hd => new { hd.HospitalID, hd.DoctorID })
-                .ToList();
+            List<Address> addressList = SeedHelper.ParseSourceFile<Address>(addressesFileName);
 
-            modelBuilder.Entity<HospitalDoctor>().HasData(hospitalDoctors);
+            var addressJsonString = JsonConvert.SerializeObject(addressList, _defaultJsonSerializerSettings);
+
+            SeedHelper.SaveGeneratedFileContent(addressesFileName, addressJsonString);
 
             #endregion
 
+            #region -- Generate Seed for Hospital --
+
+            // Do not overwrite if file already exists.
+            if (SeedHelper.SeedSourceFileExists(hospitalsFileName) && !overwrite)
+            {
+                //return;
+            }
+
+            List<Hospital> hospitalList = SeedHelper.ParseSourceFile<Hospital>(hospitalsFileName);
+
+            var hospitalJsonString = JsonConvert.SerializeObject(hospitalList, _defaultJsonSerializerSettings);
+
+            SeedHelper.SaveGeneratedFileContent(hospitalsFileName, hospitalJsonString);
+
+            #endregion
+
+            #region -- Generate Seed for HospitalDoctor --
+
+            // Do not overwrite if file already exists.
+            if (SeedHelper.SeedSourceFileExists(hospitalsFileName) && !overwrite)
+            {
+                //return;
+            }
+
+            List<HospitalDoctor> hospitalDoctorList = new List<HospitalDoctor>();
+
+            for (int i = 1; i < 10000; i++)
+            {
+                hospitalDoctorList.Add(GetRandomHospitalDoctor(i));
+            }
+
+            HospitalDoctor GetRandomHospitalDoctor(int hospitalDoctorID)
+            {
+                return new HospitalDoctor
+                {
+                    HospitalDoctorID = hospitalDoctorID,
+                    HospitalID = hospitalList.GetRandomShuffled().HospitalID,
+                    DoctorID = doctorList.GetRandomShuffled().DoctorID
+                };
+            }
+
+
+            var hospitalDoctorJsonString = JsonConvert.SerializeObject(hospitalDoctorList, _defaultJsonSerializerSettings);
+
+            SeedHelper.SaveGeneratedFileContent(hospitalDoctorsFileName, hospitalDoctorJsonString);
+
+            #endregion
+
+        }
+
+        [ExcludeFromCodeCoverage]
+        private void SeedData(ModelBuilder modelBuilder)
+        {
+            List<Speciality> specialityList = SeedHelper.ParseGeneratedFile<Speciality>(specialitiesFileName);
+            List<Doctor> doctorList = SeedHelper.ParseGeneratedFile<Doctor>(doctorFileName);
+            List<Address> addressList = SeedHelper.ParseGeneratedFile<Address>(addressesFileName);
+            List<Hospital> hospitalList = SeedHelper.ParseGeneratedFile<Hospital>(hospitalsFileName);
+            List<HospitalDoctor> hospitalDdoctorList = SeedHelper.ParseGeneratedFile<HospitalDoctor>(hospitalDoctorsFileName);
+
+
+            modelBuilder.Entity<Speciality>().HasData(specialityList);
+            modelBuilder.Entity<Doctor>().HasData(doctorList);
+            modelBuilder.Entity<Address>().HasData(addressList);
+            modelBuilder.Entity<Hospital>().HasData(hospitalList);
+            modelBuilder.Entity<HospitalDoctor>().HasData(hospitalDdoctorList);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
