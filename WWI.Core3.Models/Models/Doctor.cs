@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using WWI.Core3.Models.Models;
 using WWI.Core3.Models.Utils;
 
-namespace WWI.Core3.Models
+namespace WWI.Core3.Models.Models
 {
     /// <summary>
     /// Doctor 

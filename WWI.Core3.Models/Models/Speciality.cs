@@ -2,12 +2,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WWI.Core3.Models
+namespace WWI.Core3.Models.Models
 {
     /// <summary>
     /// 
     /// </summary>
-    public partial class Speciality
+    public sealed partial class Speciality
     {
 
         /// <summary>
@@ -18,16 +18,34 @@ namespace WWI.Core3.Models
             Doctors = new List<Doctor>();
         }
 
+        /// <summary>
+        /// Gets or sets the Specialty identifier.
+        /// </summary>
+        /// <value>
+        /// The Specialty identifier.
+        /// </value>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID")]
-        public int SpecialityID { get; set; }
+        // ReSharper disable once InconsistentNaming
+        public int SpecialtyID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         [MaxLength(100)]
         public string Name { get; set; }
 
-
-        public virtual IEnumerable<Doctor> Doctors { get; set; }
+        /// <summary>
+        /// Gets or sets the doctors.
+        /// </summary>
+        /// <value>
+        /// The doctors.
+        /// </value>
+        public IEnumerable<Doctor> Doctors { get; set; }
 
     }
 }

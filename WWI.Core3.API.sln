@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWI.Core3.Models", "WWI.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWI.Core3.Core", "WWI.Core3.Core\WWI.Core3.Core.csproj", "{07DCD01B-DE20-4062-AE17-5962A6E5ACBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWI.Core3.Middleware.Base", "WWI.Core3.Middleware.Base\WWI.Core3.Middleware.Base.csproj", "{36F23D1E-FA34-411D-A3A8-43A56D176281}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWI.Core3.Middleware.Base", "WWI.Core3.Middleware.Base\WWI.Core3.Middleware.Base.csproj", "{36F23D1E-FA34-411D-A3A8-43A56D176281}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWI.Core3.Middleware.ExceptionHandler", "WWI.Core3.Middleware.ExceptionHandler\WWI.Core3.Middleware.ExceptionHandler.csproj", "{2682176A-328C-41C8-AE0B-BF369259A834}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWI.Core3.Middleware.ExceptionHandler", "WWI.Core3.Middleware.ExceptionHandler\WWI.Core3.Middleware.ExceptionHandler.csproj", "{2682176A-328C-41C8-AE0B-BF369259A834}"
 	ProjectSection(ProjectDependencies) = postProject
 		{36F23D1E-FA34-411D-A3A8-43A56D176281} = {36F23D1E-FA34-411D-A3A8-43A56D176281}
 	EndProjectSection

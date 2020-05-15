@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WWI.Core3.API.ActionFilters;
-using WWI.Core3.Models.DatabaseContext;
+using WWI.Core3.Models.DbContext;
 
 namespace WWI.Core3.API.Controllers.Base
 {

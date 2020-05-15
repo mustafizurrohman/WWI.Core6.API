@@ -89,6 +89,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="Seed\Generated\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>

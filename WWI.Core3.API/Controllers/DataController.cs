@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
-using WWI.Core3.Models.DatabaseContext;
+using WWI.Core3.Models.DbContext;
 
 namespace WWI.Core3.API.Controllers
 {

@@ -32,7 +32,7 @@
             The database context
             </summary>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core3.Models.DatabaseContext.DocAppointmentContext)">
+        <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core3.Models.DbContext.DocAppointmentContext)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController"/> class.
             </summary>
@@ -44,7 +44,7 @@
             </summary>
             <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.#ctor(WWI.Core3.Models.DatabaseContext.DocAppointmentContext)">
+        <member name="M:WWI.Core3.API.Controllers.DataController.#ctor(WWI.Core3.Models.DbContext.DocAppointmentContext)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DataController"/> class.
             </summary>

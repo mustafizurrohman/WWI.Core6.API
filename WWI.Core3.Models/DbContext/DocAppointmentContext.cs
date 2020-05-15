@@ -9,25 +9,24 @@ using WWI.Core3.Models.Models;
 using WWI.Core3.Models.Seed.Helper;
 using WWI.Core3.Models.Utils;
 
-namespace WWI.Core3.Models.DatabaseContext
+namespace WWI.Core3.Models.DbContext
 {
     /// <summary>
     /// Database context
     /// </summary>
     public partial class DocAppointmentContext : Microsoft.EntityFrameworkCore.DbContext
     {
+        private const string BasePathGeneratedSeed = "../WWI.Core3.Models/Seed/Generated";
+        private const string BasePath = "../WWI.Core3.Models/Seed/";
 
-        const string basePathGeneratedSeed = "../WWI.Core3.Models/Seed/Generated";
-        const string basePath = "../WWI.Core3.Models/Seed/";
-
-        const string doctorFileName = "doctors.json";
-        const string addressesFileName = "addresses.json";
-        const string firstNamesFileName = "firstnames.json";
-        const string middleNamesFileName = "middlenames.json";
-        const string lastNamesFileName = "lastnames.json";
-        const string hospitalsFileName = "hospitals.json";
-        const string specialitiesFileName = "specialities.json";
-        const string hospitalDoctorsFileName = "hospitalDoctors.json";
+        private const string DoctorFileName = "doctors.json";
+        private const string AddressesFileName = "addresses.json";
+        private const string FirstNamesFileName = "firstnames.json";
+        private const string MiddleNamesFileName = "middlenames.json";
+        private const string LastNamesFileName = "lastnames.json";
+        private const string HospitalsFileName = "hospitals.json";
+        private const string SpecialitiesFileName = "specialities.json";
+        private const string HospitalDoctorsFileName = "hospitalDoctors.json";
 
         private readonly JsonSerializerSettings _defaultJsonSerializerSettings = new JsonSerializerSettings { Formatting = Formatting.Indented };
 
@@ -119,27 +118,27 @@ namespace WWI.Core3.Models.DatabaseContext
         {
             Log.Debug($"Generating seed data with overwrite set to {overwrite}");
 
-            Directory.CreateDirectory(basePathGeneratedSeed);
+            Directory.CreateDirectory(BasePathGeneratedSeed);
 
             #region -- Generate Seed for Speciality --
 
-            List<Speciality> specialityList = SeedHelper.ParseSourceFile<Speciality>(specialitiesFileName);
+            List<Speciality> specialityList = SeedHelper.ParseSourceFile<Speciality>(SpecialitiesFileName);
 
             var specialitiesJsonString = JsonConvert.SerializeObject(specialityList, new JsonSerializerSettings { Formatting = Formatting.Indented });
 
-            SeedHelper.SaveOrOverwriteGeneratedFile(specialitiesFileName, specialitiesJsonString, overwrite);
+            SeedHelper.SaveOrOverwriteGeneratedFile(SpecialitiesFileName, specialitiesJsonString, overwrite);
 
             #endregion
 
             #region -- Generate Seed for doctors -- 
 
-            List<string> firstNames = SeedHelper.ParseSourceFile<string>(firstNamesFileName)
+            List<string> firstNames = SeedHelper.ParseSourceFile<string>(FirstNamesFileName)
                 .Select(fn => fn.Trim()).Distinct().Shuffle().ToList();
 
-            List<string> middlenames = SeedHelper.ParseSourceFile<string>(middleNamesFileName)
+            List<string> middlenames = SeedHelper.ParseSourceFile<string>(MiddleNamesFileName)
                 .Select(mn => mn.Trim()).Distinct().Shuffle().ToList();
 
-            List<string> lastNames = SeedHelper.ParseSourceFile<string>(lastNamesFileName)
+            List<string> lastNames = SeedHelper.ParseSourceFile<string>(LastNamesFileName)
                 .Select(ln => ln.Trim()).Distinct().Shuffle().ToList();
 
             var doctorList = new List<Doctor>();
@@ -151,7 +150,7 @@ namespace WWI.Core3.Models.DatabaseContext
 
             var doctorListJsonString = JsonConvert.SerializeObject(doctorList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveOrOverwriteGeneratedFile(doctorFileName, doctorListJsonString, overwrite);
+            SeedHelper.SaveOrOverwriteGeneratedFile(DoctorFileName, doctorListJsonString, overwrite);
 
             // Local function
             Doctor GetRandomDoctor(int doctorID)
@@ -159,7 +158,7 @@ namespace WWI.Core3.Models.DatabaseContext
                 return new Doctor
                 {
                     DoctorID = doctorID,
-                    SpecialityID = specialityList.GetRandomShuffled().SpecialityID,
+                    SpecialityID = specialityList.GetRandomShuffled().SpecialtyID,
                     Firstname = firstNames.GetRandomShuffled(),
                     Middlename = middlenames.GetRandomShuffled(),
                     Lastname = lastNames.GetRandomShuffled()
@@ -170,21 +169,21 @@ namespace WWI.Core3.Models.DatabaseContext
 
             #region -- Generate Seed for Addresses --
 
-            List<Address> addressList = SeedHelper.ParseSourceFile<Address>(addressesFileName);
+            List<Address> addressList = SeedHelper.ParseSourceFile<Address>(AddressesFileName);
 
             var addressJsonString = JsonConvert.SerializeObject(addressList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveOrOverwriteGeneratedFile(addressesFileName, addressJsonString, overwrite);
+            SeedHelper.SaveOrOverwriteGeneratedFile(AddressesFileName, addressJsonString, overwrite);
 
             #endregion
 
             #region -- Generate Seed for Hospital --
 
-            List<Hospital> hospitalList = SeedHelper.ParseSourceFile<Hospital>(hospitalsFileName);
+            List<Hospital> hospitalList = SeedHelper.ParseSourceFile<Hospital>(HospitalsFileName);
 
             var hospitalJsonString = JsonConvert.SerializeObject(hospitalList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveOrOverwriteGeneratedFile(hospitalsFileName, hospitalJsonString, overwrite);
+            SeedHelper.SaveOrOverwriteGeneratedFile(HospitalsFileName, hospitalJsonString, overwrite);
 
             #endregion
 
@@ -210,7 +209,7 @@ namespace WWI.Core3.Models.DatabaseContext
 
             var hospitalDoctorJsonString = JsonConvert.SerializeObject(hospitalDoctorList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveOrOverwriteGeneratedFile(hospitalDoctorsFileName, hospitalDoctorJsonString, overwrite);
+            SeedHelper.SaveOrOverwriteGeneratedFile(HospitalDoctorsFileName, hospitalDoctorJsonString, overwrite);
 
             #endregion
 
@@ -224,11 +223,11 @@ namespace WWI.Core3.Models.DatabaseContext
         [ExcludeFromCodeCoverage]
         private void SeedData(ModelBuilder modelBuilder)
         {
-            List<Speciality> specialityList = SeedHelper.ParseGeneratedFile<Speciality>(specialitiesFileName);
-            List<Doctor> doctorList = SeedHelper.ParseGeneratedFile<Doctor>(doctorFileName);
-            List<Address> addressList = SeedHelper.ParseGeneratedFile<Address>(addressesFileName);
-            List<Hospital> hospitalList = SeedHelper.ParseGeneratedFile<Hospital>(hospitalsFileName);
-            List<HospitalDoctor> hospitalDdoctorList = SeedHelper.ParseGeneratedFile<HospitalDoctor>(hospitalDoctorsFileName);
+            List<Speciality> specialityList = SeedHelper.ParseGeneratedFile<Speciality>(SpecialitiesFileName);
+            List<Doctor> doctorList = SeedHelper.ParseGeneratedFile<Doctor>(DoctorFileName);
+            List<Address> addressList = SeedHelper.ParseGeneratedFile<Address>(AddressesFileName);
+            List<Hospital> hospitalList = SeedHelper.ParseGeneratedFile<Hospital>(HospitalsFileName);
+            List<HospitalDoctor> hospitalDdoctorList = SeedHelper.ParseGeneratedFile<HospitalDoctor>(HospitalDoctorsFileName);
 
             modelBuilder.Entity<Speciality>().HasData(specialityList);
             modelBuilder.Entity<Doctor>().HasData(doctorList);

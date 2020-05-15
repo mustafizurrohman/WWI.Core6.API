@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using WWI.Core3.Core.ExtensionMethods;
-using WWI.Core3.Models.DatabaseContext;
+using WWI.Core3.Models.DbContext;
 
 namespace WWI.Core3.API
 {

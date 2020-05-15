@@ -16,8 +16,8 @@ namespace WWI.Core3.Models.Seed.Helper
 
         #region -- Private Methods -- 
 
-        private const string basePathGeneratedSeed = "../WWI.Core3.Models/Seed/Generated/";
-        private const string basePath = "../WWI.Core3.Models/Seed/";
+        private const string BasePathGeneratedSeed = "../WWI.Core3.Models/Seed/Generated/";
+        private const string BasePath = "../WWI.Core3.Models/Seed/";
 
         #endregion
 
@@ -28,7 +28,7 @@ namespace WWI.Core3.Models.Seed.Helper
         /// <returns></returns>
         public static bool SeedGeneratedFileExists(string fileName)
         {
-            return File.Exists(basePathGeneratedSeed + fileName);
+            return File.Exists(BasePathGeneratedSeed + fileName);
         }
 
 
@@ -39,12 +39,12 @@ namespace WWI.Core3.Models.Seed.Helper
         /// <returns></returns>
         public static string GetSourceFileContents(string fileName)
         {
-            if (!File.Exists(basePath + fileName))
+            if (!File.Exists(BasePath + fileName))
             {
                 throw new ArgumentException("File does not exist.");
             }
 
-            return File.ReadAllText(basePath + fileName);
+            return File.ReadAllText(BasePath + fileName);
         }
 
         /// <summary>
@@ -54,12 +54,12 @@ namespace WWI.Core3.Models.Seed.Helper
         /// <returns></returns>
         public static string GetGeneratedFileContents(string fileName)
         {
-            if (!File.Exists(basePathGeneratedSeed + fileName))
+            if (!File.Exists(BasePathGeneratedSeed + fileName))
             {
                 throw new ArgumentException("File does not exist.");
             }
 
-            return File.ReadAllText(basePathGeneratedSeed + fileName);
+            return File.ReadAllText(BasePathGeneratedSeed + fileName);
         }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace WWI.Core3.Models.Seed.Helper
         /// <param name="contents"></param>
         public static void SaveGeneratedFileContent(string fileName, string contents)
         {
-            File.WriteAllText(basePathGeneratedSeed + fileName, contents, Encoding.UTF8);
+            File.WriteAllText(BasePathGeneratedSeed + fileName, contents, Encoding.UTF8);
 
             return;
         }
