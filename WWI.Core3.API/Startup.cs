@@ -11,6 +11,7 @@ using System;
 using WWI.Core3.Core.ExtensionMethods;
 using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.Interfaces;
+using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Services.Services;
 
 namespace WWI.Core3.API
@@ -72,7 +73,12 @@ namespace WWI.Core3.API
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            services.AddTransient(typeof(ApplicationServices));
+
             services.AddTransient<IDataService, DataService>();
+
+            services.AddMvc()
+                .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 
             #endregion
 

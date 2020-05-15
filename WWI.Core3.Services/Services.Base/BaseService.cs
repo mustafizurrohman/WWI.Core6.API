@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using WWI.Core3.Models.DbContext;
+using WWI.Core3.Services.ServiceCollection;
 
 namespace WWI.Core3.Services.Services.Base
 {
@@ -21,33 +22,14 @@ namespace WWI.Core3.Services.Services.Base
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseService"/> class.
         /// </summary>
-        /// <param name="docAppointmentContext">The database context.</param>
-        protected BaseService(DocAppointmentContext docAppointmentContext)
+        /// <param name="applicationServices">The application services.</param>
+        protected BaseService(ApplicationServices applicationServices)
         {
-            DbContext = docAppointmentContext;
+            DbContext = applicationServices.DbContext;
+            AutoMapper = applicationServices.AutoMapper;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseService"/> class.
-        /// </summary>
-        /// <param name="docAppointmentContext">The database context.</param>
-        /// <param name="autoMapper"></param>
-        protected BaseService(DocAppointmentContext docAppointmentContext, IMapper autoMapper)
-        {
-            DbContext = docAppointmentContext;
-            AutoMapper = autoMapper;
-        }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseService"/> class.
-        /// </summary>
-        /// <param name="docAppointmentContext">The database context.</param>
-        /// <param name="autoMapper"></param>
-        protected BaseService(IMapper autoMapper, DocAppointmentContext docAppointmentContext)
-        {
-            DbContext = docAppointmentContext;
-            AutoMapper = autoMapper;
-        }
 
     }
 }

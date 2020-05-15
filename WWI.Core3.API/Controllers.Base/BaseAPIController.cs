@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using WWI.Core3.API.ActionFilters;
 using WWI.Core3.Models.DbContext;
+using WWI.Core3.Services.ServiceCollection;
 
 namespace WWI.Core3.API.Controllers.Base
 {
@@ -30,33 +31,14 @@ namespace WWI.Core3.API.Controllers.Base
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseAPIController"/> class.
         /// </summary>
-        /// <param name="docAppointmentContext">The database context.</param>
-        public BaseAPIController(DocAppointmentContext docAppointmentContext)
+        /// <param name="applicationServices">The database context.</param>
+        public BaseAPIController(ApplicationServices applicationServices)
         {
-            DbContext = docAppointmentContext;
+            DbContext = applicationServices.DbContext;
+            AutoMapper = applicationServices.AutoMapper;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseAPIController"/> class.
-        /// </summary>
-        /// <param name="docAppointmentContext">The database context.</param>
-        /// <param name="autoMapper"></param>
-        public BaseAPIController(DocAppointmentContext docAppointmentContext, IMapper autoMapper)
-        {
-            DbContext = docAppointmentContext;
-            AutoMapper = autoMapper;
-        }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseAPIController"/> class.
-        /// </summary>
-        /// <param name="docAppointmentContext">The database context.</param>
-        /// <param name="autoMapper"></param>
-        public BaseAPIController(IMapper autoMapper, DocAppointmentContext docAppointmentContext)
-        {
-            DbContext = docAppointmentContext;
-            AutoMapper = autoMapper;
-        }
 
     }
 }

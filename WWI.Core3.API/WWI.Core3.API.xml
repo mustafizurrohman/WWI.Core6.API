@@ -37,25 +37,11 @@
             AutoMapper
             </summary>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core3.Models.DbContext.DocAppointmentContext)">
+        <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController"/> class.
             </summary>
-            <param name="docAppointmentContext">The database context.</param>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core3.Models.DbContext.DocAppointmentContext,AutoMapper.IMapper)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController"/> class.
-            </summary>
-            <param name="docAppointmentContext">The database context.</param>
-            <param name="autoMapper"></param>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(AutoMapper.IMapper,WWI.Core3.Models.DbContext.DocAppointmentContext)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController"/> class.
-            </summary>
-            <param name="docAppointmentContext">The database context.</param>
-            <param name="autoMapper"></param>
+            <param name="applicationServices">The database context.</param>
         </member>
         <member name="T:WWI.Core3.API.Controllers.DataController">
             <summary>
@@ -68,12 +54,11 @@
             
             </summary>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.#ctor(WWI.Core3.Models.DbContext.DocAppointmentContext,AutoMapper.IMapper,WWI.Core3.Services.Interfaces.IDataService)">
+        <member name="M:WWI.Core3.API.Controllers.DataController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DataController"/> class.
             </summary>
-            <param name="docAppointmentContext">The wide world importers context.</param>
-            <param name="autoMapper"></param>
+            <param name="applicationServices">Application Services</param>
             <param name="dataService"></param>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DataController.GetSpecialities">

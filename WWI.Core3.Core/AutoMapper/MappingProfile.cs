@@ -18,7 +18,7 @@ namespace WWI.Core3.Core.AutoMapper
         public void CreateMappings()
         {
 
-            // Hospital to HospitalInformation mapping
+            // Hospital -> HospitalInformation
             CreateMap<Hospital, HospitalInformation>()
                 .ForMember(dst => dst.HospitalID,
                     src => src.MapFrom(hos => hos.HospitalID))

@@ -1,13 +1,12 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
-using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.Interfaces;
+using WWI.Core3.Services.ServiceCollection;
 
 namespace WWI.Core3.API.Controllers
 {
@@ -25,10 +24,9 @@ namespace WWI.Core3.API.Controllers
         /// <summary>
         /// Initializes a new instance of the <see cref="DataController"/> class.
         /// </summary>
-        /// <param name="docAppointmentContext">The wide world importers context.</param>
-        /// <param name="autoMapper"></param>
+        /// <param name="applicationServices">Application Services</param>
         /// <param name="dataService"></param>
-        public DataController(DocAppointmentContext docAppointmentContext, IMapper autoMapper, IDataService dataService) : base(docAppointmentContext, autoMapper)
+        public DataController(ApplicationServices applicationServices, IDataService dataService) : base(applicationServices)
         {
             DataService = dataService;
         }
@@ -127,12 +125,6 @@ namespace WWI.Core3.API.Controllers
         [HttpGet("hospitals/{id}")]
         public async Task<IActionResult> GetHospitalById(int id)
         {
-            /*
-            var hospital = await DbContext.Hospitals
-                .ProjectTo<HospitalInformation>(AutoMapper.ConfigurationProvider)
-                .FirstOrDefaultAsync(hs => hs.HospitalID == id);
-            */
-
             var hospital = await DataService.GetHospitalInformationByIDAsync(id);
 
             return Ok(hospital);
