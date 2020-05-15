@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,8 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using System;
 using WWI.Core3.Core.ExtensionMethods;
 using WWI.Core3.Models.DbContext;
+using WWI.Core3.Services.Interfaces;
+using WWI.Core3.Services.Services;
 
 namespace WWI.Core3.API
 {
@@ -61,6 +65,14 @@ namespace WWI.Core3.API
             {
                 options.UseSqlServer(Configuration.GetConnectionString("AppointmentDb"));
             });
+
+            #endregion
+
+            #region  -- Service Configuration --
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddTransient<IDataService, DataService>();
 
             #endregion
 

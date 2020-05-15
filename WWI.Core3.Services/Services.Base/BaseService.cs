@@ -1,26 +1,17 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using WWI.Core3.API.ActionFilters;
 using WWI.Core3.Models.DbContext;
 
-namespace WWI.Core3.API.Controllers.Base
+namespace WWI.Core3.Services.Services.Base
 {
-
     /// <summary>
-    /// Base API Controller
+    /// 
     /// </summary>
-    /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
-    [ApiController]
-    [Benchmark]
-    [Route("[controller]")]
-    [Produces("application/json")]
-    public class BaseAPIController : ControllerBase
+    public abstract class BaseService
     {
-
         /// <summary>
         /// The database context
         /// </summary>
-        public DocAppointmentContext DbContext { get; }
+        public DocAppointmentContext DbContext;
 
         /// <summary>
         /// AutoMapper
@@ -28,31 +19,31 @@ namespace WWI.Core3.API.Controllers.Base
         public IMapper AutoMapper { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BaseAPIController"/> class.
+        /// Initializes a new instance of the <see cref="BaseService"/> class.
         /// </summary>
         /// <param name="docAppointmentContext">The database context.</param>
-        public BaseAPIController(DocAppointmentContext docAppointmentContext)
+        protected BaseService(DocAppointmentContext docAppointmentContext)
         {
             DbContext = docAppointmentContext;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BaseAPIController"/> class.
+        /// Initializes a new instance of the <see cref="BaseService"/> class.
         /// </summary>
         /// <param name="docAppointmentContext">The database context.</param>
         /// <param name="autoMapper"></param>
-        public BaseAPIController(DocAppointmentContext docAppointmentContext, IMapper autoMapper)
+        protected BaseService(DocAppointmentContext docAppointmentContext, IMapper autoMapper)
         {
             DbContext = docAppointmentContext;
             AutoMapper = autoMapper;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BaseAPIController"/> class.
+        /// Initializes a new instance of the <see cref="BaseService"/> class.
         /// </summary>
         /// <param name="docAppointmentContext">The database context.</param>
         /// <param name="autoMapper"></param>
-        public BaseAPIController(IMapper autoMapper, DocAppointmentContext docAppointmentContext)
+        protected BaseService(IMapper autoMapper, DocAppointmentContext docAppointmentContext)
         {
             DbContext = docAppointmentContext;
             AutoMapper = autoMapper;

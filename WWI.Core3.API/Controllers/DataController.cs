@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
 using WWI.Core3.Models.DbContext;
+using WWI.Core3.Services.Interfaces;
 
 namespace WWI.Core3.API.Controllers
 {
@@ -15,14 +17,20 @@ namespace WWI.Core3.API.Controllers
     /// <seealso cref="WWI.Core3.API.Controllers.Base.BaseAPIController" />
     public class DataController : BaseAPIController
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        private IDataService DataService { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataController"/> class.
         /// </summary>
         /// <param name="docAppointmentContext">The wide world importers context.</param>
-        public DataController(DocAppointmentContext docAppointmentContext) : base(docAppointmentContext)
+        /// <param name="autoMapper"></param>
+        /// <param name="dataService"></param>
+        public DataController(DocAppointmentContext docAppointmentContext, IMapper autoMapper, IDataService dataService) : base(docAppointmentContext, autoMapper)
         {
-
+            DataService = dataService;
         }
 
         /// <summary>
@@ -119,15 +127,13 @@ namespace WWI.Core3.API.Controllers
         [HttpGet("hospitals/{id}")]
         public async Task<IActionResult> GetHospitalById(int id)
         {
+            /*
             var hospital = await DbContext.Hospitals
-                .Include(h => h.Specialities)
-                .Select(hs => new
-                {
-                    HospitalID = hs.HospitalID,
-                    HospitalName = hs.Name,
-                    Specialities = hs.Specialities.Select(s => s.Speciality.Name).ToList()
-                })
+                .ProjectTo<HospitalInformation>(AutoMapper.ConfigurationProvider)
                 .FirstOrDefaultAsync(hs => hs.HospitalID == id);
+            */
+
+            var hospital = await DataService.GetHospitalInformationByIDAsync(id);
 
             return Ok(hospital);
         }

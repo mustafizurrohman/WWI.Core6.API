@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.3">
       <PrivateAssets>all</PrivateAssets>
@@ -30,6 +32,7 @@
   <ItemGroup>
     <ProjectReference Include="..\WWI.Core3.Core\WWI.Core3.Core.csproj" />
     <ProjectReference Include="..\WWI.Core3.Models\WWI.Core3.Models.csproj" />
+    <ProjectReference Include="..\WWI.Core3.Services\WWI.Core3.Services.csproj" />
   </ItemGroup>
 
 

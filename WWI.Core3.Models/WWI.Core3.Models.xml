@@ -591,5 +591,25 @@
             <param name="input">The input string.</param>
             <returns></returns>
         </member>
+        <member name="T:WWI.Core3.Models.ViewModels.HospitalInformation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.HospitalInformation.HospitalID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.HospitalInformation.HospitalName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.HospitalInformation.Specialities">
+            <summary>
+            
+            </summary>
+        </member>
     </members>
 </doc>

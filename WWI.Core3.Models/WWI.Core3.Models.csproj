@@ -92,7 +92,6 @@
 
   <ItemGroup>
     <Folder Include="Seed\Generated\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>
