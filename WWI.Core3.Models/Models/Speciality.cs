@@ -47,5 +47,13 @@ namespace WWI.Core3.Models.Models
         /// </value>
         public IEnumerable<Doctor> Doctors { get; set; }
 
+        /// <summary>
+        /// Gets or sets the hospitals.
+        /// </summary>
+        /// <value>
+        /// The hospitals.
+        /// </value>
+        public IEnumerable<HospitalSpeciality> Hospitals { get; set; }
+
     }
 }

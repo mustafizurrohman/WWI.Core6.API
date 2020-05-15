@@ -1,0 +1,625 @@
+﻿[
+  {
+    "HospitalSpecialityID": 1,
+    "SpecialtyID": 18,
+    "Speciality": null,
+    "HospitalID": 1,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 2,
+    "SpecialtyID": 13,
+    "Speciality": null,
+    "HospitalID": 2,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 3,
+    "SpecialtyID": 11,
+    "Speciality": null,
+    "HospitalID": 2,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 4,
+    "SpecialtyID": 15,
+    "Speciality": null,
+    "HospitalID": 2,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 5,
+    "SpecialtyID": 18,
+    "Speciality": null,
+    "HospitalID": 2,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 6,
+    "SpecialtyID": 1,
+    "Speciality": null,
+    "HospitalID": 2,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 7,
+    "SpecialtyID": 7,
+    "Speciality": null,
+    "HospitalID": 2,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 8,
+    "SpecialtyID": 16,
+    "Speciality": null,
+    "HospitalID": 2,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 9,
+    "SpecialtyID": 8,
+    "Speciality": null,
+    "HospitalID": 2,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 10,
+    "SpecialtyID": 3,
+    "Speciality": null,
+    "HospitalID": 2,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 11,
+    "SpecialtyID": 4,
+    "Speciality": null,
+    "HospitalID": 3,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 12,
+    "SpecialtyID": 15,
+    "Speciality": null,
+    "HospitalID": 3,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 13,
+    "SpecialtyID": 1,
+    "Speciality": null,
+    "HospitalID": 3,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 14,
+    "SpecialtyID": 2,
+    "Speciality": null,
+    "HospitalID": 3,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 15,
+    "SpecialtyID": 5,
+    "Speciality": null,
+    "HospitalID": 3,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 16,
+    "SpecialtyID": 10,
+    "Speciality": null,
+    "HospitalID": 3,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 17,
+    "SpecialtyID": 8,
+    "Speciality": null,
+    "HospitalID": 3,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 18,
+    "SpecialtyID": 16,
+    "Speciality": null,
+    "HospitalID": 3,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 19,
+    "SpecialtyID": 13,
+    "Speciality": null,
+    "HospitalID": 3,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 20,
+    "SpecialtyID": 9,
+    "Speciality": null,
+    "HospitalID": 4,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 21,
+    "SpecialtyID": 7,
+    "Speciality": null,
+    "HospitalID": 4,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 22,
+    "SpecialtyID": 8,
+    "Speciality": null,
+    "HospitalID": 4,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 23,
+    "SpecialtyID": 6,
+    "Speciality": null,
+    "HospitalID": 4,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 24,
+    "SpecialtyID": 10,
+    "Speciality": null,
+    "HospitalID": 4,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 25,
+    "SpecialtyID": 12,
+    "Speciality": null,
+    "HospitalID": 4,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 26,
+    "SpecialtyID": 18,
+    "Speciality": null,
+    "HospitalID": 4,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 27,
+    "SpecialtyID": 5,
+    "Speciality": null,
+    "HospitalID": 5,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 28,
+    "SpecialtyID": 16,
+    "Speciality": null,
+    "HospitalID": 5,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 29,
+    "SpecialtyID": 4,
+    "Speciality": null,
+    "HospitalID": 5,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 30,
+    "SpecialtyID": 14,
+    "Speciality": null,
+    "HospitalID": 5,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 31,
+    "SpecialtyID": 2,
+    "Speciality": null,
+    "HospitalID": 5,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 32,
+    "SpecialtyID": 13,
+    "Speciality": null,
+    "HospitalID": 5,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 33,
+    "SpecialtyID": 5,
+    "Speciality": null,
+    "HospitalID": 6,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 34,
+    "SpecialtyID": 9,
+    "Speciality": null,
+    "HospitalID": 6,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 35,
+    "SpecialtyID": 18,
+    "Speciality": null,
+    "HospitalID": 6,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 36,
+    "SpecialtyID": 1,
+    "Speciality": null,
+    "HospitalID": 6,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 37,
+    "SpecialtyID": 7,
+    "Speciality": null,
+    "HospitalID": 6,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 38,
+    "SpecialtyID": 17,
+    "Speciality": null,
+    "HospitalID": 6,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 39,
+    "SpecialtyID": 8,
+    "Speciality": null,
+    "HospitalID": 6,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 40,
+    "SpecialtyID": 15,
+    "Speciality": null,
+    "HospitalID": 6,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 41,
+    "SpecialtyID": 4,
+    "Speciality": null,
+    "HospitalID": 7,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 42,
+    "SpecialtyID": 18,
+    "Speciality": null,
+    "HospitalID": 7,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 43,
+    "SpecialtyID": 15,
+    "Speciality": null,
+    "HospitalID": 8,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 44,
+    "SpecialtyID": 12,
+    "Speciality": null,
+    "HospitalID": 8,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 45,
+    "SpecialtyID": 2,
+    "Speciality": null,
+    "HospitalID": 8,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 46,
+    "SpecialtyID": 6,
+    "Speciality": null,
+    "HospitalID": 8,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 47,
+    "SpecialtyID": 5,
+    "Speciality": null,
+    "HospitalID": 8,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 48,
+    "SpecialtyID": 14,
+    "Speciality": null,
+    "HospitalID": 8,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 49,
+    "SpecialtyID": 4,
+    "Speciality": null,
+    "HospitalID": 8,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 50,
+    "SpecialtyID": 3,
+    "Speciality": null,
+    "HospitalID": 9,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 51,
+    "SpecialtyID": 9,
+    "Speciality": null,
+    "HospitalID": 10,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 52,
+    "SpecialtyID": 18,
+    "Speciality": null,
+    "HospitalID": 10,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 53,
+    "SpecialtyID": 16,
+    "Speciality": null,
+    "HospitalID": 10,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 54,
+    "SpecialtyID": 17,
+    "Speciality": null,
+    "HospitalID": 10,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 55,
+    "SpecialtyID": 2,
+    "Speciality": null,
+    "HospitalID": 10,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 56,
+    "SpecialtyID": 8,
+    "Speciality": null,
+    "HospitalID": 10,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 57,
+    "SpecialtyID": 10,
+    "Speciality": null,
+    "HospitalID": 10,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 58,
+    "SpecialtyID": 15,
+    "Speciality": null,
+    "HospitalID": 10,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 59,
+    "SpecialtyID": 4,
+    "Speciality": null,
+    "HospitalID": 10,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 60,
+    "SpecialtyID": 6,
+    "Speciality": null,
+    "HospitalID": 10,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 61,
+    "SpecialtyID": 3,
+    "Speciality": null,
+    "HospitalID": 11,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 62,
+    "SpecialtyID": 14,
+    "Speciality": null,
+    "HospitalID": 11,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 63,
+    "SpecialtyID": 15,
+    "Speciality": null,
+    "HospitalID": 11,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 64,
+    "SpecialtyID": 8,
+    "Speciality": null,
+    "HospitalID": 11,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 65,
+    "SpecialtyID": 1,
+    "Speciality": null,
+    "HospitalID": 11,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 66,
+    "SpecialtyID": 12,
+    "Speciality": null,
+    "HospitalID": 11,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 67,
+    "SpecialtyID": 9,
+    "Speciality": null,
+    "HospitalID": 11,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 68,
+    "SpecialtyID": 18,
+    "Speciality": null,
+    "HospitalID": 11,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 69,
+    "SpecialtyID": 6,
+    "Speciality": null,
+    "HospitalID": 11,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 70,
+    "SpecialtyID": 11,
+    "Speciality": null,
+    "HospitalID": 11,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 71,
+    "SpecialtyID": 13,
+    "Speciality": null,
+    "HospitalID": 11,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 72,
+    "SpecialtyID": 5,
+    "Speciality": null,
+    "HospitalID": 13,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 73,
+    "SpecialtyID": 10,
+    "Speciality": null,
+    "HospitalID": 13,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 74,
+    "SpecialtyID": 12,
+    "Speciality": null,
+    "HospitalID": 13,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 75,
+    "SpecialtyID": 4,
+    "Speciality": null,
+    "HospitalID": 13,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 76,
+    "SpecialtyID": 7,
+    "Speciality": null,
+    "HospitalID": 13,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 77,
+    "SpecialtyID": 17,
+    "Speciality": null,
+    "HospitalID": 14,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 78,
+    "SpecialtyID": 13,
+    "Speciality": null,
+    "HospitalID": 14,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 79,
+    "SpecialtyID": 11,
+    "Speciality": null,
+    "HospitalID": 14,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 80,
+    "SpecialtyID": 16,
+    "Speciality": null,
+    "HospitalID": 14,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 81,
+    "SpecialtyID": 18,
+    "Speciality": null,
+    "HospitalID": 14,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 82,
+    "SpecialtyID": 9,
+    "Speciality": null,
+    "HospitalID": 14,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 83,
+    "SpecialtyID": 17,
+    "Speciality": null,
+    "HospitalID": 15,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 84,
+    "SpecialtyID": 8,
+    "Speciality": null,
+    "HospitalID": 15,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 85,
+    "SpecialtyID": 14,
+    "Speciality": null,
+    "HospitalID": 15,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 86,
+    "SpecialtyID": 6,
+    "Speciality": null,
+    "HospitalID": 15,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 87,
+    "SpecialtyID": 2,
+    "Speciality": null,
+    "HospitalID": 15,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 88,
+    "SpecialtyID": 1,
+    "Speciality": null,
+    "HospitalID": 15,
+    "Hospital": null
+  },
+  {
+    "HospitalSpecialityID": 89,
+    "SpecialtyID": 18,
+    "Speciality": null,
+    "HospitalID": 15,
+    "Hospital": null
+  }
+]

@@ -34,13 +34,13 @@ namespace WWI.Core3.API.Controllers
         {
             Log.Information("Retrieved list of specialities");
 
-            var specilities = await DbContext.Specialities
+            var specialityList = await DbContext.Specialities
                 .Select(s => s.Name)
                 .OrderBy(s => s)
                 .AsNoTracking()
                 .ToListAsync();
 
-            return Ok(specilities);
+            return Ok(specialityList);
 
         }
 
@@ -120,7 +120,14 @@ namespace WWI.Core3.API.Controllers
         public async Task<IActionResult> GetHospitalById(int id)
         {
             var hospital = await DbContext.Hospitals
-                .FindAsync(id);
+                .Include(h => h.Specialities)
+                .Select(hs => new
+                {
+                    HospitalID = hs.HospitalID,
+                    HospitalName = hs.Name,
+                    Specialities = hs.Specialities.Select(s => s.Speciality.Name).ToList()
+                })
+                .FirstOrDefaultAsync(hs => hs.HospitalID == id);
 
             return Ok(hospital);
         }

@@ -7,7 +7,7 @@ namespace WWI.Core3.Models.Models
     /// <summary>
     /// Hospital
     /// </summary>
-    public partial class Hospital
+    public sealed partial class Hospital
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Hospital"/> class.
@@ -15,6 +15,7 @@ namespace WWI.Core3.Models.Models
         public Hospital()
         {
             Doctors = new List<HospitalDoctor>();
+            Specialities = new List<HospitalSpeciality>();
         }
 
         /// <summary>
@@ -59,7 +60,15 @@ namespace WWI.Core3.Models.Models
         /// <value>
         /// The doctors.
         /// </value>
-        public virtual IEnumerable<HospitalDoctor> Doctors { get; set; }
+        public IEnumerable<HospitalDoctor> Doctors { get; set; }
+
+        /// <summary>
+        /// Gets or sets the specialities.
+        /// </summary>
+        /// <value>
+        /// The specialities.
+        /// </value>
+        public IEnumerable<HospitalSpeciality> Specialities { get; set; }
 
     }
 }

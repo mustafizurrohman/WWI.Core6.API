@@ -1,74 +1,74 @@
 [
   {
-    "SpecialityID": 1,
+    "SpecialtyID": 1,
     "Name": "Pediatrics"
   },
   {
-    "SpecialityID": 2,
+    "SpecialtyID": 2,
     "Name": "Anesthesiology"
   },
   {
-    "SpecialityID": 3,
+    "SpecialtyID": 3,
     "Name": "Dermatology"
   },
   {
-    "SpecialityID": 4,
+    "SpecialtyID": 4,
     "Name": "Allergy and Immunology"
   },
   {
-    "SpecialityID": 5,
+    "SpecialtyID": 5,
     "Name": "Diagonistic Radiology"
   },
   {
-    "SpecialityID": 6,
+    "SpecialtyID": 6,
     "Name": "Emergency Medicine"
   },
   {
-    "SpecialityID": 7,
+    "SpecialtyID": 7,
     "Name": "Family Medicine"
   },
   {
-    "SpecialityID": 8,
+    "SpecialtyID": 8,
     "Name": "Internal Medicine"
   },
   {
-    "SpecialityID": 9,
+    "SpecialtyID": 9,
     "Name": "Medical Genetics"
   },
   {
-    "SpecialityID": 10,
+    "SpecialtyID": 10,
     "Name": "Neurology"
   },
   {
-    "SpecialityID": 11,
+    "SpecialtyID": 11,
     "Name": "Neuclear Medicine"
   },
   {
-    "SpecialityID": 12,
+    "SpecialtyID": 12,
     "Name": "Obstetrics and Gynecology"
   },
   {
-    "SpecialityID": 13,
+    "SpecialtyID": 13,
     "Name": "Opthalmology"
   },
   {
-    "SpecialityID": 14,
+    "SpecialtyID": 14,
     "Name": "Physical Medicine & Rehabilitation"
   },
   {
-    "SpecialityID": 15,
+    "SpecialtyID": 15,
     "Name": "Psychiatry"
   },
   {
-    "SpecialityID": 16,
+    "SpecialtyID": 16,
     "Name": "Radiation Oncology"
   },
   {
-    "SpecialityID": 17,
+    "SpecialtyID": 17,
     "Name": "Surgery"
   },
   {
-    "SpecialityID": 18,
+    "SpecialtyID": 18,
     "Name": "Urology"
   }
 ]

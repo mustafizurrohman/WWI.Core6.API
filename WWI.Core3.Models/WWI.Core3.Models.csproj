@@ -71,6 +71,8 @@
     <Compile Remove="Migrations\20200513201943_Test2.Designer.cs" />
     <Compile Remove="Migrations\20200514051848_DoctorSeedUpdated2.cs" />
     <Compile Remove="Migrations\20200514051848_DoctorSeedUpdated2.Designer.cs" />
+    <Compile Remove="Migrations\20200515132650_AddedHospitalSpecialitySeed2.cs" />
+    <Compile Remove="Migrations\20200515132650_AddedHospitalSpecialitySeed2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -89,7 +91,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="Seed\Generated\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>

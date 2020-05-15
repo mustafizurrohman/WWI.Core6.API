@@ -6,7 +6,7 @@ namespace WWI.Core3.API.Controllers.Base
 {
 
     /// <summary>
-    /// Base Controller
+    /// Base API Controller
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     [ApiController]

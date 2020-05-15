@@ -27,6 +27,7 @@ namespace WWI.Core3.Models.DbContext
         private const string HospitalsFileName = "hospitals.json";
         private const string SpecialitiesFileName = "specialities.json";
         private const string HospitalDoctorsFileName = "hospitalDoctors.json";
+        private const string HospitalSpecialityFileName = "hospitalSpecialities.json";
 
         private readonly JsonSerializerSettings _defaultJsonSerializerSettings = new JsonSerializerSettings { Formatting = Formatting.Indented };
 
@@ -50,27 +51,27 @@ namespace WWI.Core3.Models.DbContext
         #region -- Tables --
 
         /// <summary>
-        /// 
+        /// Doctors Table
         /// </summary>
         public virtual DbSet<Doctor> Doctors { get; set; }
 
         /// <summary>
-        /// 
+        /// Specialities Table
         /// </summary>
         public virtual DbSet<Speciality> Specialities { get; set; }
 
         /// <summary>
-        /// 
+        /// Addresses Table
         /// </summary>
         public virtual DbSet<Address> Addresses { get; set; }
 
         /// <summary>
-        /// 
+        /// Hospitals Table
         /// </summary>
         public virtual DbSet<Hospital> Hospitals { get; set; }
 
         /// <summary>
-        /// 
+        /// Hospital Doctors Table
         /// </summary>
         public virtual DbSet<HospitalDoctor> HospitalDoctors { get; set; }
 
@@ -101,6 +102,18 @@ namespace WWI.Core3.Models.DbContext
                 .HasOne(hd => hd.Doctor)
                 .WithMany(doctor => doctor.Hospitals)
                 .HasForeignKey(doctor => doctor.DoctorID);
+
+
+            modelBuilder.Entity<HospitalSpeciality>()
+                .HasOne(hs => hs.Hospital)
+                .WithMany(h => h.Specialities)
+                .HasForeignKey(hs => hs.HospitalID);
+
+            modelBuilder.Entity<HospitalSpeciality>()
+                .HasOne(hs => hs.Speciality)
+                .WithMany(h => h.Hospitals)
+                .HasForeignKey(hs => hs.SpecialtyID);
+
 
             #endregion
 
@@ -135,7 +148,7 @@ namespace WWI.Core3.Models.DbContext
             List<string> firstNames = SeedHelper.ParseSourceFile<string>(FirstNamesFileName)
                 .Select(fn => fn.Trim()).Distinct().Shuffle().ToList();
 
-            List<string> middlenames = SeedHelper.ParseSourceFile<string>(MiddleNamesFileName)
+            List<string> middleNames = SeedHelper.ParseSourceFile<string>(MiddleNamesFileName)
                 .Select(mn => mn.Trim()).Distinct().Shuffle().ToList();
 
             List<string> lastNames = SeedHelper.ParseSourceFile<string>(LastNamesFileName)
@@ -160,7 +173,7 @@ namespace WWI.Core3.Models.DbContext
                     DoctorID = doctorID,
                     SpecialityID = specialityList.GetRandomShuffled().SpecialtyID,
                     Firstname = firstNames.GetRandomShuffled(),
-                    Middlename = middlenames.GetRandomShuffled(),
+                    Middlename = middleNames.GetRandomShuffled(),
                     Lastname = lastNames.GetRandomShuffled()
                 };
             }
@@ -213,6 +226,48 @@ namespace WWI.Core3.Models.DbContext
 
             #endregion
 
+            #region  -- Generate Seed for HospitalSpeciality -- 
+
+            List<HospitalSpeciality> hospitalSpecialities = new List<HospitalSpeciality>();
+
+            int countHospitalSpeciality = 1;
+
+            hospitalList.ForEach(hospital =>
+            {
+                var randomNumberOfSpecialities = RandomHelpers.Next(specialityList.Count);
+
+                for (int i = 0; i < randomNumberOfSpecialities; i++)
+                {
+                    var hs = new HospitalSpeciality()
+                    {
+                        HospitalSpecialityID = countHospitalSpeciality++,
+                        HospitalID = hospital.HospitalID,
+                        SpecialtyID = specialityList.GetRandomShuffled().SpecialtyID
+                    };
+
+                    hospitalSpecialities.Add(hs);
+                }
+            });
+
+            int currentHs = 1;
+
+            hospitalSpecialities = hospitalSpecialities
+                .DistinctBy(hs => new { hs.HospitalID, hs.SpecialtyID })
+                .Select(hs => new HospitalSpeciality()
+                {
+                    HospitalSpecialityID = currentHs++,
+                    HospitalID = hs.HospitalID,
+                    SpecialtyID = hs.SpecialtyID
+                })
+                .ToList();
+
+            var hospitalSpecialitiesJsonString = JsonConvert.SerializeObject(hospitalSpecialities, _defaultJsonSerializerSettings);
+
+            SeedHelper.SaveOrOverwriteGeneratedFile(HospitalSpecialityFileName, hospitalSpecialitiesJsonString, overwrite);
+
+
+            #endregion
+
             Log.Debug($"Completed generation of seed data");
         }
 
@@ -227,13 +282,15 @@ namespace WWI.Core3.Models.DbContext
             List<Doctor> doctorList = SeedHelper.ParseGeneratedFile<Doctor>(DoctorFileName);
             List<Address> addressList = SeedHelper.ParseGeneratedFile<Address>(AddressesFileName);
             List<Hospital> hospitalList = SeedHelper.ParseGeneratedFile<Hospital>(HospitalsFileName);
-            List<HospitalDoctor> hospitalDdoctorList = SeedHelper.ParseGeneratedFile<HospitalDoctor>(HospitalDoctorsFileName);
+            List<HospitalDoctor> hospitalDoctorList = SeedHelper.ParseGeneratedFile<HospitalDoctor>(HospitalDoctorsFileName);
+            List<HospitalSpeciality> hospitalSpecialityList = SeedHelper.ParseGeneratedFile<HospitalSpeciality>(HospitalSpecialityFileName);
 
             modelBuilder.Entity<Speciality>().HasData(specialityList);
             modelBuilder.Entity<Doctor>().HasData(doctorList);
             modelBuilder.Entity<Address>().HasData(addressList);
             modelBuilder.Entity<Hospital>().HasData(hospitalList);
-            modelBuilder.Entity<HospitalDoctor>().HasData(hospitalDdoctorList);
+            modelBuilder.Entity<HospitalDoctor>().HasData(hospitalDoctorList);
+            modelBuilder.Entity<HospitalSpeciality>().HasData(hospitalSpecialityList);
         }
 
         /// <summary>

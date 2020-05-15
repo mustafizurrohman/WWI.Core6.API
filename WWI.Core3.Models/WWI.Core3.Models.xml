@@ -22,27 +22,27 @@
         </member>
         <member name="P:WWI.Core3.Models.DbContext.DocAppointmentContext.Doctors">
             <summary>
-            
+            Doctors Table
             </summary>
         </member>
         <member name="P:WWI.Core3.Models.DbContext.DocAppointmentContext.Specialities">
             <summary>
-            
+            Specialities Table
             </summary>
         </member>
         <member name="P:WWI.Core3.Models.DbContext.DocAppointmentContext.Addresses">
             <summary>
-            
+            Addresses Table
             </summary>
         </member>
         <member name="P:WWI.Core3.Models.DbContext.DocAppointmentContext.Hospitals">
             <summary>
-            
+            Hospitals Table
             </summary>
         </member>
         <member name="P:WWI.Core3.Models.DbContext.DocAppointmentContext.HospitalDoctors">
             <summary>
-            
+            Hospital Doctors Table
             </summary>
         </member>
         <member name="M:WWI.Core3.Models.DbContext.DocAppointmentContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
@@ -267,6 +267,14 @@
             The doctors.
             </value>
         </member>
+        <member name="P:WWI.Core3.Models.Models.Hospital.Specialities">
+            <summary>
+            Gets or sets the specialities.
+            </summary>
+            <value>
+            The specialities.
+            </value>
+        </member>
         <member name="T:WWI.Core3.Models.Models.HospitalDoctor">
             <summary>
             
@@ -312,6 +320,51 @@
             The hospital.
             </value>
         </member>
+        <member name="T:WWI.Core3.Models.Models.HospitalSpeciality">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.Models.HospitalSpeciality.HospitalSpecialityID">
+            <summary>
+            Gets or sets the hospital speciality identifier.
+            </summary>
+            <value>
+            The hospital speciality identifier.
+            </value>
+        </member>
+        <member name="P:WWI.Core3.Models.Models.HospitalSpeciality.SpecialtyID">
+            <summary>
+            Gets or sets the specialty identifier.
+            </summary>
+            <value>
+            The specialty identifier.
+            </value>
+        </member>
+        <member name="P:WWI.Core3.Models.Models.HospitalSpeciality.Speciality">
+            <summary>
+            Gets or sets the speciality.
+            </summary>
+            <value>
+            The speciality.
+            </value>
+        </member>
+        <member name="P:WWI.Core3.Models.Models.HospitalSpeciality.HospitalID">
+            <summary>
+            Gets or sets the hospital identifier.
+            </summary>
+            <value>
+            The hospital identifier.
+            </value>
+        </member>
+        <member name="P:WWI.Core3.Models.Models.HospitalSpeciality.Hospital">
+            <summary>
+            Gets or sets the hospital.
+            </summary>
+            <value>
+            The hospital.
+            </value>
+        </member>
         <member name="T:WWI.Core3.Models.Models.Speciality">
             <summary>
             
@@ -344,6 +397,14 @@
             </summary>
             <value>
             The doctors.
+            </value>
+        </member>
+        <member name="P:WWI.Core3.Models.Models.Speciality.Hospitals">
+            <summary>
+            Gets or sets the hospitals.
+            </summary>
+            <value>
+            The hospitals.
             </value>
         </member>
         <member name="T:WWI.Core3.Models.Seed.Helper.SeedHelper">
