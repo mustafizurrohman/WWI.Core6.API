@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Serilog;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using WWI.Core3.Models.Models;
 using WWI.Core3.Models.Seed.Helper;
@@ -71,7 +73,7 @@ namespace WWI.Core3.Models.DatabaseContext
 
             #endregion
 
-            GenerateSeedData();
+            GenerateSeedData(true);
             SeedData(modelBuilder);
 
             OnModelCreatingPartial(modelBuilder);
@@ -79,30 +81,21 @@ namespace WWI.Core3.Models.DatabaseContext
 
         private void GenerateSeedData(bool overwrite = false)
         {
+            Log.Debug($"Generating seed data with overwrite set to {overwrite}");
+
+            Directory.CreateDirectory(basePathGeneratedSeed);
 
             #region -- Generate Seed for Speciality --
-
-            // Do not overwrite if file already exists.
-            if (SeedHelper.SeedSourceFileExists(specialitiesFileName) && !overwrite)
-            {
-                //return;
-            }
 
             List<Speciality> specialityList = SeedHelper.ParseSourceFile<Speciality>(specialitiesFileName);
 
             var specialitiesJsonString = JsonConvert.SerializeObject(specialityList, new JsonSerializerSettings { Formatting = Formatting.Indented });
 
-            SeedHelper.SaveGeneratedFileContent(specialitiesFileName, specialitiesJsonString);
+            SeedHelper.SaveOrOverwriteGeneratedFile(specialitiesFileName, specialitiesJsonString, overwrite);
 
             #endregion
 
             #region -- Generate Seed for doctors -- 
-
-            // Do not overwrite if file already exists.
-            if (SeedHelper.SeedSourceFileExists(doctorFileName) && !overwrite)
-            {
-                //return;
-            }
 
             List<string> firstNames = SeedHelper.ParseSourceFile<string>(firstNamesFileName)
                 .Select(fn => fn.Trim()).Distinct().Shuffle().ToList();
@@ -122,7 +115,7 @@ namespace WWI.Core3.Models.DatabaseContext
 
             var doctorListJsonString = JsonConvert.SerializeObject(doctorList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveGeneratedFileContent(doctorFileName, doctorListJsonString);
+            SeedHelper.SaveOrOverwriteGeneratedFile(doctorFileName, doctorListJsonString, overwrite);
 
             // Local function
             Doctor GetRandomDoctor(int doctorID)
@@ -141,43 +134,25 @@ namespace WWI.Core3.Models.DatabaseContext
 
             #region -- Generate Seed for Addresses --
 
-            // Do not overwrite if file already exists.
-            if (SeedHelper.SeedSourceFileExists(addressesFileName) && !overwrite)
-            {
-                //return;
-            }
-
             List<Address> addressList = SeedHelper.ParseSourceFile<Address>(addressesFileName);
 
             var addressJsonString = JsonConvert.SerializeObject(addressList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveGeneratedFileContent(addressesFileName, addressJsonString);
+            SeedHelper.SaveOrOverwriteGeneratedFile(addressesFileName, addressJsonString, overwrite);
 
             #endregion
 
             #region -- Generate Seed for Hospital --
 
-            // Do not overwrite if file already exists.
-            if (SeedHelper.SeedSourceFileExists(hospitalsFileName) && !overwrite)
-            {
-                //return;
-            }
-
             List<Hospital> hospitalList = SeedHelper.ParseSourceFile<Hospital>(hospitalsFileName);
 
             var hospitalJsonString = JsonConvert.SerializeObject(hospitalList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveGeneratedFileContent(hospitalsFileName, hospitalJsonString);
+            SeedHelper.SaveOrOverwriteGeneratedFile(hospitalsFileName, hospitalJsonString, overwrite);
 
             #endregion
 
             #region -- Generate Seed for HospitalDoctor --
-
-            // Do not overwrite if file already exists.
-            if (SeedHelper.SeedSourceFileExists(hospitalsFileName) && !overwrite)
-            {
-                //return;
-            }
 
             List<HospitalDoctor> hospitalDoctorList = new List<HospitalDoctor>();
 
@@ -199,11 +174,13 @@ namespace WWI.Core3.Models.DatabaseContext
 
             var hospitalDoctorJsonString = JsonConvert.SerializeObject(hospitalDoctorList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveGeneratedFileContent(hospitalDoctorsFileName, hospitalDoctorJsonString);
+            SeedHelper.SaveOrOverwriteGeneratedFile(hospitalDoctorsFileName, hospitalDoctorJsonString, overwrite);
 
             #endregion
 
+            Log.Debug($"Completed generation of seed data");
         }
+
 
         [ExcludeFromCodeCoverage]
         private void SeedData(ModelBuilder modelBuilder)
@@ -213,7 +190,6 @@ namespace WWI.Core3.Models.DatabaseContext
             List<Address> addressList = SeedHelper.ParseGeneratedFile<Address>(addressesFileName);
             List<Hospital> hospitalList = SeedHelper.ParseGeneratedFile<Hospital>(hospitalsFileName);
             List<HospitalDoctor> hospitalDdoctorList = SeedHelper.ParseGeneratedFile<HospitalDoctor>(hospitalDoctorsFileName);
-
 
             modelBuilder.Entity<Speciality>().HasData(specialityList);
             modelBuilder.Entity<Doctor>().HasData(doctorList);

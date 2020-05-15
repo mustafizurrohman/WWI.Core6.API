@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,9 +17,9 @@ namespace WWI.Core3.Models.Seed.Helper
 
         #endregion
 
-        public static bool SeedSourceFileExists(string fileName)
+        public static bool SeedGeneratedFileExists(string fileName)
         {
-            return File.Exists(basePath + fileName);
+            return File.Exists(basePathGeneratedSeed + fileName);
         }
 
         public static bool GeneratedFileExists(string fileName)
@@ -65,6 +66,33 @@ namespace WWI.Core3.Models.Seed.Helper
             File.WriteAllText(basePathGeneratedSeed + fileName, contents, Encoding.UTF8);
 
             return;
+        }
+
+        public static void SaveOrOverwriteGeneratedFile(string filename, string contents, bool overwrite = false)
+        {
+            var fileExists = SeedGeneratedFileExists(filename);
+
+            var save = !(fileExists || overwrite);
+
+            if (!fileExists)
+            {
+                Log.Debug("Creating file because it does not exist.");
+            }
+            else
+            {
+                if (overwrite)
+                {
+                    Log.Debug($"Overwriting {filename} because overwrite is enabled.");
+                }
+            }
+
+            if (save)
+            {
+                Log.Debug($"Saving {filename}");
+
+                SaveGeneratedFileContent(filename, contents);
+            }
+
         }
 
 
