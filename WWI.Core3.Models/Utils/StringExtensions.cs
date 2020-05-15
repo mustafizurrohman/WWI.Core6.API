@@ -2,6 +2,9 @@
 
 namespace WWI.Core3.Models.Utils
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class StringExtensions
     {
         /// <summary>

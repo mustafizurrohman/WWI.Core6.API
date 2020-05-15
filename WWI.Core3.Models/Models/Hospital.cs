@@ -17,18 +17,48 @@ namespace WWI.Core3.Models.Models
             Doctors = new List<HospitalDoctor>();
         }
 
+        /// <summary>
+        /// Gets or sets the hospital identifier.
+        /// </summary>
+        /// <value>
+        /// The hospital identifier.
+        /// </value>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID")]
         public int HospitalID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the address identifier.
+        /// </summary>
+        /// <value>
+        /// The address identifier.
+        /// </value>
         [ForeignKey("Address")]
         public int AddressID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the address.
+        /// </summary>
+        /// <value>
+        /// The address.
+        /// </value>
         public Address Address { get; set; }
 
+        /// <summary>
+        /// Gets or sets the doctors.
+        /// </summary>
+        /// <value>
+        /// The doctors.
+        /// </value>
         public virtual IEnumerable<HospitalDoctor> Doctors { get; set; }
 
     }

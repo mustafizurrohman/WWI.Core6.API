@@ -4,6 +4,10 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\dev\WWI.Core3.API\WWI.Core3.Models\WWI.Core3.Models.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Migrations\20200508205105_AddedHopitalAndAddress.cs" />
     <Compile Remove="Migrations\20200508205105_AddedHopitalAndAddress.Designer.cs" />

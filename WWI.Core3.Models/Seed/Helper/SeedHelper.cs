@@ -7,6 +7,10 @@ using System.Text;
 
 namespace WWI.Core3.Models.Seed.Helper
 {
+
+    /// <summary>
+    /// Static class to help with generation of seed data
+    /// </summary>
     public static class SeedHelper
     {
 
@@ -17,16 +21,22 @@ namespace WWI.Core3.Models.Seed.Helper
 
         #endregion
 
+        /// <summary>
+        /// Verifies if the seed file to be generated exists
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public static bool SeedGeneratedFileExists(string fileName)
         {
             return File.Exists(basePathGeneratedSeed + fileName);
         }
 
-        public static bool GeneratedFileExists(string fileName)
-        {
-            return File.Exists(basePathGeneratedSeed + fileName);
-        }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public static string GetSourceFileContents(string fileName)
         {
             if (!File.Exists(basePath + fileName))
@@ -37,6 +47,11 @@ namespace WWI.Core3.Models.Seed.Helper
             return File.ReadAllText(basePath + fileName);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public static string GetGeneratedFileContents(string fileName)
         {
             if (!File.Exists(basePathGeneratedSeed + fileName))
@@ -47,6 +62,12 @@ namespace WWI.Core3.Models.Seed.Helper
             return File.ReadAllText(basePathGeneratedSeed + fileName);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public static List<T> ParseSourceFile<T>(string fileName)
         {
             var fileContents = GetSourceFileContents(fileName);
@@ -54,6 +75,12 @@ namespace WWI.Core3.Models.Seed.Helper
             return JsonConvert.DeserializeObject<List<T>>(fileContents);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public static List<T> ParseGeneratedFile<T>(string fileName)
         {
             var fileContents = GetGeneratedFileContents(fileName);
@@ -61,6 +88,11 @@ namespace WWI.Core3.Models.Seed.Helper
             return JsonConvert.DeserializeObject<List<T>>(fileContents);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="contents"></param>
         public static void SaveGeneratedFileContent(string fileName, string contents)
         {
             File.WriteAllText(basePathGeneratedSeed + fileName, contents, Encoding.UTF8);
@@ -68,6 +100,12 @@ namespace WWI.Core3.Models.Seed.Helper
             return;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="contents"></param>
+        /// <param name="overwrite"></param>
         public static void SaveOrOverwriteGeneratedFile(string filename, string contents, bool overwrite = false)
         {
             var fileExists = SeedGeneratedFileExists(filename);

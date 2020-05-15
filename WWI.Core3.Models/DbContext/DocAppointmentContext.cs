@@ -11,6 +11,9 @@ using WWI.Core3.Models.Utils;
 
 namespace WWI.Core3.Models.DatabaseContext
 {
+    /// <summary>
+    /// Database context
+    /// </summary>
     public partial class DocAppointmentContext : Microsoft.EntityFrameworkCore.DbContext
     {
 
@@ -28,10 +31,17 @@ namespace WWI.Core3.Models.DatabaseContext
 
         private readonly JsonSerializerSettings _defaultJsonSerializerSettings = new JsonSerializerSettings { Formatting = Formatting.Indented };
 
+        /// <summary>
+        /// 
+        /// </summary>
         public DocAppointmentContext()
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="options"></param>
         public DocAppointmentContext(DbContextOptions<DocAppointmentContext> options)
             : base(options)
         {
@@ -40,23 +50,45 @@ namespace WWI.Core3.Models.DatabaseContext
 
         #region -- Tables --
 
+        /// <summary>
+        /// 
+        /// </summary>
         public virtual DbSet<Doctor> Doctors { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public virtual DbSet<Speciality> Specialities { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public virtual DbSet<Address> Addresses { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public virtual DbSet<Hospital> Hospitals { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public virtual DbSet<HospitalDoctor> HospitalDoctors { get; set; }
 
         #endregion
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region -- Relationships -- 
@@ -73,12 +105,16 @@ namespace WWI.Core3.Models.DatabaseContext
 
             #endregion
 
-            GenerateSeedData(true);
+            GenerateSeedData();
             SeedData(modelBuilder);
 
             OnModelCreatingPartial(modelBuilder);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="overwrite"></param>
         private void GenerateSeedData(bool overwrite = false)
         {
             Log.Debug($"Generating seed data with overwrite set to {overwrite}");
@@ -181,7 +217,10 @@ namespace WWI.Core3.Models.DatabaseContext
             Log.Debug($"Completed generation of seed data");
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         [ExcludeFromCodeCoverage]
         private void SeedData(ModelBuilder modelBuilder)
         {
@@ -198,6 +237,10 @@ namespace WWI.Core3.Models.DatabaseContext
             modelBuilder.Entity<HospitalDoctor>().HasData(hospitalDdoctorList);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

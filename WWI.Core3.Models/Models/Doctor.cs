@@ -19,27 +19,75 @@ namespace WWI.Core3.Models
             Hospitals = new List<HospitalDoctor>();
         }
 
+        /// <summary>
+        /// Gets or sets the doctor identifier.
+        /// </summary>
+        /// <value>
+        /// The doctor identifier.
+        /// </value>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID")]
         public int DoctorID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the firstname.
+        /// </summary>
+        /// <value>
+        /// The firstname.
+        /// </value>
         [MaxLength(50)]
         public string Firstname { get; set; }
 
+        /// <summary>
+        /// Gets or sets the middlename.
+        /// </summary>
+        /// <value>
+        /// The middlename.
+        /// </value>
         [MaxLength(50)]
         public string Middlename { get; set; } = string.Empty;
 
+        /// <summary>
+        /// Gets or sets the lastname.
+        /// </summary>
+        /// <value>
+        /// The lastname.
+        /// </value>
         [MaxLength(50)]
         public string Lastname { get; set; }
 
+        /// <summary>
+        /// Gets or sets the speciality identifier.
+        /// </summary>
+        /// <value>
+        /// The speciality identifier.
+        /// </value>
         [ForeignKey("Speciality")]
         public int SpecialityID { get; set; }
 
+        /// <summary>
+        /// Gets or sets the speciality.
+        /// </summary>
+        /// <value>
+        /// The speciality.
+        /// </value>
         public Speciality Speciality { get; set; }
 
+        /// <summary>
+        /// Gets or sets the hospitals.
+        /// </summary>
+        /// <value>
+        /// The hospitals.
+        /// </value>
         public virtual List<HospitalDoctor> Hospitals { get; set; }
 
+        /// <summary>
+        /// Gets the full name.
+        /// </summary>
+        /// <value>
+        /// The full name.
+        /// </value>
         [NotMapped]
         public string FullName => (Firstname + " " + Middlename + " " + Lastname).RemoveConsequtiveSpaces();
 
