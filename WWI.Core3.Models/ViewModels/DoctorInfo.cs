@@ -6,41 +6,29 @@
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 05-16-2020
 // ***********************************************************************
-// <copyright file="SpecialityInformation.cs" company="WWI.Core3.Models">
+// <copyright file="DoctorInfo.cs" company="WWI.Core3.Models">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
-using System.Collections.Generic;
-
 namespace WWI.Core3.Models.ViewModels
 {
-
     /// <summary>
-    /// Class SpecialityInformation.
+    /// Class DoctorInfo.
     /// </summary>
-    public class SpecialityInformation
+    public class DoctorInfo
     {
         /// <summary>
-        /// Gets or sets the specialty identifier.
+        /// Gets or sets the full name.
         /// </summary>
-        /// <value>The specialty identifier.</value>
-        public int SpecialtyID { get; set; }
-
+        /// <value>The full name.</value>
+        public string FullName { get; set; }
         /// <summary>
-        /// Gets or sets the name of the department.
+        /// Gets or sets the name of the speciality.
         /// </summary>
-        /// <value>The name of the department.</value>
+        /// <value>The name of the speciality.</value>
         public string SpecialityName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the doctor list.
-        /// </summary>
-        /// <value>The doctor list.</value>
-        public List<string> DoctorList { get; set; }
-
     }
-
 
 }

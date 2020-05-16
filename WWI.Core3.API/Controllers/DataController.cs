@@ -12,7 +12,6 @@
 // <summary></summary>
 // ***********************************************************************
 
-using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -20,7 +19,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
-using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -152,27 +150,12 @@ namespace WWI.Core3.API.Controllers
         /// <summary>
         /// Gets the doctors for hospital by identifier.
         /// </summary>
-        /// <param name="id">The identifier.</param>
+        /// <param name="hospitalID">The identifier.</param>
         /// <returns>IActionResult.</returns>
-        [HttpGet("hospitals/{id}/doctors")]
-        public async Task<IActionResult> GetDoctorsForHospitalById(int id)
+        [HttpGet("hospitals/{hospitalID}/doctors")]
+        public async Task<IActionResult> GetDoctorsForHospitalById(int hospitalID)
         {
-            var doctorsInHospital = (await DbContext.Hospitals
-                    .Include(h => h.Doctors)
-                    .ThenInclude(h => h.Doctor)
-                    .ThenInclude(doc => doc.Speciality)
-                    .Where(h => h.HospitalID == id)
-                    .SelectMany(h => h.Doctors)
-                    .Select(hd => hd.Doctor)
-                    .Select(doc => new
-                    {
-                        doc.FullName,
-                        SpecialityName = doc.Speciality.Name
-                    })
-                    .ToListAsync())
-                .OrderBy(doc => doc.SpecialityName)
-                .ThenBy(doc => doc.FullName)
-                .ToList();
+            var doctorsInHospital = await DataService.GetDoctorsForHospitalAsync(hospitalID);
 
             return Ok(doctorsInHospital);
         }
@@ -182,16 +165,32 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns>IActionResult.</returns>
-        [HttpGet("test")]
+        [HttpGet("hospital/{id}/specialities")]
         public async Task<IActionResult> GetHospitalInfoById(int id)
         {
-            var res = await DbContext.Hospitals
-                .Where(hos => hos.HospitalID == id)
-                .ProjectTo<AdvancedHospitalInformation>(AutoMapper.ConfigurationProvider)
-                .ToListAsync();
+            var advancedHospitalInformation = await DataService.GetAdvancedHospitalInformationAsync(id);
 
-            return Ok(res);
+            return Ok(advancedHospitalInformation);
         }
+
+        /// <summary>
+        /// Gets the speciality information for hospital.
+        /// </summary>
+        /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="specialityID">The speciality identifier.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("hospital/{hospitalID}/specialities/{specialityID}")]
+        public async Task<IActionResult> GetSpecialityInfoForHospital(int hospitalID, int specialityID)
+        {
+            var advancedHospitalInformation = await DataService.GetAdvancedHospitalInformationAsync(hospitalID);
+
+            advancedHospitalInformation.Specialities = advancedHospitalInformation.Specialities
+                .Where(s => s.SpecialtyID == specialityID)
+                .ToList();
+
+            return Ok(advancedHospitalInformation);
+        }
+
 
     }
 }

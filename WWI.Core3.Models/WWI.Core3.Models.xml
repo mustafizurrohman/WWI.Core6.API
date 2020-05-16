@@ -688,11 +688,51 @@
             </summary>
             <value>The address.</value>
         </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation.Departments">
+        <member name="P:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation.Specialities">
             <summary>
-            Gets or sets the departments.
+            Gets or sets the specialities.
             </summary>
-            <value>The departments.</value>
+            <value>The specialities.</value>
+        </member>
+        <member name="T:WWI.Core3.Models.ViewModels.DoctorInfo">
+            <summary>
+            Class DoctorInfo.
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.DoctorInfo.FullName">
+            <summary>
+            Gets or sets the full name.
+            </summary>
+            <value>The full name.</value>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.DoctorInfo.SpecialityName">
+            <summary>
+            Gets or sets the name of the speciality.
+            </summary>
+            <value>The name of the speciality.</value>
+        </member>
+        <member name="T:WWI.Core3.Models.ViewModels.HospitalDoctorInformation">
+            <summary>
+            Class HospitalDoctorInformation.
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.HospitalDoctorInformation.HospitalID">
+            <summary>
+            Gets or sets the hospital identifier.
+            </summary>
+            <value>The hospital identifier.</value>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.HospitalDoctorInformation.HospitalName">
+            <summary>
+            Gets or sets the name of the hospital.
+            </summary>
+            <value>The name of the hospital.</value>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.HospitalDoctorInformation.Doctors">
+            <summary>
+            Gets or sets the doctors.
+            </summary>
+            <value>The doctors.</value>
         </member>
         <member name="T:WWI.Core3.Models.ViewModels.HospitalInformation">
             <summary>
@@ -722,7 +762,13 @@
             Class SpecialityInformation.
             </summary>
         </member>
-        <member name="P:WWI.Core3.Models.ViewModels.SpecialityInformation.DepartmentName">
+        <member name="P:WWI.Core3.Models.ViewModels.SpecialityInformation.SpecialtyID">
+            <summary>
+            Gets or sets the specialty identifier.
+            </summary>
+            <value>The specialty identifier.</value>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.SpecialityInformation.SpecialityName">
             <summary>
             Gets or sets the name of the department.
             </summary>

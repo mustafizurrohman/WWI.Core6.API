@@ -57,15 +57,32 @@ namespace WWI.Core3.Core.AutoMapper
                     src => src.MapFrom(hos => hos.Name))
                 .ForMember(dst => dst.Address,
                     src => src.MapFrom(hos => hos.Address))
-                .ForMember(dst => dst.Departments,
+                .ForMember(dst => dst.Specialities,
                     src => src.MapFrom(hos => hos.Specialities.Select(s => s.Speciality)));
 
             // Speciality -> SpecialityInformation
             CreateMap<Speciality, SpecialityInformation>()
-                .ForMember(dst => dst.DepartmentName,
+                .ForMember(dst => dst.SpecialtyID,
+                    src => src.MapFrom(s => s.SpecialtyID))
+                .ForMember(dst => dst.SpecialityName,
                     src => src.MapFrom(s => s.Name))
                 .ForMember(dst => dst.DoctorList,
                     src => src.MapFrom(s => s.Doctors.Select(d => d.FullName)));
+
+            // Hospital -> HospitalDoctorInformation
+            CreateMap<Hospital, HospitalDoctorInformation>()
+                .ForMember(dst => dst.HospitalID,
+                    src => src.MapFrom(hos => hos.HospitalID))
+                .ForMember(dst => dst.HospitalName,
+                    src => src.MapFrom(hos => hos.Name))
+                .ForMember(dst => dst.Doctors,
+                    src => src.MapFrom(hos => hos.Doctors.Select(d => d.Doctor)));
+
+            CreateMap<Doctor, DoctorInfo>()
+                .ForMember(dst => dst.FullName,
+                    src => src.MapFrom(doc => doc.FullName))
+                .ForMember(dst => dst.SpecialityName,
+                    src => src.MapFrom(doc => doc.Speciality.Name));
 
 
         }

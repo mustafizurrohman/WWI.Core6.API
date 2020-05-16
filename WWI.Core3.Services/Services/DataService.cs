@@ -40,6 +40,42 @@ namespace WWI.Core3.Services.Services
         }
 
         /// <summary>
+        /// Gets the advanced hospital information.
+        /// </summary>
+        /// <param name="hospitalID">The hospital identifier.</param>
+        /// <returns>Task&lt;AdvancedHospitalInformation&gt;.</returns>
+        public async Task<AdvancedHospitalInformation> GetAdvancedHospitalInformationAsync(int hospitalID)
+        {
+            var advancedHospitalInformation = await DbContext.Hospitals
+                .Where(hos => hos.HospitalID == hospitalID)
+                .ProjectTo<AdvancedHospitalInformation>(AutoMapper.ConfigurationProvider)
+                .SingleOrDefaultAsync();
+
+            return advancedHospitalInformation;
+        }
+
+        /// <summary>
+        /// Gets the doctors for hospital.
+        /// </summary>
+        /// <param name="hospitalID">The hospital identifier.</param>
+        /// <returns>Task&lt;HospitalDoctorInformation&gt;.</returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public async Task<HospitalDoctorInformation> GetDoctorsForHospitalAsync(int hospitalID)
+        {
+            var doctorsForHospital = await DbContext.Hospitals
+                .Where(hos => hos.HospitalID == hospitalID)
+                .ProjectTo<HospitalDoctorInformation>(AutoMapper.ConfigurationProvider)
+                .SingleOrDefaultAsync();
+
+            doctorsForHospital.Doctors = doctorsForHospital.Doctors
+                .OrderBy(doc => doc.SpecialityName)
+                .ThenBy(doc => doc.SpecialityName)
+                .ToList();
+
+            return doctorsForHospital;
+        }
+
+        /// <summary>
         /// get hospital information by identifier as an asynchronous operation.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>

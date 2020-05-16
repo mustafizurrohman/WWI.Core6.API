@@ -107,7 +107,7 @@
             <summary>
             Gets the doctors for hospital by identifier.
             </summary>
-            <param name="id">The identifier.</param>
+            <param name="hospitalID">The identifier.</param>
             <returns>IActionResult.</returns>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DataController.GetHospitalInfoById(System.Int32)">
@@ -115,6 +115,14 @@
             Gets the hospital information by identifier.
             </summary>
             <param name="id">The identifier.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.DataController.GetSpecialityInfoForHospital(System.Int32,System.Int32)">
+            <summary>
+            Gets the speciality information for hospital.
+            </summary>
+            <param name="hospitalID">The hospital identifier.</param>
+            <param name="specialityID">The speciality identifier.</param>
             <returns>IActionResult.</returns>
         </member>
         <member name="T:WWI.Core3.API.Program">

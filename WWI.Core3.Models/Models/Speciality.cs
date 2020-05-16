@@ -39,7 +39,6 @@ namespace WWI.Core3.Models.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID")]
-        // ReSharper disable once InconsistentNaming
         public int SpecialtyID { get; set; }
 
         /// <summary>
