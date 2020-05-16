@@ -1,10 +1,24 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Core
+// Author           : Mustafizur Rohman
+// Created          : 05-08-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-08-2020
+// ***********************************************************************
+// <copyright file="ObjectExtensions.cs" company="WWI.Core3.Core">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using System;
 using System.Reflection;
 
 namespace WWI.Core3.Core.ExtensionMethods
 {
     /// <summary>
-    /// 
+    /// Class ObjectExtensions.
     /// </summary>
     public static class ObjectExtensions
     {
@@ -14,7 +28,8 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// TODO: Debug and verify
         /// </summary>
         /// <param name="sourceObject">Object to clone</param>
-        /// <returns></returns>
+        /// <returns>System.Object.</returns>
+        /// <exception cref="ArgumentException">Unknown type</exception>
         public static object DeepCloneObject(this object sourceObject)
         {
 
@@ -81,11 +96,11 @@ namespace WWI.Core3.Core.ExtensionMethods
         }
 
         /// <summary>
-        /// 
+        /// Deeps the compare.
         /// </summary>
-        /// <param name="obj1"></param>
-        /// <param name="obj2"></param>
-        /// <returns></returns>
+        /// <param name="obj1">The obj1.</param>
+        /// <param name="obj2">The obj2.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public static bool DeepCompare(this object obj1, object obj2)
         {
 
@@ -149,7 +164,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="objectToCopy">The s.</param>
-        /// <returns></returns>
+        /// <returns>T.</returns>
         public static T GetCopy<T>(this T objectToCopy)
         {
             T newObject = Activator.CreateInstance<T>();

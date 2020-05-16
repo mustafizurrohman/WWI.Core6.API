@@ -1,4 +1,18 @@
-﻿using AutoMapper;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Core
+// Author           : Mustafizur Rohman
+// Created          : 05-15-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-16-2020
+// ***********************************************************************
+// <copyright file="MappingProfile.cs" company="WWI.Core3.Core">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using AutoMapper;
 using System.Linq;
 using WWI.Core3.Models.Models;
 using WWI.Core3.Models.ViewModels;
@@ -7,12 +21,14 @@ namespace WWI.Core3.Core.AutoMapper
 {
 
     /// <summary>
-    /// 
+    /// Class MappingProfile.
+    /// Implements the <see cref="AutoMapper.Profile" />
     /// </summary>
+    /// <seealso cref="AutoMapper.Profile" />
     public class MappingProfile : Profile
     {
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="MappingProfile"/> class.
         /// </summary>
         public MappingProfile()
         {
@@ -20,6 +36,9 @@ namespace WWI.Core3.Core.AutoMapper
 
         }
 
+        /// <summary>
+        /// Creates the mappings.
+        /// </summary>
         public void CreateMappings()
         {
 

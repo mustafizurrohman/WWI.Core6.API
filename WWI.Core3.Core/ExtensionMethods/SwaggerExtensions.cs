@@ -1,4 +1,18 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Core
+// Author           : Mustafizur Rohman
+// Created          : 05-01-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-01-2020
+// ***********************************************************************
+// <copyright file="SwaggerExtensions.cs" company="WWI.Core3.Core">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using System;

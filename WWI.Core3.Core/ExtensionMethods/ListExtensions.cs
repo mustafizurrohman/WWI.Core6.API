@@ -1,4 +1,18 @@
-﻿using Newtonsoft.Json;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Core
+// Author           : Mustafizur Rohman
+// Created          : 05-08-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-08-2020
+// ***********************************************************************
+// <copyright file="ListExtensions.cs" company="WWI.Core3.Core">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,8 +31,8 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// Shuffles an IList using Cryptographically secure randomization
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="source"></param>
-        /// <returns></returns>
+        /// <param name="source">The source.</param>
+        /// <returns>IList&lt;T&gt;.</returns>
         public static IList<T> Shuffle<T>(this IList<T> source)
         {
             if (source.Count == 0)
@@ -44,7 +58,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="list">List of Type T to convert to CSV</param>
-        /// <returns></returns>
+        /// <returns>System.String.</returns>
         public static string ToCsv<T>(this IList<T> list)
         {
             if (list == null || list.Count == 0)
@@ -109,8 +123,8 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// TODO: Fix this
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="source"></param>
-        /// <returns></returns>
+        /// <param name="source">The source.</param>
+        /// <returns>IEnumerable&lt;T&gt;.</returns>
         public static IEnumerable<T> DeepClone<T>(this IEnumerable<T> source)
         {
 

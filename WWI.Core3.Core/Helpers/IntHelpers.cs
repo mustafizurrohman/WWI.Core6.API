@@ -1,4 +1,18 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Core
+// Author           : Mustafizur Rohman
+// Created          : 05-08-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-08-2020
+// ***********************************************************************
+// <copyright file="IntHelpers.cs" company="WWI.Core3.Core">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using System;
 using System.Security.Cryptography;
 
 namespace WWI.Core3.Core.Helpers
@@ -14,7 +28,7 @@ namespace WWI.Core3.Core.Helpers
         /// </summary>
         /// <param name="min">Lower bound</param>
         /// <param name="max">Upper bound</param>
-        /// <returns></returns>
+        /// <returns>System.Int32.</returns>
         public static int GetRandomNumber(int min, int max)
         {
             RNGCryptoServiceProvider randomProvider = new RNGCryptoServiceProvider();
@@ -38,7 +52,7 @@ namespace WWI.Core3.Core.Helpers
         /// Generates a cryptographically secure random number between 0 and max
         /// </summary>
         /// <param name="max">Upper bound</param>
-        /// <returns></returns>
+        /// <returns>System.Int32.</returns>
         public static int GetRandomNumber(int max)
         {
             return GetRandomNumber(0, max);

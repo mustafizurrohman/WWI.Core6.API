@@ -1,4 +1,18 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Core
+// Author           : Mustafizur Rohman
+// Created          : 05-02-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-15-2020
+// ***********************************************************************
+// <copyright file="ApplicationBuilderExtensions.cs" company="WWI.Core3.Core">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
@@ -17,7 +31,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// Extension Method to use custom exception handler
         /// </summary>
         /// <param name="applicationBuilder">Application Builder</param>
-        /// <returns></returns>
+        /// <returns>IApplicationBuilder.</returns>
         public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder applicationBuilder)
         {
             return applicationBuilder.UseMiddleware<ExceptionHandler>();
@@ -27,7 +41,6 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// Migrates the database.
         /// </summary>
         /// <param name="applicationBuilder">The application builder.</param>
-        /// <returns></returns>
         public static void MigrateDatabase(this IApplicationBuilder applicationBuilder)
         {
             using IServiceScope serviceScope = applicationBuilder.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();

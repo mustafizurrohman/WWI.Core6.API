@@ -22,7 +22,7 @@ namespace WWI.Core3.Models.Models
     /// <summary>
     /// Doctor
     /// </summary>
-    public partial class Doctor
+    public sealed partial class Doctor
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Doctor" /> class.
@@ -53,6 +53,7 @@ namespace WWI.Core3.Models.Models
         /// </summary>
         /// <value>The middlename.</value>
         [MaxLength(50)]
+        // ReSharper disable once IdentifierTypo
         public string Middlename { get; set; } = string.Empty;
 
         /// <summary>
@@ -79,7 +80,7 @@ namespace WWI.Core3.Models.Models
         /// Gets or sets the hospitals.
         /// </summary>
         /// <value>The hospitals.</value>
-        public virtual List<HospitalDoctor> Hospitals { get; set; }
+        public List<HospitalDoctor> Hospitals { get; set; }
 
         /// <summary>
         /// Gets the full name.

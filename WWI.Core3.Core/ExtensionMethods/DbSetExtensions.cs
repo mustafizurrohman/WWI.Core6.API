@@ -1,4 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Core
+// Author           : Mustafizur Rohman
+// Created          : 05-08-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-08-2020
+// ***********************************************************************
+// <copyright file="DbSetExtensions.cs" company="WWI.Core3.Core">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +33,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="dbSet">DbSet</param>
-        /// <returns></returns>
+        /// <returns>IQueryable&lt;T&gt;.</returns>
         public static IQueryable<T> AsNonTrackingQueryable<T>(this DbSet<T> dbSet) where T : class
         {
             return dbSet.AsQueryable().AsNoTracking();
@@ -133,7 +147,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// </summary>
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="dbSet">The database set.</param>
-        /// <returns></returns>
+        /// <returns>DbContext.</returns>
         public static DbContext GetContext<TEntity>(this DbSet<TEntity> dbSet) where TEntity : class
         {
             return (DbContext)dbSet

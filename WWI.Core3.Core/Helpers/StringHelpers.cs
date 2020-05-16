@@ -1,4 +1,18 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Core
+// Author           : Mustafizur Rohman
+// Created          : 05-08-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-08-2020
+// ***********************************************************************
+// <copyright file="StringHelpers.cs" company="WWI.Core3.Core">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using WWI.Core3.Core.ExtensionMethods;
@@ -14,9 +28,10 @@ namespace WWI.Core3.Core.Helpers
         /// <summary>
         /// Returns a randomString of specified length
         /// </summary>
-        /// <param name="length"></param>
-        /// <param name="printable"></param>
-        /// <returns></returns>
+        /// <param name="length">The length.</param>
+        /// <param name="printable">if set to <c>true</c> [printable].</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">length - Length must be positive!</exception>
         public static string GetRandomString(int length = 20, bool printable = true)
         {
 
@@ -51,10 +66,11 @@ namespace WWI.Core3.Core.Helpers
         }
 
         /// <summary>
-        /// 
+        /// Gets the random password.
         /// </summary>
-        /// <param name="length"></param>
-        /// <returns></returns>
+        /// <param name="length">The length.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentException">Password must be at least 8 characters. - length</exception>
         public static string GetRandomPassword(int length = 10)
         {
             if (length < 8)
@@ -84,8 +100,8 @@ namespace WWI.Core3.Core.Helpers
         /// <summary>
         /// Replaces the duplicate characters in a string by a random character at the end
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
+        /// <param name="input">The input.</param>
+        /// <returns>System.String.</returns>
         public static string ReplaceDuplicateCharacters(string input)
         {
             var stringWithoutDuplicates = input.RemoveDuplicates();

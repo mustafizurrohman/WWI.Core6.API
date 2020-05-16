@@ -9,17 +9,24 @@
             Benchmark attribute
             </summary>
         </member>
+        <member name="F:WWI.Core3.API.ActionFilters.BenchmarkAttribute._timer">
+            <summary>
+            The timer
+            </summary>
+        </member>
         <member name="M:WWI.Core3.API.ActionFilters.BenchmarkAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
             <summary>
             Executed before the start of execution
             </summary>
-            <param name="context"></param>
+            <param name="context">The context.</param>
+            <inheritdoc />
         </member>
         <member name="M:WWI.Core3.API.ActionFilters.BenchmarkAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
             <summary>
             Executed after the end of execution
             </summary>
-            <param name="context"></param>
+            <param name="context">The context.</param>
+            <inheritdoc />
         </member>
         <member name="T:WWI.Core3.API.Controllers.Base.BaseAPIController">
             <summary>
@@ -31,81 +38,84 @@
             <summary>
             The database context
             </summary>
+            <value>The database context.</value>
         </member>
         <member name="P:WWI.Core3.API.Controllers.Base.BaseAPIController.AutoMapper">
             <summary>
             AutoMapper
             </summary>
+            <value>The automatic mapper.</value>
         </member>
         <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices)">
             <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController"/> class.
+            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" /> class.
             </summary>
             <param name="applicationServices">The database context.</param>
         </member>
         <member name="T:WWI.Core3.API.Controllers.DataController">
             <summary>
-            
+            Class DataController.
             </summary>
             <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
         </member>
         <member name="P:WWI.Core3.API.Controllers.DataController.DataService">
             <summary>
-            
+            Gets the data service.
             </summary>
+            <value>The data service.</value>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DataController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
             <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DataController"/> class.
+            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DataController" /> class.
             </summary>
             <param name="applicationServices">Application Services</param>
-            <param name="dataService"></param>
+            <param name="dataService">The data service.</param>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DataController.GetSpecialities">
             <summary>
             Gets the specialities.
             </summary>
-            <returns></returns>
+            <returns>IActionResult.</returns>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DataController.GetDoctors">
             <summary>
             Gets the doctors.
             </summary>
-            <returns></returns>
+            <returns>IActionResult.</returns>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DataController.DoctorsBySpeciality(System.Int32)">
             <summary>
             Gets Doctors by speciality.
             </summary>
             <param name="specialityID">The speciality identifier.</param>
-            <returns></returns>
+            <returns>IActionResult.</returns>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DataController.GetHospitals">
             <summary>
             Gets the hospitals.
             </summary>
-            <returns></returns>
+            <returns>IActionResult.</returns>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DataController.GetHospitalById(System.Int32)">
             <summary>
             Gets the hospital by identifier.
             </summary>
             <param name="id">The identifier.</param>
-            <returns></returns>
+            <returns>IActionResult.</returns>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DataController.GetDoctorsForHospitalById(System.Int32)">
             <summary>
             Gets the doctors for hospital by identifier.
             </summary>
             <param name="id">The identifier.</param>
-            <returns></returns>
+            <returns>IActionResult.</returns>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DataController.GetHospitalInfoById(System.Int32)">
             <summary>
-            
+            Gets the hospital information by identifier.
             </summary>
-            <param name="id"></param>
-            <returns></returns>
+            <param name="id">The identifier.</param>
+            <returns>IActionResult.</returns>
         </member>
         <member name="T:WWI.Core3.API.Program">
             <summary>
@@ -123,23 +133,34 @@
             Creates the host builder.
             </summary>
             <param name="args">The arguments.</param>
-            <returns></returns>
+            <returns>IHostBuilder.</returns>
         </member>
         <member name="T:WWI.Core3.API.Startup">
             <summary>
             Startup class
             </summary>
         </member>
+        <member name="F:WWI.Core3.API.Startup._info">
+            <summary>
+            The OpenApi information
+            </summary>
+        </member>
+        <member name="F:WWI.Core3.API.Startup._openApiSecurityScheme">
+            <summary>
+            The open API security scheme
+            </summary>
+        </member>
         <member name="M:WWI.Core3.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Constructor
             </summary>
-            <param name="configuration"></param>
+            <param name="configuration">The configuration.</param>
         </member>
         <member name="P:WWI.Core3.API.Startup.Configuration">
             <summary>
-            
+            Gets the configuration.
             </summary>
+            <value>The configuration.</value>
         </member>
         <member name="M:WWI.Core3.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>

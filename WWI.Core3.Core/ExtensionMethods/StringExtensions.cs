@@ -1,4 +1,18 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Core
+// Author           : Mustafizur Rohman
+// Created          : 05-08-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-13-2020
+// ***********************************************************************
+// <copyright file="StringExtensions.cs" company="WWI.Core3.Core">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -14,10 +28,10 @@ namespace WWI.Core3.Core.ExtensionMethods
 
         /// <summary>
         /// Returns true of the provided string represents an email. Otherwise false.
-        /// Does not actually verify the email. 
+        /// Does not actually verify the email.
         /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
+        /// <param name="email">The email.</param>
+        /// <returns><c>true</c> if [is valid email] [the specified email]; otherwise, <c>false</c>.</returns>
         public static bool IsValidEmail(this string email)
         {
             try
@@ -33,10 +47,10 @@ namespace WWI.Core3.Core.ExtensionMethods
 
         /// <summary>
         /// Returns true of the provided string represents an email. Otherwise false.
-        /// Does not actually verify the email. 
+        /// Does not actually verify the email.
         /// </summary>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        /// <param name="password">The password.</param>
+        /// <returns><c>true</c> if [is valid password] [the specified password]; otherwise, <c>false</c>.</returns>
         public static bool IsValidPassword(this string password)
         {
             if (password.Length < 8 || string.IsNullOrWhiteSpace(password))
@@ -52,13 +66,13 @@ namespace WWI.Core3.Core.ExtensionMethods
             return containsUppercase && containsLowercase && containsDigit && containsSpecialChars;
         }
 
-        /// TODO: Optimize this
         /// <summary>
         /// Returns true of the provided string represents an email. Otherwise false.
-        /// Does not actually verify the email. 
+        /// Does not actually verify the email.
         /// </summary>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        /// <param name="password">The password.</param>
+        /// <returns><c>true</c> if [contains special characters] [the specified password]; otherwise, <c>false</c>.</returns>
+        /// TODO: Optimize this
         public static bool ContainsSpecialCharacters(this string password)
         {
             foreach (char c in password)
@@ -76,7 +90,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// Randomizes a string
         /// </summary>
         /// <param name="input">The input string.</param>
-        /// <returns></returns>
+        /// <returns>System.String.</returns>
         public static string Randomize(this string input)
         {
             return new string(input.ToCharArray().OrderBy(c => Guid.NewGuid()).ToArray());
@@ -86,7 +100,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// Remove duplicate characters from a string
         /// </summary>
         /// <param name="input">The input string.</param>
-        /// <returns></returns>
+        /// <returns>System.String.</returns>
         public static string RemoveDuplicates(this string input)
         {
             return new string(input.ToCharArray().Distinct().ToArray());
@@ -96,7 +110,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// Removes the consequtive spaces.
         /// </summary>
         /// <param name="input">The input string.</param>
-        /// <returns></returns>
+        /// <returns>System.String.</returns>
         public static string RemoveConsequtiveSpaces(this string input)
         {
             return Regex.Replace(input, @"\s+", " ");
