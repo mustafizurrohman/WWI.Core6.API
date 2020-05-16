@@ -20,7 +20,7 @@ namespace WWI.Core3.Models.Models
     /// <summary>
     /// Class HospitalSpeciality.
     /// </summary>
-    public class HospitalSpeciality
+    public sealed class HospitalSpeciality
     {
 
         /// <summary>

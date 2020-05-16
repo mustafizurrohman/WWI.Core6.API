@@ -72,7 +72,7 @@ namespace WWI.Core3.Middleware.ExceptionHandler
         /// <returns>Task.</returns>
         private Task HandleExceptionAsync(HttpContext httpContext, Exception ex)
         {
-            // TODO: Log the exception here!
+            // Log the exception here!
             Log.Error(ex.ToString());
 
             httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;

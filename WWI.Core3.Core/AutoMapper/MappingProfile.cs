@@ -22,9 +22,9 @@ namespace WWI.Core3.Core.AutoMapper
 
     /// <summary>
     /// Class MappingProfile.
-    /// Implements the <see cref="AutoMapper.Profile" />
+    /// Implements the <see cref="Profile" />
     /// </summary>
-    /// <seealso cref="AutoMapper.Profile" />
+    /// <seealso cref="Profile" />
     public class MappingProfile : Profile
     {
         /// <summary>
@@ -60,7 +60,7 @@ namespace WWI.Core3.Core.AutoMapper
                 .ForMember(dst => dst.Departments,
                     src => src.MapFrom(hos => hos.Specialities.Select(s => s.Speciality)));
 
-
+            // Speciality -> SpecialityInformation
             CreateMap<Speciality, SpecialityInformation>()
                 .ForMember(dst => dst.DepartmentName,
                     src => src.MapFrom(s => s.Name))

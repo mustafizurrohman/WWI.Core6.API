@@ -21,7 +21,7 @@ namespace WWI.Core3.Models.Models
     /// <summary>
     /// Class Address.
     /// </summary>
-    public partial class Address
+    public sealed partial class Address
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Address" /> class.
@@ -86,7 +86,7 @@ namespace WWI.Core3.Models.Models
         /// Gets or sets the hospitals.
         /// </summary>
         /// <value>The hospitals.</value>
-        public virtual IEnumerable<Hospital> Hospitals { get; set; }
+        public IEnumerable<Hospital> Hospitals { get; set; }
 
     }
 }

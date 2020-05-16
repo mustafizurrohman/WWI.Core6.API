@@ -122,6 +122,7 @@ namespace WWI.Core3.API.Controllers
             return Ok(doctors);
         }
 
+
         /// <summary>
         /// Gets the hospitals.
         /// </summary>
