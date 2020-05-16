@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
+using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -26,7 +28,8 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="applicationServices">Application Services</param>
         /// <param name="dataService"></param>
-        public DataController(ApplicationServices applicationServices, IDataService dataService) : base(applicationServices)
+        public DataController(ApplicationServices applicationServices, IDataService dataService) : base(
+            applicationServices)
         {
             DataService = dataService;
         }
@@ -60,14 +63,14 @@ namespace WWI.Core3.API.Controllers
             Log.Information("Retrieved list of all doctors");
 
             var doctors = (await DbContext.Doctors
-                .Include(doc => doc.Speciality)
-                .Select(doc => new
-                {
-                    Name = Regex.Replace(doc.Firstname + " " + doc.Middlename + " " + doc.Lastname, @"\s+", " "),
-                    Speciality = doc.Speciality.Name
-                })
-                .AsNoTracking()
-                .ToListAsync())
+                    .Include(doc => doc.Speciality)
+                    .Select(doc => new
+                    {
+                        Name = Regex.Replace(doc.Firstname + " " + doc.Middlename + " " + doc.Lastname, @"\s+", " "),
+                        Speciality = doc.Speciality.Name
+                    })
+                    .AsNoTracking()
+                    .ToListAsync())
                 .OrderBy(doc => doc.Speciality)
                 .ThenBy(doc => doc.Name)
                 .Select(doc => doc.Name + " (" + doc.Speciality + ")")
@@ -85,10 +88,10 @@ namespace WWI.Core3.API.Controllers
         public async Task<IActionResult> DoctorsBySpeciality(int specialityID)
         {
             var doctors = (await DbContext.Doctors
-                .Include(doc => doc.Speciality)
-                .Where(doc => doc.SpecialityID == specialityID)
-                .AsNoTracking()
-                .ToListAsync())
+                    .Include(doc => doc.Speciality)
+                    .Where(doc => doc.SpecialityID == specialityID)
+                    .AsNoTracking()
+                    .ToListAsync())
                 .Select(doc => new
                 {
                     Name = doc.FullName,
@@ -139,18 +142,18 @@ namespace WWI.Core3.API.Controllers
         public async Task<IActionResult> GetDoctorsForHospitalById(int id)
         {
             var doctorsInHospital = (await DbContext.Hospitals
-                .Include(h => h.Doctors)
-                .ThenInclude(h => h.Doctor)
-                .ThenInclude(doc => doc.Speciality)
-                .Where(h => h.HospitalID == id)
-                .SelectMany(h => h.Doctors)
-                .Select(hd => hd.Doctor)
-                .Select(doc => new
-                {
-                    doc.FullName,
-                    SpecialityName = doc.Speciality.Name
-                })
-                .ToListAsync())
+                    .Include(h => h.Doctors)
+                    .ThenInclude(h => h.Doctor)
+                    .ThenInclude(doc => doc.Speciality)
+                    .Where(h => h.HospitalID == id)
+                    .SelectMany(h => h.Doctors)
+                    .Select(hd => hd.Doctor)
+                    .Select(doc => new
+                    {
+                        doc.FullName,
+                        SpecialityName = doc.Speciality.Name
+                    })
+                    .ToListAsync())
                 .OrderBy(doc => doc.SpecialityName)
                 .ThenBy(doc => doc.FullName)
                 .ToList();
@@ -158,8 +161,21 @@ namespace WWI.Core3.API.Controllers
             return Ok(doctorsInHospital);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("test")]
+        public async Task<IActionResult> GetHospitalInfoById(int id)
+        {
+            var res = await DbContext.Hospitals
+                .Where(hos => hos.HospitalID == id)
+                .ProjectTo<AdvancedHospitalInformation>(AutoMapper.ConfigurationProvider)
+                .ToListAsync();
 
-
+            return Ok(res);
+        }
 
     }
 }

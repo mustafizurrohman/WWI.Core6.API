@@ -1,10 +1,24 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Models
+// Author           : Mustafizur Rohman
+// Created          : 05-09-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-15-2020
+// ***********************************************************************
+// <copyright file="HospitalDoctor.cs" company="WWI.Core3.Models">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WWI.Core3.Models.Models
 {
     /// <summary>
-    /// 
+    /// Class HospitalDoctor.
     /// </summary>
     public class HospitalDoctor
     {
@@ -12,9 +26,7 @@ namespace WWI.Core3.Models.Models
         /// <summary>
         /// Gets or sets the hospital doctor identifier.
         /// </summary>
-        /// <value>
-        /// The hospital doctor identifier.
-        /// </value>
+        /// <value>The hospital doctor identifier.</value>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID")]
@@ -23,33 +35,25 @@ namespace WWI.Core3.Models.Models
         /// <summary>
         /// Gets or sets the doctor identifier.
         /// </summary>
-        /// <value>
-        /// The doctor identifier.
-        /// </value>
+        /// <value>The doctor identifier.</value>
         public int DoctorID { get; set; }
 
         /// <summary>
         /// Gets or sets the doctor.
         /// </summary>
-        /// <value>
-        /// The doctor.
-        /// </value>
+        /// <value>The doctor.</value>
         public Doctor Doctor { get; set; }
 
         /// <summary>
         /// Gets or sets the hospital identifier.
         /// </summary>
-        /// <value>
-        /// The hospital identifier.
-        /// </value>
+        /// <value>The hospital identifier.</value>
         public int HospitalID { get; set; }
 
         /// <summary>
         /// Gets or sets the hospital.
         /// </summary>
-        /// <value>
-        /// The hospital.
-        /// </value>
+        /// <value>The hospital.</value>
         public Hospital Hospital { get; set; }
     }
 }

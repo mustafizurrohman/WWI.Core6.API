@@ -1,43 +1,40 @@
 ﻿// ***********************************************************************
 // Assembly         : WWI.Core3.Models
 // Author           : Mustafizur Rohman
-// Created          : 05-15-2020
+// Created          : 05-16-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 05-16-2020
 // ***********************************************************************
-// <copyright file="HospitalInformation.cs" company="WWI.Core3.Models">
+// <copyright file="SpecialityInformation.cs" company="WWI.Core3.Models">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-
 using System.Collections.Generic;
 
 namespace WWI.Core3.Models.ViewModels
 {
 
     /// <summary>
-    /// Class HospitalInformation.
+    /// Class SpecialityInformation.
     /// </summary>
-    public class HospitalInformation
+    public class SpecialityInformation
     {
-        /// <summary>
-        /// Gets or sets the hospital identifier.
-        /// </summary>
-        /// <value>The hospital identifier.</value>
-        public int HospitalID { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the hospital.
+        /// Gets or sets the name of the department.
         /// </summary>
-        /// <value>The name of the hospital.</value>
-        public string HospitalName { get; set; }
+        /// <value>The name of the department.</value>
+        public string DepartmentName { get; set; }
 
         /// <summary>
-        /// Gets or sets the specialities.
+        /// Gets or sets the doctor list.
         /// </summary>
-        /// <value>The specialities.</value>
-        public IEnumerable<string> Specialities { get; set; }
+        /// <value>The doctor list.</value>
+        public List<string> DoctorList { get; set; }
+
     }
+
+
 }

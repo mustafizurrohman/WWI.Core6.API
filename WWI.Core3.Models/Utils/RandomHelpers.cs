@@ -1,4 +1,17 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Models
+// Author           : Mustafizur Rohman
+// Created          : 05-15-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-15-2020
+// ***********************************************************************
+// <copyright file="RandomHelpers.cs" company="WWI.Core3.Models">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Security.Cryptography;
 
 namespace WWI.Core3.Models.Utils
@@ -11,6 +24,9 @@ namespace WWI.Core3.Models.Utils
 
         #region -- Private Methods --
 
+        /// <summary>
+        /// The random number generator
+        /// </summary>
         private static readonly RandomNumberGenerator RandomNumberGenerator;
 
         #endregion
@@ -50,7 +66,8 @@ namespace WWI.Core3.Models.Utils
         /// </summary>
         /// <param name="min">Min value to generate</param>
         /// <param name="max">Max value to generate</param>
-        /// <returns></returns>
+        /// <returns>System.Int32.</returns>
+        /// <exception cref="ArgumentException">Max must be greater than Min</exception>
         public static int Next(int min, int max)
         {
 

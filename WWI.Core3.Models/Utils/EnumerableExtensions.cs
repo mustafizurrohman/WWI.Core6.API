@@ -1,4 +1,17 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Models
+// Author           : Mustafizur Rohman
+// Created          : 05-15-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-15-2020
+// ***********************************************************************
+// <copyright file="EnumerableExtensions.cs" company="WWI.Core3.Models">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -17,7 +30,7 @@ namespace WWI.Core3.Models.Utils
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="list">IEnumerable of Type T to convert to CSV</param>
-        /// <returns></returns>
+        /// <returns>System.String.</returns>
         public static string ToCsv<T>(this IEnumerable<T> list)
         {
             return list.ToCsv();
@@ -29,8 +42,8 @@ namespace WWI.Core3.Models.Utils
         /// <typeparam name="TSource">Type of source IEnumerable</typeparam>
         /// <typeparam name="TKey">Type of attribute of IEnumerable w.r.t. the IEnumerable must be grouped</typeparam>
         /// <param name="source">Source IEnumerable</param>
-        /// <param name="keySelector"></param>
-        /// <returns></returns>
+        /// <param name="keySelector">The key selector.</param>
+        /// <returns>IEnumerable&lt;TSource&gt;.</returns>
         public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
         {
             return source?.GroupBy(keySelector).Select(grp => grp.First());
@@ -41,7 +54,7 @@ namespace WWI.Core3.Models.Utils
         /// </summary>
         /// <typeparam name="T">Type of source IEnumerable</typeparam>
         /// <param name="source">Source IEnumerable collection</param>
-        /// <returns></returns>
+        /// <returns>T.</returns>
         public static T GetRandomElement<T>(this IEnumerable<T> source)
         {
             // If the list is empty then return an empty instance of T
@@ -61,7 +74,7 @@ namespace WWI.Core3.Models.Utils
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="source">The source.</param>
-        /// <returns></returns>
+        /// <returns>IEnumerable&lt;T&gt;.</returns>
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source)
         {
             var shuffled = source.OrderBy(src => RandomHelpers.Next(source.Count()));
@@ -75,7 +88,7 @@ namespace WWI.Core3.Models.Utils
         /// <typeparam name="T">Type of source IEnumerable</typeparam>
         /// <param name="source">Source IEnumerable collection</param>
         /// <param name="shuffleTimes">Number of times to shuffle</param>
-        /// <returns></returns>
+        /// <returns>T.</returns>
         public static T GetRandomShuffled<T>(this IEnumerable<T> source, int shuffleTimes = 1)
         {
             shuffleTimes = (shuffleTimes < 1) ? 1 : shuffleTimes;
@@ -92,8 +105,8 @@ namespace WWI.Core3.Models.Utils
         /// Returns 'true' if an IEnumerable is empty. False otherwise.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="list"></param>
-        /// <returns></returns>
+        /// <param name="list">The list.</param>
+        /// <returns><c>true</c> if the specified list is empty; otherwise, <c>false</c>.</returns>
         public static bool IsEmpty<T>(this IEnumerable<T> list)
         {
             return (list == null || !list.Any());
@@ -105,7 +118,7 @@ namespace WWI.Core3.Models.Utils
         /// <typeparam name="T"></typeparam>
         /// <param name="sourceList">The source list.</param>
         /// <param name="chunkSize">Size of the chunk.</param>
-        /// <returns></returns>
+        /// <returns>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;.</returns>
         public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> sourceList, int chunkSize)
         {
             return sourceList
@@ -119,7 +132,7 @@ namespace WWI.Core3.Models.Utils
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="sourceList">The source list.</param>
-        /// <returns></returns>
+        /// <returns>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;.</returns>
         public static IEnumerable<IEnumerable<T>> Partition<T>(this IEnumerable<T> sourceList)
         {
             // ReSharper disable once PossibleMultipleEnumeration
@@ -133,7 +146,7 @@ namespace WWI.Core3.Models.Utils
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="source">The IEnumerable source.</param>
-        /// <returns></returns>
+        /// <returns>IEnumerable&lt;T&gt;.</returns>
         public static IEnumerable<T> Flatten<T>(this IEnumerable<IEnumerable<T>> source)
         {
             if (source.IsEmpty())
@@ -151,7 +164,7 @@ namespace WWI.Core3.Models.Utils
         /// <typeparam name="T"></typeparam>
         /// <param name="enumerable">The enumerable.</param>
         /// <param name="defaultValue">The default value.</param>
-        /// <returns></returns>
+        /// <returns>T.</returns>
         public static T MaxOrDefault<T>(this IEnumerable<T> enumerable, T defaultValue = default)
         {
             return enumerable.DefaultIfEmpty(defaultValue).Max();

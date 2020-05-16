@@ -6,28 +6,21 @@
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 05-16-2020
 // ***********************************************************************
-// <copyright file="HospitalInformation.cs" company="WWI.Core3.Models">
+// <copyright file="AdvancedHospitalInformation.cs" company="WWI.Core3.Models">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-
 using System.Collections.Generic;
+using WWI.Core3.Models.Models;
 
 namespace WWI.Core3.Models.ViewModels
 {
-
     /// <summary>
-    /// Class HospitalInformation.
+    /// Class AdvancedHospitalInformation.
     /// </summary>
-    public class HospitalInformation
+    public class AdvancedHospitalInformation
     {
-        /// <summary>
-        /// Gets or sets the hospital identifier.
-        /// </summary>
-        /// <value>The hospital identifier.</value>
-        public int HospitalID { get; set; }
-
         /// <summary>
         /// Gets or sets the name of the hospital.
         /// </summary>
@@ -35,9 +28,18 @@ namespace WWI.Core3.Models.ViewModels
         public string HospitalName { get; set; }
 
         /// <summary>
-        /// Gets or sets the specialities.
+        /// Gets or sets the address.
         /// </summary>
-        /// <value>The specialities.</value>
-        public IEnumerable<string> Specialities { get; set; }
+        /// <value>The address.</value>
+        public Address Address { get; set; }
+
+        /// <summary>
+        /// Gets or sets the departments.
+        /// </summary>
+        /// <value>The departments.</value>
+        public IEnumerable<SpecialityInformation> Departments { get; set; }
+
     }
+
+
 }

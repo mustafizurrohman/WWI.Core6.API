@@ -591,6 +591,26 @@
             <param name="input">The input string.</param>
             <returns></returns>
         </member>
+        <member name="T:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation.HospitalName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation.Address">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation.Departments">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:WWI.Core3.Models.ViewModels.HospitalInformation">
             <summary>
             
@@ -607,6 +627,21 @@
             </summary>
         </member>
         <member name="P:WWI.Core3.Models.ViewModels.HospitalInformation.Specialities">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WWI.Core3.Models.ViewModels.SpecialityInformation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.SpecialityInformation.DepartmentName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.SpecialityInformation.DoctorList">
             <summary>
             
             </summary>

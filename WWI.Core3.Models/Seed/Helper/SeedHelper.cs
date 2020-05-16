@@ -1,4 +1,17 @@
-﻿using Newtonsoft.Json;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Models
+// Author           : Mustafizur Rohman
+// Created          : 05-15-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-15-2020
+// ***********************************************************************
+// <copyright file="SeedHelper.cs" company="WWI.Core3.Models">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using Newtonsoft.Json;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -16,7 +29,13 @@ namespace WWI.Core3.Models.Seed.Helper
 
         #region -- Private Methods -- 
 
+        /// <summary>
+        /// The base path generated seed
+        /// </summary>
         private const string BasePathGeneratedSeed = "../WWI.Core3.Models/Seed/Generated/";
+        /// <summary>
+        /// The base path
+        /// </summary>
         private const string BasePath = "../WWI.Core3.Models/Seed/";
 
         #endregion
@@ -24,8 +43,8 @@ namespace WWI.Core3.Models.Seed.Helper
         /// <summary>
         /// Verifies if the seed file to be generated exists
         /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
+        /// <param name="fileName">Name of the file.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public static bool SeedGeneratedFileExists(string fileName)
         {
             return File.Exists(BasePathGeneratedSeed + fileName);
@@ -33,10 +52,11 @@ namespace WWI.Core3.Models.Seed.Helper
 
 
         /// <summary>
-        /// 
+        /// Gets the source file contents.
         /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
+        /// <param name="fileName">Name of the file.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentException">File does not exist.</exception>
         public static string GetSourceFileContents(string fileName)
         {
             if (!File.Exists(BasePath + fileName))
@@ -48,10 +68,11 @@ namespace WWI.Core3.Models.Seed.Helper
         }
 
         /// <summary>
-        /// 
+        /// Gets the generated file contents.
         /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
+        /// <param name="fileName">Name of the file.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentException">File does not exist.</exception>
         public static string GetGeneratedFileContents(string fileName)
         {
             if (!File.Exists(BasePathGeneratedSeed + fileName))
@@ -63,11 +84,11 @@ namespace WWI.Core3.Models.Seed.Helper
         }
 
         /// <summary>
-        /// 
+        /// Parses the source file.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
+        /// <param name="fileName">Name of the file.</param>
+        /// <returns>List&lt;T&gt;.</returns>
         public static List<T> ParseSourceFile<T>(string fileName)
         {
             var fileContents = GetSourceFileContents(fileName);
@@ -76,11 +97,11 @@ namespace WWI.Core3.Models.Seed.Helper
         }
 
         /// <summary>
-        /// 
+        /// Parses the generated file.
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="fileName"></param>
-        /// <returns></returns>
+        /// <param name="fileName">Name of the file.</param>
+        /// <returns>List&lt;T&gt;.</returns>
         public static List<T> ParseGeneratedFile<T>(string fileName)
         {
             var fileContents = GetGeneratedFileContents(fileName);
@@ -89,10 +110,10 @@ namespace WWI.Core3.Models.Seed.Helper
         }
 
         /// <summary>
-        /// 
+        /// Saves the content of the generated file.
         /// </summary>
-        /// <param name="fileName"></param>
-        /// <param name="contents"></param>
+        /// <param name="fileName">Name of the file.</param>
+        /// <param name="contents">The contents.</param>
         public static void SaveGeneratedFileContent(string fileName, string contents)
         {
             File.WriteAllText(BasePathGeneratedSeed + fileName, contents, Encoding.UTF8);
@@ -101,11 +122,11 @@ namespace WWI.Core3.Models.Seed.Helper
         }
 
         /// <summary>
-        /// 
+        /// Saves the or overwrite generated file.
         /// </summary>
-        /// <param name="filename"></param>
-        /// <param name="contents"></param>
-        /// <param name="overwrite"></param>
+        /// <param name="filename">The filename.</param>
+        /// <param name="contents">The contents.</param>
+        /// <param name="overwrite">if set to <c>true</c> [overwrite].</param>
         public static void SaveOrOverwriteGeneratedFile(string filename, string contents, bool overwrite = false)
         {
             var fileExists = SeedGeneratedFileExists(filename);
