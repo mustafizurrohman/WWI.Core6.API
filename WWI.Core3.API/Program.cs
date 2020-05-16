@@ -1,3 +1,17 @@
+// ***********************************************************************
+// Assembly         : WWI.Core3.API
+// Author           : Mustafizur Rohman
+// Created          : 04-23-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-16-2020
+// ***********************************************************************
+// <copyright file="Program.cs" company="WWI.Core3.API">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -47,7 +61,7 @@ namespace WWI.Core3.API
         /// Creates the host builder.
         /// </summary>
         /// <param name="args">The arguments.</param>
-        /// <returns></returns>
+        /// <returns>IHostBuilder.</returns>
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
             return Host.CreateDefaultBuilder(args)

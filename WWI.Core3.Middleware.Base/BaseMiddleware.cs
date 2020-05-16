@@ -1,17 +1,32 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Middleware.Base
+// Author           : Mustafizur Rohman
+// Created          : 05-02-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-02-2020
+// ***********************************************************************
+// <copyright file="BaseMiddleware.cs" company="WWI.Core3.Middleware.Base">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Threading.Tasks;
 
 namespace WWI.Core3.Middleware.Base
 {
     /// <summary>
-    /// Base Middleware: All Middlewares inherit this
+    /// Base Middleware: All Middleware inherit this
     /// </summary>
     public abstract class BaseMiddleware
     {
         /// <summary>
         /// Request delegate
         /// </summary>
+        /// <value>The next.</value>
         public RequestDelegate Next { get; }
 
         /// <summary>
@@ -22,8 +37,8 @@ namespace WWI.Core3.Middleware.Base
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="next"></param>
-        /// <param name="serviceProvider"></param>
+        /// <param name="next">The next.</param>
+        /// <param name="serviceProvider">The service provider.</param>
         protected BaseMiddleware(RequestDelegate next, IServiceProvider serviceProvider)
         {
             Next = next;
@@ -34,8 +49,8 @@ namespace WWI.Core3.Middleware.Base
         /// Middleware implementation goes here
         /// Must be implemented by the middleware
         /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
+        /// <param name="context">The context.</param>
+        /// <returns>Task.</returns>
         public abstract Task InvokeAsync(HttpContext context);
     }
 }

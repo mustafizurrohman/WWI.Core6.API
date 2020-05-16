@@ -86,7 +86,7 @@ namespace WWI.Core3.Models.Models
         /// </summary>
         /// <value>The full name.</value>
         [NotMapped]
-        public string FullName => (Firstname + " " + Middlename + " " + Lastname).RemoveConsequtiveSpaces();
+        public string FullName => (Firstname + " " + Middlename + " " + Lastname).RemoveConsecutiveSpaces();
 
     }
 }

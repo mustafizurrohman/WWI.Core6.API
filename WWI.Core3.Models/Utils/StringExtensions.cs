@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System.Text.RegularExpressions;
 
 namespace WWI.Core3.Models.Utils
@@ -21,11 +22,11 @@ namespace WWI.Core3.Models.Utils
     public static class StringExtensions
     {
         /// <summary>
-        /// Removes the consequtive spaces.
+        /// Removes the consecutive spaces.
         /// </summary>
         /// <param name="input">The input string.</param>
         /// <returns>System.String.</returns>
-        public static string RemoveConsequtiveSpaces(this string input)
+        public static string RemoveConsecutiveSpaces(this string input)
         {
             return Regex.Replace(input, @"\s+", " ");
         }

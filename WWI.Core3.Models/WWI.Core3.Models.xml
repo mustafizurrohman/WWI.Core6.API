@@ -584,7 +584,7 @@
             
             </summary>
         </member>
-        <member name="M:WWI.Core3.Models.Utils.StringExtensions.RemoveConsequtiveSpaces(System.String)">
+        <member name="M:WWI.Core3.Models.Utils.StringExtensions.RemoveConsecutiveSpaces(System.String)">
             <summary>
             Removes the consequtive spaces.
             </summary>

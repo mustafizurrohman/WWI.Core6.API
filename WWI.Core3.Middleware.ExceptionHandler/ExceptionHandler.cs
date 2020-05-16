@@ -1,4 +1,18 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.Middleware.ExceptionHandler
+// Author           : Mustafizur Rohman
+// Created          : 05-02-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-02-2020
+// ***********************************************************************
+// <copyright file="ExceptionHandler.cs" company="WWI.Core3.Middleware.ExceptionHandler">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Serilog;
 using System;
@@ -32,6 +46,11 @@ namespace WWI.Core3.Middleware.ExceptionHandler
             _hostingEnvironment = hostingEnvironment;
         }
 
+        /// <summary>
+        /// Invoke as an asynchronous operation.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>Task.</returns>
         public override async Task InvokeAsync(HttpContext context)
         {
             try
@@ -46,11 +65,11 @@ namespace WWI.Core3.Middleware.ExceptionHandler
         }
 
         /// <summary>
-        /// Handles the exception asynchronous.
+        /// Handles the exception asynchronously
         /// </summary>
         /// <param name="httpContext">The HTTP context.</param>
         /// <param name="ex">The ex.</param>
-        /// <returns></returns>
+        /// <returns>Task.</returns>
         private Task HandleExceptionAsync(HttpContext httpContext, Exception ex)
         {
             // TODO: Log the exception here!

@@ -1,4 +1,18 @@
-﻿using AutoMapper.QueryableExtensions;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.API
+// Author           : Mustafizur Rohman
+// Created          : 05-01-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-16-2020
+// ***********************************************************************
+// <copyright file="DataController.cs" company="WWI.Core3.API">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -13,21 +27,22 @@ using WWI.Core3.Services.ServiceCollection;
 namespace WWI.Core3.API.Controllers
 {
     /// <summary>
-    /// 
+    /// Class DataController.
     /// </summary>
     /// <seealso cref="WWI.Core3.API.Controllers.Base.BaseAPIController" />
     public class DataController : BaseAPIController
     {
         /// <summary>
-        /// 
+        /// Gets the data service.
         /// </summary>
+        /// <value>The data service.</value>
         private IDataService DataService { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataController"/> class.
+        /// Initializes a new instance of the <see cref="DataController" /> class.
         /// </summary>
         /// <param name="applicationServices">Application Services</param>
-        /// <param name="dataService"></param>
+        /// <param name="dataService">The data service.</param>
         public DataController(ApplicationServices applicationServices, IDataService dataService) : base(
             applicationServices)
         {
@@ -37,7 +52,7 @@ namespace WWI.Core3.API.Controllers
         /// <summary>
         /// Gets the specialities.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>IActionResult.</returns>
         [HttpGet("specialities")]
         public async Task<IActionResult> GetSpecialities()
         {
@@ -56,7 +71,7 @@ namespace WWI.Core3.API.Controllers
         /// <summary>
         /// Gets the doctors.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>IActionResult.</returns>
         [HttpGet("doctors")]
         public async Task<IActionResult> GetDoctors()
         {
@@ -83,7 +98,7 @@ namespace WWI.Core3.API.Controllers
         /// Gets Doctors by speciality.
         /// </summary>
         /// <param name="specialityID">The speciality identifier.</param>
-        /// <returns></returns>
+        /// <returns>IActionResult.</returns>
         [HttpGet("doctors/{specialityID}")]
         public async Task<IActionResult> DoctorsBySpeciality(int specialityID)
         {
@@ -110,7 +125,7 @@ namespace WWI.Core3.API.Controllers
         /// <summary>
         /// Gets the hospitals.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>IActionResult.</returns>
         [HttpGet("hospitals")]
         public async Task<IActionResult> GetHospitals()
         {
@@ -124,7 +139,7 @@ namespace WWI.Core3.API.Controllers
         /// Gets the hospital by identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
-        /// <returns></returns>
+        /// <returns>IActionResult.</returns>
         [HttpGet("hospitals/{id}")]
         public async Task<IActionResult> GetHospitalById(int id)
         {
@@ -137,7 +152,7 @@ namespace WWI.Core3.API.Controllers
         /// Gets the doctors for hospital by identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
-        /// <returns></returns>
+        /// <returns>IActionResult.</returns>
         [HttpGet("hospitals/{id}/doctors")]
         public async Task<IActionResult> GetDoctorsForHospitalById(int id)
         {
@@ -162,10 +177,10 @@ namespace WWI.Core3.API.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Gets the hospital information by identifier.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The identifier.</param>
+        /// <returns>IActionResult.</returns>
         [HttpGet("test")]
         public async Task<IActionResult> GetHospitalInfoById(int id)
         {

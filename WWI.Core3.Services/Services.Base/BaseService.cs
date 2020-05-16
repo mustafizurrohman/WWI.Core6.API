@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using AutoMapper;
 using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.ServiceCollection;

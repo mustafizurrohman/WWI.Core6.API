@@ -1,3 +1,17 @@
+// ***********************************************************************
+// Assembly         : WWI.Core3.API
+// Author           : Mustafizur Rohman
+// Created          : 04-23-2020
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 05-16-2020
+// ***********************************************************************
+// <copyright file="Startup.cs" company="WWI.Core3.API">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,7 +39,13 @@ namespace WWI.Core3.API
 
         #region -- Private Properties
 
+        /// <summary>
+        /// The OpenApi information
+        /// </summary>
         private readonly OpenApiInfo _info = new OpenApiInfo();
+        /// <summary>
+        /// The open API security scheme
+        /// </summary>
         private readonly OpenApiSecurityScheme _openApiSecurityScheme = new OpenApiSecurityScheme();
 
         #endregion
@@ -33,15 +53,16 @@ namespace WWI.Core3.API
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="configuration"></param>
+        /// <param name="configuration">The configuration.</param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
         /// <summary>
-        /// 
+        /// Gets the configuration.
         /// </summary>
+        /// <value>The configuration.</value>
         public IConfiguration Configuration { get; }
 
         /// <summary>
