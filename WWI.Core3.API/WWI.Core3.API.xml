@@ -52,72 +52,87 @@
             </summary>
             <param name="applicationServices">The database context.</param>
         </member>
-        <member name="T:WWI.Core3.API.Controllers.DataController">
+        <member name="T:WWI.Core3.API.Controllers.DoctorController">
             <summary>
-            Class DataController.
+            Class DoctorController.
+            Implements the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
             </summary>
             <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
         </member>
-        <member name="P:WWI.Core3.API.Controllers.DataController.DataService">
+        <member name="P:WWI.Core3.API.Controllers.DoctorController.DataService">
             <summary>
             Gets the data service.
             </summary>
             <value>The data service.</value>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
             <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DataController" /> class.
+            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DoctorController"/> class.
             </summary>
-            <param name="applicationServices">Application Services</param>
+            <param name="applicationServices">The application services.</param>
             <param name="dataService">The data service.</param>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.GetSpecialities">
-            <summary>
-            Gets the specialities.
-            </summary>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.GetDoctors">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.GetDoctors">
             <summary>
             Gets the doctors.
             </summary>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.DoctorsBySpeciality(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.DoctorsBySpeciality(System.Int32)">
             <summary>
             Gets Doctors by speciality.
             </summary>
             <param name="specialityID">The speciality identifier.</param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.GetHospitals">
+        <member name="T:WWI.Core3.API.Controllers.HospitalController">
+            <summary>
+            Class HospitalController.
+            Implements the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
+            </summary>
+            <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
+        </member>
+        <member name="P:WWI.Core3.API.Controllers.HospitalController.DataService">
+            <summary>
+            Gets the data service.
+            </summary>
+            <value>The data service.</value>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
+            <summary>
+            Initializes a new instance of the <see cref="!:DataController" /> class.
+            </summary>
+            <param name="applicationServices">Application Services</param>
+            <param name="dataService">The data service.</param>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitals">
             <summary>
             Gets the hospitals.
             </summary>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.GetHospitalById(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitalById(System.Int32)">
             <summary>
             Gets the hospital by identifier.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.GetDoctorsForHospitalById(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetDoctorsForHospitalById(System.Int32)">
             <summary>
             Gets the doctors for hospital by identifier.
             </summary>
             <param name="hospitalID">The identifier.</param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.GetHospitalInfoById(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitalInfoById(System.Int32)">
             <summary>
             Gets the hospital information by identifier.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.GetSpecialityInfoForHospital(System.Int32,System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialityInfoForHospital(System.Int32,System.Int32)">
             <summary>
             Gets the speciality information for hospital.
             </summary>
@@ -125,11 +140,37 @@
             <param name="specialityID">The speciality identifier.</param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DataController.GetAllSpecialityInfoForHospital(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetAllSpecialityInfoForHospital(System.Int32)">
             <summary>
             Gets all speciality information for hospital.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:WWI.Core3.API.Controllers.SpecialityController">
+            <summary>
+            Class SpecialityController.
+            Implements the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
+            </summary>
+            <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
+        </member>
+        <member name="P:WWI.Core3.API.Controllers.SpecialityController.DataService">
+            <summary>
+            Gets the data service.
+            </summary>
+            <value>The data service.</value>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.SpecialityController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.SpecialityController" /> class.
+            </summary>
+            <param name="applicationServices">Application Services</param>
+            <param name="dataService">The data service.</param>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.SpecialityController.GetSpecialities">
+            <summary>
+            Gets the specialities.
+            </summary>
             <returns>IActionResult.</returns>
         </member>
         <member name="T:WWI.Core3.API.Program">
