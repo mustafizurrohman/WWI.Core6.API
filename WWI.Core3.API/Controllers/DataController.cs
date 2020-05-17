@@ -125,7 +125,7 @@ namespace WWI.Core3.API.Controllers
         /// Gets the hospitals.
         /// </summary>
         /// <returns>IActionResult.</returns>
-        [HttpGet("hospitals")]
+        [HttpGet("hospital")]
         public async Task<IActionResult> GetHospitals()
         {
             var hospitals = await DbContext.Hospitals
@@ -137,12 +137,12 @@ namespace WWI.Core3.API.Controllers
         /// <summary>
         /// Gets the hospital by identifier.
         /// </summary>
-        /// <param name="id">The identifier.</param>
+        /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>IActionResult.</returns>
-        [HttpGet("hospitals/{id}")]
-        public async Task<IActionResult> GetHospitalById(int id)
+        [HttpGet("hospital/{hospitalID}")]
+        public async Task<IActionResult> GetHospitalById(int hospitalID)
         {
-            var hospital = await DataService.GetHospitalInformationByIDAsync(id);
+            var hospital = await DataService.GetHospitalInformationByIDAsync(hospitalID);
 
             return Ok(hospital);
         }
@@ -152,7 +152,7 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="hospitalID">The identifier.</param>
         /// <returns>IActionResult.</returns>
-        [HttpGet("hospitals/{hospitalID}/doctors")]
+        [HttpGet("hospital/{hospitalID}/doctors")]
         public async Task<IActionResult> GetDoctorsForHospitalById(int hospitalID)
         {
             var doctorsInHospital = await DataService.GetDoctorsForHospitalAsync(hospitalID);
@@ -163,12 +163,12 @@ namespace WWI.Core3.API.Controllers
         /// <summary>
         /// Gets the hospital information by identifier.
         /// </summary>
-        /// <param name="id">The identifier.</param>
+        /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>IActionResult.</returns>
-        [HttpGet("hospital/{id}/specialities")]
-        public async Task<IActionResult> GetHospitalInfoById(int id)
+        [HttpGet("hospital/{hospitalID}/specialities")]
+        public async Task<IActionResult> GetHospitalInfoById(int hospitalID)
         {
-            var advancedHospitalInformation = await DataService.GetAdvancedHospitalInformationAsync(id);
+            var advancedHospitalInformation = await DataService.GetAdvancedHospitalInformationAsync(hospitalID);
 
             return Ok(advancedHospitalInformation);
         }
@@ -189,6 +189,26 @@ namespace WWI.Core3.API.Controllers
                 .ToList();
 
             return Ok(advancedHospitalInformation);
+        }
+
+        /// <summary>
+        /// Gets all speciality information for hospital.
+        /// </summary>
+        /// <param name="hospitalID">The hospital identifier.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("hospital/{hospitalID}/speciality")]
+        public async Task<IActionResult> GetAllSpecialityInfoForHospital(int hospitalID)
+        {
+            var specialityInformation = await DataService.GetAllSpecialityInfoForHospital(hospitalID)
+                .ToListAsync();
+
+            specialityInformation.ForEach(currentSpeciality =>
+            {
+                currentSpeciality.DoctorList = currentSpeciality.DoctorList.OrderBy(doc => doc).ToList();
+            });
+
+            return Ok(specialityInformation);
+
         }
 
 

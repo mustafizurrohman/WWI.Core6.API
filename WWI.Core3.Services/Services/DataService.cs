@@ -54,6 +54,20 @@ namespace WWI.Core3.Services.Services
             return advancedHospitalInformation;
         }
 
+        public IQueryable<SpecialityInformation> GetAllSpecialityInfoForHospital(int hospitalID)
+        {
+            var specialityInformation = DbContext.Hospitals
+                .Include(hos => hos.Specialities)
+                .ThenInclude(hs => hs.Speciality)
+                .Where(hos => hos.HospitalID == hospitalID)
+                .SelectMany(hos => hos.Specialities.Select(h => h.Speciality))
+                .ProjectTo<SpecialityInformation>(AutoMapper.ConfigurationProvider)
+                .AsNoTracking();
+
+            return specialityInformation;
+
+        }
+
         /// <summary>
         /// Gets the doctors for hospital.
         /// </summary>
@@ -76,10 +90,10 @@ namespace WWI.Core3.Services.Services
         }
 
         /// <summary>
-        /// get hospital information by identifier as an asynchronous operation.
+        /// Get hospital information by identifier as an asynchronous operation.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
-        /// <returns>Task&lt;HospitalInformation&gt;.</returns>
+        /// <returns>Task<HospitalInformation></HospitalInformation></returns>
         public async Task<HospitalInformation> GetHospitalInformationByIDAsync(int hospitalID)
         {
             var hospitalInformation = await GetHospitalInformation()

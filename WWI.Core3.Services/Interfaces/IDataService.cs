@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using System.Linq;
 using System.Threading.Tasks;
 using WWI.Core3.Models.ViewModels;
 
@@ -22,6 +23,7 @@ namespace WWI.Core3.Services.Interfaces
     /// </summary>
     public interface IDataService
     {
+
         /// <summary>
         /// Gets the hospital information by identifier asynchronous.
         /// </summary>
@@ -42,5 +44,13 @@ namespace WWI.Core3.Services.Interfaces
         /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>Task&lt;HospitalDoctorInformation&gt;.</returns>
         Task<HospitalDoctorInformation> GetDoctorsForHospitalAsync(int hospitalID);
+
+        /// <summary>
+        /// Gets all speciality information for hospital.
+        /// </summary>
+        /// <param name="hospitalID">The hospital identifier.</param>
+        /// <returns>Task&lt;IQueryable&lt;SpecialityInformation&gt;&gt;.</returns>
+        IQueryable<SpecialityInformation> GetAllSpecialityInfoForHospital(int hospitalID);
+
     }
 }
