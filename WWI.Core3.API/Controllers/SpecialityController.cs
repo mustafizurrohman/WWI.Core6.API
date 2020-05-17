@@ -70,8 +70,12 @@ namespace WWI.Core3.API.Controllers
             Log.Information("Retrieved list of specialities");
 
             var specialityList = await DbContext.Specialities
-                .Select(s => s.Name)
-                .OrderBy(s => s)
+                .Select(s => new
+                {
+                    s.Name,
+                    s.SpecialtyID
+                })
+                .OrderBy(s => s.Name)
                 .AsNoTracking()
                 .ToListAsync();
 

@@ -43,6 +43,7 @@ namespace WWI.Core3.API
         /// The OpenApi information
         /// </summary>
         private readonly OpenApiInfo _info = new OpenApiInfo();
+
         /// <summary>
         /// The open API security scheme
         /// </summary>

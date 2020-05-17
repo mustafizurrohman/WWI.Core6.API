@@ -100,7 +100,7 @@
         </member>
         <member name="M:WWI.Core3.API.Controllers.HospitalController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
             <summary>
-            Initializes a new instance of the <see cref="!:DataController" /> class.
+            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.HospitalController" /> class.
             </summary>
             <param name="applicationServices">Application Services</param>
             <param name="dataService">The data service.</param>

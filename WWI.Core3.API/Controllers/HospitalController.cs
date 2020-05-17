@@ -44,7 +44,7 @@ namespace WWI.Core3.API.Controllers
         #region -- Constructor -- 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataController" /> class.
+        /// Initializes a new instance of the <see cref="HospitalController" /> class.
         /// </summary>
         /// <param name="applicationServices">Application Services</param>
         /// <param name="dataService">The data service.</param>
@@ -71,6 +71,7 @@ namespace WWI.Core3.API.Controllers
                     hos.HospitalID,
                     hos.Name
                 })
+                .AsNoTracking()
                 .ToListAsync();
 
             return Ok(hospitals);
