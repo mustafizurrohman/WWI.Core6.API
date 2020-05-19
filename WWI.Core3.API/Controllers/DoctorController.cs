@@ -86,6 +86,7 @@ namespace WWI.Core3.API.Controllers
             return Ok(doctors);
         }
 
+
         /// <summary>
         /// Gets Doctors by speciality.
         /// </summary>
