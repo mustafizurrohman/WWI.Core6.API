@@ -1,25 +1,24 @@
 ﻿// ***********************************************************************
 // Assembly         : WWI.Core3.Models
 // Author           : Mustafizur Rohman
-// Created          : 05-16-2020
+// Created          : 05-19-2020
 //
 // Last Modified By : Mustafizur Rohman
-// Last Modified On : 05-16-2020
+// Last Modified On : 05-19-2020
 // ***********************************************************************
-// <copyright file="DoctorInfo.cs" company="WWI.Core3.Models">
+// <copyright file="DoctorDropdown.cs" company="WWI.Core3.Models">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
-namespace WWI.Core3.Models.ViewModels
+namespace WWI.Core3.Models.ViewModels.Dropdown
 {
     /// <summary>
-    /// Class DoctorInfo.
+    /// Class DoctorDropdown.
     /// </summary>
-    public class DoctorInfo
+    public class DoctorDropdown
     {
-
         /// <summary>
         /// Gets or sets the doctor identifier.
         /// </summary>
@@ -31,11 +30,5 @@ namespace WWI.Core3.Models.ViewModels
         /// </summary>
         /// <value>The full name.</value>
         public string FullName { get; set; }
-        /// <summary>
-        /// Gets or sets the name of the speciality.
-        /// </summary>
-        /// <value>The name of the speciality.</value>
-        public string SpecialityName { get; set; }
     }
-
 }

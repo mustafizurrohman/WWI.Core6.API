@@ -4,7 +4,7 @@
 // Created          : 05-17-2020
 //
 // Last Modified By : Mustafizur Rohman
-// Last Modified On : 05-17-2020
+// Last Modified On : 05-19-2020
 // ***********************************************************************
 // <copyright file="HospitalController.cs" company="WWI.Core3.API">
 //     Copyright (c) . All rights reserved.
@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
 using WWI.Core3.Models.ViewModels;
+using WWI.Core3.Models.ViewModels.Dropdown;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -66,14 +68,11 @@ namespace WWI.Core3.API.Controllers
         /// <returns>IActionResult.</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetHospitals()
         {
             var hospitals = await DbContext.Hospitals
-                .Select(hos => new
-                {
-                    hos.HospitalID,
-                    hos.Name
-                })
+                .ProjectTo<HospitalDropdown>(AutoMapper.ConfigurationProvider)
                 .AsNoTracking()
                 .ToListAsync();
 
@@ -88,6 +87,7 @@ namespace WWI.Core3.API.Controllers
         /// <returns>IActionResult.</returns>
         [HttpGet("{hospitalID}")]
         [ProducesResponseType(typeof(HospitalInformation), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetHospitalById(int hospitalID)
         {
             var hospital = await DataService.GetHospitalInformationByIDAsync(hospitalID);
@@ -103,6 +103,7 @@ namespace WWI.Core3.API.Controllers
         /// <returns>IActionResult.</returns>
         [HttpGet("{hospitalID}/advancedInfo")]
         [ProducesResponseType(typeof(AdvancedHospitalInformation), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetHospitalInfoById(int hospitalID)
         {
             var advancedHospitalInformation = await DataService.GetAdvancedHospitalInformationAsync(hospitalID);
@@ -118,6 +119,7 @@ namespace WWI.Core3.API.Controllers
         /// <returns>IActionResult.</returns>
         [HttpGet("{hospitalID}/doctors")]
         [ProducesResponseType(typeof(HospitalDoctorInformation), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetDoctorsForHospitalById(int hospitalID)
         {
             var doctorsInHospital = await DataService.GetDoctorsForHospitalAsync(hospitalID);
@@ -133,6 +135,7 @@ namespace WWI.Core3.API.Controllers
         /// <returns>IActionResult.</returns>
         [HttpGet("{hospitalID}/specialities")]
         [ProducesResponseType(typeof(SpecialityInformation), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetAllSpecialityInfoForHospital(int hospitalID)
         {
             var specialityInformation = await DataService.GetAllSpecialityInfoForHospital(hospitalID)
@@ -155,6 +158,7 @@ namespace WWI.Core3.API.Controllers
         /// <returns>IActionResult.</returns>
         [HttpGet("{hospitalID}/specialities/{specialityID}")]
         [ProducesResponseType(typeof(AdvancedHospitalInformation), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetSpecialityInfoForHospital(int hospitalID, int specialityID)
         {
             var advancedHospitalInformation = await DataService.GetAdvancedHospitalInformationAsync(hospitalID);

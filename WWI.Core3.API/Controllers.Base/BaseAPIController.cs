@@ -4,7 +4,7 @@
 // Created          : 05-01-2020
 //
 // Last Modified By : Mustafizur Rohman
-// Last Modified On : 05-16-2020
+// Last Modified On : 05-19-2020
 // ***********************************************************************
 // <copyright file="BaseAPIController.cs" company="WWI.Core3.API">
 //     Copyright (c) . All rights reserved.
@@ -52,6 +52,7 @@ namespace WWI.Core3.API.Controllers.Base
         {
             DbContext = applicationServices.DbContext;
             AutoMapper = applicationServices.AutoMapper;
+
         }
 
 

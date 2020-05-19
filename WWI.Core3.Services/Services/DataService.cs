@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using WWI.Core3.Models.ViewModels;
+using WWI.Core3.Models.ViewModels.Dropdown;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Services.Services.Base;
@@ -54,6 +55,11 @@ namespace WWI.Core3.Services.Services
             return advancedHospitalInformation;
         }
 
+        /// <summary>
+        /// Gets all speciality information for hospital.
+        /// </summary>
+        /// <param name="hospitalID">The hospital identifier.</param>
+        /// <returns>Task&lt;IQueryable&lt;SpecialityInformation&gt;&gt;.</returns>
         public IQueryable<SpecialityInformation> GetAllSpecialityInfoForHospital(int hospitalID)
         {
             var specialityInformation = DbContext.Hospitals
@@ -68,12 +74,12 @@ namespace WWI.Core3.Services.Services
 
         }
 
+
         /// <summary>
         /// Gets the doctors for hospital.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>Task&lt;HospitalDoctorInformation&gt;.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
         public async Task<HospitalDoctorInformation> GetDoctorsForHospitalAsync(int hospitalID)
         {
             var doctorsForHospital = await DbContext.Hospitals
@@ -100,6 +106,21 @@ namespace WWI.Core3.Services.Services
                 .SingleOrDefaultAsync(h => h.HospitalID == hospitalID);
 
             return hospitalInformation;
+        }
+
+        /// <summary>
+        /// Gets the speciality information.
+        /// </summary>
+        /// <returns>IQueryable&lt;SpecialityDropdown&gt;.</returns>
+        public IQueryable<SpecialityDropdown> GetSpecialityInformation()
+        {
+            var specialityQuery = DbContext.Specialities
+                .ProjectTo<SpecialityDropdown>(AutoMapper.ConfigurationProvider)
+                .OrderBy(s => s.Name)
+                .AsNoTracking()
+                .AsQueryable();
+
+            return specialityQuery;
         }
 
         #region -- Private Methods --

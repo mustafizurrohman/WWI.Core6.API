@@ -699,6 +699,12 @@
             Class DoctorInfo.
             </summary>
         </member>
+        <member name="P:WWI.Core3.Models.ViewModels.DoctorInfo.DoctorID">
+            <summary>
+            Gets or sets the doctor identifier.
+            </summary>
+            <value>The doctor identifier.</value>
+        </member>
         <member name="P:WWI.Core3.Models.ViewModels.DoctorInfo.FullName">
             <summary>
             Gets or sets the full name.
@@ -710,6 +716,57 @@
             Gets or sets the name of the speciality.
             </summary>
             <value>The name of the speciality.</value>
+        </member>
+        <member name="T:WWI.Core3.Models.ViewModels.Dropdown.DoctorDropdown">
+            <summary>
+            Class DoctorDropdown.
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.Dropdown.DoctorDropdown.DoctorID">
+            <summary>
+            Gets or sets the doctor identifier.
+            </summary>
+            <value>The doctor identifier.</value>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.Dropdown.DoctorDropdown.FullName">
+            <summary>
+            Gets or sets the full name.
+            </summary>
+            <value>The full name.</value>
+        </member>
+        <member name="T:WWI.Core3.Models.ViewModels.Dropdown.HospitalDropdown">
+            <summary>
+            Class HospitalDropdown.
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.Dropdown.HospitalDropdown.HospitalID">
+            <summary>
+            Gets or sets the hospital identifier.
+            </summary>
+            <value>The hospital identifier.</value>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.Dropdown.HospitalDropdown.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:WWI.Core3.Models.ViewModels.Dropdown.SpecialityDropdown">
+            <summary>
+            Class SpecialityDropdown.
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.Dropdown.SpecialityDropdown.SpecialtyID">
+            <summary>
+            Gets or sets the specialty identifier.
+            </summary>
+            <value>The specialty identifier.</value>
+        </member>
+        <member name="P:WWI.Core3.Models.ViewModels.Dropdown.SpecialityDropdown.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
         </member>
         <member name="T:WWI.Core3.Models.ViewModels.HospitalDoctorInformation">
             <summary>

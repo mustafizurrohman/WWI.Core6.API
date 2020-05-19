@@ -4,7 +4,7 @@
 // Created          : 05-17-2020
 //
 // Last Modified By : Mustafizur Rohman
-// Last Modified On : 05-17-2020
+// Last Modified On : 05-19-2020
 // ***********************************************************************
 // <copyright file="SpecialityController.cs" company="WWI.Core3.API">
 //     Copyright (c) . All rights reserved.
@@ -12,12 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Serilog;
-using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
+using WWI.Core3.Models.ViewModels.Dropdown;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -65,21 +66,31 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [ProducesResponseType(typeof(List<SpecialityDropdown>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetSpecialities()
         {
-            Log.Information("Retrieved list of specialities");
-
-            var specialityList = await DbContext.Specialities
-                .Select(s => new
-                {
-                    s.Name,
-                    s.SpecialtyID
-                })
-                .OrderBy(s => s.Name)
-                .AsNoTracking()
+            var specialityList = await DataService.GetSpecialityInformation()
                 .ToListAsync();
 
             return Ok(specialityList);
+        }
+
+
+        /// <summary>
+        /// Gets the speciality by identifier.
+        /// </summary>
+        /// <param name="specialityID">The speciality identifier.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("{specialityID}")]
+        [ProducesResponseType(typeof(SpecialityDropdown), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> GetSpecialityByID(int specialityID)
+        {
+            var speciality = await DataService.GetSpecialityInformation()
+                .SingleOrDefaultAsync(s => s.SpecialtyID == specialityID);
+
+            return Ok(speciality);
         }
 
         #endregion

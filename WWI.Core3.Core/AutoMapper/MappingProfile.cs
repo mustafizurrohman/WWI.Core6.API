@@ -4,7 +4,7 @@
 // Created          : 05-15-2020
 //
 // Last Modified By : Mustafizur Rohman
-// Last Modified On : 05-16-2020
+// Last Modified On : 05-19-2020
 // ***********************************************************************
 // <copyright file="MappingProfile.cs" company="WWI.Core3.Core">
 //     Copyright (c) . All rights reserved.
@@ -16,6 +16,7 @@ using AutoMapper;
 using System.Linq;
 using WWI.Core3.Models.Models;
 using WWI.Core3.Models.ViewModels;
+using WWI.Core3.Models.ViewModels.Dropdown;
 
 namespace WWI.Core3.Core.AutoMapper
 {
@@ -28,10 +29,11 @@ namespace WWI.Core3.Core.AutoMapper
     public class MappingProfile : Profile
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MappingProfile"/> class.
+        /// Initializes a new instance of the <see cref="MappingProfile" /> class.
         /// </summary>
         public MappingProfile()
         {
+
             CreateMappings();
 
         }
@@ -78,12 +80,19 @@ namespace WWI.Core3.Core.AutoMapper
                 .ForMember(dst => dst.Doctors,
                     src => src.MapFrom(hos => hos.Doctors.Select(d => d.Doctor)));
 
+            // Doctor -> DoctorInfo
             CreateMap<Doctor, DoctorInfo>()
                 .ForMember(dst => dst.FullName,
                     src => src.MapFrom(doc => doc.FullName))
                 .ForMember(dst => dst.SpecialityName,
                     src => src.MapFrom(doc => doc.Speciality.Name));
 
+            // Ideally this should be automatic based on AutoMapper convention
+            CreateMap<Speciality, SpecialityDropdown>();
+
+            CreateMap<Hospital, HospitalDropdown>();
+
+            CreateMap<Doctor, DoctorDropdown>();
 
         }
 

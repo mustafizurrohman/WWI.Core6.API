@@ -67,7 +67,7 @@
         </member>
         <member name="M:WWI.Core3.API.Controllers.DoctorController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
             <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DoctorController"/> class.
+            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DoctorController" /> class.
             </summary>
             <param name="applicationServices">The application services.</param>
             <param name="dataService">The data service.</param>
@@ -171,6 +171,13 @@
             <summary>
             Gets the specialities.
             </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.SpecialityController.GetSpecialityByID(System.Int32)">
+            <summary>
+            Gets the speciality by identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
             <returns>IActionResult.</returns>
         </member>
         <member name="T:WWI.Core3.API.Program">

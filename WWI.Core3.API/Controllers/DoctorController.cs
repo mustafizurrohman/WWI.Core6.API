@@ -4,7 +4,7 @@
 // Created          : 05-17-2020
 //
 // Last Modified By : Mustafizur Rohman
-// Last Modified On : 05-17-2020
+// Last Modified On : 05-19-2020
 // ***********************************************************************
 // <copyright file="DoctorController.cs" company="WWI.Core3.API">
 //     Copyright (c) . All rights reserved.
@@ -12,13 +12,15 @@
 // <summary></summary>
 // ***********************************************************************
 
+using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Serilog;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
+using WWI.Core3.Models.ViewModels.Dropdown;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -46,7 +48,7 @@ namespace WWI.Core3.API.Controllers
         #region  -- Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DoctorController"/> class.
+        /// Initializes a new instance of the <see cref="DoctorController" /> class.
         /// </summary>
         /// <param name="applicationServices">The application services.</param>
         /// <param name="dataService">The data service.</param>
@@ -65,23 +67,16 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [ProducesResponseType(typeof(List<DoctorDropdown>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetDoctors()
         {
-            Log.Information("Retrieved list of all doctors");
+            var doctors = await DbContext.Doctors
+                .ProjectTo<DoctorDropdown>(AutoMapper.ConfigurationProvider)
+                .AsNoTracking()
+                .ToListAsync();
 
-            var doctors = (await DbContext.Doctors
-                    .Include(doc => doc.Speciality)
-                    .Select(doc => new
-                    {
-                        Name = Regex.Replace(doc.Firstname + " " + doc.Middlename + " " + doc.Lastname, @"\s+", " "),
-                        Speciality = doc.Speciality.Name
-                    })
-                    .AsNoTracking()
-                    .ToListAsync())
-                .OrderBy(doc => doc.Speciality)
-                .ThenBy(doc => doc.Name)
-                .Select(doc => doc.Name + " (" + doc.Speciality + ")")
-                .ToList();
+            doctors = doctors.OrderBy(doc => doc.FullName).ToList();
 
             return Ok(doctors);
         }
@@ -92,27 +87,23 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="specialityID">The speciality identifier.</param>
         /// <returns>IActionResult.</returns>
-        [HttpGet("{specialityID}")]
+        [HttpGet("speciality/{specialityID}")]
+        [ProducesResponseType(typeof(List<string>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> DoctorsBySpeciality(int specialityID)
         {
-            var doctors = (await DbContext.Doctors
-                    .Include(doc => doc.Speciality)
-                    .Where(doc => doc.SpecialityID == specialityID)
-                    .AsNoTracking()
-                    .ToListAsync())
-                .Select(doc => new
+            var doctorsForSpeciality = await DbContext.Doctors
+                .Where(doc => doc.SpecialityID == specialityID)
+                .Select(doc => new DoctorDropdown()
                 {
-                    Name = doc.FullName,
-                    Speciality = doc.Speciality.Name
+                    DoctorID = doc.DoctorID,
+                    FullName = doc.FullName
                 })
-                .OrderBy(doc => doc.Speciality)
-                .ThenBy(doc => doc.Name)
-                .ToList();
+                .ToListAsync();
 
-            var speciality = doctors.FirstOrDefault()?.Speciality ?? "None";
-            Log.Information($"Retrieved list of doctors for '{speciality}'.");
+            doctorsForSpeciality = doctorsForSpeciality.OrderBy(doc => doc.FullName).ToList();
 
-            return Ok(doctors);
+            return Ok(doctorsForSpeciality);
         }
 
         #endregion
