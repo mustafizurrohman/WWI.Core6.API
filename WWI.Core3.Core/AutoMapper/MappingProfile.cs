@@ -87,11 +87,14 @@ namespace WWI.Core3.Core.AutoMapper
                 .ForMember(dst => dst.SpecialityName,
                     src => src.MapFrom(doc => doc.Speciality.Name));
 
-            // Ideally this should be automatic based on AutoMapper convention
+            // Ideally this should be automatic based on AutoMapper convention?
+            // Speciality -> SpecialityDropdown
             CreateMap<Speciality, SpecialityDropdown>();
 
+            // Hospital -> HospitalDropdown
             CreateMap<Hospital, HospitalDropdown>();
 
+            // Doctor -> DoctorDropdown
             CreateMap<Doctor, DoctorDropdown>();
 
         }

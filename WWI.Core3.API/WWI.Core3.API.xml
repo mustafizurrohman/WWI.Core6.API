@@ -180,6 +180,20 @@
             <param name="specialityID">The speciality identifier.</param>
             <returns>IActionResult.</returns>
         </member>
+        <member name="M:WWI.Core3.API.Controllers.SpecialityController.GetDoctorsForSpecialityByID(System.Int32)">
+            <summary>
+            Gets the doctors for speciality by identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.SpecialityController.GetHospitalsForSpecialityByID(System.Int32)">
+            <summary>
+            Gets the hospitals with speciality by a speciality identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
+            <returns>IActionResult.</returns>
+        </member>
         <member name="T:WWI.Core3.API.Program">
             <summary>
             The program

@@ -16,6 +16,7 @@ using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -62,6 +63,7 @@ namespace WWI.Core3.API.Controllers
 
         #region  -- GET Methods --
 
+
         /// <summary>
         /// Gets the doctors.
         /// </summary>
@@ -71,6 +73,8 @@ namespace WWI.Core3.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetDoctors()
         {
+            Log.Information("Retrieved list of Doctors ...");
+
             var doctors = await DbContext.Doctors
                 .ProjectTo<DoctorDropdown>(AutoMapper.ConfigurationProvider)
                 .AsNoTracking()
@@ -88,17 +92,13 @@ namespace WWI.Core3.API.Controllers
         /// <param name="specialityID">The speciality identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet("speciality/{specialityID}")]
-        [ProducesResponseType(typeof(List<string>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<DoctorDropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> DoctorsBySpeciality(int specialityID)
         {
             var doctorsForSpeciality = await DbContext.Doctors
-                .Where(doc => doc.SpecialityID == specialityID)
-                .Select(doc => new DoctorDropdown()
-                {
-                    DoctorID = doc.DoctorID,
-                    FullName = doc.FullName
-                })
+                .Where(d => d.SpecialityID == specialityID)
+                .ProjectTo<DoctorDropdown>(AutoMapper.ConfigurationProvider)
                 .ToListAsync();
 
             doctorsForSpeciality = doctorsForSpeciality.OrderBy(doc => doc.FullName).ToList();

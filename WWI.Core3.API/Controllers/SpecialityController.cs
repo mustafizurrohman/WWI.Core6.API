@@ -12,10 +12,12 @@
 // <summary></summary>
 // ***********************************************************************
 
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
 using WWI.Core3.Models.ViewModels.Dropdown;
@@ -93,8 +95,50 @@ namespace WWI.Core3.API.Controllers
             return Ok(speciality);
         }
 
-        #endregion
+        /// <summary>
+        /// Gets the doctors for speciality by identifier.
+        /// </summary>
+        /// <param name="specialityID">The speciality identifier.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("{specialityID}/doctor")]
+        [ProducesResponseType(typeof(DoctorDropdown), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> GetDoctorsForSpecialityByID(int specialityID)
+        {
+            var doctors = await DbContext.Specialities
+                .Include(s => s.Doctors)
+                .Where(s => s.SpecialtyID == specialityID)
+                .SelectMany(s => s.Doctors)
+                .ProjectTo<DoctorDropdown>(AutoMapper.ConfigurationProvider)
+                .ToListAsync();
 
+            return Ok(doctors);
+        }
+
+
+        /// <summary>
+        /// Gets the hospitals with speciality by a speciality identifier.
+        /// </summary>
+        /// <param name="specialityID">The speciality identifier.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("{specialityID}/hospital")]
+        [ProducesResponseType(typeof(HospitalDropdown), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> GetHospitalsForSpecialityByID(int specialityID)
+        {
+            var hospitals = await DbContext.Specialities
+                .Include(s => s.Hospitals)
+                .Where(s => s.SpecialtyID == specialityID)
+                .SelectMany(s => s.Hospitals)
+                .Select(hs => hs.Hospital)
+                .ProjectTo<HospitalDropdown>(AutoMapper.ConfigurationProvider)
+                .ToListAsync();
+
+            return Ok(hospitals);
+        }
+
+
+        #endregion
 
     }
 }
