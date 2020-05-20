@@ -106,6 +106,31 @@ namespace WWI.Core3.API.Controllers
             return Ok(doctorsForSpeciality);
         }
 
+
+        /// <summary>
+        /// Doctors the by hospital.
+        /// </summary>
+        /// <param name="hospitalID">The hospital identifier.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("hospital/{hospitalID}")]
+        [ProducesResponseType(typeof(List<DoctorDropdown>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> DoctorsByHospital(int hospitalID)
+        {
+            var doctorsForHospital = await DbContext.Hospitals
+                .Include(hos => hos.Doctors)
+                .ThenInclude(hd => hd.Doctor)
+                .Where(hos => hos.HospitalID == hospitalID)
+                .SelectMany(hos => hos.Doctors)
+                .Select(hd => hd.Doctor)
+                .ProjectTo<DoctorDropdown>(AutoMapper.ConfigurationProvider)
+                .ToListAsync();
+
+            doctorsForHospital = doctorsForHospital.OrderBy(ds => ds.FullName).ToList();
+
+            return Ok(doctorsForHospital);
+        }
+
         #endregion
 
     }

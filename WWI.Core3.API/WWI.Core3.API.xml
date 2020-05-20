@@ -85,6 +85,13 @@
             <param name="specialityID">The speciality identifier.</param>
             <returns>IActionResult.</returns>
         </member>
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.DoctorsByHospital(System.Int32)">
+            <summary>
+            Doctors the by hospital.
+            </summary>
+            <param name="hospitalID">The hospital identifier.</param>
+            <returns>IActionResult.</returns>
+        </member>
         <member name="T:WWI.Core3.API.Controllers.HospitalController">
             <summary>
             Class HospitalController.
