@@ -92,6 +92,13 @@
             <param name="hospitalID">The hospital identifier.</param>
             <returns>IActionResult.</returns>
         </member>
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.AddDoctorAsync(WWI.Core3.Models.Models.Doctor)">
+            <summary>
+            add doctor as an asynchronous operation.
+            </summary>
+            <param name="doctor">The doctor.</param>
+            <returns>IActionResult.</returns>
+        </member>
         <member name="T:WWI.Core3.API.Controllers.HospitalController">
             <summary>
             Class HospitalController.

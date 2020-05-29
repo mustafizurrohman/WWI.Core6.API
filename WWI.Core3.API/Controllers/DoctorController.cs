@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
+using WWI.Core3.Models.Models;
 using WWI.Core3.Models.ViewModels.Dropdown;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
@@ -132,6 +133,20 @@ namespace WWI.Core3.API.Controllers
         }
 
         #endregion
+
+        /// <summary>
+        /// add doctor as an asynchronous operation.
+        /// </summary>
+        /// <param name="doctor">The doctor.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpPut]
+        public async Task<IActionResult> AddDoctorAsync(Doctor doctor)
+        {
+            await DbContext.Doctors.AddAsync(doctor);
+            await DbContext.SaveChangesAsync();
+
+            return Ok(doctor);
+        }
 
     }
 }
