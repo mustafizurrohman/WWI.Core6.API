@@ -17,9 +17,12 @@ using System.Diagnostics;
 
 namespace WWI.Core3.API.ActionFilters
 {
+
     /// <summary>
-    /// Benchmark attribute
+    /// Class BenchmarkAttribute. This class cannot be inherited.
+    /// Implements the <see cref="Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute" />
     /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute" />
     public sealed class BenchmarkAttribute : ActionFilterAttribute
     {
 

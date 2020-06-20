@@ -35,9 +35,6 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// <returns></returns>
         public static IServiceCollection AddSwaggerDocumentation(this IServiceCollection services, OpenApiInfo info, OpenApiSecurityScheme apiKeyScheme)
         {
-            info ??= default;
-            apiKeyScheme ??= default;
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc(info?.Version, new OpenApiInfo
@@ -61,7 +58,7 @@ namespace WWI.Core3.Core.ExtensionMethods
                     Type = SecuritySchemeType.Http
                 });
 
-                var xmlFile = $"WWI.Core3.API.xml";
+                var xmlFile = "WWI.Core3.API.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
 
@@ -79,8 +76,6 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// <returns></returns>
         public static IApplicationBuilder UseSwaggerDocumentation(this IApplicationBuilder app, OpenApiInfo info)
         {
-            info ??= default;
-
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>

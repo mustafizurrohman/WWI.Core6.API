@@ -71,52 +71,50 @@ namespace WWI.Core3.Core.ExtensionMethods
             string newLine = Environment.NewLine;
 
             // ReSharper disable once ConvertToUsingDeclaration
-            using (var sw = new StringWriter())
+            using var sw = new StringWriter();
+            // Make a new instance of the class name we figured out to get its props
+            object o = Activator.CreateInstance(t);
+            //gets all properties
+            PropertyInfo[] objectProperties = o.GetType().GetProperties();
+
+            string headerToWrite = String.Empty;
+
+            // Foreach of the properties in class above, write out properties
+            // this is the header row
+            foreach (PropertyInfo property in objectProperties)
             {
-                // Make a new instance of the class name we figured out to get its props
-                object o = Activator.CreateInstance(t);
-                //gets all properties
-                PropertyInfo[] objectProperties = o.GetType().GetProperties();
-
-                string headerToWrite = String.Empty;
-
-                // Foreach of the properties in class above, write out properties
-                // this is the header row
-                foreach (PropertyInfo property in objectProperties)
-                {
-                    headerToWrite += property.Name + ";";
-                }
-
-                // Remove last character
-                headerToWrite = headerToWrite.Remove(headerToWrite.Length - 1);
-                sw.Write(headerToWrite);
-                sw.Write(newLine);
-
-                // This acts as data row
-                foreach (T item in list)
-                {
-                    string stringToWrite = String.Empty;
-
-                    // This acts as data column
-                    foreach (PropertyInfo pi in objectProperties)
-                    {
-                        // This is the row+col intersection (the value)
-                        string whatToWrite = Convert.ToString(item.GetType()
-                                                    .GetProperty(pi.Name)
-                                                    .GetValue(item, null)).Replace(',', ' ') + ';';
-
-                        stringToWrite += whatToWrite;
-                    }
-
-                    // Remove last ';'
-                    stringToWrite = stringToWrite.Remove(stringToWrite.Length - 1);
-                    sw.Write(stringToWrite);
-                    sw.Write(newLine);
-                }
-
-                return sw.ToString();
+                headerToWrite += property.Name + ";";
             }
 
+            // Remove last character
+            headerToWrite = headerToWrite.Remove(headerToWrite.Length - 1);
+            sw.Write(headerToWrite);
+            sw.Write(newLine);
+
+            // This acts as data row
+            foreach (T item in list)
+            {
+                string stringToWrite = String.Empty;
+
+                // This acts as data column
+                // ReSharper disable once LoopCanBeConvertedToQuery
+                foreach (PropertyInfo pi in objectProperties)
+                {
+                    // This is the row+col intersection (the value)
+                    string whatToWrite = Convert.ToString(item.GetType()
+                        .GetProperty(pi.Name)
+                        ?.GetValue(item, null)).Replace(',', ' ') + ';';
+
+                    stringToWrite += whatToWrite;
+                }
+
+                // Remove last ';'
+                stringToWrite = stringToWrite.Remove(stringToWrite.Length - 1);
+                sw.Write(stringToWrite);
+                sw.Write(newLine);
+            }
+
+            return sw.ToString();
         }
 
         /// <summary>
@@ -144,7 +142,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// <param name="source">Source IList</param>
         /// <param name="firstIndex">First index</param>
         /// <param name="secondIndex">Second index</param>
-        internal static void Swap<T>(this IList<T> source, int firstIndex, int secondIndex)
+        private static void Swap<T>(this IList<T> source, int firstIndex, int secondIndex)
         {
             var temp = source[firstIndex];
             source[firstIndex] = source[secondIndex];

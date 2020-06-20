@@ -13,6 +13,7 @@
 // ***********************************************************************
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace WWI.Core3.Core.ExtensionMethods
@@ -20,6 +21,7 @@ namespace WWI.Core3.Core.ExtensionMethods
     /// <summary>
     /// Extension methods for Datetime
     /// </summary>
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     public static class DatetimeExtensions
     {
 

@@ -64,7 +64,7 @@ namespace WWI.Core3.API
         /// Gets the configuration.
         /// </summary>
         /// <value>The configuration.</value>
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         /// <summary>
         /// This method gets called by the runtime. Use this method to add services to the container.
@@ -112,6 +112,7 @@ namespace WWI.Core3.API
         /// </summary>
         /// <param name="app">Application Builder</param>
         /// <param name="env">Hosting Environment</param>
+        // ReSharper disable once UnusedMember.Global
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -126,7 +127,7 @@ namespace WWI.Core3.API
                 app.UseHsts(opts => opts.MaxAge(365).Preload());
             }
 
-            // Ensure that site content is not being embedded in an iframe on other sites 
+            // Ensure that site content is not being embedded in an IFrame on other sites 
             //  - used for avoid click-jacking attacks.
             app.UseXfo(options => options.SameOrigin());
 

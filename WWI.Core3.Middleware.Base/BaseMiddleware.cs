@@ -27,7 +27,7 @@ namespace WWI.Core3.Middleware.Base
         /// Request delegate
         /// </summary>
         /// <value>The next.</value>
-        public RequestDelegate Next { get; }
+        protected RequestDelegate Next { get; }
 
         /// <summary>
         /// Instance of service provider

@@ -6,8 +6,10 @@
     <members>
         <member name="T:WWI.Core3.API.ActionFilters.BenchmarkAttribute">
             <summary>
-            Benchmark attribute
+            Class BenchmarkAttribute. This class cannot be inherited.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute" />
             </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute" />
         </member>
         <member name="F:WWI.Core3.API.ActionFilters.BenchmarkAttribute._timer">
             <summary>
@@ -78,11 +80,11 @@
             </summary>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.DoctorsBySpeciality(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.DoctorsBySpecialty(System.Int32)">
             <summary>
-            Gets Doctors by speciality.
+            Gets Doctors by specialty.
             </summary>
-            <param name="specialityID">The speciality identifier.</param>
+            <param name="specialityID">The specialty identifier.</param>
             <returns>IActionResult.</returns>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DoctorController.DoctorsByHospital(System.Int32)">

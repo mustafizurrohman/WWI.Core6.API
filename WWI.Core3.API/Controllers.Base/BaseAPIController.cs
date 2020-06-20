@@ -36,13 +36,13 @@ namespace WWI.Core3.API.Controllers.Base
         /// The database context
         /// </summary>
         /// <value>The database context.</value>
-        public DocAppointmentContext DbContext { get; }
+        protected DocAppointmentContext DbContext { get; }
 
         /// <summary>
         /// AutoMapper
         /// </summary>
         /// <value>The automatic mapper.</value>
-        public IMapper AutoMapper { get; }
+        protected IMapper AutoMapper { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseAPIController" /> class.

@@ -45,7 +45,7 @@ namespace WWI.Core3.Models.Seed.Helper
         /// </summary>
         /// <param name="fileName">Name of the file.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public static bool SeedGeneratedFileExists(string fileName)
+        private static bool SeedGeneratedFileExists(string fileName)
         {
             return File.Exists(BasePathGeneratedSeed + fileName);
         }
@@ -57,7 +57,7 @@ namespace WWI.Core3.Models.Seed.Helper
         /// <param name="fileName">Name of the file.</param>
         /// <returns>System.String.</returns>
         /// <exception cref="ArgumentException">File does not exist.</exception>
-        public static string GetSourceFileContents(string fileName)
+        private static string GetSourceFileContents(string fileName)
         {
             if (!File.Exists(BasePath + fileName))
             {
@@ -73,7 +73,7 @@ namespace WWI.Core3.Models.Seed.Helper
         /// <param name="fileName">Name of the file.</param>
         /// <returns>System.String.</returns>
         /// <exception cref="ArgumentException">File does not exist.</exception>
-        public static string GetGeneratedFileContents(string fileName)
+        private static string GetGeneratedFileContents(string fileName)
         {
             if (!File.Exists(BasePathGeneratedSeed + fileName))
             {
@@ -114,11 +114,9 @@ namespace WWI.Core3.Models.Seed.Helper
         /// </summary>
         /// <param name="fileName">Name of the file.</param>
         /// <param name="contents">The contents.</param>
-        public static void SaveGeneratedFileContent(string fileName, string contents)
+        private static void SaveGeneratedFileContent(string fileName, string contents)
         {
             File.WriteAllText(BasePathGeneratedSeed + fileName, contents, Encoding.UTF8);
-
-            return;
         }
 
         /// <summary>

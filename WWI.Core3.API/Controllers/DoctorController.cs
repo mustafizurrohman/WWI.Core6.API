@@ -43,6 +43,7 @@ namespace WWI.Core3.API.Controllers
         /// Gets the data service.
         /// </summary>
         /// <value>The data service.</value>
+        // ReSharper disable once UnusedAutoPropertyAccessor.Local
         private IDataService DataService { get; }
 
         #endregion
@@ -88,23 +89,23 @@ namespace WWI.Core3.API.Controllers
 
 
         /// <summary>
-        /// Gets Doctors by speciality.
+        /// Gets Doctors by specialty.
         /// </summary>
-        /// <param name="specialityID">The speciality identifier.</param>
+        /// <param name="specialityID">The specialty identifier.</param>
         /// <returns>IActionResult.</returns>
-        [HttpGet("speciality/{specialityID}")]
+        [HttpGet("specialty/{specialityID}")]
         [ProducesResponseType(typeof(List<DoctorDropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> DoctorsBySpeciality(int specialityID)
+        public async Task<IActionResult> DoctorsBySpecialty(int specialityID)
         {
-            var doctorsForSpeciality = await DbContext.Doctors
+            var doctorsForSpecialty = await DbContext.Doctors
                 .Where(d => d.SpecialityID == specialityID)
                 .ProjectTo<DoctorDropdown>(AutoMapper.ConfigurationProvider)
                 .ToListAsync();
 
-            doctorsForSpeciality = doctorsForSpeciality.OrderBy(doc => doc.FullName).ToList();
+            doctorsForSpecialty = doctorsForSpecialty.OrderBy(doc => doc.FullName).ToList();
 
-            return Ok(doctorsForSpeciality);
+            return Ok(doctorsForSpecialty);
         }
 
 

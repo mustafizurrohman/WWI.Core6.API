@@ -46,10 +46,13 @@ namespace WWI.Core3.Core.ExtensionMethods
             }
             else if (type.IsArray)
             {
+                // ReSharper disable once PossibleNullReferenceException
                 Type elementType = Type.GetType(type.FullName.Replace("[]", string.Empty));
 
                 var array = sourceObject as Array;
 
+                // ReSharper disable once AssignNullToNotNullAttribute
+                // ReSharper disable once PossibleNullReferenceException
                 Array copied = Array.CreateInstance(elementType, array.Length);
 
                 for (int i = 0; i < array.Length; i++)
@@ -109,13 +112,15 @@ namespace WWI.Core3.Core.ExtensionMethods
                 return false;
             }
 
-            if (!obj1.GetType().Equals(obj2.GetType()))
+            // ReSharper disable once CheckForReferenceEqualityInstead.3
+            if (obj1.GetType() != obj2.GetType())
             {
                 return false;
             }
 
             Type type = obj1.GetType();
 
+            // ReSharper disable once CheckForReferenceEqualityInstead.1
             if (type.IsPrimitive || typeof(string).Equals(type))
             {
                 return obj1.Equals(obj2);
@@ -126,12 +131,12 @@ namespace WWI.Core3.Core.ExtensionMethods
                 Array first = obj1 as Array;
                 Array second = obj2 as Array;
 
-                var en = first.GetEnumerator();
+                var en = first?.GetEnumerator();
                 int i = 0;
-                while (en.MoveNext())
+                while (en != null && en.MoveNext())
                 {
 
-                    if (!DeepCompare(en.Current, second.GetValue(i)))
+                    if (second != null && !DeepCompare(en.Current, second.GetValue(i)))
                         return false;
                     i++;
                 }
@@ -173,7 +178,7 @@ namespace WWI.Core3.Core.ExtensionMethods
             {
                 if (i.CanWrite)
                 {
-                    object value = objectToCopy.GetType().GetProperty(i.Name).GetValue(objectToCopy, null);
+                    object value = objectToCopy.GetType().GetProperty(i.Name)?.GetValue(objectToCopy, null);
                     i.SetValue(newObject, value, null);
                 }
             }

@@ -26,13 +26,13 @@ namespace WWI.Core3.Services.Services.Base
         /// <summary>
         /// The database context
         /// </summary>
-        public DocAppointmentContext DbContext;
+        protected DocAppointmentContext DbContext { get; }
 
         /// <summary>
         /// AutoMapper
         /// </summary>
         /// <value>The automatic mapper.</value>
-        public IMapper AutoMapper { get; }
+        protected IMapper AutoMapper { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseService" /> class.

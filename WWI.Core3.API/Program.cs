@@ -17,13 +17,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System;
+// ReSharper disable ClassNeverInstantiated.Global
 
 namespace WWI.Core3.API
 {
     /// <summary>
     /// The program
     /// </summary>
-    public class Program
+    public static class Program
     {
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace WWI.Core3.API
         /// </summary>
         /// <param name="args">The arguments.</param>
         /// <returns>IHostBuilder.</returns>
-        public static IHostBuilder CreateHostBuilder(string[] args)
+        private static IHostBuilder CreateHostBuilder(string[] args)
         {
             return Host.CreateDefaultBuilder(args)
                 .UseSerilog()

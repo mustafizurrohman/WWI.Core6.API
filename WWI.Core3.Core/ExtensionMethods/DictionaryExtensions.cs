@@ -33,12 +33,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// <returns>T2.</returns>
         public static T2 GetValueOrDefault<T1, T2>(this Dictionary<T1, T2> dictionary, T1 key, T2 defaultValue = default)
         {
-            if (dictionary.ContainsKey(key))
-            {
-                return dictionary[key];
-            }
-
-            return defaultValue;
+            return dictionary.ContainsKey(key) ? dictionary[key] : defaultValue;
         }
 
 

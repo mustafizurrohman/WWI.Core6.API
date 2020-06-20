@@ -80,13 +80,15 @@ namespace WWI.Core3.Models.Models
         /// </summary>
         /// <value>The pin.</value>
         [MaxLength(50)]
+        // ReSharper disable once InconsistentNaming
         public string PIN { get; set; }
 
         /// <summary>
         /// Gets or sets the hospitals.
         /// </summary>
         /// <value>The hospitals.</value>
-        public IEnumerable<Hospital> Hospitals { get; set; }
+        // ReSharper disable once MemberCanBePrivate.Global
+        public IEnumerable<Hospital> Hospitals { get; }
 
     }
 }

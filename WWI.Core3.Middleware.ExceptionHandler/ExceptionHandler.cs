@@ -25,6 +25,7 @@ namespace WWI.Core3.Middleware.ExceptionHandler
     /// <summary>
     /// Exception Handler Middleware
     /// </summary>
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class ExceptionHandler : BaseMiddleware
     {
 
@@ -57,18 +58,21 @@ namespace WWI.Core3.Middleware.ExceptionHandler
             {
                 await Next.Invoke(context);
             }
+#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
             {
                 await HandleExceptionAsync(context, ex);
             }
+#pragma warning restore CA1031 // Do not catch general exception types
 
         }
 
+
         /// <summary>
-        /// Handles the exception asynchronously
+        /// Handles the exception asynchronous.
         /// </summary>
         /// <param name="httpContext">The HTTP context.</param>
-        /// <param name="ex">The ex.</param>
+        /// <param name="ex">The exception</param>
         /// <returns>Task.</returns>
         private Task HandleExceptionAsync(HttpContext httpContext, Exception ex)
         {

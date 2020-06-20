@@ -339,7 +339,7 @@ namespace WWI.Core3.Models.DbContext
 
             #endregion
 
-            Log.Debug($"Completed generation of seed data");
+            Log.Debug("Completed generation of seed data");
         }
 
         /// <summary>

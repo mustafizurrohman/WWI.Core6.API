@@ -18,6 +18,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using WWI.Core3.Core.Helpers;
 
+// ReSharper disable MemberCanBePrivate.Global
 namespace WWI.Core3.Core.ExtensionMethods
 {
     /// <summary>

@@ -28,20 +28,19 @@ namespace WWI.Core3.Core.AutoMapper
     /// <seealso cref="Profile" />
     public class MappingProfile : Profile
     {
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MappingProfile" /> class.
         /// </summary>
         public MappingProfile()
         {
-
             CreateMappings();
-
         }
 
         /// <summary>
         /// Creates the mappings.
         /// </summary>
-        public void CreateMappings()
+        private void CreateMappings()
         {
 
             // Hospital -> HospitalInformation

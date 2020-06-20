@@ -45,23 +45,20 @@ namespace WWI.Core3.Core.ExtensionMethods
         {
             using IServiceScope serviceScope = applicationBuilder.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
             {
-                using (var context = serviceScope.ServiceProvider.GetService<DocAppointmentContext>())
+                using var context = serviceScope.ServiceProvider.GetService<DocAppointmentContext>();
+                try
                 {
-
-                    try
-                    {
-                        Log.Information("Starting to migrate database ...");
-                        context.Database.Migrate();
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Error("An exception occured during migrating database ...");
-                        Log.Error(ex.ToString());
-                    }
-                    finally
-                    {
-                        Log.Information("Database Migration completed ...");
-                    }
+                    Log.Information("Starting to migrate database ...");
+                    context.Database.Migrate();
+                }
+                catch (Exception ex)
+                {
+                    Log.Error("An exception occurred during migrating database ...");
+                    Log.Error(ex.ToString());
+                }
+                finally
+                {
+                    Log.Information("Database Migration completed ...");
                 }
             }
         }

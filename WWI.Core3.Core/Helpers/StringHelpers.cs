@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using WWI.Core3.Core.ExtensionMethods;
+// ReSharper disable MemberCanBePrivate.Global
 
 namespace WWI.Core3.Core.Helpers
 {
@@ -37,7 +38,7 @@ namespace WWI.Core3.Core.Helpers
 
             if (length < 0)
             {
-                throw new ArgumentOutOfRangeException("length", "Length must be positive!");
+                throw new ArgumentOutOfRangeException(nameof(length), "Length must be positive!");
             }
 
             // char.MinValue, char.MaxValue

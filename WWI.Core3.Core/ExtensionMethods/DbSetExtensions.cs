@@ -19,6 +19,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
+// ReSharper disable UnusedMember.Global
 
 namespace WWI.Core3.Core.ExtensionMethods
 {
@@ -75,6 +76,7 @@ namespace WWI.Core3.Core.ExtensionMethods
             foreach (var keyField in keyFields)
             {
                 var keyVal = keyField.GetValue(data);
+                // ReSharper disable once PossibleNullReferenceException
                 entities = entities.Where(p => p.GetType().GetProperty(keyField.Name).GetValue(p).Equals(keyVal)).ToList();
             }
             var dbVal = entities.FirstOrDefault();
@@ -116,6 +118,7 @@ namespace WWI.Core3.Core.ExtensionMethods
             int i = 0;
             foreach (var keyVal in keyVals)
             {
+                // ReSharper disable once PossibleNullReferenceException
                 entities = entities.Where(p => p.GetType().GetProperty(keyFields[i].Name).GetValue(p).Equals(keyVal)).ToList();
                 i++;
             }
@@ -129,12 +132,13 @@ namespace WWI.Core3.Core.ExtensionMethods
                     foreach (var keyAttr in keyAttrs)
                     {
                         keyAttr.SetValue(data,
-                            dbVal.GetType()
+                            // ReSharper disable once PossibleNullReferenceException
+                            dbVal?.GetType()
                                 .GetProperties()
                                 .FirstOrDefault(p => p.Name == keyAttr.Name)
                                 .GetValue(dbVal));
                     }
-                    context.Entry(dbVal).CurrentValues.SetValues(data);
+                    context.Entry(dbVal!).CurrentValues.SetValues(data);
                     context.Entry(dbVal).State = EntityState.Modified;
                     return;
                 }
@@ -148,12 +152,12 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="dbSet">The database set.</param>
         /// <returns>DbContext.</returns>
-        public static DbContext GetContext<TEntity>(this DbSet<TEntity> dbSet) where TEntity : class
+        private static DbContext GetContext<TEntity>(this DbSet<TEntity> dbSet) where TEntity : class
         {
             return (DbContext)dbSet
                 .GetType().GetTypeInfo()
                 .GetField("_context", BindingFlags.NonPublic | BindingFlags.Instance)
-                .GetValue(dbSet);
+                ?.GetValue(dbSet);
         }
 
     }

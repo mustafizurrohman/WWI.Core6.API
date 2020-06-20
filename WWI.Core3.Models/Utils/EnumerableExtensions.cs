@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+// ReSharper disable MemberCanBePrivate.Global
 
 namespace WWI.Core3.Models.Utils
 {
