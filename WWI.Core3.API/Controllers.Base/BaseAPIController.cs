@@ -52,10 +52,7 @@ namespace WWI.Core3.API.Controllers.Base
         {
             DbContext = applicationServices.DbContext;
             AutoMapper = applicationServices.AutoMapper;
-
         }
-
-
 
     }
 }

@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -22,6 +23,7 @@ namespace WWI.Core3.Models.Models
     /// <summary>
     /// Doctor
     /// </summary>
+    // ReSharper disable once PartialTypeWithSinglePart
     public sealed partial class Doctor
     {
         /// <summary>
@@ -74,12 +76,15 @@ namespace WWI.Core3.Models.Models
         /// Gets or sets the speciality.
         /// </summary>
         /// <value>The speciality.</value>
-        public Speciality Speciality { get; set; }
+        public Speciality Speciality { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Gets or sets the hospitals.
         /// </summary>
         /// <value>The hospitals.</value>
+        // ReSharper disable once MemberCanBePrivate.Global
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
+        // ReSharper disable once CollectionNeverUpdated.Global
         public List<HospitalDoctor> Hospitals { get; set; }
 
         /// <summary>

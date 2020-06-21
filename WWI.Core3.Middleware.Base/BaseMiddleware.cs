@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Threading.Tasks;
@@ -32,6 +33,7 @@ namespace WWI.Core3.Middleware.Base
         /// <summary>
         /// Instance of service provider
         /// </summary>
+        [UsedImplicitly]
         private readonly IServiceProvider _serviceProvider;
 
         /// <summary>
@@ -51,6 +53,7 @@ namespace WWI.Core3.Middleware.Base
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns>Task.</returns>
+        [UsedImplicitly]
         public abstract Task InvokeAsync(HttpContext context);
     }
 }

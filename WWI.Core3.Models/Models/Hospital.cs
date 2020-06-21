@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,6 +22,7 @@ namespace WWI.Core3.Models.Models
     /// <summary>
     /// Hospital
     /// </summary>
+    // ReSharper disable once PartialTypeWithSinglePart
     public sealed partial class Hospital
     {
         /// <summary>
@@ -39,13 +41,13 @@ namespace WWI.Core3.Models.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID")]
-        public int HospitalID { get; set; }
+        public int HospitalID { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string Name { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Gets or sets the address identifier.
@@ -58,18 +60,22 @@ namespace WWI.Core3.Models.Models
         /// Gets or sets the address.
         /// </summary>
         /// <value>The address.</value>
-        public Address Address { get; set; }
+        public Address Address { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Gets or sets the doctors.
         /// </summary>
         /// <value>The doctors.</value>
+        // ReSharper disable once MemberCanBePrivate.Global
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public IEnumerable<HospitalDoctor> Doctors { get; set; }
 
         /// <summary>
         /// Gets or sets the specialities.
         /// </summary>
         /// <value>The specialities.</value>
+        // ReSharper disable once MemberCanBePrivate.Global
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public IEnumerable<HospitalSpeciality> Specialities { get; set; }
 
     }

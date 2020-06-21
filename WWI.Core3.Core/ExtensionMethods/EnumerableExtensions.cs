@@ -28,6 +28,7 @@ namespace WWI.Core3.Core.ExtensionMethods
     public static class EnumerableExtensions
     {
 
+        /*
         /// <summary>
         /// Converts an IEnumerable to its CSV representation
         /// </summary>
@@ -37,7 +38,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         public static string ToCsv<T>(this IEnumerable<T> list)
         {
             return list.ToCsv();
-        }
+        } */
 
         /// <summary>
         /// Groups a IEnumerable w.r.t. an attribute

@@ -543,14 +543,6 @@
             Extension methods for IEnumerable
             </summary>
         </member>
-        <member name="M:WWI.Core3.Models.Utils.EnumerableExtensions.ToCsv``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            Converts an IEnumerable to its CSV representation
-            </summary>
-            <typeparam name="T">Type</typeparam>
-            <param name="list">IEnumerable of Type T to convert to CSV</param>
-            <returns>System.String.</returns>
-        </member>
         <member name="M:WWI.Core3.Models.Utils.EnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
             <summary>
             Groups a IEnumerable w.r.t. an attribute

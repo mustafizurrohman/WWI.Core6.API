@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,6 +22,7 @@ namespace WWI.Core3.Models.Models
     /// <summary>
     /// Class Address.
     /// </summary>
+    // ReSharper disable once PartialTypeWithSinglePart
     public sealed partial class Address
     {
         /// <summary>
@@ -88,7 +90,8 @@ namespace WWI.Core3.Models.Models
         /// </summary>
         /// <value>The hospitals.</value>
         // ReSharper disable once MemberCanBePrivate.Global
-        public IEnumerable<Hospital> Hospitals { get; }
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
+        public IEnumerable<Hospital> Hospitals { [UsedImplicitly] get; set; }
 
     }
 }

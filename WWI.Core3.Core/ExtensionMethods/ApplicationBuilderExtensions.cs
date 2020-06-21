@@ -32,6 +32,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// </summary>
         /// <param name="applicationBuilder">Application Builder</param>
         /// <returns>IApplicationBuilder.</returns>
+        // ReSharper disable once UnusedMethodReturnValue.Global
         public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder applicationBuilder)
         {
             return applicationBuilder.UseMiddleware<ExceptionHandler>();

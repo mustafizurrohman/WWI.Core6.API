@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using JetBrains.Annotations;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,7 +31,7 @@ namespace WWI.Core3.Models.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID")]
-        public int HospitalDoctorID { get; set; }
+        public int HospitalDoctorID { [UsedImplicitly] get; set; }
 
         /// <summary>
         /// Gets or sets the doctor identifier.
@@ -42,7 +43,7 @@ namespace WWI.Core3.Models.Models
         /// Gets or sets the doctor.
         /// </summary>
         /// <value>The doctor.</value>
-        public Doctor Doctor { get; set; }
+        public Doctor Doctor { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Gets or sets the hospital identifier.
@@ -54,6 +55,6 @@ namespace WWI.Core3.Models.Models
         /// Gets or sets the hospital.
         /// </summary>
         /// <value>The hospital.</value>
-        public Hospital Hospital { get; set; }
+        public Hospital Hospital { get; [UsedImplicitly] set; }
     }
 }

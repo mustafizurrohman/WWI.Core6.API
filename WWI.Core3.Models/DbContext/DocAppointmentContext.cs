@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Serilog;
@@ -27,6 +28,7 @@ namespace WWI.Core3.Models.DbContext
     /// <summary>
     /// Database context
     /// </summary>
+    // ReSharper disable once PartialTypeWithSinglePart
     public partial class DocAppointmentContext : Microsoft.EntityFrameworkCore.DbContext
     {
         /// <summary>
@@ -103,13 +105,13 @@ namespace WWI.Core3.Models.DbContext
         /// Doctors Table
         /// </summary>
         /// <value>The doctors.</value>
-        public virtual DbSet<Doctor> Doctors { get; set; }
+        public virtual DbSet<Doctor> Doctors { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Specialities Table
         /// </summary>
         /// <value>The specialities.</value>
-        public virtual DbSet<Speciality> Specialities { get; set; }
+        public virtual DbSet<Speciality> Specialities { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Addresses Table
@@ -121,7 +123,7 @@ namespace WWI.Core3.Models.DbContext
         /// Hospitals Table
         /// </summary>
         /// <value>The hospitals.</value>
-        public virtual DbSet<Hospital> Hospitals { get; set; }
+        public virtual DbSet<Hospital> Hospitals { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Hospital Doctors Table
@@ -200,7 +202,12 @@ namespace WWI.Core3.Models.DbContext
         /// <param name="overwrite">if set to <c>true</c> [overwrite].</param>
         private void GenerateSeedData(bool overwrite = false)
         {
-            Log.Debug($"Generating seed data with overwrite set to {overwrite}");
+            if (overwrite == false)
+            {
+                return;
+            }
+
+            Log.Debug($"Generating seed data with overwrite set to {true}");
 
             Directory.CreateDirectory(BasePathGeneratedSeed);
 
@@ -210,7 +217,7 @@ namespace WWI.Core3.Models.DbContext
 
             var specialitiesJsonString = JsonConvert.SerializeObject(specialityList, new JsonSerializerSettings { Formatting = Formatting.Indented });
 
-            SeedHelper.SaveOrOverwriteGeneratedFile(SpecialitiesFileName, specialitiesJsonString, overwrite);
+            SeedHelper.SaveOrOverwriteGeneratedFile(SpecialitiesFileName, specialitiesJsonString, true);
 
             #endregion
 
@@ -234,7 +241,7 @@ namespace WWI.Core3.Models.DbContext
 
             var doctorListJsonString = JsonConvert.SerializeObject(doctorList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveOrOverwriteGeneratedFile(DoctorFileName, doctorListJsonString, overwrite);
+            SeedHelper.SaveOrOverwriteGeneratedFile(DoctorFileName, doctorListJsonString, true);
 
             // Local function
             Doctor GetRandomDoctor(int doctorID)
@@ -257,7 +264,7 @@ namespace WWI.Core3.Models.DbContext
 
             var addressJsonString = JsonConvert.SerializeObject(addressList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveOrOverwriteGeneratedFile(AddressesFileName, addressJsonString, overwrite);
+            SeedHelper.SaveOrOverwriteGeneratedFile(AddressesFileName, addressJsonString, true);
 
             #endregion
 
@@ -267,7 +274,7 @@ namespace WWI.Core3.Models.DbContext
 
             var hospitalJsonString = JsonConvert.SerializeObject(hospitalList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveOrOverwriteGeneratedFile(HospitalsFileName, hospitalJsonString, overwrite);
+            SeedHelper.SaveOrOverwriteGeneratedFile(HospitalsFileName, hospitalJsonString, true);
 
             #endregion
 
@@ -293,7 +300,7 @@ namespace WWI.Core3.Models.DbContext
 
             var hospitalDoctorJsonString = JsonConvert.SerializeObject(hospitalDoctorList, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveOrOverwriteGeneratedFile(HospitalDoctorsFileName, hospitalDoctorJsonString, overwrite);
+            SeedHelper.SaveOrOverwriteGeneratedFile(HospitalDoctorsFileName, hospitalDoctorJsonString, true);
 
             #endregion
 
@@ -334,7 +341,7 @@ namespace WWI.Core3.Models.DbContext
 
             var hospitalSpecialitiesJsonString = JsonConvert.SerializeObject(hospitalSpecialities, _defaultJsonSerializerSettings);
 
-            SeedHelper.SaveOrOverwriteGeneratedFile(HospitalSpecialityFileName, hospitalSpecialitiesJsonString, overwrite);
+            SeedHelper.SaveOrOverwriteGeneratedFile(HospitalSpecialityFileName, hospitalSpecialitiesJsonString, true);
 
 
             #endregion
@@ -368,6 +375,7 @@ namespace WWI.Core3.Models.DbContext
         /// 
         /// </summary>
         /// <param name="modelBuilder"></param>
+        // ReSharper disable once PartialMethodWithSinglePart
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

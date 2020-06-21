@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using JetBrains.Annotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,6 +22,7 @@ namespace WWI.Core3.Models.Models
     /// <summary>
     /// Class Speciality. This class cannot be inherited.
     /// </summary>
+    // ReSharper disable once PartialTypeWithSinglePart
     public sealed partial class Speciality
     {
 
@@ -39,26 +41,28 @@ namespace WWI.Core3.Models.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID")]
-        public int SpecialtyID { get; set; }
+        public int SpecialtyID { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
         [MaxLength(100)]
-        public string Name { get; set; }
+        public string Name { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Gets or sets the doctors.
         /// </summary>
         /// <value>The doctors.</value>
+        // ReSharper disable once MemberCanBePrivate.Global
+        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public IEnumerable<Doctor> Doctors { get; set; }
 
         /// <summary>
         /// Gets or sets the hospitals.
         /// </summary>
         /// <value>The hospitals.</value>
-        public IEnumerable<HospitalSpeciality> Hospitals { get; set; }
+        public IEnumerable<HospitalSpeciality> Hospitals { get; [UsedImplicitly] set; }
 
     }
 }

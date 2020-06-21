@@ -33,6 +33,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// <param name="info"></param>
         /// <param name="apiKeyScheme"></param>
         /// <returns></returns>
+        // ReSharper disable once UnusedMethodReturnValue.Global
         public static IServiceCollection AddSwaggerDocumentation(this IServiceCollection services, OpenApiInfo info, OpenApiSecurityScheme apiKeyScheme)
         {
             services.AddSwaggerGen(c =>
@@ -74,6 +75,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// <param name="app"></param>
         /// <param name="info"></param>
         /// <returns></returns>
+        // ReSharper disable once UnusedMethodReturnValue.Global
         public static IApplicationBuilder UseSwaggerDocumentation(this IApplicationBuilder app, OpenApiInfo info)
         {
             app.UseSwagger();

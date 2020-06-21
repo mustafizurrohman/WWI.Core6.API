@@ -88,6 +88,7 @@ namespace WWI.Core3.Core.ExtensionMethods
 
         }
 
+        /*
         /// <summary>
         /// Deep clones an object using Force DeepCloner
         /// </summary>
@@ -96,7 +97,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         public static object DeepClone(this object sourceObject)
         {
             return sourceObject.DeepClone();
-        }
+        } */
 
         /// <summary>
         /// Deeps the compare.
