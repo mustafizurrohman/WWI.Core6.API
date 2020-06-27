@@ -30,13 +30,11 @@ using WWI.Core3.Services.Services;
 
 namespace WWI.Core3.API
 {
-
     /// <summary>
     /// Startup class
     /// </summary>
     public class Startup
     {
-
         #region -- Private Properties
 
         /// <summary>
@@ -72,8 +70,7 @@ namespace WWI.Core3.API
         /// <param name="services">Service Collection</param>
         public void ConfigureServices(IServiceCollection services)
         {
-
-            #region -- Swagger -- 
+            #region -- Swagger --
 
             Configuration.GetSection("Swagger").Bind(_info);
             Configuration.GetSection("ApiKeyScheme").Bind(_openApiSecurityScheme);
@@ -91,7 +88,7 @@ namespace WWI.Core3.API
 
             #endregion
 
-            #region  -- Service Configuration --
+            #region -- Service Configuration --
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -153,10 +150,7 @@ namespace WWI.Core3.API
 
             app.MigrateDatabase();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

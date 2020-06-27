@@ -32,8 +32,9 @@ namespace WWI.Core3.Services.Interfaces
         /// <returns>Task&lt;HospitalInformation&gt;.</returns>
         Task<HospitalInformation> GetHospitalInformationByIDAsync(int hospitalID);
 
+
         /// <summary>
-        /// Gets the advanced hospital information.
+        /// Gets the advanced hospital information asynchronously
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>Task&lt;AdvancedHospitalInformation&gt;.</returns>

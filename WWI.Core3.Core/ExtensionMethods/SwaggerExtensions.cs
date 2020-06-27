@@ -26,13 +26,11 @@ namespace WWI.Core3.Core.ExtensionMethods
     public static class SwaggerExtensions
     {
 
-        /// <summary>
-        /// Extension method to configure swagger and add documentation
-        /// </summary>
-        /// <param name="services"></param>
-        /// <param name="info"></param>
-        /// <param name="apiKeyScheme"></param>
-        /// <returns></returns>
+        /// <summary>Adds the swagger documentation.</summary>
+        /// <param name="services">The services.</param>
+        /// <param name="info">The information.</param>
+        /// <param name="apiKeyScheme">The API key scheme.</param>
+        /// <returns>IServiceCollection.</returns>
         // ReSharper disable once UnusedMethodReturnValue.Global
         public static IServiceCollection AddSwaggerDocumentation(this IServiceCollection services, OpenApiInfo info, OpenApiSecurityScheme apiKeyScheme)
         {

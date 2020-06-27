@@ -24,8 +24,11 @@ using WWI.Core3.Services.Services.Base;
 
 namespace WWI.Core3.Services.Services
 {
+
     /// <summary>
     /// Class DataService.
+    /// Implements the <see cref="WWI.Core3.Services.Services.Base.BaseService" />
+    /// Implements the <see cref="WWI.Core3.Services.Interfaces.IDataService" />
     /// </summary>
     /// <seealso cref="WWI.Core3.Services.Services.Base.BaseService" />
     /// <seealso cref="WWI.Core3.Services.Interfaces.IDataService" />

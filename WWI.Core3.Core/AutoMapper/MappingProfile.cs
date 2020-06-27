@@ -40,6 +40,7 @@ namespace WWI.Core3.Core.AutoMapper
         /// <summary>
         /// Creates the mappings.
         /// </summary>
+        // ReSharper disable once TooManyDeclarations
         private void CreateMappings()
         {
 

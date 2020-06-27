@@ -29,8 +29,10 @@ namespace WWI.Core3.API.Controllers.Base
     [Benchmark]
     [Route("[controller]")]
     [Produces("application/json")]
-    public class BaseAPIController : ControllerBase
+    public abstract class BaseAPIController : ControllerBase
     {
+
+        #region  -- Attributes -- 
 
         /// <summary>
         /// The database context
@@ -44,15 +46,22 @@ namespace WWI.Core3.API.Controllers.Base
         /// <value>The automatic mapper.</value>
         protected IMapper AutoMapper { get; }
 
+        #endregion
+
+        #region -- Constructor -- 
+
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseAPIController" /> class.
         /// </summary>
         /// <param name="applicationServices">The database context.</param>
-        public BaseAPIController(ApplicationServices applicationServices)
+        protected BaseAPIController(ApplicationServices applicationServices)
         {
             DbContext = applicationServices.DbContext;
             AutoMapper = applicationServices.AutoMapper;
         }
 
+        #endregion
+
     }
+
 }
