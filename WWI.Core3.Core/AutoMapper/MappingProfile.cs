@@ -13,7 +13,9 @@
 // ***********************************************************************
 
 using AutoMapper;
+using JetBrains.Annotations;
 using System.Linq;
+using WWI.Core3.Core.ExtensionMethods;
 using WWI.Core3.Models.Models;
 using WWI.Core3.Models.ViewModels;
 
@@ -25,6 +27,7 @@ namespace WWI.Core3.Core.AutoMapper
     /// Implements the <see cref="Profile" />
     /// </summary>
     /// <seealso cref="Profile" />
+    [UsedImplicitly]
     public class MappingProfile : Profile
     {
 
@@ -105,7 +108,7 @@ namespace WWI.Core3.Core.AutoMapper
                 .ForMember(dst => dst.ID,
                     src => src.MapFrom(s => s.DoctorID))
                 .ForMember(dst => dst.DisplayValue,
-                    src => src.MapFrom(s => s.FullName));
+                    src => src.MapFrom(s => (s.Firstname + " " + s.Middlename + " " + s.Lastname).RemoveConsequtiveSpaces()));
 
 
         }

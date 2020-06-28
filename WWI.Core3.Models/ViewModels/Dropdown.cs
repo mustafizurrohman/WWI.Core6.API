@@ -17,6 +17,6 @@
         /// Gets or sets the display value.
         /// </summary>
         /// <value>The display value.</value>
-        public int DisplayValue { get; set; }
+        public string DisplayValue { get; set; }
     }
 }
