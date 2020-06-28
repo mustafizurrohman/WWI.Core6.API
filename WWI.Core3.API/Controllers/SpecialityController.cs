@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
-using WWI.Core3.Models.ViewModels.Dropdown;
+using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -68,7 +68,7 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <returns>IActionResult.</returns>
         [HttpGet]
-        [ProducesResponseType(typeof(List<SpecialityDropdown>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetSpecialities()
         {
@@ -85,12 +85,12 @@ namespace WWI.Core3.API.Controllers
         /// <param name="specialityID">The speciality identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{specialityID}")]
-        [ProducesResponseType(typeof(SpecialityDropdown), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Dropdown), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetSpecialityByID(int specialityID)
         {
             var speciality = await DataService.GetSpecialityInformation()
-                .SingleOrDefaultAsync(s => s.SpecialtyID == specialityID);
+                .SingleOrDefaultAsync(s => s.ID == specialityID);
 
             return Ok(speciality);
         }
@@ -101,7 +101,7 @@ namespace WWI.Core3.API.Controllers
         /// <param name="specialityID">The speciality identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{specialityID}/doctor")]
-        [ProducesResponseType(typeof(DoctorDropdown), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Dropdown), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetDoctorsForSpecialityByID(int specialityID)
         {
@@ -109,7 +109,7 @@ namespace WWI.Core3.API.Controllers
                 .Include(s => s.Doctors)
                 .Where(s => s.SpecialtyID == specialityID)
                 .SelectMany(s => s.Doctors)
-                .ProjectTo<DoctorDropdown>(AutoMapper.ConfigurationProvider)
+                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
                 .ToListAsync();
 
             return Ok(doctors);
@@ -122,7 +122,7 @@ namespace WWI.Core3.API.Controllers
         /// <param name="specialityID">The speciality identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{specialityID}/hospital")]
-        [ProducesResponseType(typeof(HospitalDropdown), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Dropdown), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetHospitalsForSpecialityByID(int specialityID)
         {
@@ -131,7 +131,7 @@ namespace WWI.Core3.API.Controllers
                 .Where(s => s.SpecialtyID == specialityID)
                 .SelectMany(s => s.Hospitals)
                 .Select(hs => hs.Hospital)
-                .ProjectTo<HospitalDropdown>(AutoMapper.ConfigurationProvider)
+                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
                 .ToListAsync();
 
             return Ok(hospitals);

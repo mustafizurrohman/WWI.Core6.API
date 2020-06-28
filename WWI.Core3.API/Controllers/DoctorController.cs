@@ -22,7 +22,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
 using WWI.Core3.Models.Models;
-using WWI.Core3.Models.ViewModels.Dropdown;
+using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -71,18 +71,18 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <returns>IActionResult.</returns>
         [HttpGet]
-        [ProducesResponseType(typeof(List<DoctorDropdown>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetDoctors()
         {
             Log.Information("Retrieved list of Doctors ...");
 
             var doctors = await DbContext.Doctors
-                .ProjectTo<DoctorDropdown>(AutoMapper.ConfigurationProvider)
+                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
                 .AsNoTracking()
                 .ToListAsync();
 
-            doctors = doctors.OrderBy(doc => doc.FullName).ToList();
+            doctors = doctors.OrderBy(doc => doc.DisplayValue).ToList();
 
             return Ok(doctors);
         }
@@ -94,16 +94,16 @@ namespace WWI.Core3.API.Controllers
         /// <param name="specialityID">The specialty identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet("specialty/{specialityID}")]
-        [ProducesResponseType(typeof(List<DoctorDropdown>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> DoctorsBySpecialty(int specialityID)
         {
             var doctorsForSpecialty = await DbContext.Doctors
                 .Where(d => d.SpecialityID == specialityID)
-                .ProjectTo<DoctorDropdown>(AutoMapper.ConfigurationProvider)
+                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
                 .ToListAsync();
 
-            doctorsForSpecialty = doctorsForSpecialty.OrderBy(doc => doc.FullName).ToList();
+            doctorsForSpecialty = doctorsForSpecialty.OrderBy(doc => doc.DisplayValue).ToList();
 
             return Ok(doctorsForSpecialty);
         }
@@ -115,7 +115,7 @@ namespace WWI.Core3.API.Controllers
         /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet("hospital/{hospitalID}")]
-        [ProducesResponseType(typeof(List<DoctorDropdown>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> DoctorsByHospital(int hospitalID)
         {
@@ -125,10 +125,10 @@ namespace WWI.Core3.API.Controllers
                 .Where(hos => hos.HospitalID == hospitalID)
                 .SelectMany(hos => hos.Doctors)
                 .Select(hd => hd.Doctor)
-                .ProjectTo<DoctorDropdown>(AutoMapper.ConfigurationProvider)
+                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
                 .ToListAsync();
 
-            doctorsForHospital = doctorsForHospital.OrderBy(ds => ds.FullName).ToList();
+            doctorsForHospital = doctorsForHospital.OrderBy(ds => ds.DisplayValue).ToList();
 
             return Ok(doctorsForHospital);
         }

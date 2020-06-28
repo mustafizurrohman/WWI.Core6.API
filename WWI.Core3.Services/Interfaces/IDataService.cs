@@ -15,10 +15,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 using WWI.Core3.Models.ViewModels;
-using WWI.Core3.Models.ViewModels.Dropdown;
-
 namespace WWI.Core3.Services.Interfaces
 {
+
     /// <summary>
     /// Interface IDataService
     /// </summary>
@@ -58,6 +57,6 @@ namespace WWI.Core3.Services.Interfaces
         /// Gets the speciality information.
         /// </summary>
         /// <returns>IQueryable&lt;SpecialityDropdown&gt;.</returns>
-        IQueryable<SpecialityDropdown> GetSpecialityInformation();
+        IQueryable<Dropdown> GetSpecialityInformation();
     }
 }

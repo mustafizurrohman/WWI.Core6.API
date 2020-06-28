@@ -17,7 +17,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using WWI.Core3.Models.ViewModels;
-using WWI.Core3.Models.ViewModels.Dropdown;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Services.Services.Base;
@@ -115,11 +114,11 @@ namespace WWI.Core3.Services.Services
         /// Gets the speciality information.
         /// </summary>
         /// <returns>IQueryable&lt;SpecialityDropdown&gt;.</returns>
-        public IQueryable<SpecialityDropdown> GetSpecialityInformation()
+        public IQueryable<Dropdown> GetSpecialityInformation()
         {
             var specialityQuery = DbContext.Specialities
-                .ProjectTo<SpecialityDropdown>(AutoMapper.ConfigurationProvider)
-                .OrderBy(s => s.Name)
+                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
+                .OrderBy(s => s.DisplayValue)
                 .AsNoTracking()
                 .AsQueryable();
 

@@ -20,7 +20,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
 using WWI.Core3.Models.ViewModels;
-using WWI.Core3.Models.ViewModels.Dropdown;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -72,7 +71,7 @@ namespace WWI.Core3.API.Controllers
         public async Task<IActionResult> GetHospitals()
         {
             var hospitals = await DbContext.Hospitals
-                .ProjectTo<HospitalDropdown>(AutoMapper.ConfigurationProvider)
+                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
                 .AsNoTracking()
                 .ToListAsync();
 

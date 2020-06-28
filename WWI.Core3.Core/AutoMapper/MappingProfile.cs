@@ -16,7 +16,6 @@ using AutoMapper;
 using System.Linq;
 using WWI.Core3.Models.Models;
 using WWI.Core3.Models.ViewModels;
-using WWI.Core3.Models.ViewModels.Dropdown;
 
 namespace WWI.Core3.Core.AutoMapper
 {
@@ -87,15 +86,27 @@ namespace WWI.Core3.Core.AutoMapper
                 .ForMember(dst => dst.SpecialityName,
                     src => src.MapFrom(doc => doc.Speciality.Name));
 
-            // Ideally this should be automatic based on AutoMapper convention?
-            // Speciality -> SpecialityDropdown
-            CreateMap<Speciality, SpecialityDropdown>();
+            // Speciality -> Dropdown
+            CreateMap<Speciality, Dropdown>()
+                .ForMember(dst => dst.ID,
+                    src => src.MapFrom(s => s.SpecialtyID))
+                .ForMember(dst => dst.DisplayValue,
+                    src => src.MapFrom(s => s.Name));
 
-            // Hospital -> HospitalDropdown
-            CreateMap<Hospital, HospitalDropdown>();
+            // Hospital -> Dropdown
+            CreateMap<Hospital, Dropdown>()
+                .ForMember(dst => dst.ID,
+                    src => src.MapFrom(s => s.HospitalID))
+                .ForMember(dst => dst.DisplayValue,
+                    src => src.MapFrom(s => s.Name));
 
-            // Doctor -> DoctorDropdown
-            CreateMap<Doctor, DoctorDropdown>();
+            // Doctor -> Dropdown
+            CreateMap<Doctor, Dropdown>()
+                .ForMember(dst => dst.ID,
+                    src => src.MapFrom(s => s.DoctorID))
+                .ForMember(dst => dst.DisplayValue,
+                    src => src.MapFrom(s => s.FullName));
+
 
         }
 
