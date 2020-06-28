@@ -73,7 +73,7 @@ namespace WWI.Core3.Models.Utils
 
             if (max < min)
             {
-                throw new ArgumentException("Max must be greater than Min");
+                throw new ArgumentException($"{nameof(max)} must be greater than {nameof(min)}");
             }
 
             // Generate a random number

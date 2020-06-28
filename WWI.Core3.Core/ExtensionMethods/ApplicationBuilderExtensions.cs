@@ -22,11 +22,13 @@ using WWI.Core3.Models.DbContext;
 
 namespace WWI.Core3.Core.ExtensionMethods
 {
+
     /// <summary>
     /// Extension methods for Application Builder
     /// </summary>
     public static class ApplicationBuilderExtensions
     {
+
         /// <summary>
         /// Extension Method to use custom exception handler
         /// </summary>

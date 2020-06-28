@@ -63,7 +63,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         {
             if (list == null || list.Count == 0)
             {
-                return String.Empty;
+                return string.Empty;
             }
 
             // Get type from 0th member
@@ -94,7 +94,7 @@ namespace WWI.Core3.Core.ExtensionMethods
             // This acts as data row
             foreach (T item in list)
             {
-                string stringToWrite = String.Empty;
+                string stringToWrite = string.Empty;
 
                 // This acts as data column
                 // ReSharper disable once LoopCanBeConvertedToQuery
@@ -125,12 +125,14 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         public static IEnumerable<T> DeepClone<T>(this IEnumerable<T> source)
         {
+            JsonSerializerSettings serializerSettings = new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            };
 
-            var serialized = JsonConvert.SerializeObject(source);
-            return JsonConvert.DeserializeObject<IEnumerable<T>>(serialized);
+            var serialized = JsonConvert.SerializeObject(source, serializerSettings);
 
-            // return new List<T>(source);
-
+            return JsonConvert.DeserializeObject<IEnumerable<T>>(serialized, serializerSettings);
         }
 
         #region -- Internal Methods --
