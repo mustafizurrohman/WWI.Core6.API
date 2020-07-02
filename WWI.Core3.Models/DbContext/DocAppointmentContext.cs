@@ -31,10 +31,12 @@ namespace WWI.Core3.Models.DbContext
     // ReSharper disable once PartialTypeWithSinglePart
     public partial class DocAppointmentContext : Microsoft.EntityFrameworkCore.DbContext
     {
+
         /// <summary>
         /// The base path generated seed
         /// </summary>
         private const string BasePathGeneratedSeed = "../WWI.Core3.Models/Seed/Generated";
+
         /// <summary>
         /// The base path
         /// </summary>
@@ -44,34 +46,42 @@ namespace WWI.Core3.Models.DbContext
         /// The doctor file name
         /// </summary>
         private const string DoctorFileName = "doctors.json";
+
         /// <summary>
         /// The addresses file name
         /// </summary>
         private const string AddressesFileName = "addresses.json";
+
         /// <summary>
         /// The first names file name
         /// </summary>
         private const string FirstNamesFileName = "firstnames.json";
+
         /// <summary>
         /// The middle names file name
         /// </summary>
         private const string MiddleNamesFileName = "middlenames.json";
+
         /// <summary>
         /// The last names file name
         /// </summary>
         private const string LastNamesFileName = "lastnames.json";
+
         /// <summary>
         /// The hospitals file name
         /// </summary>
         private const string HospitalsFileName = "hospitals.json";
+
         /// <summary>
         /// The specialities file name
         /// </summary>
         private const string SpecialitiesFileName = "specialities.json";
+
         /// <summary>
         /// The hospital doctors file name
         /// </summary>
         private const string HospitalDoctorsFileName = "hospitalDoctors.json";
+
         /// <summary>
         /// The hospital speciality file name
         /// </summary>

@@ -20,7 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWI.Core3.Middleware.Except
 		{36F23D1E-FA34-411D-A3A8-43A56D176281} = {36F23D1E-FA34-411D-A3A8-43A56D176281}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWI.Core3.Services", "WWI.Core3.Services\WWI.Core3.Services.csproj", "{1135168E-177C-4D36-8E59-0337212AB5B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWI.Core3.Services", "WWI.Core3.Services\WWI.Core3.Services.csproj", "{1135168E-177C-4D36-8E59-0337212AB5B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWI.Core3.Core.Tests", "WWI.Core3.Core.Tests\WWI.Core3.Core.Tests.csproj", "{82FBCD1C-2CF8-42E2-95A5-DD8D46D4FB52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +54,10 @@ Global
 		{1135168E-177C-4D36-8E59-0337212AB5B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1135168E-177C-4D36-8E59-0337212AB5B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1135168E-177C-4D36-8E59-0337212AB5B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82FBCD1C-2CF8-42E2-95A5-DD8D46D4FB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82FBCD1C-2CF8-42E2-95A5-DD8D46D4FB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82FBCD1C-2CF8-42E2-95A5-DD8D46D4FB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82FBCD1C-2CF8-42E2-95A5-DD8D46D4FB52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
