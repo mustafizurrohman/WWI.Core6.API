@@ -113,7 +113,7 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// <returns>System.String.</returns>
         public static string RemoveConsequtiveSpaces(this string input)
         {
-            return Regex.Replace(input, @"\s+", " ");
+            return Regex.Replace(input.Trim(), @"\s+", " ");
         }
 
 
