@@ -15,12 +15,15 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using SqlKata.Compilers;
+using SqlKata.Execution;
 using System;
 using WWI.Core3.Core.ExtensionMethods;
 using WWI.Core3.Models.DbContext;
@@ -81,10 +84,21 @@ namespace WWI.Core3.API
 
             #region -- Database Configuration --
 
+            string connectionString = Configuration.GetConnectionString("AppointmentDb");
+
             services.AddDbContext<DocAppointmentContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("AppointmentDb"));
+                options.UseSqlServer(connectionString);
             });
+
+            #region -- SQL Kata --
+
+            var connection = new SqlConnection(connectionString);
+            var sqlKataCompiler = new MySqlCompiler();
+
+            services.AddTransient(sp => new QueryFactory(connection, sqlKataCompiler));
+
+            #endregion
 
             #endregion
 
