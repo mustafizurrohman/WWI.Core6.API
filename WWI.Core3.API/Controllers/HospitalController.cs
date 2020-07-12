@@ -72,6 +72,7 @@ namespace WWI.Core3.API.Controllers
         {
             var hospitals = await DbContext.Hospitals
                 .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
+                .OrderBy(hos => hos.DisplayValue)
                 .AsNoTracking()
                 .ToListAsync();
 
