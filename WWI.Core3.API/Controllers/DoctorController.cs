@@ -93,7 +93,7 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="specialityID">The specialty identifier.</param>
         /// <returns>IActionResult.</returns>
-        [HttpGet("specialty/{specialityID}")]
+        [HttpGet("speciality/{specialityID}")]
         [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> DoctorsBySpecialty(int specialityID)
