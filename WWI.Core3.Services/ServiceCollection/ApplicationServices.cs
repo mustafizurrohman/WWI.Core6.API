@@ -20,7 +20,7 @@ namespace WWI.Core3.Services.ServiceCollection
     /// <summary>
     /// Class ApplicationServices.
     /// </summary>
-    public class ApplicationServices
+    public class ApplicationServices : IApplicationServices
     {
         /// <summary>
         /// The database context

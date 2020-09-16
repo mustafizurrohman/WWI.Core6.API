@@ -38,7 +38,7 @@ namespace WWI.Core3.Services.Services.Base
         /// Initializes a new instance of the <see cref="BaseService" /> class.
         /// </summary>
         /// <param name="applicationServices">The application services.</param>
-        protected BaseService(ApplicationServices applicationServices)
+        protected BaseService(IApplicationServices applicationServices)
         {
             DbContext = applicationServices.DbContext;
             AutoMapper = applicationServices.AutoMapper;

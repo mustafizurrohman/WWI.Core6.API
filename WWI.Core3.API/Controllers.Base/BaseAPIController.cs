@@ -53,8 +53,8 @@ namespace WWI.Core3.API.Controllers.Base
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseAPIController" /> class.
         /// </summary>
-        /// <param name="applicationServices">The database context.</param>
-        protected BaseAPIController(ApplicationServices applicationServices)
+        /// <param name="applicationServices">The collection of frequently used application services.</param>
+        protected BaseAPIController(IApplicationServices applicationServices)
         {
             DbContext = applicationServices.DbContext;
             AutoMapper = applicationServices.AutoMapper;

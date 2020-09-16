@@ -92,7 +92,7 @@ namespace WWI.Core3.API
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddTransient(typeof(ApplicationServices));
+            services.AddTransient<IApplicationServices, ApplicationServices>();
 
             services.AddTransient<IDataService, DataService>();
 

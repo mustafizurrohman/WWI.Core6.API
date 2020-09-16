@@ -48,11 +48,11 @@
             </summary>
             <value>The automatic mapper.</value>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices)">
+        <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" /> class.
             </summary>
-            <param name="applicationServices">The database context.</param>
+            <param name="applicationServices">The collection of frequently used application services.</param>
         </member>
         <member name="T:WWI.Core3.API.Controllers.DoctorController">
             <summary>
@@ -67,7 +67,7 @@
             </summary>
             <value>The data service.</value>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DoctorController" /> class.
             </summary>
@@ -114,7 +114,7 @@
             </summary>
             <value>The data service.</value>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.HospitalController" /> class.
             </summary>
@@ -163,6 +163,24 @@
             <param name="specialityID">The speciality identifier.</param>
             <returns>IActionResult.</returns>
         </member>
+        <member name="T:WWI.Core3.API.Controllers.PratyushController">
+            <summary>
+            Class PratyushController.
+            Implements the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
+            </summary>
+            <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.PratyushController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.PratyushController"/> class.
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.PratyushController.TestAsync">
+            <summary>
+            Tests this instance.
+            </summary>
+            <returns>Task&lt;IActionResult&gt;.</returns>
+        </member>
         <member name="T:WWI.Core3.API.Controllers.SpecialityController">
             <summary>
             Class SpecialityController.
@@ -209,6 +227,24 @@
             </summary>
             <param name="specialityID">The speciality identifier.</param>
             <returns>IActionResult.</returns>
+        </member>
+        <member name="T:WWI.Core3.API.Controllers.TestController">
+            <summary>
+            Class TestController.
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.TestController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.TestController"/> class.
+            </summary>
+            <param name="applicationServices">The database context.</param>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.TestController.Test123">
+            <summary>
+            Test123s this instance.
+            </summary>
+            <returns>IActionResult.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
         </member>
         <member name="T:WWI.Core3.API.Program">
             <summary>

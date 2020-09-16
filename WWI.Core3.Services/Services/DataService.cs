@@ -38,7 +38,7 @@ namespace WWI.Core3.Services.Services
         /// Initializes a new instance of the <see cref="DataService" /> class.
         /// </summary>
         /// <param name="applicationServices">Application Services</param>
-        public DataService(ApplicationServices applicationServices) : base(applicationServices)
+        public DataService(IApplicationServices applicationServices) : base(applicationServices)
         {
         }
 
