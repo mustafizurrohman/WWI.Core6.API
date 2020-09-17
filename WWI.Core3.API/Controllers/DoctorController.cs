@@ -65,7 +65,6 @@ namespace WWI.Core3.API.Controllers
 
         #region  -- GET Methods --
 
-
         /// <summary>
         /// Gets the doctors.
         /// </summary>

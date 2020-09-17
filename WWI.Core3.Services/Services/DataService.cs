@@ -35,11 +35,18 @@ namespace WWI.Core3.Services.Services
     {
 
         /// <summary>
+        /// The shared service
+        /// </summary>
+        private ISharedService SharedService { get; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="DataService" /> class.
         /// </summary>
         /// <param name="applicationServices">Application Services</param>
-        public DataService(IApplicationServices applicationServices) : base(applicationServices)
+        /// <param name="sharedService">Shared Service</param>
+        public DataService(IApplicationServices applicationServices, ISharedService sharedService) : base(applicationServices)
         {
+            SharedService = sharedService;
         }
 
         /// <summary>
@@ -104,7 +111,7 @@ namespace WWI.Core3.Services.Services
         /// <returns>Task<HospitalInformation></HospitalInformation></returns>
         public async Task<HospitalInformation> GetHospitalInformationByIDAsync(int hospitalID)
         {
-            var hospitalInformation = await GetHospitalInformation()
+            var hospitalInformation = await SharedService.GetHospitalInformation()
                 .SingleOrDefaultAsync(h => h.HospitalID == hospitalID);
 
             return hospitalInformation;
@@ -125,20 +132,7 @@ namespace WWI.Core3.Services.Services
             return specialityQuery;
         }
 
-        #region -- Private Methods --
 
-        /// <summary>
-        /// Gets the hospital information.
-        /// </summary>
-        /// <returns>IQueryable&lt;HospitalInformation&gt;.</returns>
-        private IQueryable<HospitalInformation> GetHospitalInformation()
-        {
-            return DbContext.Hospitals
-                .ProjectTo<HospitalInformation>(AutoMapper.ConfigurationProvider)
-                .AsQueryable();
-        }
-
-        #endregion
 
 
 

@@ -27,6 +27,7 @@ using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Services.Services;
+using WWI.Core3.Services.Services.Shared;
 
 namespace WWI.Core3.API
 {
@@ -95,6 +96,8 @@ namespace WWI.Core3.API
             services.AddTransient<IApplicationServices, ApplicationServices>();
 
             services.AddTransient<IDataService, DataService>();
+
+            services.AddTransient<ISharedService, SharedService>();
 
             services.AddMvc()
                 .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
