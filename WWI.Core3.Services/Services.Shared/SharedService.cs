@@ -30,6 +30,8 @@ namespace WWI.Core3.Services.Services.Shared
     public class SharedService : ISharedService
     {
 
+        #region - Attributes -- 
+
         /// <summary>
         /// Gets the database context.
         /// </summary>
@@ -42,6 +44,10 @@ namespace WWI.Core3.Services.Services.Shared
         /// <value>The automatic mapper.</value>
         private IMapper AutoMapper { get; }
 
+        #endregion 
+
+        #region -- Constructor --
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SharedService"/> class.
         /// </summary>
@@ -53,6 +59,9 @@ namespace WWI.Core3.Services.Services.Shared
             AutoMapper = autoMapper;
         }
 
+        #endregion
+
+        #region -- Public Methods --
 
         /// <summary>
         /// Gets the hospital information.
@@ -64,5 +73,9 @@ namespace WWI.Core3.Services.Services.Shared
                 .ProjectTo<HospitalInformation>(AutoMapper.ConfigurationProvider)
                 .AsQueryable();
         }
+
+        #endregion
+
     }
+
 }

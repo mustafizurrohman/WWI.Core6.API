@@ -50,20 +50,29 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// Does not actually verify the email.
         /// </summary>
         /// <param name="password">The password.</param>
+        /// <param name="minLength">The Minimum Length</param>
         /// <returns><c>true</c> if [is valid password] [the specified password]; otherwise, <c>false</c>.</returns>
-        public static bool IsValidPassword(this string password)
+        public static bool IsValidPassword(this string password, int minLength = 8)
         {
-            if (password.Length < 8 || string.IsNullOrWhiteSpace(password))
-            {
+            if (password.Length < minLength || string.IsNullOrWhiteSpace(password))
                 return false;
-            }
 
-            bool containsUppercase = password.Any(char.IsUpper);
-            bool containsLowercase = password.Any(char.IsLower);
-            bool containsDigit = password.Any(char.IsDigit);
-            bool containsSpecialChars = password.ContainsSpecialCharacters();
+            if (!password.Any(char.IsUpper))
+                return false;
 
-            return containsUppercase && containsLowercase && containsDigit && containsSpecialChars;
+
+            if (!password.Any(char.IsLower))
+                return false;
+
+            if (!password.Any(char.IsDigit))
+                return false;
+
+            // ReSharper disable once ConvertIfStatementToReturnStatement
+            if (password.All(char.IsLetterOrDigit))
+                return false;
+
+            return true;
+
         }
 
         /// <summary>
@@ -72,18 +81,9 @@ namespace WWI.Core3.Core.ExtensionMethods
         /// </summary>
         /// <param name="password">The password.</param>
         /// <returns><c>true</c> if [contains special characters] [the specified password]; otherwise, <c>false</c>.</returns>
-        /// TODO: Optimize this
         public static bool ContainsSpecialCharacters(this string password)
         {
-            foreach (char c in password)
-            {
-                if (!char.IsLetterOrDigit(c))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return password.Any(c => !char.IsLetterOrDigit(c));
         }
 
         /// <summary>
@@ -116,6 +116,46 @@ namespace WWI.Core3.Core.ExtensionMethods
             return Regex.Replace(input.Trim(), @"\s+", " ");
         }
 
+        /// <summary>
+        /// Counts the number of words in a string
+        /// </summary>
+        /// <param name="sourceString">The source string.</param>
+        /// <returns>System.Int32.</returns>
+        public static int CountWords(this string sourceString)
+        {
+            return sourceString
+                .Trim()
+                .Split(" ")
+                .Count(substring => !string.IsNullOrWhiteSpace(substring));
+        }
+
+        /// <summary>
+        /// Capitalizes the specified source string.
+        /// </summary>
+        /// <param name="sourceString">The source string.</param>
+        /// <returns>System.String.</returns>
+        public static string CapitalizeWord(this string sourceString)
+        {
+            if (string.IsNullOrEmpty(sourceString))
+                return string.Empty;
+
+            return char.ToUpper(sourceString[0]) + sourceString.Substring(1);
+        }
+
+        /// <summary>
+        /// Capitalizes the each word of sentence.
+        /// </summary>
+        /// <param name="sourceString">The source string.</param>
+        /// <returns>System.String.</returns>
+        public static string CapitalizeEachWordOfSentence(this string sourceString)
+        {
+            return sourceString
+                .Split(" ")
+                .Where(word => !string.IsNullOrWhiteSpace(word))
+                .Select(CapitalizeWord)
+                .Aggregate((str1, str2) => str1 + " " + str2)
+                .ToString();
+        }
 
     }
 }

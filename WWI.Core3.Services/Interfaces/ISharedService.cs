@@ -29,6 +29,7 @@ namespace WWI.Core3.Services.Interfaces
         /// </summary>
         /// <returns>IQueryable&lt;HospitalInformation&gt;.</returns>
         IQueryable<HospitalInformation> GetHospitalInformation();
+
     }
 
 }

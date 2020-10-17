@@ -53,16 +53,19 @@ namespace WWI.Core3.Models.ViewModels
         /// </summary>
         /// <value>The key values.</value>
         public Dictionary<string, object> KeyValues { get; } = new Dictionary<string, object>();
+
         /// <summary>
         /// Gets the old values.
         /// </summary>
         /// <value>The old values.</value>
         public Dictionary<string, object> OldValues { get; } = new Dictionary<string, object>();
+
         /// <summary>
         /// Creates new values.
         /// </summary>
         /// <value>The new values.</value>
         public Dictionary<string, object> NewValues { get; } = new Dictionary<string, object>();
+
         /// <summary>
         /// Gets the temporary properties.
         /// </summary>

@@ -12,6 +12,8 @@
 // <summary></summary>
 // ***********************************************************************
 
+using AutoFixture.Xunit2;
+using FluentAssertions;
 using System.Linq;
 using WWI.Core3.Core.ExtensionMethods;
 using Xunit;
@@ -57,31 +59,38 @@ namespace WWI.Core3.Core.Tests.ExtensionMethods
         /// Defines the test method Verify_That_Consequiteive_Spaces_Are_Corrected_Removed.
         /// </summary>
         /// <param name="inputString">The input string.</param>
-        [Theory]
-        [InlineData("Mustafizur       Rohman")]
+        [Theory, AutoData]
         public void Verify_That_Consequiteive_Spaces_Are_Corrected_Removed(string inputString)
         {
 
-            static int CountWords(string sourceString)
-            {
-                return sourceString
-                    .Trim()
-                    .Split(" ")
-                    .Count(substring => !string.IsNullOrWhiteSpace(substring));
-            }
-
             var outputString = inputString.RemoveConsequtiveSpaces();
 
-            var wordsInSourceString = CountWords(inputString);
-            var wordsInOutputString = CountWords(outputString);
+            var wordsInOutputString = outputString.CountWords();
 
             var spacesInOutputString = outputString.Count(s => s == ' ');
 
-            Assert.Equal(wordsInSourceString, wordsInOutputString);
-            Assert.Equal(wordsInOutputString, spacesInOutputString + 1);
+            wordsInOutputString
+                .Should()
+                .Be(wordsInOutputString);
+
+            wordsInOutputString
+                .Should()
+                .Be(spacesInOutputString + 1);
+
         }
 
         #endregion
+
+        /// <summary>
+        /// Defines the test method Verify_Method_CapitalizeEachWordOfSentence.
+        /// </summary>
+        /// <param name="inputString">The input string.</param>
+        [Theory]
+        [InlineData("this is a sentence which  needs to    be tested    . Test 12     543  ")]
+        public void Verify_Method_CapitalizeEachWordOfSentence(string inputString)
+        {
+            var outputString = inputString.CapitalizeEachWordOfSentence();
+        }
 
 
 

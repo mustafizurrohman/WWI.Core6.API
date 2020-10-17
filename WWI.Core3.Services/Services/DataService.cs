@@ -26,11 +26,11 @@ namespace WWI.Core3.Services.Services
 
     /// <summary>
     /// Class DataService.
-    /// Implements the <see cref="WWI.Core3.Services.Services.Base.BaseService" />
-    /// Implements the <see cref="WWI.Core3.Services.Interfaces.IDataService" />
+    /// Implements the <see cref="BaseService" />
+    /// Implements the <see cref="IDataService" />
     /// </summary>
-    /// <seealso cref="WWI.Core3.Services.Services.Base.BaseService" />
-    /// <seealso cref="WWI.Core3.Services.Interfaces.IDataService" />
+    /// <seealso cref="BaseService" />
+    /// <seealso cref="IDataService" />
     public class DataService : BaseService, IDataService
     {
 
@@ -80,7 +80,6 @@ namespace WWI.Core3.Services.Services
                 .AsNoTracking();
 
             return specialityInformation;
-
         }
 
 
