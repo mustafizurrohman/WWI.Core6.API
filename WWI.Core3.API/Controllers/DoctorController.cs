@@ -55,7 +55,7 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="applicationServices">The application services.</param>
         /// <param name="dataService">The data service.</param>
-        public DoctorController(ApplicationServices applicationServices, IDataService dataService) : base(
+        public DoctorController(IApplicationServices applicationServices, IDataService dataService) : base(
             applicationServices)
         {
 
@@ -66,7 +66,7 @@ namespace WWI.Core3.API.Controllers
         #endregion
 
         #region  -- GET Methods --
-        
+
         /// <summary>
         /// Gets the doctors.
         /// </summary>
@@ -94,7 +94,7 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="specialityID">The specialty identifier.</param>
         /// <returns>IActionResult.</returns>
-        [HttpGet("specialty/{specialityID}")]
+        [HttpGet("speciality/{specialityID}")]
         [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> DoctorsBySpecialty(int specialityID)

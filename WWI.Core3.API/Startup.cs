@@ -27,6 +27,7 @@ using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Services.Services;
+using WWI.Core3.Services.Services.Shared;
 
 namespace WWI.Core3.API
 {
@@ -95,9 +96,11 @@ namespace WWI.Core3.API
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddTransient(typeof(ApplicationServices));
+            services.AddTransient<IApplicationServices, ApplicationServices>();
 
             services.AddTransient<IDataService, DataService>();
+
+            services.AddTransient<ISharedService, SharedService>();
 
             services.AddMvc()
                 .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
@@ -153,7 +156,16 @@ namespace WWI.Core3.API
 
             app.MigrateDatabase();
 
+            app.UseCors(options =>
+            {
+                options.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin();
+            });
+
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+
         }
 
     }

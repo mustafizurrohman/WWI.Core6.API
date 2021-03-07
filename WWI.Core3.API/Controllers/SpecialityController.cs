@@ -53,8 +53,8 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="applicationServices">Application Services</param>
         /// <param name="dataService">The data service.</param>
-        public SpecialityController(ApplicationServices applicationServices, IDataService dataService) : base(
-            applicationServices)
+        public SpecialityController(ApplicationServices applicationServices, IDataService dataService)
+            : base(applicationServices)
         {
             DataService = dataService;
         }
