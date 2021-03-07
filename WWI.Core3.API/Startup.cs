@@ -15,15 +15,12 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using SqlKata.Compilers;
-using SqlKata.Execution;
 using System;
 using WWI.Core3.Core.ExtensionMethods;
 using WWI.Core3.Models.DbContext;
@@ -38,6 +35,7 @@ namespace WWI.Core3.API
     /// </summary>
     public class Startup
     {
+
         #region -- Private Properties
 
         /// <summary>
@@ -90,15 +88,6 @@ namespace WWI.Core3.API
             {
                 options.UseSqlServer(connectionString);
             });
-
-            #region -- SQL Kata --
-
-            var connection = new SqlConnection(connectionString);
-            var sqlKataCompiler = new MySqlCompiler();
-
-            services.AddTransient(sp => new QueryFactory(connection, sqlKataCompiler));
-
-            #endregion
 
             #endregion
 
@@ -166,5 +155,6 @@ namespace WWI.Core3.API
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
+
     }
 }

@@ -17,7 +17,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using SqlKata.Execution;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -46,13 +45,7 @@ namespace WWI.Core3.API.Controllers
         /// <value>The data service.</value>
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
         private IDataService DataService { get; }
-
-        /// <summary>
-        /// Gets the query factory.
-        /// </summary>
-        /// <value>The query factory.</value>
-        private QueryFactory QueryFactory { get; }
-
+        
         #endregion
 
         #region  -- Constructor
@@ -62,21 +55,18 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="applicationServices">The application services.</param>
         /// <param name="dataService">The data service.</param>
-        /// <param name="queryFactory"></param>
-        public DoctorController(ApplicationServices applicationServices, IDataService dataService, QueryFactory queryFactory) : base(
+        public DoctorController(ApplicationServices applicationServices, IDataService dataService) : base(
             applicationServices)
         {
 
             DataService = dataService;
-            QueryFactory = queryFactory;
 
         }
 
         #endregion
 
         #region  -- GET Methods --
-
-
+        
         /// <summary>
         /// Gets the doctors.
         /// </summary>
@@ -143,26 +133,7 @@ namespace WWI.Core3.API.Controllers
 
             return Ok(doctorsForHospital);
         }
-
-
-        /// <summary>
-        /// Gets the doctors.
-        /// </summary>
-        /// <returns>IActionResult.</returns>
-        [HttpGet("kata")]
-        [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public IActionResult GetDoctorsUsingSqlKata()
-        {
-            Log.Information("Retrieved list of Doctors ...");
-
-            var normal = DbContext.Doctors.ToList();
-
-            var doctors = QueryFactory.Query("Doctors").Get<Doctor>().ToList();
-
-            return Ok(doctors);
-        }
-
+        
         #endregion
 
         /// <summary>

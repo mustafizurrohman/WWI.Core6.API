@@ -67,19 +67,12 @@
             </summary>
             <value>The data service.</value>
         </member>
-        <member name="P:WWI.Core3.API.Controllers.DoctorController.QueryFactory">
-            <summary>
-            Gets the query factory.
-            </summary>
-            <value>The query factory.</value>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService,SqlKata.Execution.QueryFactory)">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DoctorController" /> class.
             </summary>
             <param name="applicationServices">The application services.</param>
             <param name="dataService">The data service.</param>
-            <param name="queryFactory"></param>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DoctorController.GetDoctors">
             <summary>
@@ -99,12 +92,6 @@
             Doctors the by hospital.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.GetDoctorsUsingSqlKata">
-            <summary>
-            Gets the doctors.
-            </summary>
             <returns>IActionResult.</returns>
         </member>
         <member name="M:WWI.Core3.API.Controllers.DoctorController.AddDoctorAsync(WWI.Core3.Models.Models.Doctor)">
@@ -222,6 +209,11 @@
             </summary>
             <param name="specialityID">The speciality identifier.</param>
             <returns>IActionResult.</returns>
+        </member>
+        <member name="T:WWI.Core3.API.Controllers.TestController">
+            <summary>
+            Class TestController.
+            </summary>
         </member>
         <member name="T:WWI.Core3.API.Program">
             <summary>
