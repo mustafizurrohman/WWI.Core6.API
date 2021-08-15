@@ -19,6 +19,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System;
@@ -48,6 +50,12 @@ namespace WWI.Core3.API
         /// The open API security scheme
         /// </summary>
         private readonly OpenApiSecurityScheme _openApiSecurityScheme = new OpenApiSecurityScheme();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly ILoggerFactory MyLoggerFactory =
+                    LoggerFactory.Create(builder => { builder.AddConsole(); });
 
         #endregion
 
@@ -83,11 +91,18 @@ namespace WWI.Core3.API
 
             #region -- Database Configuration --
 
+            
             string connectionString = Configuration.GetConnectionString("AppointmentDb");
 
             services.AddDbContext<DocAppointmentContext>(options =>
             {
                 options.UseSqlServer(connectionString);
+
+                #if DEBUG
+                options.EnableSensitiveDataLogging(true)
+                    .UseLoggerFactory(MyLoggerFactory);
+                #endif
+
             });
 
             #endregion

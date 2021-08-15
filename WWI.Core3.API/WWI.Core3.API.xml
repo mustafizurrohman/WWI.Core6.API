@@ -194,7 +194,7 @@
             </summary>
             <value>The data service.</value>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.SpecialityController.#ctor(WWI.Core3.Services.ServiceCollection.ApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
+        <member name="M:WWI.Core3.API.Controllers.SpecialityController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.SpecialityController" /> class.
             </summary>
@@ -277,6 +277,11 @@
         <member name="F:WWI.Core3.API.Startup._openApiSecurityScheme">
             <summary>
             The open API security scheme
+            </summary>
+        </member>
+        <member name="F:WWI.Core3.API.Startup.MyLoggerFactory">
+            <summary>
+            
             </summary>
         </member>
         <member name="M:WWI.Core3.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">

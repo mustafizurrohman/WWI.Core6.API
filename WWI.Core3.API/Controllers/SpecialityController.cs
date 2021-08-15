@@ -53,7 +53,7 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="applicationServices">Application Services</param>
         /// <param name="dataService">The data service.</param>
-        public SpecialityController(ApplicationServices applicationServices, IDataService dataService)
+        public SpecialityController(IApplicationServices applicationServices, IDataService dataService)
             : base(applicationServices)
         {
             DataService = dataService;
@@ -72,7 +72,7 @@ namespace WWI.Core3.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetSpecialities()
         {
-            var specialityList = await DataService.GetSpecialityInformation()
+            List<Dropdown> specialityList = await DataService.GetSpecialityInformation()
                 .ToListAsync();
 
             return Ok(specialityList);

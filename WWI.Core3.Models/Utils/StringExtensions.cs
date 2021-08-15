@@ -28,7 +28,7 @@ namespace WWI.Core3.Models.Utils
         /// <returns>System.String.</returns>
         public static string RemoveConsecutiveSpaces(this string input)
         {
-            return Regex.Replace(input, @"\s+", " ");
+            return Regex.Replace(input, @"\s+", " ").Trim();
         }
     }
 }
