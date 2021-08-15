@@ -4,32 +4,6 @@
         <name>WWI.Core3.API</name>
     </assembly>
     <members>
-        <member name="T:WWI.Core3.API.ActionFilters.BenchmarkAttribute">
-            <summary>
-            Class BenchmarkAttribute. This class cannot be inherited.
-            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute" />
-            </summary>
-            <seealso cref="T:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute" />
-        </member>
-        <member name="F:WWI.Core3.API.ActionFilters.BenchmarkAttribute._timer">
-            <summary>
-            The timer
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.ActionFilters.BenchmarkAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
-            <summary>
-            Executed before the start of execution
-            </summary>
-            <param name="context">The context.</param>
-            <inheritdoc />
-        </member>
-        <member name="M:WWI.Core3.API.ActionFilters.BenchmarkAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
-            <summary>
-            Executed after the end of execution
-            </summary>
-            <param name="context">The context.</param>
-            <inheritdoc />
-        </member>
         <member name="T:WWI.Core3.API.Controllers.Base.BaseAPIController">
             <summary>
             Base API Controller

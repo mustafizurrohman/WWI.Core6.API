@@ -75,6 +75,9 @@ namespace WWI.Core3.API.Controllers
             List<Dropdown> specialityList = await DataService.GetSpecialityInformation()
                 .ToListAsync();
 
+            // Also works!!!
+            //var specialityList = DataService.GetSpecialityInformation();
+
             return Ok(specialityList);
         }
 
