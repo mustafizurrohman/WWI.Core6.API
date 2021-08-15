@@ -14,7 +14,6 @@
 
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using WWI.Core3.API.ActionFilters;
 using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -26,7 +25,6 @@ namespace WWI.Core3.API.Controllers.Base
     /// </summary>
     /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
     [ApiController]
-    [Benchmark]
     [Route("[controller]")]
     [Produces("application/json")]
     public abstract class BaseAPIController : ControllerBase

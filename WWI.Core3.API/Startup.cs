@@ -52,10 +52,9 @@ namespace WWI.Core3.API
         private readonly OpenApiSecurityScheme _openApiSecurityScheme = new OpenApiSecurityScheme();
 
         /// <summary>
-        /// 
+        /// ConsoleLoggerFactory
         /// </summary>
-        public static readonly ILoggerFactory MyLoggerFactory =
-                    LoggerFactory.Create(builder => { builder.AddConsole(); });
+        public static readonly ILoggerFactory ConsoleLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
 
         #endregion
 
@@ -100,7 +99,7 @@ namespace WWI.Core3.API
 
                 #if DEBUG
                 options.EnableSensitiveDataLogging(true)
-                    .UseLoggerFactory(MyLoggerFactory);
+                    .UseLoggerFactory(ConsoleLoggerFactory);
                 #endif
 
             });

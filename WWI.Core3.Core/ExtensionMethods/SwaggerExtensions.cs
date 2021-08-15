@@ -81,6 +81,7 @@ namespace WWI.Core3.Core.ExtensionMethods
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/" + info?.Version + "/swagger.json", info?.Title + " v" + info?.Version);
+                c.DisplayRequestDuration();
             });
 
             return app;

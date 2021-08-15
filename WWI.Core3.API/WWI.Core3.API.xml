@@ -279,9 +279,9 @@
             The open API security scheme
             </summary>
         </member>
-        <member name="F:WWI.Core3.API.Startup.MyLoggerFactory">
+        <member name="F:WWI.Core3.API.Startup.ConsoleLoggerFactory">
             <summary>
-            
+            ConsoleLoggerFactory
             </summary>
         </member>
         <member name="M:WWI.Core3.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
