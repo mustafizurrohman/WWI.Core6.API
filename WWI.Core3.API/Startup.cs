@@ -12,25 +12,15 @@
 // <summary></summary>
 // ***********************************************************************
 
-using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Console;
 using Microsoft.OpenApi.Models;
-using Serilog;
-using System;
+using WWI.Core3.API.ExtensionMethods;
 using WWI.Core3.API.Installers;
 using WWI.Core3.Core.ExtensionMethods;
-using WWI.Core3.Models.DbContext;
-using WWI.Core3.Services.Interfaces;
-using WWI.Core3.Services.ServiceCollection;
-using WWI.Core3.Services.Services;
-using WWI.Core3.Services.Services.Shared;
 
 namespace WWI.Core3.API
 {
@@ -96,53 +86,10 @@ namespace WWI.Core3.API
         // ReSharper disable once UnusedMember.Global
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
 
-            #region -- NWebSec Options --
-
-            if (!env.IsDevelopment())
-            {
-                app.UseHsts(opts => opts.MaxAge(365).Preload());
-            }
-
-            // Ensure that site content is not being embedded in an IFrame on other sites 
-            //  - used for avoid click-jacking attacks.
-            app.UseXfo(options => options.SameOrigin());
-
-            // Blocks any content sniffing that could happen that might change an innocent MIME type (e.g. text/css) 
-            // into something executable that could do some real damage.
-            app.UseXContentTypeOptions();
-
-            app.UseReferrerPolicy(opts => opts.NoReferrer());
-
-            #endregion
-
-            app.UseSwaggerDocumentation(_info);
-
-            app.UseHttpsRedirection();
-
-            app.UseCustomExceptionHandler();
-
-            app.UseSerilogRequestLogging();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.MigrateDatabase();
-
-            app.UseCors(options =>
-            {
-                options.AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowAnyOrigin();
-            });
-
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-
+            app.ConfigureApplication(env)
+                .UseSwaggerDocumentation(_info)
+                .UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
         }
 

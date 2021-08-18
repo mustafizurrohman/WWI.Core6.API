@@ -18,7 +18,7 @@
             <exception cref="T:System.ArgumentOutOfRangeException">...</exception>
             <exception cref="T:System.ArgumentOutOfRangeException">...</exception>
         </member>
-        <member name="M:WWI.Core3.Core.Tests.AutoFixture.ConstrainedStringGenerator.CreateaAnonymous">
+        <member name="M:WWI.Core3.Core.Tests.AutoFixture.ConstrainedStringGenerator.CreateAnonymous">
             <summary>
             Createas the anonymous.
             </summary>

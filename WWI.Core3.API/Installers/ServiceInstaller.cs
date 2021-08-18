@@ -2,8 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using System;
-using WWI.Core3.Core.ExtensionMethods;
+using WWI.Core3.Core.AutoMapper;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Services.Services;
@@ -34,12 +33,14 @@ namespace WWI.Core3.API.Installers
         /// <param name="configuration"></param>
         public void InstallServices(IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            //configuration.GetSection("Swagger").Bind(_info);
-            //configuration.GetSection("ApiKeyScheme").Bind(_openApiSecurityScheme);
 
-            //serviceCollection.AddSwaggerDocumentation(_info, _openApiSecurityScheme);
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
 
-            serviceCollection.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            IMapper mapper = mapperConfig.CreateMapper();
+            serviceCollection.AddSingleton(mapper);
 
             serviceCollection.AddTransient<IApplicationServices, ApplicationServices>();
 

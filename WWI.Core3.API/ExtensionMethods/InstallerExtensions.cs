@@ -1,23 +1,24 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace WWI.Core3.API.Installers
 {
+
     /// <summary>
-    /// 
+    /// Class InstallerExtensions.
     /// </summary>
     public static class InstallerExtensions
     {
+
         /// <summary>
-        /// 
+        /// Installs the services in assembly.
         /// </summary>
-        /// <param name="serviceCollection"></param>
-        /// <param name="configuration"></param>
-        public static void InstallServicesInAssembly(this IServiceCollection serviceCollection, IConfiguration configuration)
+        /// <param name="serviceCollection">The service collection.</param>
+        /// <param name="configuration">The configuration.</param>
+        /// <returns>IServiceCollection.</returns>
+        public static IServiceCollection InstallServicesInAssembly(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
             var installers = typeof(Startup)
                 .Assembly
@@ -30,6 +31,8 @@ namespace WWI.Core3.API.Installers
                 .ToList();
 
             installers.ForEach(installer => installer.InstallServices(serviceCollection, configuration));
+
+            return serviceCollection;
         }
     }
 }

@@ -228,6 +228,32 @@
             <returns>IActionResult.</returns>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
+        <member name="T:WWI.Core3.API.ExtensionMethods.ApplicationBuilderExtensions">
+            <summary>
+            Class ApplicationBuilderExtensions.
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.ExtensionMethods.ApplicationBuilderExtensions.ConfigureApplication(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configures the application.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+            <returns>IApplicationBuilder.</returns>
+        </member>
+        <member name="T:WWI.Core3.API.Installers.InstallerExtensions">
+            <summary>
+            Class InstallerExtensions.
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.Installers.InstallerExtensions.InstallServicesInAssembly(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Installs the services in assembly.
+            </summary>
+            <param name="serviceCollection">The service collection.</param>
+            <param name="configuration">The configuration.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
         <member name="T:WWI.Core3.API.Installers.DatabaseInstaller">
             <summary>
             
@@ -251,18 +277,6 @@
             </summary>
         </member>
         <member name="M:WWI.Core3.API.Installers.IInstaller.InstallServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            
-            </summary>
-            <param name="serviceCollection"></param>
-            <param name="configuration"></param>
-        </member>
-        <member name="T:WWI.Core3.API.Installers.InstallerExtensions">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.Installers.InstallerExtensions.InstallServicesInAssembly(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             
             </summary>
@@ -353,6 +367,26 @@
             </summary>
             <param name="app">Application Builder</param>
             <param name="env">Hosting Environment</param>
+        </member>
+        <member name="T:WWI.Core3.Core.ExtensionMethods.SwaggerExtensions">
+            <summary>
+            Extensions for Swagger
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.Core.ExtensionMethods.SwaggerExtensions.AddSwaggerDocumentation(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.OpenApi.Models.OpenApiInfo,Microsoft.OpenApi.Models.OpenApiSecurityScheme)">
+            <summary>Adds the swagger documentation.</summary>
+            <param name="services">The services.</param>
+            <param name="info">The information.</param>
+            <param name="apiKeyScheme">The API key scheme.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:WWI.Core3.Core.ExtensionMethods.SwaggerExtensions.UseSwaggerDocumentation(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.OpenApi.Models.OpenApiInfo)">
+            <summary>
+            Extension method to use swagger documentation
+            </summary>
+            <param name="app"></param>
+            <param name="info"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>
