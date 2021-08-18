@@ -53,7 +53,6 @@ namespace WWI.Core3.API.Installers
  
             serviceCollection.AddControllers();
 
-
         }
     }
 }

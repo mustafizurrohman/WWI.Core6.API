@@ -6,9 +6,7 @@ using System.Linq;
 namespace WWI.Core3.API.Installers
 {
 
-    /// <summary>
-    /// Class InstallerExtensions.
-    /// </summary>
+    /// <summary>Class InstallerExtensions.</summary>
     public static class InstallerExtensions
     {
 
@@ -23,7 +21,7 @@ namespace WWI.Core3.API.Installers
             var installers = typeof(Startup)
                 .Assembly
                 .ExportedTypes
-                .Where(typ => typeof(IInstaller ).IsAssignableFrom(typ)
+                .Where(typ => typeof(IInstaller).IsAssignableFrom(typ)
                         && !typ.IsInterface
                         && !typ.IsAbstract)
                 .Select(Activator.CreateInstance)

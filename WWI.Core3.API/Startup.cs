@@ -16,7 +16,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using WWI.Core3.API.ExtensionMethods;
 using WWI.Core3.API.Installers;
@@ -28,10 +27,7 @@ namespace WWI.Core3.API
     /// Startup class
     /// </summary>
     public class Startup
-    {
-
-        #region -- Private Properties
-
+    {                
         /// <summary>
         /// The OpenApi information
         /// </summary>
@@ -43,12 +39,11 @@ namespace WWI.Core3.API
         private readonly OpenApiSecurityScheme _openApiSecurityScheme = new OpenApiSecurityScheme();
 
         /// <summary>
-        /// ConsoleLoggerFactory
+        /// Gets the configuration.
         /// </summary>
-        public static readonly ILoggerFactory ConsoleLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
-
-        #endregion
-
+        /// <value>The configuration.</value>
+        private IConfiguration Configuration { get; }
+              
         /// <summary>
         /// Constructor
         /// </summary>
@@ -57,12 +52,6 @@ namespace WWI.Core3.API
         {
             Configuration = configuration;
         }
-
-        /// <summary>
-        /// Gets the configuration.
-        /// </summary>
-        /// <value>The configuration.</value>
-        private IConfiguration Configuration { get; }
 
         /// <summary>
         /// This method gets called by the runtime. Use this method to add services to the container.
@@ -86,11 +75,9 @@ namespace WWI.Core3.API
         // ReSharper disable once UnusedMember.Global
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             app.ConfigureApplication(env)
                 .UseSwaggerDocumentation(_info)
                 .UseEndpoints(endpoints => { endpoints.MapControllers(); });
-
         }
 
     }

@@ -242,9 +242,7 @@
             <returns>IApplicationBuilder.</returns>
         </member>
         <member name="T:WWI.Core3.API.Installers.InstallerExtensions">
-            <summary>
-            Class InstallerExtensions.
-            </summary>
+            <summary>Class InstallerExtensions.</summary>
         </member>
         <member name="M:WWI.Core3.API.Installers.InstallerExtensions.InstallServicesInAssembly(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -338,22 +336,17 @@
             The open API security scheme
             </summary>
         </member>
-        <member name="F:WWI.Core3.API.Startup.ConsoleLoggerFactory">
+        <member name="P:WWI.Core3.API.Startup.Configuration">
             <summary>
-            ConsoleLoggerFactory
+            Gets the configuration.
             </summary>
+            <value>The configuration.</value>
         </member>
         <member name="M:WWI.Core3.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Constructor
             </summary>
             <param name="configuration">The configuration.</param>
-        </member>
-        <member name="P:WWI.Core3.API.Startup.Configuration">
-            <summary>
-            Gets the configuration.
-            </summary>
-            <value>The configuration.</value>
         </member>
         <member name="M:WWI.Core3.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>

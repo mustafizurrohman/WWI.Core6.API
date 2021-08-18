@@ -20,8 +20,7 @@ namespace WWI.Core3.API.ExtensionMethods
         public static IApplicationBuilder ConfigureApplication(this IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
-                app.UseDeveloperExceptionPage();
-            
+                app.UseDeveloperExceptionPage();            
 
             #region -- NWebSec Options --
 
