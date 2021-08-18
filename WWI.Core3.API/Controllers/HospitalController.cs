@@ -42,6 +42,8 @@ namespace WWI.Core3.API.Controllers
         /// <value>The data service.</value>
         private IDataService DataService { get; }
 
+        private ISharedService SharedService { get; }
+
         #endregion
 
         #region -- Constructor -- 
@@ -51,10 +53,12 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="applicationServices">Application Services</param>
         /// <param name="dataService">The data service.</param>
-        public HospitalController(IApplicationServices applicationServices, IDataService dataService) : base(
+        /// <param name="sharedService"></param>
+        public HospitalController(IApplicationServices applicationServices, IDataService dataService, ISharedService sharedService) : base(
             applicationServices)
         {
             DataService = dataService;
+            SharedService = sharedService;
         }
 
         #endregion
@@ -65,7 +69,7 @@ namespace WWI.Core3.API.Controllers
         /// Gets the hospitals.
         /// </summary>
         /// <returns>IActionResult.</returns>
-        [HttpGet]
+        [HttpGet("dropdown")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetHospitals()
@@ -85,7 +89,7 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>IActionResult.</returns>
-        [HttpGet("{hospitalID}")]
+        [HttpGet("{hospitalID}/details")]
         [ProducesResponseType(typeof(HospitalInformation), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetHospitalById(int hospitalID)
@@ -95,13 +99,12 @@ namespace WWI.Core3.API.Controllers
             return Ok(hospital);
         }
 
-
         /// <summary>
         /// Gets the hospital information by identifier.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>IActionResult.</returns>
-        [HttpGet("{hospitalID}/advancedInfo")]
+        [HttpGet("{hospitalID}/details/advanced")]
         [ProducesResponseType(typeof(AdvancedHospitalInformation), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetHospitalInfoById(int hospitalID)
@@ -129,28 +132,6 @@ namespace WWI.Core3.API.Controllers
 
 
         /// <summary>
-        /// Gets all speciality information for hospital.
-        /// </summary>
-        /// <param name="hospitalID">The hospital identifier.</param>
-        /// <returns>IActionResult.</returns>
-        [HttpGet("{hospitalID}/specialities")]
-        [ProducesResponseType(typeof(SpecialityInformation), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetAllSpecialityInfoForHospital(int hospitalID)
-        {
-            var specialityInformation = await DataService.GetAllSpecialityInfoForHospital(hospitalID)
-                .ToListAsync();
-
-            specialityInformation.ForEach(currentSpeciality =>
-            {
-                currentSpeciality.DoctorList = currentSpeciality.DoctorList.OrderBy(doc => doc).ToList();
-            });
-
-            return Ok(specialityInformation);
-        }
-
-
-        /// <summary>
         /// Gets the speciality information for hospital.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
@@ -161,13 +142,52 @@ namespace WWI.Core3.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetSpecialityInfoForHospital(int hospitalID, int specialityID)
         {
-            var advancedHospitalInformation = await DataService.GetAdvancedHospitalInformationAsync(hospitalID);
+            var specialityInformation = await SharedService.GetAdvancedHospitalInformation()
+                .Where(hos => hos.HospitalID == hospitalID)
+                .SelectMany(hos => hos.Specialities)
+                .Where(sp => sp.SpecialtyID == specialityID)
+                .FirstOrDefaultAsync();
 
-            advancedHospitalInformation.Specialities = advancedHospitalInformation.Specialities
-                .Where(s => s.SpecialtyID == specialityID)
-                .ToList();
+            return Ok(specialityInformation);
+        }
 
-            return Ok(advancedHospitalInformation);
+        /// <summary>
+        /// Gets the speciality information for hospital.
+        /// </summary>
+        /// <param name="hospitalID">The hospital identifier.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("{hospitalID}/specialities/")]
+        [ProducesResponseType(typeof(AdvancedHospitalInformation), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> GetSpecialitiesForHospital(int hospitalID)
+        {
+            var specialityInformation = await SharedService.GetAdvancedHospitalInformation()
+                .Where(hos => hos.HospitalID == hospitalID)
+                .Select(hos => hos.Specialities)
+                .ToListAsync();
+                
+            return Ok(specialityInformation);
+        }
+
+        /// <summary>
+        /// Gets the speciality information for hospital.
+        /// </summary>
+        /// <param name="hospitalID">The hospital identifier.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("{hospitalID}/specialities/dropdown")]
+        [ProducesResponseType(typeof(AdvancedHospitalInformation), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> GetSpecialitiesDropdownForHospital(int hospitalID)
+        {
+            var specialityInformation = await SharedService.GetAdvancedHospitalInformation()
+                .Where(hos => hos.HospitalID == hospitalID)
+                .SelectMany(hos => hos.Specialities)
+                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
+                .ToListAsync();
+
+                
+
+            return Ok(specialityInformation);
         }
 
 

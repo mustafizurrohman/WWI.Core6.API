@@ -29,10 +29,9 @@ namespace WWI.Core3.API.Controllers
 
     /// <summary>
     /// Class SpecialityController.
-    /// Implements the <see cref="WWI.Core3.API.Controllers.Base.BaseAPIController" />
+    /// Implements the <see cref="BaseAPIController" />
     /// </summary>
-    /// <seealso cref="WWI.Core3.API.Controllers.Base.BaseAPIController" />
-    [ApiController]
+    /// <seealso cref="BaseAPIController" />
     public class SpecialityController : BaseAPIController
     {
 
@@ -76,7 +75,7 @@ namespace WWI.Core3.API.Controllers
                 .ToListAsync();
 
             // Also works!!!
-            //var specialityList = DataService.GetSpecialityInformation();
+            // var specialityList = DataService.GetSpecialityInformation();
 
             return Ok(specialityList);
         }
@@ -139,7 +138,6 @@ namespace WWI.Core3.API.Controllers
 
             return Ok(hospitals);
         }
-
 
         #endregion
 

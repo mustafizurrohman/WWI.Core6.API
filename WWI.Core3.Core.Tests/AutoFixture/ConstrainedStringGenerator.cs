@@ -18,18 +18,14 @@ namespace WWI.Core3.Core.Tests.AutoFixture
         /// <param name="maximumLength">The maximum length.</param>
         /// <exception cref="ArgumentOutOfRangeException">...</exception>
         /// <exception cref="ArgumentOutOfRangeException">...</exception>
-        public ConstrainedStringGenerator(int minimumLength,
-            int maximumLength)
+        public ConstrainedStringGenerator(int minimumLength, int maximumLength)
         {
             if (maximumLength < 0)
-            {
                 throw new ArgumentOutOfRangeException("...");
-            }
+            
             if (minimumLength > maximumLength)
-            {
                 throw new ArgumentOutOfRangeException("...");
-            }
-
+            
             this._minimumLength = minimumLength;
             this._maximumLength = maximumLength;
         }
@@ -38,20 +34,18 @@ namespace WWI.Core3.Core.Tests.AutoFixture
         /// Createas the anonymous.
         /// </summary>
         /// <returns>System.String.</returns>
-        public string CreateaAnonymous()
+        public string CreateAnonymous()
         {
             var s = string.Empty;
+            
             while (s.Length < this._minimumLength)
-            {
                 s += GuidStringGenerator.CreateAnonymous();
-            }
+                        
             if (s.Length > this._maximumLength)
-            {
                 s = s.Substring(0, this._maximumLength);
-            }
+            
             return s;
         }
     }
-
 
 }

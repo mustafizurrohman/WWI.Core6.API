@@ -88,12 +88,13 @@
             </summary>
             <value>The data service.</value>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,WWI.Core3.Services.Interfaces.IDataService,WWI.Core3.Services.Interfaces.ISharedService)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.HospitalController" /> class.
             </summary>
             <param name="applicationServices">Application Services</param>
             <param name="dataService">The data service.</param>
+            <param name="sharedService"></param>
         </member>
         <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitals">
             <summary>
@@ -122,19 +123,26 @@
             <param name="hospitalID">The identifier.</param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetAllSpecialityInfoForHospital(System.Int32)">
-            <summary>
-            Gets all speciality information for hospital.
-            </summary>
-            <param name="hospitalID">The hospital identifier.</param>
-            <returns>IActionResult.</returns>
-        </member>
         <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialityInfoForHospital(System.Int32,System.Int32)">
             <summary>
             Gets the speciality information for hospital.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
             <param name="specialityID">The speciality identifier.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialitiesForHospital(System.Int32)">
+            <summary>
+            Gets the speciality information for hospital.
+            </summary>
+            <param name="hospitalID">The hospital identifier.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialitiesDropdownForHospital(System.Int32)">
+            <summary>
+            Gets the speciality information for hospital.
+            </summary>
+            <param name="hospitalID">The hospital identifier.</param>
             <returns>IActionResult.</returns>
         </member>
         <member name="T:WWI.Core3.API.Controllers.PratyushController">
@@ -219,6 +227,69 @@
             </summary>
             <returns>IActionResult.</returns>
             <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:WWI.Core3.API.Installers.DatabaseInstaller">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:WWI.Core3.API.Installers.DatabaseInstaller.ConsoleLoggerFactory">
+            <summary>
+            ConsoleLoggerFactory
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.Installers.DatabaseInstaller.InstallServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            public DatabaseInstaller
+            </summary>
+            <param name="serviceCollection"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:WWI.Core3.API.Installers.IInstaller">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.Installers.IInstaller.InstallServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="serviceCollection"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:WWI.Core3.API.Installers.InstallerExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.Installers.InstallerExtensions.InstallServicesInAssembly(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="serviceCollection"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:WWI.Core3.API.Installers.ServiceInstaller">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:WWI.Core3.API.Installers.ServiceInstaller._info">
+            <summary>
+            The OpenApi information
+            </summary>
+        </member>
+        <member name="F:WWI.Core3.API.Installers.ServiceInstaller._openApiSecurityScheme">
+            <summary>
+            The open API security scheme
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.Installers.ServiceInstaller.InstallServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="serviceCollection"></param>
+            <param name="configuration"></param>
         </member>
         <member name="T:WWI.Core3.API.Program">
             <summary>

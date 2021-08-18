@@ -86,7 +86,7 @@ namespace WWI.Core3.Middleware.ExceptionHandler
             }
 
             httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            return httpContext.Response.WriteAsync(ex.Message);
+            return httpContext.Response.WriteAsync("An internal server error occured. The details have been logged ....");
         }
 
 

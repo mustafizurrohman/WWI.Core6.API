@@ -35,19 +35,13 @@ namespace WWI.Core3.Core.Helpers
         /// <exception cref="ArgumentOutOfRangeException">length - Length must be positive!</exception>
         public static string GetRandomString(int length = 20, bool printable = true)
         {
-
             if (length < 0)
-            {
                 throw new ArgumentOutOfRangeException(nameof(length), "Length must be positive!");
-            }
-
-            // char.MinValue, char.MaxValue
+            
             List<char> availableCharacters = new List<char>();
-
 
             if (!printable)
             {
-
                 availableCharacters = Enumerable.Range(char.MinValue, char.MaxValue)
                                                 .Select(x => (char)x)
                                                 .Where(c => !char.IsControl(c))
@@ -75,10 +69,8 @@ namespace WWI.Core3.Core.Helpers
         public static string GetRandomPassword(int length = 10)
         {
             if (length < 8)
-            {
                 throw new ArgumentException("Password must be at least 8 characters.", nameof(length));
-            }
-
+            
             string password = string.Empty;
 
             password += CharHelpers.GetRandomLowercaseCharacter();
@@ -87,13 +79,10 @@ namespace WWI.Core3.Core.Helpers
             password += IntHelpers.GetRandomNumber(0, 9);
 
             for (int i = 4; i < length; i++)
-            {
                 password += CharHelpers.GetRandomCharacter();
-            }
-
+            
             password = ReplaceDuplicateCharacters(password);
-
-            password = password.Randomize().Randomize();
+            password = password.Randomize();
 
             return password;
         }
@@ -108,17 +97,12 @@ namespace WWI.Core3.Core.Helpers
             var stringWithoutDuplicates = input.RemoveDuplicates();
 
             if (stringWithoutDuplicates.Length == input.Length)
-            {
                 return input;
-            }
-
+            
             for (int i = 0; i < input.Length - stringWithoutDuplicates.Length; i++)
-            {
                 stringWithoutDuplicates += CharHelpers.GetRandomCharacter();
-            }
-
+            
             return ReplaceDuplicateCharacters(stringWithoutDuplicates);
-
         }
 
     }

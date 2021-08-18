@@ -22,6 +22,10 @@ namespace WWI.Core3.Models.ViewModels
     /// </summary>
     public class AdvancedHospitalInformation
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public int HospitalID { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the hospital.

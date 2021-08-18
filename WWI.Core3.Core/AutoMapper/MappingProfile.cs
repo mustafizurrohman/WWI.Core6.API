@@ -57,6 +57,8 @@ namespace WWI.Core3.Core.AutoMapper
 
             // Hospital -> AdvancedHospitalInformation
             CreateMap<Hospital, AdvancedHospitalInformation>()
+                .ForMember(dst => dst.HospitalID,
+                    src => src.MapFrom(hos => hos.HospitalID))                
                 .ForMember(dst => dst.HospitalName,
                     src => src.MapFrom(hos => hos.Name))
                 .ForMember(dst => dst.Address,
@@ -72,6 +74,13 @@ namespace WWI.Core3.Core.AutoMapper
                     src => src.MapFrom(s => s.Name))
                 .ForMember(dst => dst.DoctorList,
                     src => src.MapFrom(s => s.Doctors.Select(d => d.FullName)));
+
+            // SpecialityInformation -> Dropdown
+            CreateMap<SpecialityInformation, Dropdown>()
+                .ForMember(dst => dst.ID,
+                    src => src.MapFrom(s => s.SpecialtyID))
+                .ForMember(dst => dst.DisplayValue,
+                    src => src.MapFrom(s => s.SpecialityName));
 
             // Hospital -> HospitalDoctorInformation
             CreateMap<Hospital, HospitalDoctorInformation>()

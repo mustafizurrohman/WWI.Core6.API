@@ -14,6 +14,7 @@
 
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System.Web.Http.OData;
 using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -23,10 +24,11 @@ namespace WWI.Core3.API.Controllers.Base
     /// <summary>
     /// Base API Controller
     /// </summary>
-    /// <seealso cref="Microsoft.AspNetCore.Mvc.ControllerBase" />
+    /// <seealso cref="ControllerBase" />
     [ApiController]
     [Route("[controller]")]
     [Produces("application/json")]
+    [EnableQuery]
     public abstract class BaseAPIController : ControllerBase
     {
 

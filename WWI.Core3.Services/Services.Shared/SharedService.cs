@@ -18,6 +18,8 @@ using System.Linq;
 using WWI.Core3.Models.DbContext;
 using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.Interfaces;
+using WWI.Core3.Services.ServiceCollection;
+using WWI.Core3.Services.Services.Base;
 
 namespace WWI.Core3.Services.Services.Shared
 {
@@ -27,41 +29,16 @@ namespace WWI.Core3.Services.Services.Shared
     /// Implements the <see cref="ISharedService" />
     /// </summary>
     /// <seealso cref="ISharedService" />
-    public class SharedService : ISharedService
+    public class SharedService : BaseService, ISharedService
     {
 
-        #region - Attributes -- 
-
         /// <summary>
-        /// Gets the database context.
+        /// 
         /// </summary>
-        /// <value>The database context.</value>
-        private DocAppointmentContext DbContext { get; }
-
-        /// <summary>
-        /// Gets the automatic mapper.
-        /// </summary>
-        /// <value>The automatic mapper.</value>
-        private IMapper AutoMapper { get; }
-
-        #endregion 
-
-        #region -- Constructor --
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SharedService"/> class.
-        /// </summary>
-        /// <param name="dbContext">The database context.</param>
-        /// <param name="autoMapper">The automatic mapper.</param>
-        public SharedService(DocAppointmentContext dbContext, IMapper autoMapper)
+        /// <param name="applicationServices"></param>
+        public SharedService(IApplicationServices applicationServices) : base(applicationServices)
         {
-            DbContext = dbContext;
-            AutoMapper = autoMapper;
         }
-
-        #endregion
-
-        #region -- Public Methods --
 
         /// <summary>
         /// Gets the hospital information.
@@ -74,7 +51,12 @@ namespace WWI.Core3.Services.Services.Shared
                 .AsQueryable();
         }
 
-        #endregion
+        public IQueryable<AdvancedHospitalInformation> GetAdvancedHospitalInformation()
+        {
+            return DbContext.Hospitals
+                .ProjectTo<AdvancedHospitalInformation>(AutoMapper.ConfigurationProvider)
+                .AsQueryable();
+        }
 
     }
 

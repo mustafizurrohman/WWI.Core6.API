@@ -60,8 +60,6 @@ namespace WWI.Core3.Core.ExtensionMethods
                 var xmlFile = "WWI.Core3.API.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
-
-
             });
 
             return services;

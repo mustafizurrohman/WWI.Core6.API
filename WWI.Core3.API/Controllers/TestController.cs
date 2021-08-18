@@ -15,8 +15,10 @@
 
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using WWI.Core3.API.Controllers.Base;
 using WWI.Core3.Services.ServiceCollection;
+using WWI.Core3.Core.ExtensionMethods;
 
 namespace WWI.Core3.API.Controllers
 {
@@ -42,7 +44,11 @@ namespace WWI.Core3.API.Controllers
         [HttpGet]
         public IActionResult Test123()
         {
-            throw new NotImplementedException();
+            List<int> list = null;
+
+            var isEmpty = list.IsEmpty();
+
+            return Ok(isEmpty);
         }
 
 

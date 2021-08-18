@@ -56,10 +56,8 @@ namespace WWI.Core3.Services.Services
         /// <returns>Task&lt;AdvancedHospitalInformation&gt;.</returns>
         public async Task<AdvancedHospitalInformation> GetAdvancedHospitalInformationAsync(int hospitalID)
         {
-            var advancedHospitalInformation = await DbContext.Hospitals
-                .Where(hos => hos.HospitalID == hospitalID)
-                .ProjectTo<AdvancedHospitalInformation>(AutoMapper.ConfigurationProvider)
-                .SingleOrDefaultAsync();
+            var advancedHospitalInformation = await SharedService.GetAdvancedHospitalInformation()
+                .SingleOrDefaultAsync(hos => hos.HospitalID == hospitalID);
 
             return advancedHospitalInformation;
         }
@@ -97,7 +95,6 @@ namespace WWI.Core3.Services.Services
 
             doctorsForHospital.Doctors = doctorsForHospital.Doctors
                 .OrderBy(doc => doc.SpecialityName)
-                .ThenBy(doc => doc.SpecialityName)
                 .ToList();
 
             return doctorsForHospital;

@@ -707,6 +707,11 @@
             Class AdvancedHospitalInformation.
             </summary>
         </member>
+        <member name="P:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation.HospitalID">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation.HospitalName">
             <summary>
             Gets or sets the name of the hospital.

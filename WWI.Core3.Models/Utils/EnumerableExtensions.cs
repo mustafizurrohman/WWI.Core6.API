@@ -111,6 +111,8 @@ namespace WWI.Core3.Models.Utils
         /// <returns><c>true</c> if the specified list is empty; otherwise, <c>false</c>.</returns>
         public static bool IsEmpty<T>(this IEnumerable<T> list)
         {
+            list ??= Activator.CreateInstance<IEnumerable<T>>();
+
             return (list == null || !list.Any());
         }
 
@@ -152,10 +154,8 @@ namespace WWI.Core3.Models.Utils
         public static IEnumerable<T> Flatten<T>(this IEnumerable<IEnumerable<T>> source)
         {
             if (source.IsEmpty())
-            {
                 return Activator.CreateInstance<IEnumerable<T>>();
-            }
-
+            
             return source.SelectMany(item => item);
         }
 

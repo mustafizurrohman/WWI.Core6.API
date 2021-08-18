@@ -58,9 +58,7 @@ namespace WWI.Core3.API.Controllers
         public DoctorController(IApplicationServices applicationServices, IDataService dataService) : base(
             applicationServices)
         {
-
             DataService = dataService;
-
         }
 
         #endregion
@@ -76,14 +74,14 @@ namespace WWI.Core3.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetDoctors()
         {
-            Log.Information("Retrieved list of Doctors ...");
-
             var doctors = await DbContext.Doctors
                 .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
                 .AsNoTracking()
                 .ToListAsync();
 
-            doctors = doctors.OrderBy(doc => doc.DisplayValue).ToList();
+            doctors = doctors
+                .OrderBy(doc => doc.DisplayValue)
+                .ToList();
 
             return Ok(doctors);
         }
@@ -104,7 +102,9 @@ namespace WWI.Core3.API.Controllers
                 .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
                 .ToListAsync();
 
-            doctorsForSpecialty = doctorsForSpecialty.OrderBy(doc => doc.DisplayValue).ToList();
+            doctorsForSpecialty = doctorsForSpecialty
+                .OrderBy(doc => doc.DisplayValue)
+                .ToList();
 
             return Ok(doctorsForSpecialty);
         }
@@ -129,7 +129,9 @@ namespace WWI.Core3.API.Controllers
                 .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
                 .ToListAsync();
 
-            doctorsForHospital = doctorsForHospital.OrderBy(ds => ds.DisplayValue).ToList();
+            doctorsForHospital = doctorsForHospital
+                .OrderBy(ds => ds.DisplayValue)
+                .ToList();
 
             return Ok(doctorsForHospital);
         }

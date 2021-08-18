@@ -200,7 +200,7 @@ namespace WWI.Core3.Models.DbContext
 
             #endregion
 
-            GenerateSeedData();
+            GenerateSeedData(false);
             SeedData(modelBuilder);
 
             OnModelCreatingPartial(modelBuilder);
@@ -213,9 +213,8 @@ namespace WWI.Core3.Models.DbContext
         private void GenerateSeedData(bool overwrite = false)
         {
             if (overwrite == false)
-            {
                 return;
-            }
+            
 
             Log.Debug($"Generating seed data with overwrite set to {true}");
 
@@ -223,32 +222,35 @@ namespace WWI.Core3.Models.DbContext
 
             #region -- Generate Seed for Speciality --
 
-            List<Speciality> specialityList = SeedHelper.ParseSourceFile<Speciality>(SpecialitiesFileName);
-
-            var specialitiesJsonString = JsonConvert.SerializeObject(specialityList, new JsonSerializerSettings { Formatting = Formatting.Indented });
-
-            SeedHelper.SaveOrOverwriteGeneratedFile(SpecialitiesFileName, specialitiesJsonString, true);
+            var specialityList = ParseAndSeed<Speciality>(SpecialitiesFileName);
 
             #endregion
 
             #region -- Generate Seed for doctors -- 
 
             List<string> firstNames = SeedHelper.ParseSourceFile<string>(FirstNamesFileName)
-                .Select(fn => fn.Trim()).Distinct().Shuffle().ToList();
+                .Select(fn => fn.Trim())
+                .Distinct()
+                .Shuffle()
+                .ToList();
 
             List<string> middleNames = SeedHelper.ParseSourceFile<string>(MiddleNamesFileName)
-                .Select(mn => mn.Trim()).Distinct().Shuffle().ToList();
+                .Select(mn => mn.Trim())
+                .Distinct()
+                .Shuffle()
+                .ToList();
 
             List<string> lastNames = SeedHelper.ParseSourceFile<string>(LastNamesFileName)
-                .Select(ln => ln.Trim()).Distinct().Shuffle().ToList();
+                .Select(ln => ln.Trim())
+                .Distinct()
+                .Shuffle()
+                .ToList();
 
             var doctorList = new List<Doctor>();
 
             for (int i = 1; i < 500; i++)
-            {
                 doctorList.Add(GetRandomDoctor(i));
-            }
-
+            
             var doctorListJsonString = JsonConvert.SerializeObject(doctorList, _defaultJsonSerializerSettings);
 
             SeedHelper.SaveOrOverwriteGeneratedFile(DoctorFileName, doctorListJsonString, true);
@@ -270,21 +272,13 @@ namespace WWI.Core3.Models.DbContext
 
             #region -- Generate Seed for Addresses --
 
-            List<Address> addressList = SeedHelper.ParseSourceFile<Address>(AddressesFileName);
-
-            var addressJsonString = JsonConvert.SerializeObject(addressList, _defaultJsonSerializerSettings);
-
-            SeedHelper.SaveOrOverwriteGeneratedFile(AddressesFileName, addressJsonString, true);
+            ParseAndSeed<Address>(AddressesFileName);
 
             #endregion
 
             #region -- Generate Seed for Hospital --
 
-            List<Hospital> hospitalList = SeedHelper.ParseSourceFile<Hospital>(HospitalsFileName);
-
-            var hospitalJsonString = JsonConvert.SerializeObject(hospitalList, _defaultJsonSerializerSettings);
-
-            SeedHelper.SaveOrOverwriteGeneratedFile(HospitalsFileName, hospitalJsonString, true);
+            var hospitalList = ParseAndSeed<Hospital>(HospitalsFileName);
 
             #endregion
 
@@ -355,6 +349,17 @@ namespace WWI.Core3.Models.DbContext
 
 
             #endregion
+
+            List<T> ParseAndSeed<T>(string fileName)
+            {
+                List<T> entityList = SeedHelper.ParseSourceFile<T>(fileName);
+
+                var entityString = JsonConvert.SerializeObject(entityList, _defaultJsonSerializerSettings);
+
+                SeedHelper.SaveOrOverwriteGeneratedFile(fileName, entityString, true);
+
+                return entityList;
+            }
 
             Log.Debug("Completed generation of seed data");
         }

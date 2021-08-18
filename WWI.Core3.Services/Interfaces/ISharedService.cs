@@ -30,6 +30,12 @@ namespace WWI.Core3.Services.Interfaces
         /// <returns>IQueryable&lt;HospitalInformation&gt;.</returns>
         IQueryable<HospitalInformation> GetHospitalInformation();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        IQueryable<AdvancedHospitalInformation> GetAdvancedHospitalInformation();
+
     }
 
 }

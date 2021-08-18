@@ -24,6 +24,7 @@ using Microsoft.Extensions.Logging.Console;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System;
+using WWI.Core3.API.Installers;
 using WWI.Core3.Core.ExtensionMethods;
 using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.Interfaces;
@@ -79,49 +80,12 @@ namespace WWI.Core3.API
         /// <param name="services">Service Collection</param>
         public void ConfigureServices(IServiceCollection services)
         {
-            #region -- Swagger --
-
             Configuration.GetSection("Swagger").Bind(_info);
             Configuration.GetSection("ApiKeyScheme").Bind(_openApiSecurityScheme);
 
             services.AddSwaggerDocumentation(_info, _openApiSecurityScheme);
 
-            #endregion
-
-            #region -- Database Configuration --
-
-            
-            string connectionString = Configuration.GetConnectionString("AppointmentDb");
-
-            services.AddDbContext<DocAppointmentContext>(options =>
-            {
-                options.UseSqlServer(connectionString);
-
-                #if DEBUG
-                options.EnableSensitiveDataLogging(true)
-                    .UseLoggerFactory(ConsoleLoggerFactory);
-                #endif
-
-            });
-
-            #endregion
-
-            #region -- Service Configuration --
-
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-            services.AddTransient<IApplicationServices, ApplicationServices>();
-
-            services.AddTransient<IDataService, DataService>();
-
-            services.AddTransient<ISharedService, SharedService>();
-
-            services.AddMvc()
-                .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
-
-            #endregion
-
-            services.AddControllers();
+            services.InstallServicesInAssembly(Configuration);
         }
 
         /// <summary>
