@@ -14,11 +14,15 @@
 
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
-using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Core.ExtensionMethods;
+using WWI.Core3.Services.Interfaces;
+using WWI.Core3.Services.ServiceCollection;
 
 namespace WWI.Core3.API.Controllers
 {
@@ -28,12 +32,15 @@ namespace WWI.Core3.API.Controllers
     public class TestController : BaseAPIController
     {
 
+        private readonly IHTMLFormatterService _htmlFormatter;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TestController"/> class.
         /// </summary>
         /// <param name="applicationServices">The database context.</param>
-        public TestController(IApplicationServices applicationServices) : base(applicationServices)
+        public TestController(IApplicationServices applicationServices, IHTMLFormatterService htmlFormatterService) : base(applicationServices)
         {
+            _htmlFormatter = htmlFormatterService;
         }
 
         /// <summary>
@@ -49,6 +56,32 @@ namespace WWI.Core3.API.Controllers
             var isEmpty = list.IsEmpty();
 
             return Ok(isEmpty);
+        }
+
+        /// <summary>
+        /// Gets the HTML.
+        /// </summary>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("html")]
+        public async Task<IActionResult> GetHtml()
+        {
+            var doctors = await DbContext
+                .Doctors
+                .Include(doc => doc.Speciality)
+                .Include(doc => doc.Hospitals)
+                .Select(doc => new
+                {
+                    Name = doc.Firstname + " " + doc.Lastname,
+                    Speciality = doc.Speciality.Name,
+                    Hospitals = doc.Hospitals.Count
+                })
+                .OrderBy(doc => doc.Speciality)
+                .ThenBy(doc => doc.Name)
+                .ToListAsync();
+            
+            var bytes = _htmlFormatter.FormatAsHTMLTable(doctors);
+            
+            return File(bytes, "application/octet-stream", "doctors.html");
         }
 
 

@@ -2,8 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
+using WWI.Core3.API.Installers;
 
-namespace WWI.Core3.API.Installers
+namespace WWI.Core3.API.ExtensionMethods
 {
 
     /// <summary>Class InstallerExtensions.</summary>

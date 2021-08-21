@@ -18,8 +18,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using WWI.Core3.API.ExtensionMethods;
-using WWI.Core3.API.Installers;
-using WWI.Core3.Core.ExtensionMethods;
 
 namespace WWI.Core3.API
 {

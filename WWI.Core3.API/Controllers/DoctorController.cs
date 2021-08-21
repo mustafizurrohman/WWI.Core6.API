@@ -16,7 +16,6 @@ using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Serilog;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,8 +36,6 @@ namespace WWI.Core3.API.Controllers
     public class DoctorController : BaseAPIController
     {
 
-        #region -- Private Variables -- 
-
         /// <summary>
         /// Gets the data service.
         /// </summary>
@@ -46,10 +43,6 @@ namespace WWI.Core3.API.Controllers
         // ReSharper disable once UnusedAutoPropertyAccessor.Local
         private IDataService DataService { get; }
         
-        #endregion
-
-        #region  -- Constructor
-
         /// <summary>
         /// Initializes a new instance of the <see cref="DoctorController" /> class.
         /// </summary>
@@ -61,10 +54,7 @@ namespace WWI.Core3.API.Controllers
             DataService = dataService;
         }
 
-        #endregion
-
-        #region  -- GET Methods --
-
+        
         /// <summary>
         /// Gets the doctors.
         /// </summary>
@@ -136,8 +126,6 @@ namespace WWI.Core3.API.Controllers
             return Ok(doctorsForHospital);
         }
         
-        #endregion
-
         /// <summary>
         /// add doctor as an asynchronous operation.
         /// </summary>

@@ -18,7 +18,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
 
-namespace WWI.Core3.Core.ExtensionMethods
+namespace WWI.Core3.API.ExtensionMethods
 {
     /// <summary>
     /// Extensions for Swagger
