@@ -44,9 +44,9 @@ namespace WWI.Core3.API.ExtensionMethods
                     TermsOfService = info?.TermsOfService,
                     Contact = new OpenApiContact()
                     {
-                        Name = info?.Contact.Name,
-                        Email = info?.Contact.Email,
-                        Url = info?.Contact.Url
+                        Name = info?.Contact?.Name,
+                        Email = info?.Contact?.Email,
+                        Url = info?.Contact?.Url
                     }
                 });
 

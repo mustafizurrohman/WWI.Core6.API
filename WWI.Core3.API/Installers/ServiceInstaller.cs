@@ -41,6 +41,8 @@ namespace WWI.Core3.API.Installers
 
             serviceCollection.AddTransient<IHTMLFormatterService, HTMLFormatterService>();
 
+            serviceCollection.AddOptions();
+
             serviceCollection.AddMvc()
                 .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
  

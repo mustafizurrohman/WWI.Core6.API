@@ -9,6 +9,41 @@
             Class ApplicationSettings.
             </summary>
         </member>
+        <member name="P:WWI.Core3.Models.AppSettings.ApplicationSettings.OpenApiInfo">
+            <summary>
+            Gets the open API information.
+            </summary>
+            <value>The open API information.</value>
+        </member>
+        <member name="P:WWI.Core3.Models.AppSettings.ApplicationSettings.PerformanceOptions">
+            <summary>
+            Gets the performance options.
+            </summary>
+            <value>The performance options.</value>
+        </member>
+        <member name="P:WWI.Core3.Models.AppSettings.ApplicationSettings.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="T:WWI.Core3.Models.AppSettings.PerformanceOptions">
+            <summary>
+            Class PerformanceOptions.
+            </summary>
+        </member>
+        <member name="P:WWI.Core3.Models.AppSettings.PerformanceOptions.UseResponseCompression">
+            <summary>
+            Gets a value indicating whether [use response compression].
+            </summary>
+            <value><c>true</c> if [use response compression]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:WWI.Core3.Models.AppSettings.PerformanceOptions.UseExceptionHandlingMiddleware">
+            <summary>
+            Gets a value indicating whether [use exception handling middleware].
+            </summary>
+            <value><c>true</c> if [use exception handling middleware]; otherwise, <c>false</c>.</value>
+        </member>
         <member name="T:WWI.Core3.Models.DbContext.DocAppointmentContext">
             <summary>
             Database context
@@ -707,16 +742,54 @@
             <param name="input">The input string.</param>
             <returns>System.String.</returns>
         </member>
+        <member name="T:WWI.Core3.Models.Validators.ApplicationSettingsValidator">
+            <summary>
+            Class ApplicationSettingsValidator.
+            Implements the <see cref="T:WWI.Core3.Models.AppSettings.ApplicationSettings" />
+            </summary>
+            <seealso cref="T:WWI.Core3.Models.AppSettings.ApplicationSettings" />
+        </member>
+        <member name="M:WWI.Core3.Models.Validators.ApplicationSettingsValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core3.Models.Validators.ApplicationSettingsValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:WWI.Core3.Models.Validators.DatabaseConnectionStringValidator">
+            <summary>
+            Class DatabaseConnectionStringValidator.
+            Implements the <see cref="T:System.String" />
+            </summary>
+            <seealso cref="T:System.String" />
+        </member>
+        <member name="M:WWI.Core3.Models.Validators.DatabaseConnectionStringValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core3.Models.Validators.DatabaseConnectionStringValidator"/> class.
+            </summary>
+        </member>
         <member name="T:WWI.Core3.Models.Validators.OpenApiInfoValidator">
             <summary>
             Class OpenApiInfoValidator.
+            Implements the <see cref="!:FluentValidation.AbstractValidator&lt;Microsoft.OpenApi.Models.OpenApiInfo&gt;" />
             </summary>
+            <seealso cref="!:FluentValidation.AbstractValidator&lt;Microsoft.OpenApi.Models.OpenApiInfo&gt;" />
         </member>
         <member name="M:WWI.Core3.Models.Validators.OpenApiInfoValidator.#ctor">
             <summary>
             Values the tuple.
             </summary>
             <returns>OpenApiInfo.</returns>
+        </member>
+        <member name="T:WWI.Core3.Models.Validators.PerformanceOptionsValidator">
+            <summary>
+            Class PerformanceOptionsValidator.
+            Implements the <see cref="T:WWI.Core3.Models.AppSettings.PerformanceOptions" />
+            </summary>
+            <seealso cref="T:WWI.Core3.Models.AppSettings.PerformanceOptions" />
+        </member>
+        <member name="M:WWI.Core3.Models.Validators.PerformanceOptionsValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core3.Models.Validators.PerformanceOptionsValidator"/> class.
+            </summary>
         </member>
         <member name="T:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation">
             <summary>

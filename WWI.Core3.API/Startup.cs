@@ -18,11 +18,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using System;
-using System.Linq;
 using WWI.Core3.API.ExtensionMethods;
-using WWI.Core3.Core.Exceptions;
-using WWI.Core3.Models.Validators;
+using WWI.Core3.API.Helpers;
 
 namespace WWI.Core3.API
 {
@@ -40,7 +37,7 @@ namespace WWI.Core3.API
         /// The open API security scheme
         /// </summary>
         private readonly OpenApiSecurityScheme _openApiSecurityScheme = new OpenApiSecurityScheme();
-
+        
         /// <summary>
         /// Gets the configuration.
         /// </summary>
@@ -62,32 +59,18 @@ namespace WWI.Core3.API
         /// <param name="services">Service Collection</param>
         public void ConfigureServices(IServiceCollection services)
         {
-            Configuration.GetSection("Swagger").Bind(_info);
-
-            OpenApiInfoValidator validator = new OpenApiInfoValidator();
-            var validationResult =  validator.Validate(_info);
-
-            if (validationResult.Errors.Count > 0)
-            {
-                var errors = validationResult.Errors
-                    .Select((e, index) => (index + 1) + "- " + e)
-                    .Aggregate((e1, e2) => e1 + Environment.NewLine + e2);
-
-                Log.Fatal("Invalid app settings. Please refer to the errors below");
-                Log.Error(Environment.NewLine + Environment.NewLine + errors + Environment.NewLine);
-                Log.Fatal("Please correct the app settings before starting the application again!!!");
-                Log.Fatal("Application will now terminate ...");
-
-                throw new AppSettingsValidationException(errors);
-            }
-
-            Log.Information("Application Settings validated ...");
             
             Configuration.GetSection("ApiKeyScheme").Bind(_openApiSecurityScheme);
+            Configuration.GetSection("Swagger").Bind(_info);
 
             services.AddSwaggerDocumentation(_info, _openApiSecurityScheme);
 
             services.InstallServicesInAssembly(Configuration);
+
+            ApplicationSettingsVerifier applicationSettingsVerifier = new ApplicationSettingsVerifier(Configuration);
+            applicationSettingsVerifier.VerifyApplicationSettings();
+
+            Log.Information("Application Settings sucessfully validated ...");
         }
 
         /// <summary>

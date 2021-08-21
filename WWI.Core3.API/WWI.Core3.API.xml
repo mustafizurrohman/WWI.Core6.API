@@ -260,6 +260,34 @@
             <param name="info"></param>
             <returns></returns>
         </member>
+        <member name="T:WWI.Core3.API.Helpers.ApplicationSettingsVerifier">
+            <summary>
+            Class ApplicationSettingsVerifier.
+            </summary>
+        </member>
+        <member name="F:WWI.Core3.API.Helpers.ApplicationSettingsVerifier._info">
+            <summary>
+            The OpenApi information
+            </summary>
+        </member>
+        <member name="F:WWI.Core3.API.Helpers.ApplicationSettingsVerifier._performanceOptions">
+            <summary>
+            The performance options
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.Helpers.ApplicationSettingsVerifier.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core3.API.Helpers.ApplicationSettingsVerifier"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:WWI.Core3.API.Helpers.ApplicationSettingsVerifier.VerifyApplicationSettings">
+            <summary>
+            Verifies the application settings.
+            </summary>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:WWI.Core3.Core.Exceptions.AppSettingsValidationException"></exception>
+        </member>
         <member name="T:WWI.Core3.API.Installers.DatabaseInstaller">
             <summary>
             

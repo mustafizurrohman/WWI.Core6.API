@@ -50,9 +50,11 @@ namespace WWI.Core3.API
             }
             catch (Exception ex)
             {
-                if (!(ex is AppSettingsValidationException))
+                if (ex is AppSettingsValidationException) {
+                    Log.Error("Invalid values in appSettings file.");
                     Log.Fatal("The application failed to start correctly.");
-                    
+                }
+
                 Log.Information("Press ENTER to exit the application ...");
             }
             finally
