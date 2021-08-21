@@ -41,12 +41,6 @@ namespace WWI.Core3.Models.Validators
                 .NotEmpty()
                 .NotNull()
                 .EmailAddress();
-
-            RuleFor(openApiInfo => openApiInfo.Contact.Email)
-                .NotEmpty()
-                .NotNull()
-                .EmailAddress();
-
         }
 
         private static bool IsValidVersion(string version)
