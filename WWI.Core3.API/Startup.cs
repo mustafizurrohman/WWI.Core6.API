@@ -17,7 +17,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using System;
+using System.Linq;
 using WWI.Core3.API.ExtensionMethods;
+using WWI.Core3.Core.Exceptions;
+using WWI.Core3.Models.Validators;
 
 namespace WWI.Core3.API
 {
@@ -58,6 +63,26 @@ namespace WWI.Core3.API
         public void ConfigureServices(IServiceCollection services)
         {
             Configuration.GetSection("Swagger").Bind(_info);
+
+            OpenApiInfoValidator validator = new OpenApiInfoValidator();
+            var validationResult =  validator.Validate(_info);
+
+            if (validationResult.Errors.Count > 0)
+            {
+                var errors = validationResult.Errors
+                    .Select((e, index) => (index + 1) + "- " + e)
+                    .Aggregate((e1, e2) => e1 + Environment.NewLine + e2);
+
+                Log.Fatal("Invalid app settings. Please refer to the errors below");
+                Log.Error(Environment.NewLine + Environment.NewLine + errors + Environment.NewLine);
+                Log.Fatal("Please correct the app settings before starting the application again!!!");
+                Log.Fatal("Application will now terminate ...");
+
+                throw new AppSettingsValidationException(errors);
+            }
+
+            Log.Information("Application Settings validated ...");
+            
             Configuration.GetSection("ApiKeyScheme").Bind(_openApiSecurityScheme);
 
             services.AddSwaggerDocumentation(_info, _openApiSecurityScheme);

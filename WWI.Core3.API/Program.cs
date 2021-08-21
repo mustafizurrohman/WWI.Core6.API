@@ -17,6 +17,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System;
+using WWI.Core3.Core.Exceptions;
+
 // ReSharper disable ClassNeverInstantiated.Global
 
 namespace WWI.Core3.API
@@ -48,7 +50,10 @@ namespace WWI.Core3.API
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "The application failed to start correctly.");
+                if (!(ex is AppSettingsValidationException))
+                    Log.Fatal("The application failed to start correctly.");
+                    
+                Log.Information("Press ENTER to exit the application ...");
             }
             finally
             {

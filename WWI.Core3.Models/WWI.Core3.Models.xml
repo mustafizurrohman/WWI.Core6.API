@@ -4,6 +4,11 @@
         <name>WWI.Core3.Models</name>
     </assembly>
     <members>
+        <member name="T:WWI.Core3.Models.AppSettings.ApplicationSettings">
+            <summary>
+            Class ApplicationSettings.
+            </summary>
+        </member>
         <member name="T:WWI.Core3.Models.DbContext.DocAppointmentContext">
             <summary>
             Database context
@@ -701,6 +706,17 @@
             </summary>
             <param name="input">The input string.</param>
             <returns>System.String.</returns>
+        </member>
+        <member name="T:WWI.Core3.Models.Validators.OpenApiInfoValidator">
+            <summary>
+            Class OpenApiInfoValidator.
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.Models.Validators.OpenApiInfoValidator.#ctor">
+            <summary>
+            Values the tuple.
+            </summary>
+            <returns>OpenApiInfo.</returns>
         </member>
         <member name="T:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation">
             <summary>
