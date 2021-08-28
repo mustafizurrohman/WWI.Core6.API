@@ -301,6 +301,12 @@
             </summary>
             <value>The hospitals.</value>
         </member>
+        <member name="M:WWI.Core3.Models.Models.Address.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+        </member>
         <member name="T:WWI.Core3.Models.Models.AuditLog">
             <summary>
             Class AuditLog.

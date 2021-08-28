@@ -200,7 +200,7 @@ namespace WWI.Core3.Models.DbContext
 
             #endregion
 
-            GenerateSeedData(false);
+            GenerateSeedData();
             SeedData(modelBuilder);
 
             OnModelCreatingPartial(modelBuilder);

@@ -18,6 +18,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
 using WWI.Core3.Core.ExtensionMethods;
@@ -38,6 +39,7 @@ namespace WWI.Core3.API.Controllers
         /// Initializes a new instance of the <see cref="TestController"/> class.
         /// </summary>
         /// <param name="applicationServices">The database context.</param>
+        /// <param name="htmlFormatterService"></param>
         public TestController(IApplicationServices applicationServices, IHTMLFormatterService htmlFormatterService) : base(applicationServices)
         {
             _htmlFormatter = htmlFormatterService;
@@ -78,9 +80,24 @@ namespace WWI.Core3.API.Controllers
                 .OrderBy(doc => doc.Speciality)
                 .ThenBy(doc => doc.Name)
                 .ToListAsync();
-            
-            var bytes = _htmlFormatter.FormatAsHTMLTable(doctors);
-            
+
+            var hospitals = await DbContext
+                .Hospitals
+                .Select(hos => new
+                {
+                    hos.Name,
+                    Address = hos.Address.ToString()
+                })
+                .ToListAsync();
+
+            var tableDoctorBody = _htmlFormatter.FormatAsHtmlTable(doctors);
+            var tableHospitalBody = _htmlFormatter.FormatAsHtmlTable(hospitals);
+
+            var body = tableDoctorBody + "<br><br>" + tableHospitalBody;
+
+            var htmlDocument = _htmlFormatter.GenerateHtmlDocument(body);
+            var bytes = Encoding.UTF8.GetBytes(htmlDocument);
+
             return File(bytes, "application/octet-stream", "doctors.html");
         }
 

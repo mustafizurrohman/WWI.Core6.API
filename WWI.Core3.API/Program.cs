@@ -35,18 +35,28 @@ namespace WWI.Core3.API
         /// <param name="args">The arguments.</param>
         public static void Main(string[] args)
         {
-            var configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.Development.json")
-                .Build();
-
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(configuration)
-                .CreateLogger();
 
             try
             {
+                var configuration = new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.Development.json", optional: false, reloadOnChange: true)
+                    .AddJsonFile("appsettings.Production.json", optional: true, reloadOnChange: true)
+                    .AddEnvironmentVariables()
+                    .Build();
+
+                Log.Logger = new LoggerConfiguration()
+                    .ReadFrom.Configuration(configuration)
+                    .CreateLogger();
+
                 Log.Information("Application starting up ...");
                 CreateHostBuilder(args).Build().Run();
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("FATAL: Invalid appsettings JSON file ...");
+                Console.WriteLine(Environment.NewLine + ex + Environment.NewLine);
+
+                Console.WriteLine("Press ENTER to exit the application ...");
             }
             catch (Exception ex)
             {
@@ -79,6 +89,5 @@ namespace WWI.Core3.API
                     webBuilder.UseStartup<Startup>();
                 });
         }
-
     }
 }

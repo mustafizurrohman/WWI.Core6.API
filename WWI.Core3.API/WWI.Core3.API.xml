@@ -202,6 +202,7 @@
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.TestController"/> class.
             </summary>
             <param name="applicationServices">The database context.</param>
+            <param name="htmlFormatterService"></param>
         </member>
         <member name="M:WWI.Core3.API.Controllers.TestController.Test123">
             <summary>

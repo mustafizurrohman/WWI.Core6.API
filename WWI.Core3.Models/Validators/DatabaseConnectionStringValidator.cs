@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
+using System.Linq;
 
 namespace WWI.Core3.Models.Validators
 {
@@ -29,6 +30,8 @@ namespace WWI.Core3.Models.Validators
             if (string.IsNullOrWhiteSpace(connectionString))
                 return false;
 
+            connectionString = RemoveDatabaseFromConnectionString(connectionString);
+
             SqlConnection connection = null;
 
             try
@@ -48,6 +51,14 @@ namespace WWI.Core3.Models.Validators
 
 
             return true;
+        }
+
+        private string RemoveDatabaseFromConnectionString(string connectionString)
+        {
+            return connectionString
+                .Split(";")
+                .Where(str => !str.Contains("Database="))
+                .Aggregate((a, b) => a + ";" + b);
         }
     }
 }

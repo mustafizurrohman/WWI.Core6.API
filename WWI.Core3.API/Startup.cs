@@ -18,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using System;
 using WWI.Core3.API.ExtensionMethods;
 using WWI.Core3.API.Helpers;
 
@@ -84,6 +85,8 @@ namespace WWI.Core3.API
             app.ConfigureApplication(env)
                 .UseSwaggerDocumentation(_info)
                 .UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+            Log.Information("Applcation startup complete ..." + Environment.NewLine);
         }
 
     }

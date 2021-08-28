@@ -21,10 +21,10 @@ namespace WWI.Core3.Core.Tests.AutoFixture
         public ConstrainedStringGenerator(int minimumLength, int maximumLength)
         {
             if (maximumLength < 0)
-                throw new ArgumentOutOfRangeException("...");
+                throw new ArgumentOutOfRangeException(nameof(minimumLength));
             
             if (minimumLength > maximumLength)
-                throw new ArgumentOutOfRangeException("...");
+                throw new ArgumentOutOfRangeException(nameof(maximumLength));
             
             this._minimumLength = minimumLength;
             this._maximumLength = maximumLength;

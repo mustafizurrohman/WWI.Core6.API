@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation.Results;
+using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System;
@@ -64,7 +64,7 @@ namespace WWI.Core3.API.Helpers
             };
 
             ApplicationSettingsValidator validator = new ApplicationSettingsValidator();
-            var validationResult =  validator.Validate(applicationSettings);
+            ValidationResult validationResult =  validator.Validate(applicationSettings);
 
             if (validationResult.Errors.Count <= 0) 
                 return;
