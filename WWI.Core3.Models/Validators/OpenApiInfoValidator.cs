@@ -17,6 +17,7 @@ namespace WWI.Core3.Models.Validators
     public class OpenApiInfoValidator : AbstractValidator<OpenApiInfo>
 #pragma warning restore CS1658 // Warning is overriding an error
 #pragma warning restore CS1584 // XML comment has syntactically incorrect cref attribute
+
     {
         /// <summary>
         /// Values the tuple.

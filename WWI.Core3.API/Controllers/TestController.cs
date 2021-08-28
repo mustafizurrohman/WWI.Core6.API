@@ -18,7 +18,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
 using WWI.Core3.Core.ExtensionMethods;
@@ -40,7 +39,8 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="applicationServices">The database context.</param>
         /// <param name="htmlFormatterService"></param>
-        public TestController(IApplicationServices applicationServices, IHTMLFormatterService htmlFormatterService) : base(applicationServices)
+        public TestController(IApplicationServices applicationServices, IHTMLFormatterService htmlFormatterService) 
+            : base(applicationServices)
         {
             _htmlFormatter = htmlFormatterService;
         }
@@ -55,6 +55,7 @@ namespace WWI.Core3.API.Controllers
         {
             List<int> list = null;
 
+            // ReSharper disable once ExpressionIsAlwaysNull
             var isEmpty = list.IsEmpty();
 
             return Ok(isEmpty);
@@ -83,6 +84,7 @@ namespace WWI.Core3.API.Controllers
 
             var hospitals = await DbContext
                 .Hospitals
+                .OrderBy(hos => hos.Name)
                 .Select(hos => new
                 {
                     hos.Name,
@@ -96,9 +98,8 @@ namespace WWI.Core3.API.Controllers
             var body = tableDoctorBody + "<br><br>" + tableHospitalBody;
 
             var htmlDocument = _htmlFormatter.GenerateHtmlDocument(body);
-            var bytes = Encoding.UTF8.GetBytes(htmlDocument);
-
-            return File(bytes, "application/octet-stream", "doctors.html");
+            
+            return File(htmlDocument.ToByteArray(), "application/octet-stream", "doctors.html");
         }
 
 

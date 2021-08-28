@@ -36,6 +36,7 @@ namespace WWI.Core3.API.Installers
             serviceCollection.AddTransient<IApplicationServices, ApplicationServices>();
 
             serviceCollection.AddTransient<IDataService, DataService>();
+            serviceCollection.Decorate<IDataService, CachedDataService>();
 
             serviceCollection.AddTransient<ISharedService, SharedService>();
 
@@ -45,7 +46,9 @@ namespace WWI.Core3.API.Installers
 
             serviceCollection.AddMvc()
                 .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
- 
+
+            serviceCollection.AddMemoryCache();
+
             serviceCollection.AddControllers();
 
         }

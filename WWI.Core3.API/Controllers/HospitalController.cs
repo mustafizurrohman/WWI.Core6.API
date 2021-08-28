@@ -54,8 +54,8 @@ namespace WWI.Core3.API.Controllers
         /// <param name="applicationServices">Application Services</param>
         /// <param name="dataService">The data service.</param>
         /// <param name="sharedService"></param>
-        public HospitalController(IApplicationServices applicationServices, IDataService dataService, ISharedService sharedService) : base(
-            applicationServices)
+        public HospitalController(IApplicationServices applicationServices, IDataService dataService, ISharedService sharedService) 
+            : base(applicationServices)
         {
             DataService = dataService;
             SharedService = sharedService;

@@ -48,8 +48,8 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="applicationServices">The application services.</param>
         /// <param name="dataService">The data service.</param>
-        public DoctorController(IApplicationServices applicationServices, IDataService dataService) : base(
-            applicationServices)
+        public DoctorController(IApplicationServices applicationServices, IDataService dataService) 
+            : base(applicationServices)
         {
             DataService = dataService;
         }
