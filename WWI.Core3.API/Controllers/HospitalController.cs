@@ -184,9 +184,7 @@ namespace WWI.Core3.API.Controllers
                 .SelectMany(hos => hos.Specialities)
                 .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
                 .ToListAsync();
-
-                
-
+            
             return Ok(specialityInformation);
         }
 
