@@ -60,13 +60,11 @@ namespace WWI.Core3.API
         /// <param name="services">Service Collection</param>
         public void ConfigureServices(IServiceCollection services)
         {
-            
             Configuration.GetSection("ApiKeyScheme").Bind(_openApiSecurityScheme);
             Configuration.GetSection("Swagger").Bind(_info);
-
-            services.AddSwaggerDocumentation(_info, _openApiSecurityScheme);
-
-            services.InstallServicesInAssembly(Configuration);
+            
+            services.InstallServicesInAssembly(Configuration)
+                .AddSwaggerDocumentation(_info, _openApiSecurityScheme);
 
             ApplicationSettingsVerifier applicationSettingsVerifier = new ApplicationSettingsVerifier(Configuration);
             applicationSettingsVerifier.VerifyApplicationSettings();

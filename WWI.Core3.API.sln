@@ -24,7 +24,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWI.Core3.Services", "WWI.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWI.Core3.Core.Tests", "WWI.Core3.Core.Tests\WWI.Core3.Core.Tests.csproj", "{82FBCD1C-2CF8-42E2-95A5-DD8D46D4FB52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WWI.Core3.Services.Test", "WWI.Core3.Services.Test\WWI.Core3.Services.Test.csproj", "{12EC0665-C7BB-4ACB-B9DD-4631AFBA501A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WWI.Core3.Services.Test", "WWI.Core3.Services.Test\WWI.Core3.Services.Test.csproj", "{12EC0665-C7BB-4ACB-B9DD-4631AFBA501A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9EEEE4E7-C8A0-4D33-BB3E-DAD1C46BF197}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

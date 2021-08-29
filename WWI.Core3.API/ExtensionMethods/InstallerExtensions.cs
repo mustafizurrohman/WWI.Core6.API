@@ -1,4 +1,18 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿// ***********************************************************************
+// Assembly         : WWI.Core3.API
+// Author           : Mustafizur Rohman
+// Created          : 08-18-2021
+//
+// Last Modified By : Mustafizur Rohman
+// Last Modified On : 08-20-2021
+// ***********************************************************************
+// <copyright file="InstallerExtensions.cs" company="WWI.Core3.API">
+//     Copyright (c) Personal. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
@@ -7,7 +21,9 @@ using WWI.Core3.API.Installers;
 namespace WWI.Core3.API.ExtensionMethods
 {
 
-    /// <summary>Class InstallerExtensions.</summary>
+    /// <summary>
+    /// Class InstallerExtensions.
+    /// </summary>
     public static class InstallerExtensions
     {
 

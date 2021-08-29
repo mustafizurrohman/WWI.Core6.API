@@ -27,14 +27,15 @@ namespace WWI.Core3.Services.Services
 {
     /// <summary>
     /// Class CachedDataService.
-    /// Implements the <see cref="WWI.Core3.Services.Services.Base.BaseService" />
-    /// Implements the <see cref="WWI.Core3.Services.Interfaces.IDataService" />
+    /// Implements the <see cref="BaseService" />
+    /// Implements the <see cref="IDataService" />
     /// </summary>
-    /// <seealso cref="WWI.Core3.Services.Services.Base.BaseService" />
-    /// <seealso cref="WWI.Core3.Services.Interfaces.IDataService" />
+    /// <seealso cref="BaseService" />
+    /// <seealso cref="IDataService" />
     [UsedImplicitly]
     public class CachedDataService : BaseService, IDataService
     {
+
         /// <summary>
         /// Gets the memory cache.
         /// </summary>
@@ -62,12 +63,10 @@ namespace WWI.Core3.Services.Services
         public CachedDataService(IApplicationServices applicationServices, IMemoryCache memoryCache, IDataService dataService) 
             : base(applicationServices)
         {
-
             MemoryCacheEntryOptions = new MemoryCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromHours(1));
 
             MemoryCache = memoryCache;
-
             DataService = dataService;
         }
 
@@ -83,8 +82,7 @@ namespace WWI.Core3.Services.Services
             if (!MemoryCache.TryGetValue(cacheKey, out HospitalInformation hospitalInformation))
             {
                 hospitalInformation = await DataService.GetHospitalInformationByIDAsync(hospitalID);
-
-                MemoryCache.Set(cacheKey, hospitalInformation, MemoryCacheEntryOptions);
+                SetMemoryCache(cacheKey, hospitalInformation);
             }
 
             return hospitalInformation;
@@ -102,8 +100,7 @@ namespace WWI.Core3.Services.Services
             if (!MemoryCache.TryGetValue(cacheKey, out AdvancedHospitalInformation advancedHospitalInformation))
             {
                 advancedHospitalInformation = await DataService.GetAdvancedHospitalInformationAsync(hospitalID);
-
-                MemoryCache.Set(cacheKey, advancedHospitalInformation, MemoryCacheEntryOptions);
+                SetMemoryCache(cacheKey, advancedHospitalInformation);
             }
 
             return advancedHospitalInformation;
@@ -121,8 +118,7 @@ namespace WWI.Core3.Services.Services
             if (!MemoryCache.TryGetValue(cacheKey, out HospitalDoctorInformation hospitalDoctorInformation))
             {
                 hospitalDoctorInformation = await DataService.GetDoctorsForHospitalAsync(hospitalID);
-
-                MemoryCache.Set(cacheKey, hospitalDoctorInformation, MemoryCacheEntryOptions);
+                SetMemoryCache(cacheKey, hospitalDoctorInformation);
             }
 
             return hospitalDoctorInformation;
@@ -139,6 +135,16 @@ namespace WWI.Core3.Services.Services
         }
 
         /// <summary>
+        /// Sets the memory cache.
+        /// </summary>
+        /// <param name="cacheKey">The cache key.</param>
+        /// <param name="value">The value.</param>
+        private void SetMemoryCache(string cacheKey, object value)
+        {
+            MemoryCache.Set(cacheKey, value, MemoryCacheEntryOptions);
+        }
+
+        /// <summary>
         /// Gets the speciality information.
         /// </summary>
         /// <returns>IQueryable&lt;SpecialityDropdown&gt;.</returns>
@@ -152,7 +158,7 @@ namespace WWI.Core3.Services.Services
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>System.String.</returns>
-        private string GetHospitalInformationByIDCacheKey(int hospitalID)
+        private static string GetHospitalInformationByIDCacheKey(int hospitalID)
         {
             return "HospitalInformation" + hospitalID;
         }
@@ -162,7 +168,7 @@ namespace WWI.Core3.Services.Services
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>System.String.</returns>
-        private string GetAdvancedHospitalInformationCacheKey(int hospitalID)
+        private static string GetAdvancedHospitalInformationCacheKey(int hospitalID)
         {
             return "AdvancedHospitalInformation" + hospitalID;
         }
@@ -172,7 +178,7 @@ namespace WWI.Core3.Services.Services
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>System.String.</returns>
-        private string GetDoctorsForHospital(int hospitalID)
+        private static string GetDoctorsForHospital(int hospitalID)
         {
             return "DoctorsForHospital" + hospitalID;
         }
