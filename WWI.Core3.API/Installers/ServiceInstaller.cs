@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WWI.Core3.Core.AutoMapper;
 using WWI.Core3.Services.Interfaces;
+using WWI.Core3.Services.MediatR.Handlers;
 using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Services.Services;
 using WWI.Core3.Services.Services.Shared;
@@ -41,6 +43,8 @@ namespace WWI.Core3.API.Installers
             serviceCollection.AddTransient<ISharedService, SharedService>();
 
             serviceCollection.AddTransient<IHTMLFormatterService, HTMLFormatterService>();
+
+            serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
 
             serviceCollection.AddOptions();
 

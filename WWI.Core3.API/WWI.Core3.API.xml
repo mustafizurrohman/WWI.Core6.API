@@ -35,40 +35,36 @@
             </summary>
             <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
         </member>
-        <member name="P:WWI.Core3.API.Controllers.DoctorController.DataService">
-            <summary>
-            Gets the data service.
-            </summary>
-            <value>The data service.</value>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,WWI.Core3.Services.Interfaces.IDataService)">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DoctorController" /> class.
             </summary>
             <param name="applicationServices">The application services.</param>
-            <param name="dataService">The data service.</param>
+            <param name="mediator"></param>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.GetDoctors">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.GetDoctors(System.Threading.CancellationToken)">
             <summary>
             Gets the doctors.
             </summary>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.DoctorsBySpecialty(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.DoctorsBySpecialty(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Gets Doctors by specialty.
             </summary>
             <param name="specialityID">The specialty identifier.</param>
+            <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.DoctorsByHospital(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.DoctorsByHospital(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Doctors the by hospital.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
+            <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.AddDoctorAsync(WWI.Core3.Models.Models.Doctor)">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.AddDoctorAsync(WWI.Core3.Services.MediatR.Commands.CreateDoctorCommand)">
             <summary>
             add doctor as an asynchronous operation.
             </summary>

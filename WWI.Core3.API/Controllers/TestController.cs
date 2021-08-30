@@ -93,7 +93,7 @@ namespace WWI.Core3.API.Controllers
                 .ToListAsync();
 
             var tableDoctorBody = _htmlFormatter.FormatAsHtmlTable(doctors);
-            var tableHospitalBody = _htmlFormatter.FormatAsHtmlTable(hospitals);
+            var tableHospitalBody = _htmlFormatter.FormatAsHtmlTable(hospitals); 
 
             var body = tableDoctorBody + "<br><br>" + tableHospitalBody;
 
@@ -102,6 +102,12 @@ namespace WWI.Core3.API.Controllers
             return File(htmlDocument.ToByteArray(), "application/octet-stream", "doctors.html");
         }
 
+
+        [HttpGet("mediatr")]
+        public async Task<IActionResult> TestMediatR()
+        {
+            return Ok();
+        }
 
     }
 

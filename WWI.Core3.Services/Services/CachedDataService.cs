@@ -35,6 +35,7 @@ namespace WWI.Core3.Services.Services
     [UsedImplicitly]
     public class CachedDataService : BaseService, IDataService
     {
+        #region -- Private -- 
 
         /// <summary>
         /// Gets the memory cache.
@@ -54,6 +55,10 @@ namespace WWI.Core3.Services.Services
         /// <value>The memory cache entry options.</value>
         private MemoryCacheEntryOptions MemoryCacheEntryOptions { get; }
 
+
+        #endregion
+
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="CachedDataService"/> class.
         /// </summary>

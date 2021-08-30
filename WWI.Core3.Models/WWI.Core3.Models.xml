@@ -191,6 +191,32 @@
             </summary>
             <param name="modelBuilder">The model builder.</param>
         </member>
+        <member name="T:WWI.Core3.Models.EntityConfigurations.HospitalDoctorConfiguration">
+            <summary>
+            Class HospitalDoctorConfiguration.
+            Implements the <see cref="T:WWI.Core3.Models.Models.HospitalDoctor" />
+            </summary>
+            <seealso cref="T:WWI.Core3.Models.Models.HospitalDoctor" />
+        </member>
+        <member name="M:WWI.Core3.Models.EntityConfigurations.HospitalDoctorConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{WWI.Core3.Models.Models.HospitalDoctor})">
+            <summary>
+            Configures the entity of type <typeparamref name="TEntity" />.
+            </summary>
+            <param name="builder">The builder to be used to configure the entity type.</param>
+        </member>
+        <member name="T:WWI.Core3.Models.EntityConfigurations.HospitalSpecialityConfiguration">
+            <summary>
+            Class HospitalSpecialityConfiguration.
+            Implements the <see cref="T:WWI.Core3.Models.Models.HospitalSpeciality" />
+            </summary>
+            <seealso cref="T:WWI.Core3.Models.Models.HospitalSpeciality" />
+        </member>
+        <member name="M:WWI.Core3.Models.EntityConfigurations.HospitalSpecialityConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{WWI.Core3.Models.Models.HospitalSpeciality})">
+            <summary>
+            Configures the entity of type <typeparamref name="TEntity" />.
+            </summary>
+            <param name="builder">The builder to be used to configure the entity type.</param>
+        </member>
         <member name="T:WWI.Core3.Models.Migrations.Init">
             <summary>
             Class Init.
