@@ -17,9 +17,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using System;
 using WWI.Core3.API.ExtensionMethods;
-using WWI.Core3.API.Installers;
-using WWI.Core3.Core.ExtensionMethods;
+using WWI.Core3.API.Helpers;
 
 namespace WWI.Core3.API
 {
@@ -37,7 +38,7 @@ namespace WWI.Core3.API
         /// The open API security scheme
         /// </summary>
         private readonly OpenApiSecurityScheme _openApiSecurityScheme = new OpenApiSecurityScheme();
-
+        
         /// <summary>
         /// Gets the configuration.
         /// </summary>
@@ -59,12 +60,16 @@ namespace WWI.Core3.API
         /// <param name="services">Service Collection</param>
         public void ConfigureServices(IServiceCollection services)
         {
-            Configuration.GetSection("Swagger").Bind(_info);
             Configuration.GetSection("ApiKeyScheme").Bind(_openApiSecurityScheme);
+            Configuration.GetSection("Swagger").Bind(_info);
+            
+            services.InstallServicesInAssembly(Configuration)
+                .AddSwaggerDocumentation(_info, _openApiSecurityScheme);
 
-            services.AddSwaggerDocumentation(_info, _openApiSecurityScheme);
+            ApplicationSettingsVerifier applicationSettingsVerifier = new ApplicationSettingsVerifier(Configuration);
+            applicationSettingsVerifier.VerifyApplicationSettings();
 
-            services.InstallServicesInAssembly(Configuration);
+            Log.Information("Application Settings sucessfully validated ...");
         }
 
         /// <summary>
@@ -78,6 +83,8 @@ namespace WWI.Core3.API
             app.ConfigureApplication(env)
                 .UseSwaggerDocumentation(_info)
                 .UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+            Log.Information("Applcation startup complete ..." + Environment.NewLine);
         }
 
     }

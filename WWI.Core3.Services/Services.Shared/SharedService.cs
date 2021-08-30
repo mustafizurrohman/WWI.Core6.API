@@ -12,10 +12,8 @@
 // <summary></summary>
 // ***********************************************************************
 
-using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using System.Linq;
-using WWI.Core3.Models.DbContext;
 using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;

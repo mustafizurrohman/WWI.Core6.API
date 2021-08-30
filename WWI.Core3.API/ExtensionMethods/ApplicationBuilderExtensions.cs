@@ -1,7 +1,13 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 using Serilog;
+using System.Net;
+using System.Text;
+using System.Text.Json;
 using WWI.Core3.Core.ExtensionMethods;
 
 namespace WWI.Core3.API.ExtensionMethods
@@ -43,7 +49,8 @@ namespace WWI.Core3.API.ExtensionMethods
             app.UseHttpsRedirection();
 
             app.UseCustomExceptionHandler();
-
+            app.UseFluentValidationExceptionHandler();
+            
             app.UseSerilogRequestLogging();
 
             app.UseRouting();
@@ -63,5 +70,30 @@ namespace WWI.Core3.API.ExtensionMethods
 
             return app;
         }
+
+        private static void UseFluentValidationExceptionHandler(this IApplicationBuilder applicationBuilder)
+        {
+            applicationBuilder.UseExceptionHandler(appBuilder =>
+            {
+                appBuilder.Run(async context =>
+                {
+                    var errorFeature = context.Features.Get<IExceptionHandlerFeature>();
+                    var exception = errorFeature.Error;
+
+                    if (!(exception is ValidationException validationException))
+                        throw exception;
+                    
+                    var errorText = JsonSerializer.Serialize(validationException.Errors);
+
+                    context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
+                    context.Response.ContentType = "application/json";
+
+                    await context.Response.WriteAsync(errorText, Encoding.UTF8);
+
+                });
+            });
+        }
+
+
     }
 }

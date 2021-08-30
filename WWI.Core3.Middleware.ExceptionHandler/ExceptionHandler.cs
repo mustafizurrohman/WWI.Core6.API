@@ -58,12 +58,10 @@ namespace WWI.Core3.Middleware.ExceptionHandler
             {
                 await Next.Invoke(context);
             }
-#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
             {
                 await HandleExceptionAsync(context, ex);
             }
-#pragma warning restore CA1031 // Do not catch general exception types
 
         }
 
@@ -77,14 +75,10 @@ namespace WWI.Core3.Middleware.ExceptionHandler
         private Task HandleExceptionAsync(HttpContext httpContext, Exception ex)
         {
             if (_hostingEnvironment.IsDevelopment())
-            {
                 Log.Error(ex.ToString());
-            }
             else
-            {
                 Log.Error(ex.ToString());
-            }
-
+            
             httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             return httpContext.Response.WriteAsync("An internal server error occured. The details have been logged ....");
         }

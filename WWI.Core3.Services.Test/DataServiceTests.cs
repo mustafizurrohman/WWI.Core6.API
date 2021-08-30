@@ -15,7 +15,6 @@
 using AutoFixture;
 using AutoFixture.AutoMoq;
 using AutoFixture.Kernel;
-using AutoFixture.Xunit2;
 using AutoMapper;
 using EntityFrameworkCore.AutoFixture.InMemory;
 using FluentAssertions;
@@ -48,7 +47,9 @@ namespace WWI.Core3.Services.Test
         /// introductory test as an asynchronous operation.
         /// </summary>
         /// <param name="numberOfHospitalsToRetrieve">The number of hospitals to retrieve.</param>
-        [Theory(Skip = "Not working. Needs to be fixed."), AutoData]
+        // [Theory(Skip = "Not working. Needs to be fixed."), AutoData]
+        [Theory]
+        [InlineData(2)]
         public async Task IntroductoryTestAsync(int numberOfHospitalsToRetrieve)
         {
 
@@ -66,7 +67,7 @@ namespace WWI.Core3.Services.Test
 
             var hospitals = fixture.CreateMany<Hospital>(numberOfHospitalsToRetrieve);
 
-            var hospitalsMock = hospitals.AsQueryable().BuildMock();
+            var hospitalsMock = hospitals.AsQueryable().BuildMockDbSet();
 
             var dbContextMock = new Mock<DocAppointmentContext>();
 
@@ -112,6 +113,8 @@ namespace WWI.Core3.Services.Test
             await docAppointmentContext.SaveChangesAsync();
 
             docAppointmentContext.Hospitals.Should().Contain(x => x.Name == hospital.Name);
+
+            
 
         }
 

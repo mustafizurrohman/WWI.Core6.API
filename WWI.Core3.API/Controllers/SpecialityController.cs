@@ -35,17 +35,11 @@ namespace WWI.Core3.API.Controllers
     public class SpecialityController : BaseAPIController
     {
 
-        #region  -- Private Variables -- 
-
         /// <summary>
         /// Gets the data service.
         /// </summary>
         /// <value>The data service.</value>
         private IDataService DataService { get; }
-
-        #endregion
-
-        #region  -- Constructor -- 
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SpecialityController" /> class.
@@ -57,10 +51,6 @@ namespace WWI.Core3.API.Controllers
         {
             DataService = dataService;
         }
-
-        #endregion
-
-        #region -- GET Methods --
 
         /// <summary>
         /// Gets the specialities.
@@ -138,8 +128,5 @@ namespace WWI.Core3.API.Controllers
 
             return Ok(hospitals);
         }
-
-        #endregion
-
     }
 }

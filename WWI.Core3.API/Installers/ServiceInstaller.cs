@@ -1,30 +1,26 @@
 ﻿using AutoMapper;
+using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
 using WWI.Core3.Core.AutoMapper;
 using WWI.Core3.Services.Interfaces;
+using WWI.Core3.Services.MediatR.Handlers;
+using WWI.Core3.Services.MediatR.PipelineBehaviours;
 using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Services.Services;
 using WWI.Core3.Services.Services.Shared;
+using WWI.Core3.Services.Validation;
 
 namespace WWI.Core3.API.Installers
 {
     /// <summary>
-    /// 
+    /// Class ServiceInstaller.
+    /// Implements the <see cref="WWI.Core3.API.Installers.IInstaller" />
     /// </summary>
+    /// <seealso cref="WWI.Core3.API.Installers.IInstaller" />
     public class ServiceInstaller : IInstaller
     {
-
-        /// <summary>
-        /// The OpenApi information
-        /// </summary>
-        private readonly OpenApiInfo _info = new OpenApiInfo();
-
-        /// <summary>
-        /// The open API security scheme
-        /// </summary>
-        private readonly OpenApiSecurityScheme _openApiSecurityScheme = new OpenApiSecurityScheme();
 
         /// <summary>
         /// 
@@ -45,12 +41,24 @@ namespace WWI.Core3.API.Installers
             serviceCollection.AddTransient<IApplicationServices, ApplicationServices>();
 
             serviceCollection.AddTransient<IDataService, DataService>();
+            serviceCollection.Decorate<IDataService, CachedDataService>();
 
             serviceCollection.AddTransient<ISharedService, SharedService>();
 
+            serviceCollection.AddTransient<IHTMLFormatterService, HTMLFormatterService>();
+
+            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            serviceCollection.AddValidatorsFromAssembly(typeof(CreateDoctorCommandValidator).Assembly);
+
+            serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
+
+            serviceCollection.AddOptions();
+
             serviceCollection.AddMvc()
                 .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
- 
+
+            serviceCollection.AddMemoryCache();
+
             serviceCollection.AddControllers();
 
         }

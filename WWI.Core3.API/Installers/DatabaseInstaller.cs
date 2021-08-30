@@ -30,7 +30,7 @@ namespace WWI.Core3.API.Installers
                 options.UseSqlServer(connectionString);
 
                 #if DEBUG
-                options.EnableSensitiveDataLogging(true)
+                options.EnableSensitiveDataLogging()
                     .UseLoggerFactory(ConsoleLoggerFactory);
                 #endif
 

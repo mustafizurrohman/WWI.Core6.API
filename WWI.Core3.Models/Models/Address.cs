@@ -93,5 +93,16 @@ namespace WWI.Core3.Models.Models
         // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
         public IEnumerable<Hospital> Hospitals { [UsedImplicitly] get; set; }
 
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
+        public override string ToString()
+        {
+            return this.Street + ", P.O. :" + this.City
+                   + ", State: " + this.State
+                   + ", PIN:" + this.PIN
+                   + ", " + this.Country;
+        }
     }
 }

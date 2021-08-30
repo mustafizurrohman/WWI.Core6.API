@@ -38,6 +38,7 @@ namespace WWI.Core3.Services.Test.Customizations
             public bool IsSatisfiedBy(object request)
             {
                 return request is PropertyInfo property
+                       // ReSharper disable once PossibleNullReferenceException
                        && property.GetMethod.IsVirtual;
             }
         }

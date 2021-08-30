@@ -18,7 +18,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
 
-namespace WWI.Core3.Core.ExtensionMethods
+namespace WWI.Core3.API.ExtensionMethods
 {
     /// <summary>
     /// Extensions for Swagger
@@ -44,9 +44,9 @@ namespace WWI.Core3.Core.ExtensionMethods
                     TermsOfService = info?.TermsOfService,
                     Contact = new OpenApiContact()
                     {
-                        Name = info?.Contact.Name,
-                        Email = info?.Contact.Email,
-                        Url = info?.Contact.Url
+                        Name = info?.Contact?.Name,
+                        Email = info?.Contact?.Email,
+                        Url = info?.Contact?.Url
                     }
                 });
 

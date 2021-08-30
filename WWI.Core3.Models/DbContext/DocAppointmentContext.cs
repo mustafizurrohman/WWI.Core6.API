@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using WWI.Core3.Models.Models;
 using WWI.Core3.Models.Seed.Helper;
 using WWI.Core3.Models.Utils;
@@ -174,33 +175,9 @@ namespace WWI.Core3.Models.DbContext
         /// then this method will not be run.</remarks>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            #region -- Relationships -- 
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            modelBuilder.Entity<HospitalDoctor>()
-                .HasOne(hd => hd.Hospital)
-                .WithMany(hospital => hospital.Doctors)
-                .HasForeignKey(hospital => hospital.HospitalID);
-
-            modelBuilder.Entity<HospitalDoctor>()
-                .HasOne(hd => hd.Doctor)
-                .WithMany(doctor => doctor.Hospitals)
-                .HasForeignKey(doctor => doctor.DoctorID);
-
-
-            modelBuilder.Entity<HospitalSpeciality>()
-                .HasOne(hs => hs.Hospital)
-                .WithMany(h => h.Specialities)
-                .HasForeignKey(hs => hs.HospitalID);
-
-            modelBuilder.Entity<HospitalSpeciality>()
-                .HasOne(hs => hs.Speciality)
-                .WithMany(h => h.Hospitals)
-                .HasForeignKey(hs => hs.SpecialtyID);
-
-
-            #endregion
-
-            GenerateSeedData(false);
+            GenerateSeedData();
             SeedData(modelBuilder);
 
             OnModelCreatingPartial(modelBuilder);

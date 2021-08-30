@@ -15,6 +15,7 @@
 using System;
 using System.Linq;
 using System.Net.Mail;
+using System.Text;
 using System.Text.RegularExpressions;
 // ReSharper disable MemberCanBePrivate.Global
 
@@ -156,6 +157,18 @@ namespace WWI.Core3.Core.ExtensionMethods
                 .Aggregate((str1, str2) => str1 + " " + str2)
                 .ToString();
         }
+
+        /// <summary>
+        /// Converts to bytearray.
+        /// </summary>
+        /// <param name="sourceStrimg">The source strimg.</param>
+        /// <returns>System.Byte[].</returns>
+        public static byte[] ToByteArray(this string sourceStrimg)
+        {
+            return Encoding.UTF8.GetBytes(sourceStrimg);
+        }
+
+
 
     }
 }
