@@ -12,16 +12,15 @@
 // <summary></summary>
 // ***********************************************************************
 
-using AutoMapper.QueryableExtensions;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
 using WWI.Core3.Models.ViewModels;
-using WWI.Core3.Services.Interfaces;
+using WWI.Core3.Services.MediatR.Queries;
 using WWI.Core3.Services.ServiceCollection;
 
 namespace WWI.Core3.API.Controllers
@@ -34,22 +33,17 @@ namespace WWI.Core3.API.Controllers
     /// <seealso cref="BaseAPIController" />
     public class SpecialityController : BaseAPIController
     {
-
-        /// <summary>
-        /// Gets the data service.
-        /// </summary>
-        /// <value>The data service.</value>
-        private IDataService DataService { get; }
+        private  IMediator Mediator { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SpecialityController" /> class.
         /// </summary>
         /// <param name="applicationServices">Application Services</param>
-        /// <param name="dataService">The data service.</param>
-        public SpecialityController(IApplicationServices applicationServices, IDataService dataService)
+        /// <param name="mediator"></param>
+        public SpecialityController(IApplicationServices applicationServices, IMediator mediator)
             : base(applicationServices)
         {
-            DataService = dataService;
+            Mediator = mediator;
         }
 
         /// <summary>
@@ -59,13 +53,10 @@ namespace WWI.Core3.API.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetSpecialities()
+        public async Task<IActionResult> GetSpecialities(CancellationToken cancellationToken)
         {
-            List<Dropdown> specialityList = await DataService.GetSpecialityInformation()
-                .ToListAsync();
-
-            // Also works!!!
-            // var specialityList = DataService.GetSpecialityInformation();
+            var query = new GetAllSpecialitiesDropdownQuery();
+            var specialityList = await Mediator.Send(query, cancellationToken);
 
             return Ok(specialityList);
         }
@@ -75,14 +66,15 @@ namespace WWI.Core3.API.Controllers
         /// Gets the speciality by identifier.
         /// </summary>
         /// <param name="specialityID">The speciality identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{specialityID}")]
         [ProducesResponseType(typeof(Dropdown), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetSpecialityByID(int specialityID)
+        public async Task<IActionResult> GetSpecialityByID(int specialityID, CancellationToken cancellationToken)
         {
-            var speciality = await DataService.GetSpecialityInformation()
-                .SingleOrDefaultAsync(s => s.ID == specialityID);
+            var query = new GetSpecialityInformationByIDQuery(specialityID);
+            var speciality = await Mediator.Send(query, cancellationToken);
 
             return Ok(speciality);
         }
@@ -91,18 +83,15 @@ namespace WWI.Core3.API.Controllers
         /// Gets the doctors for speciality by identifier.
         /// </summary>
         /// <param name="specialityID">The speciality identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{specialityID}/doctor")]
-        [ProducesResponseType(typeof(Dropdown), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetDoctorsForSpecialityByID(int specialityID)
+        public async Task<IActionResult> GetDoctorsForSpecialityByID(int specialityID, CancellationToken cancellationToken)
         {
-            var doctors = await DbContext.Specialities
-                .Include(s => s.Doctors)
-                .Where(s => s.SpecialtyID == specialityID)
-                .SelectMany(s => s.Doctors)
-                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
-                .ToListAsync();
+            var query = new GetDoctorsForSpecialityByIDQuery(specialityID);
+            var doctors = await Mediator.Send(query, cancellationToken);
 
             return Ok(doctors);
         }
@@ -114,17 +103,12 @@ namespace WWI.Core3.API.Controllers
         /// <param name="specialityID">The speciality identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{specialityID}/hospital")]
-        [ProducesResponseType(typeof(Dropdown), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetHospitalsForSpecialityByID(int specialityID)
+        public async Task<IActionResult> GetHospitalsForSpecialityByID(int specialityID, CancellationToken cancellationToken)
         {
-            var hospitals = await DbContext.Specialities
-                .Include(s => s.Hospitals)
-                .Where(s => s.SpecialtyID == specialityID)
-                .SelectMany(s => s.Hospitals)
-                .Select(hs => hs.Hospital)
-                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
-                .ToListAsync();
+            var query = new GetHospitalsForSpecialityByIDQuery(specialityID);
+            var hospitals = await Mediator.Send(query, cancellationToken);
 
             return Ok(hospitals);
         }

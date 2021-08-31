@@ -26,9 +26,9 @@ namespace WWI.Core3.Services.MediatR.Handlers
                 Firstname = request.Firstname,
                 Middlename = request.Middlename,
                 Lastname = request.Lastname, 
-                Speciality = await DbContext.Specialities.FindAsync(request.SpecialityID)
+                Speciality = await DbContext.Specialities.FindAsync(request.SpecialityID, cancellationToken)
             };
-
+            
             await DbContext.Doctors.AddAsync(doctor, cancellationToken);
             await DbContext.SaveChangesAsync(cancellationToken);
 

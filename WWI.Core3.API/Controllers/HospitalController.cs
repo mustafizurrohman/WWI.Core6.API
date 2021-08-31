@@ -33,7 +33,6 @@ namespace WWI.Core3.API.Controllers
     /// <seealso cref="BaseAPIController" />
     public class HospitalController : BaseAPIController
     {
-
         private  IMediator Mediator { get; }
 
         /// <summary>

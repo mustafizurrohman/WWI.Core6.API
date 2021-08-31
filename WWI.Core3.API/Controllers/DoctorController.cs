@@ -34,9 +34,7 @@ namespace WWI.Core3.API.Controllers
     /// <seealso cref="BaseAPIController" />
     public class DoctorController : BaseAPIController
     {
-
         private  IMediator Mediator { get; }
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DoctorController" /> class.
