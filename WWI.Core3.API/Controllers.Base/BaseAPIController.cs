@@ -44,6 +44,7 @@ namespace WWI.Core3.API.Controllers.Base
         /// AutoMapper
         /// </summary>
         /// <value>The automatic mapper.</value>
+        // ReSharper disable once MemberCanBePrivate.Global
         protected IMapper AutoMapper { get; }
 
         #endregion

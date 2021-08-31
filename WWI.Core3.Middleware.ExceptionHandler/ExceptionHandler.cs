@@ -58,6 +58,10 @@ namespace WWI.Core3.Middleware.ExceptionHandler
             {
                 await Next.Invoke(context);
             }
+            catch (TaskCanceledException)
+            {
+                Log.Information("Request was cancelled.");
+            }
             catch (Exception ex)
             {
                 await HandleExceptionAsync(context, ex);

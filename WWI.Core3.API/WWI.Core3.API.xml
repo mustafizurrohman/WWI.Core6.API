@@ -148,18 +148,11 @@
             </summary>
             <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
         </member>
-        <member name="P:WWI.Core3.API.Controllers.SpecialityController.DataService">
-            <summary>
-            Gets the data service.
-            </summary>
-            <value>The data service.</value>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.SpecialityController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,WWI.Core3.Services.Interfaces.IDataService,MediatR.IMediator)">
+        <member name="M:WWI.Core3.API.Controllers.SpecialityController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.SpecialityController" /> class.
             </summary>
             <param name="applicationServices">Application Services</param>
-            <param name="dataService">The data service.</param>
             <param name="mediator"></param>
         </member>
         <member name="M:WWI.Core3.API.Controllers.SpecialityController.GetSpecialities(System.Threading.CancellationToken)">
