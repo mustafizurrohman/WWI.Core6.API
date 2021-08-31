@@ -101,14 +101,7 @@ namespace WWI.Core3.API.Controllers
             
             return File(htmlDocument.ToByteArray(), "application/octet-stream", "doctors.html");
         }
-
-
-        [HttpGet("mediatr")]
-        public async Task<IActionResult> TestMediatR()
-        {
-            return Ok();
-        }
-
+        
     }
 
 }

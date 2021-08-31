@@ -16,6 +16,7 @@ using JetBrains.Annotations;
 using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.Interfaces;
@@ -80,13 +81,13 @@ namespace WWI.Core3.Services.Services
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
         /// <returns>Task&lt;HospitalInformation&gt;.</returns>
-        public async Task<HospitalInformation> GetHospitalInformationByIDAsync(int hospitalID)
+        public async Task<HospitalInformation> GetHospitalInformationByIDAsync(int hospitalID, CancellationToken cancellationToken)
         {
             var cacheKey = GetHospitalInformationByIDCacheKey(hospitalID);
 
             if (!MemoryCache.TryGetValue(cacheKey, out HospitalInformation hospitalInformation))
             {
-                hospitalInformation = await DataService.GetHospitalInformationByIDAsync(hospitalID);
+                hospitalInformation = await DataService.GetHospitalInformationByIDAsync(hospitalID, cancellationToken);
                 SetMemoryCache(cacheKey, hospitalInformation);
             }
 
@@ -97,14 +98,15 @@ namespace WWI.Core3.Services.Services
         /// get advanced hospital information as an asynchronous operation.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task&lt;AdvancedHospitalInformation&gt;.</returns>
-        public async Task<AdvancedHospitalInformation> GetAdvancedHospitalInformationAsync(int hospitalID)
+        public async Task<AdvancedHospitalInformation> GetAdvancedHospitalInformationAsync(int hospitalID, CancellationToken cancellationToken)
         {
             var cacheKey = GetAdvancedHospitalInformationCacheKey(hospitalID);
 
             if (!MemoryCache.TryGetValue(cacheKey, out AdvancedHospitalInformation advancedHospitalInformation))
             {
-                advancedHospitalInformation = await DataService.GetAdvancedHospitalInformationAsync(hospitalID);
+                advancedHospitalInformation = await DataService.GetAdvancedHospitalInformationAsync(hospitalID, cancellationToken);
                 SetMemoryCache(cacheKey, advancedHospitalInformation);
             }
 
@@ -115,14 +117,15 @@ namespace WWI.Core3.Services.Services
         /// get doctors for hospital as an asynchronous operation.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task&lt;HospitalDoctorInformation&gt;.</returns>
-        public async Task<HospitalDoctorInformation> GetDoctorsForHospitalAsync(int hospitalID)
+        public async Task<HospitalDoctorInformation> GetDoctorsForHospitalAsync(int hospitalID, CancellationToken cancellationToken)
         {
             var cacheKey = GetDoctorsForHospital(hospitalID);
 
             if (!MemoryCache.TryGetValue(cacheKey, out HospitalDoctorInformation hospitalDoctorInformation))
             {
-                hospitalDoctorInformation = await DataService.GetDoctorsForHospitalAsync(hospitalID);
+                hospitalDoctorInformation = await DataService.GetDoctorsForHospitalAsync(hospitalID, cancellationToken);
                 SetMemoryCache(cacheKey, hospitalDoctorInformation);
             }
 

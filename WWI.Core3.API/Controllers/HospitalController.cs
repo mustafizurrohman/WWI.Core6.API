@@ -12,15 +12,15 @@
 // <summary></summary>
 // ***********************************************************************
 
-using AutoMapper.QueryableExtensions;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using WWI.Core3.API.Controllers.Base;
 using WWI.Core3.Models.ViewModels;
-using WWI.Core3.Services.Interfaces;
+using WWI.Core3.Services.MediatR.Queries;
 using WWI.Core3.Services.ServiceCollection;
 
 namespace WWI.Core3.API.Controllers
@@ -34,52 +34,31 @@ namespace WWI.Core3.API.Controllers
     public class HospitalController : BaseAPIController
     {
 
-        #region  -- Private Variables -- 
-
-        /// <summary>
-        /// Gets the data service.
-        /// </summary>
-        /// <value>The data service.</value>
-        private IDataService DataService { get; }
-
-        private ISharedService SharedService { get; }
-
-        #endregion
-
-        #region -- Constructor -- 
+        private  IMediator Mediator { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HospitalController" /> class.
         /// </summary>
         /// <param name="applicationServices">Application Services</param>
-        /// <param name="dataService">The data service.</param>
-        /// <param name="sharedService"></param>
-        public HospitalController(IApplicationServices applicationServices, IDataService dataService, ISharedService sharedService) 
+        /// <param name="mediator"></param>
+        public HospitalController(IApplicationServices applicationServices, IMediator mediator) 
             : base(applicationServices)
         {
-            DataService = dataService;
-            SharedService = sharedService;
+            Mediator = mediator;
         }
-
-        #endregion
-
-        #region  -- GET Methods --
 
         /// <summary>
         /// Gets the hospitals.
         /// </summary>
         /// <returns>IActionResult.</returns>
         [HttpGet("dropdown")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetHospitals()
+        public async Task<IActionResult> GetHospitals(CancellationToken cancellationToken)
         {
-            var hospitals = await DbContext.Hospitals
-                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
-                .OrderBy(hos => hos.DisplayValue)
-                .AsNoTracking()
-                .ToListAsync();
-
+            var query = new GetAllHospitalsQuery();
+            var hospitals = await Mediator.Send(query, cancellationToken);
+            
             return Ok(hospitals);
         }
 
@@ -88,13 +67,15 @@ namespace WWI.Core3.API.Controllers
         /// Gets the hospital by identifier.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{hospitalID}/details")]
         [ProducesResponseType(typeof(HospitalInformation), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetHospitalById(int hospitalID)
+        public async Task<IActionResult> GetHospitalById(int hospitalID, CancellationToken cancellationToken)
         {
-            var hospital = await DataService.GetHospitalInformationByIDAsync(hospitalID);
+            var query = new GetHospitalInformationQuery(hospitalID);
+            var hospital = await Mediator.Send(query, cancellationToken);
 
             return Ok(hospital);
         }
@@ -103,13 +84,15 @@ namespace WWI.Core3.API.Controllers
         /// Gets the hospital information by identifier.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{hospitalID}/details/advanced")]
         [ProducesResponseType(typeof(AdvancedHospitalInformation), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetHospitalInfoById(int hospitalID)
+        public async Task<IActionResult> GetHospitalInfoById(int hospitalID, CancellationToken cancellationToken)
         {
-            var advancedHospitalInformation = await DataService.GetAdvancedHospitalInformationAsync(hospitalID);
+            var query = new GetAdvancedHospitalInformationQuery(hospitalID);
+            var advancedHospitalInformation = await Mediator.Send(query, cancellationToken);
 
             return Ok(advancedHospitalInformation);
         }
@@ -119,13 +102,15 @@ namespace WWI.Core3.API.Controllers
         /// Gets the doctors for hospital by identifier.
         /// </summary>
         /// <param name="hospitalID">The identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{hospitalID}/doctors")]
         [ProducesResponseType(typeof(HospitalDoctorInformation), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetDoctorsForHospitalById(int hospitalID)
+        public async Task<IActionResult> GetDoctorsForHospitalById(int hospitalID, CancellationToken cancellationToken)
         {
-            var doctorsInHospital = await DataService.GetDoctorsForHospitalAsync(hospitalID);
+            var query = new GetDoctorsForHospitalQuery(hospitalID);
+            var doctorsInHospital = await Mediator.Send(query, cancellationToken);
 
             return Ok(doctorsInHospital);
         }
@@ -136,17 +121,15 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
         /// <param name="specialityID">The speciality identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{hospitalID}/specialities/{specialityID}")]
-        [ProducesResponseType(typeof(AdvancedHospitalInformation), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SpecialityInformation), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetSpecialityInfoForHospital(int hospitalID, int specialityID)
+        public async Task<IActionResult> GetSpecialityInfoForHospital(int hospitalID, int specialityID, CancellationToken cancellationToken)
         {
-            var specialityInformation = await SharedService.GetAdvancedHospitalInformation()
-                .Where(hos => hos.HospitalID == hospitalID)
-                .SelectMany(hos => hos.Specialities)
-                .Where(sp => sp.SpecialtyID == specialityID)
-                .FirstOrDefaultAsync();
+            var query = new GetSpecialityInfoForHospitalQuery(hospitalID, specialityID);
+            var specialityInformation = await Mediator.Send(query, cancellationToken);
 
             return Ok(specialityInformation);
         }
@@ -155,16 +138,15 @@ namespace WWI.Core3.API.Controllers
         /// Gets the speciality information for hospital.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{hospitalID}/specialities/")]
-        [ProducesResponseType(typeof(AdvancedHospitalInformation), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<SpecialityInformation>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetSpecialitiesForHospital(int hospitalID)
+        public async Task<IActionResult> GetSpecialitiesForHospital(int hospitalID, CancellationToken cancellationToken)
         {
-            var specialityInformation = await SharedService.GetAdvancedHospitalInformation()
-                .Where(hos => hos.HospitalID == hospitalID)
-                .Select(hos => hos.Specialities)
-                .ToListAsync();
+            var query = new GetSpecialitiesForHospitalQuery(hospitalID);
+            var specialityInformation = await Mediator.Send(query, cancellationToken);
                 
             return Ok(specialityInformation);
         }
@@ -173,23 +155,18 @@ namespace WWI.Core3.API.Controllers
         /// Gets the speciality information for hospital.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{hospitalID}/specialities/dropdown")]
-        [ProducesResponseType(typeof(AdvancedHospitalInformation), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetSpecialitiesDropdownForHospital(int hospitalID)
+        public async Task<IActionResult> GetSpecialitiesDropdownForHospital(int hospitalID, CancellationToken cancellationToken)
         {
-            var specialityInformation = await SharedService.GetAdvancedHospitalInformation()
-                .Where(hos => hos.HospitalID == hospitalID)
-                .SelectMany(hos => hos.Specialities)
-                .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
-                .ToListAsync();
+            var query = new GetSpecialitiesDropdownForHospitalQuery(hospitalID);
+            var specialityInformation = await Mediator.Send(query, cancellationToken);
             
             return Ok(specialityInformation);
         }
-
-
-        #endregion
 
     }
 }

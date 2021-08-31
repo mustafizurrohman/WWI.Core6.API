@@ -35,7 +35,7 @@ namespace WWI.Core3.API.Controllers
     public class DoctorController : BaseAPIController
     {
 
-        private  IMediator Mediator { get; set; }
+        private  IMediator Mediator { get; }
 
 
         /// <summary>
@@ -100,16 +100,17 @@ namespace WWI.Core3.API.Controllers
 
             return Ok(doctors);
         }
-        
+
         /// <summary>
         /// add doctor as an asynchronous operation.
         /// </summary>
         /// <param name="doctor">The doctor.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>IActionResult.</returns>
         [HttpPut]
-        public async Task<IActionResult> AddDoctorAsync(CreateDoctorCommand doctor)
+        public async Task<IActionResult> AddDoctorAsync(CreateDoctorCommand doctor, CancellationToken cancellationToken)
         {
-            var doctorInfo = await Mediator.Send(doctor);
+            var doctorInfo = await Mediator.Send(doctor, cancellationToken);
             return Ok(doctorInfo); 
         }
 

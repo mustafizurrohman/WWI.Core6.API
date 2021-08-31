@@ -13,6 +13,7 @@
 // ***********************************************************************
 
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using WWI.Core3.Models.ViewModels;
 namespace WWI.Core3.Services.Interfaces
@@ -23,28 +24,30 @@ namespace WWI.Core3.Services.Interfaces
     /// </summary>
     public interface IDataService
     {
-
         /// <summary>
         /// Gets the hospital information by identifier asynchronous.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task&lt;HospitalInformation&gt;.</returns>
-        Task<HospitalInformation> GetHospitalInformationByIDAsync(int hospitalID);
+        Task<HospitalInformation> GetHospitalInformationByIDAsync(int hospitalID, CancellationToken cancellationToken);
 
 
         /// <summary>
         /// Gets the advanced hospital information asynchronously
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task&lt;AdvancedHospitalInformation&gt;.</returns>
-        Task<AdvancedHospitalInformation> GetAdvancedHospitalInformationAsync(int hospitalID);
+        Task<AdvancedHospitalInformation> GetAdvancedHospitalInformationAsync(int hospitalID, CancellationToken cancellationToken);
 
         /// <summary>
         /// Gets the doctors for hospital.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task&lt;HospitalDoctorInformation&gt;.</returns>
-        Task<HospitalDoctorInformation> GetDoctorsForHospitalAsync(int hospitalID);
+        Task<HospitalDoctorInformation> GetDoctorsForHospitalAsync(int hospitalID, CancellationToken cancellationToken);
 
         /// <summary>
         /// Gets all speciality information for hospital.

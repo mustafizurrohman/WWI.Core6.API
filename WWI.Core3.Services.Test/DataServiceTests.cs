@@ -87,7 +87,7 @@ namespace WWI.Core3.Services.Test
             var randomId = hospitalsMock.Object.ToList().GetRandomShuffled().HospitalID;
 
             // Act
-            var retrivedHospital = await dataService.Object.GetHospitalInformationByIDAsync(randomId);
+            //var retrivedHospital = await dataService.Object.GetHospitalInformationByIDAsync(randomId);
 
         }
 

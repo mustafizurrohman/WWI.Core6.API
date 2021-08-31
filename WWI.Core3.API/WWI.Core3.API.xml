@@ -64,11 +64,12 @@
             <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.AddDoctorAsync(WWI.Core3.Services.MediatR.Commands.CreateDoctorCommand)">
+        <member name="M:WWI.Core3.API.Controllers.DoctorController.AddDoctorAsync(WWI.Core3.Services.MediatR.Commands.CreateDoctorCommand,System.Threading.CancellationToken)">
             <summary>
             add doctor as an asynchronous operation.
             </summary>
             <param name="doctor">The doctor.</param>
+            <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
         <member name="T:WWI.Core3.API.Controllers.HospitalController">
@@ -78,67 +79,66 @@
             </summary>
             <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
         </member>
-        <member name="P:WWI.Core3.API.Controllers.HospitalController.DataService">
-            <summary>
-            Gets the data service.
-            </summary>
-            <value>The data service.</value>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,WWI.Core3.Services.Interfaces.IDataService,WWI.Core3.Services.Interfaces.ISharedService)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.HospitalController" /> class.
             </summary>
             <param name="applicationServices">Application Services</param>
-            <param name="dataService">The data service.</param>
-            <param name="sharedService"></param>
+            <param name="mediator"></param>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitals">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitals(System.Threading.CancellationToken)">
             <summary>
             Gets the hospitals.
             </summary>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitalById(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitalById(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Gets the hospital by identifier.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
+            <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitalInfoById(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitalInfoById(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Gets the hospital information by identifier.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
+            <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetDoctorsForHospitalById(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetDoctorsForHospitalById(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Gets the doctors for hospital by identifier.
             </summary>
             <param name="hospitalID">The identifier.</param>
+            <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialityInfoForHospital(System.Int32,System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialityInfoForHospital(System.Int32,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Gets the speciality information for hospital.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
             <param name="specialityID">The speciality identifier.</param>
+            <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialitiesForHospital(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialitiesForHospital(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Gets the speciality information for hospital.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
+            <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialitiesDropdownForHospital(System.Int32)">
+        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialitiesDropdownForHospital(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Gets the speciality information for hospital.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
+            <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
         <member name="T:WWI.Core3.API.Controllers.SpecialityController">

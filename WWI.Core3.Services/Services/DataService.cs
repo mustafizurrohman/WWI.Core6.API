@@ -15,6 +15,7 @@
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.Interfaces;
@@ -53,11 +54,12 @@ namespace WWI.Core3.Services.Services
         /// Gets the advanced hospital information.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task&lt;AdvancedHospitalInformation&gt;.</returns>
-        public async Task<AdvancedHospitalInformation> GetAdvancedHospitalInformationAsync(int hospitalID)
+        public async Task<AdvancedHospitalInformation> GetAdvancedHospitalInformationAsync(int hospitalID, CancellationToken cancellationToken)
         {
             var advancedHospitalInformation = await SharedService.GetAdvancedHospitalInformation()
-                .SingleOrDefaultAsync(hos => hos.HospitalID == hospitalID);
+                .SingleOrDefaultAsync(hos => hos.HospitalID == hospitalID, cancellationToken);
 
             return advancedHospitalInformation;
         }
@@ -85,13 +87,14 @@ namespace WWI.Core3.Services.Services
         /// Gets the doctors for hospital.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task&lt;HospitalDoctorInformation&gt;.</returns>
-        public async Task<HospitalDoctorInformation> GetDoctorsForHospitalAsync(int hospitalID)
+        public async Task<HospitalDoctorInformation> GetDoctorsForHospitalAsync(int hospitalID, CancellationToken cancellationToken)
         {
             var doctorsForHospital = await DbContext.Hospitals
                 .Where(hos => hos.HospitalID == hospitalID)
                 .ProjectTo<HospitalDoctorInformation>(AutoMapper.ConfigurationProvider)
-                .SingleOrDefaultAsync();
+                .SingleOrDefaultAsync(cancellationToken);
 
             doctorsForHospital.Doctors = doctorsForHospital.Doctors
                 .OrderBy(doc => doc.SpecialityName)
@@ -104,11 +107,12 @@ namespace WWI.Core3.Services.Services
         /// Get hospital information by identifier as an asynchronous operation.
         /// </summary>
         /// <param name="hospitalID">The hospital identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>Task<HospitalInformation></HospitalInformation></returns>
-        public async Task<HospitalInformation> GetHospitalInformationByIDAsync(int hospitalID)
+        public async Task<HospitalInformation> GetHospitalInformationByIDAsync(int hospitalID, CancellationToken cancellationToken)
         {
             var hospitalInformation = await SharedService.GetHospitalInformation()
-                .SingleOrDefaultAsync(h => h.HospitalID == hospitalID);
+                .SingleOrDefaultAsync(h => h.HospitalID == hospitalID, cancellationToken);
 
             return hospitalInformation;
         }
