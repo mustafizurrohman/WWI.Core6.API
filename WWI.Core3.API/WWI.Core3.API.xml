@@ -222,6 +222,19 @@
             <param name="env">The env.</param>
             <returns>IApplicationBuilder.</returns>
         </member>
+        <member name="T:WWI.Core3.API.ExtensionMethods.ImplementationTypeSelectorExtensions">
+            <summary>
+            Class ImplementationTypeSelectorExtensions.
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.ExtensionMethods.ImplementationTypeSelectorExtensions.RegisterHandlers(Scrutor.IImplementationTypeSelector,System.Type)">
+            <summary>
+            Registers the handlers.
+            </summary>
+            <param name="selector">The selector.</param>
+            <param name="type">The type.</param>
+            <returns>IImplementationTypeSelector.</returns>
+        </member>
         <member name="T:WWI.Core3.API.ExtensionMethods.InstallerExtensions">
             <summary>
             Class InstallerExtensions.

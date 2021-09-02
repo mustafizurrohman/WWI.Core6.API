@@ -3,14 +3,15 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WWI.Core3.API.ExtensionMethods;
 using WWI.Core3.Core.AutoMapper;
 using WWI.Core3.Services.Interfaces;
+using WWI.Core3.Services.MediatR.Decorators;
 using WWI.Core3.Services.MediatR.Handlers;
 using WWI.Core3.Services.MediatR.PipelineBehaviours;
 using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Services.Services;
 using WWI.Core3.Services.Services.Shared;
-using WWI.Core3.Services.Validation;
 
 namespace WWI.Core3.API.Installers
 {
@@ -47,10 +48,18 @@ namespace WWI.Core3.API.Installers
 
             serviceCollection.AddTransient<IHTMLFormatterService, HTMLFormatterService>();
 
-            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-            serviceCollection.AddValidatorsFromAssembly(typeof(CreateDoctorCommandValidator).Assembly);
-
             serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
+            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            serviceCollection.AddValidatorsFromAssembly(typeof(RetryDecorator<>).Assembly);
+
+            serviceCollection.Scan(scan =>
+            {
+                scan.FromAssembliesOf(typeof(HandlerBase))
+                    .RegisterHandlers(typeof(INotificationHandler<>));
+            });
+
+            // TODO: Make this work!
+            // serviceCollection.Decorate(typeof(INotificationHandler<>), typeof(RetryDecorator<>));
 
             serviceCollection.AddOptions();
 
