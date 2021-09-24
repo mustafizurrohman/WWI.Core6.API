@@ -9,6 +9,7 @@ namespace WWI.Core3.Services.Validation
     {
         private DocAppointmentContext DbContext { get; }
 
+        // Dependency Injection also for Input Validation!
         public CreateDoctorCommandValidator(DocAppointmentContext docAppointmentContext)
         {
             DbContext = docAppointmentContext;

@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Ardalis.GuardClauses;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading;
@@ -17,7 +18,7 @@ namespace WWI.Core3.Services.MediatR.Handlers
         public GetAllSpecialitiesDropdownQueryHandler(IApplicationServices applicationServices, IDataService dataService)
             : base(applicationServices)
         {
-            DataService = dataService;
+            DataService = Guard.Against.Null(dataService, nameof(dataService));
         }
 
         public async Task<List<Dropdown>> Handle(GetAllSpecialitiesDropdownQuery request, CancellationToken cancellationToken)

@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Ardalis.GuardClauses;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Web.Http.OData;
@@ -57,8 +58,8 @@ namespace WWI.Core3.API.Controllers.Base
         /// <param name="applicationServices">The collection of frequently used application services.</param>
         protected BaseAPIController(IApplicationServices applicationServices)
         {
-            DbContext = applicationServices.DbContext;
-            AutoMapper = applicationServices.AutoMapper;
+            DbContext = Guard.Against.Null(applicationServices.DbContext, nameof(applicationServices.DbContext));
+            AutoMapper = Guard.Against.Null(applicationServices.AutoMapper, nameof(applicationServices.AutoMapper));
         }
 
         #endregion

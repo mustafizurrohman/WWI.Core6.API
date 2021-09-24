@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Ardalis.GuardClauses;
+using AutoMapper;
 using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -25,8 +26,8 @@ namespace WWI.Core3.Services.MediatR.Handlers
         /// <param name="applicationServices">The application services.</param>
         protected HandlerBase(IApplicationServices applicationServices)
         {
-            DbContext = applicationServices.DbContext;
-            AutoMapper = applicationServices.AutoMapper;
+            DbContext = Guard.Against.Null(applicationServices.DbContext, nameof(applicationServices.DbContext));
+            AutoMapper = Guard.Against.Null(applicationServices.AutoMapper, nameof(applicationServices.AutoMapper));
         }
 
 

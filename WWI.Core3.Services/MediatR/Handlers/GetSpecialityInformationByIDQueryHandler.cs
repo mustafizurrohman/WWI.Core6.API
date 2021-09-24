@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Ardalis.GuardClauses;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace WWI.Core3.Services.MediatR.Handlers
         public GetSpecialityInformationByIDQueryHandler(IApplicationServices applicationServices, IDataService dataService)  
             : base(applicationServices)
         {
-            DataService = dataService;
+            DataService = Guard.Against.Null(dataService, nameof(dataService));
         }
 
         public async Task<Dropdown> Handle(GetSpecialityInformationByIDQuery request, CancellationToken cancellationToken)

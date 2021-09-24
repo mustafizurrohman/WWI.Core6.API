@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses" Version="3.2.0" />
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="HtmlTableHelper" Version="1.2.2" />
     <PackageReference Include="MediatR" Version="9.0.0" />

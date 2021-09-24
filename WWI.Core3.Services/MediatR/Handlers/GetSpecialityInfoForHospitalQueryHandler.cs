@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Ardalis.GuardClauses;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading;
@@ -17,7 +18,7 @@ namespace WWI.Core3.Services.MediatR.Handlers
         public GetSpecialityInfoForHospitalQueryHandler(IApplicationServices applicationServices, ISharedService sharedService)
             : base(applicationServices)
         {
-            SharedService = sharedService;
+            SharedService = Guard.Against.Null(sharedService, nameof(sharedService));
         }
 
 

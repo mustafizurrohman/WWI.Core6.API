@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Ardalis.GuardClauses;
 using AutoMapper;
 using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.ServiceCollection;
@@ -40,8 +41,8 @@ namespace WWI.Core3.Services.Services.Base
         /// <param name="applicationServices">The application services.</param>
         protected BaseService(IApplicationServices applicationServices)
         {
-            DbContext = applicationServices.DbContext;
-            AutoMapper = applicationServices.AutoMapper;
+            DbContext = Guard.Against.Null(applicationServices.DbContext, nameof(applicationServices.DbContext));
+            AutoMapper = Guard.Against.Null(applicationServices.AutoMapper, nameof(applicationServices.AutoMapper));
         }
 
 

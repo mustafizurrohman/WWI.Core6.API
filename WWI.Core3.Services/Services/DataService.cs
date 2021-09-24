@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Ardalis.GuardClauses;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -47,7 +48,7 @@ namespace WWI.Core3.Services.Services
         /// <param name="sharedService">Shared Service</param>
         public DataService(IApplicationServices applicationServices, ISharedService sharedService) : base(applicationServices)
         {
-            SharedService = sharedService;
+            SharedService = Guard.Against.Null(sharedService, nameof(sharedService));
         }
 
         /// <summary>

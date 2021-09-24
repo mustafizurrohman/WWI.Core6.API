@@ -1,4 +1,5 @@
-﻿using AutoMapper.QueryableExtensions;
+﻿using Ardalis.GuardClauses;
+using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace WWI.Core3.Services.MediatR.Handlers
         public GetSpecialitiesDropdownForHospitalQueryHandler(IApplicationServices applicationServices, ISharedService sharedService)
             : base(applicationServices)
         {
-            SharedService = sharedService;
+            SharedService = Guard.Against.Null(sharedService, nameof(sharedService));
         }
 
         public async Task<List<Dropdown>> Handle(GetSpecialitiesDropdownForHospitalQuery request, CancellationToken cancellationToken)

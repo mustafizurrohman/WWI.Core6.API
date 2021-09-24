@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Ardalis.GuardClauses;
+using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 using WWI.Core3.Models.ViewModels;
@@ -15,7 +16,7 @@ namespace WWI.Core3.Services.MediatR.Handlers
         public GetHospitalInformationQueryHandler(IApplicationServices applicationServices, IDataService dataService)
             : base(applicationServices)
         {
-            DataService = dataService;
+            DataService = Guard.Against.Null(dataService, nameof(dataService));
         }
 
         public async Task<HospitalInformation> Handle(GetHospitalInformationQuery request, CancellationToken cancellationToken)

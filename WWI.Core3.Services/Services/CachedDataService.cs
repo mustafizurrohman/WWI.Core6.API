@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Ardalis.GuardClauses;
 using JetBrains.Annotations;
 using Microsoft.Extensions.Caching.Memory;
 using System;
@@ -72,8 +73,8 @@ namespace WWI.Core3.Services.Services
             MemoryCacheEntryOptions = new MemoryCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromHours(1));
 
-            MemoryCache = memoryCache;
-            DataService = dataService;
+            MemoryCache = Guard.Against.Null(memoryCache, nameof(memoryCache));
+            DataService = Guard.Against.Null(dataService, nameof(dataService));
         }
 
         /// <summary>
