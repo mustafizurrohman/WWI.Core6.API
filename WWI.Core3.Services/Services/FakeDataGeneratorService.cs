@@ -15,7 +15,9 @@
 using Ardalis.GuardClauses;
 using Bogus;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using WWI.Core3.Models.Models;
+using WWI.Core3.Models.Utils;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Services.Services.Base;
@@ -76,6 +78,14 @@ namespace WWI.Core3.Services.Services
             return GetHospitalFakar().Generate(num);
         }
 
+        public IEnumerable<Speciality> GenerateFakeSpecialities(int num)
+        {
+            num = Guard.Against.NegativeOrZero(num, nameof(num));
+            return GetSpecialityFaker().Generate(num);
+        }
+
+        #region -- Private Methods -- 
+        
         /// <summary>
         /// Gets the address faker.
         /// </summary>
@@ -84,9 +94,10 @@ namespace WWI.Core3.Services.Services
         {
             var addressFaker = new Faker<Address>()
                 .StrictMode(false)
-                .RuleFor(adr => adr.AddressID, fake => fake.IndexFaker)
+                .RuleFor(adr => adr.AddressID, fake => fake.IndexFaker + 1)
                 .RuleFor(adr => adr.Street, fake => fake.Address.StreetAddress())
                 .RuleFor(adr => adr.District, fake => fake.Address.CityPrefix())
+                .RuleFor(adr => adr.City, fake => fake.Address.City())
                 .RuleFor(adr => adr.State, fake => fake.Address.State())
                 .RuleFor(adr => adr.Country, fake => fake.Address.Country())
                 .RuleFor(adr => adr.PIN, fake => fake.Address.ZipCode());
@@ -102,7 +113,7 @@ namespace WWI.Core3.Services.Services
         {
             var hospitalFaker = new Faker<Hospital>()
                 .StrictMode(false)
-                .RuleFor(hos => hos.HospitalID, fake => fake.IndexFaker)
+                .RuleFor(hos => hos.HospitalID, fake => fake.IndexFaker + 1)
                 .RuleFor(hos => hos.Name, fake => fake.Company.CompanyName())
                 .RuleFor(hos => hos.Address, GetAddressFaker());
 
@@ -117,13 +128,52 @@ namespace WWI.Core3.Services.Services
         {
             var doctorFaker = new Faker<Doctor>()
                 .StrictMode(false)
+                .RuleFor(doc => doc.DoctorID, fake => fake.IndexFaker + 1)
                 .RuleFor(doc => doc.Firstname, fake => fake.Name.FirstName())
                 .RuleFor(doc => doc.Lastname, fake => fake.Name.LastName())
                 .RuleFor(doc => doc.SpecialityID, fake => fake.UniqueIndex)
-                .RuleFor(doc => doc.Middlename, fake => string.Empty);
+                .RuleFor(doc => doc.Middlename, fake => string.Empty)
+                .RuleFor(doc => doc.Speciality, GetSpecialityFaker());
 
             return doctorFaker;
         }
+
+        private Faker<Speciality> GetSpecialityFaker()
+        {
+            var specialityFaker = new Faker<Speciality>()
+                .StrictMode(false)
+                .RuleFor(sp => sp.SpecialtyID, fake => fake.IndexFaker + 1)
+                .RuleFor(sp => sp.Name, fake => GetSpecialityList().GetRandomElement());
+
+            return specialityFaker;
+        }
+
+        private ReadOnlyCollection<string> GetSpecialityList()
+        {
+            return new List<string>()
+            {
+                "Pediatrics",
+                "Anesthesiology",
+                "Dermatology",
+                "Allergy and Immunology",
+                "Diagonistic Radiology",
+                "Emergency Medicine",
+                "Family Medicine",
+                "Internal Medicine",
+                "Medical Genetics",
+                "Neurology",
+                "Neuclear Medicine",
+                "Obstetrics and Gynecology",
+                "Opthalmology",
+                "Physical Medicine & Rehabilitation",
+                "Psychiatry",
+                "Radiation Oncology",
+                "Surgery",
+                "Urology"
+            }.AsReadOnly();
+        }
+
+        #endregion
 
     }
 }

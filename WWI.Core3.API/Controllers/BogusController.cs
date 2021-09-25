@@ -1,10 +1,7 @@
 ﻿using Ardalis.GuardClauses;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Linq;
 using WWI.Core3.API.Controllers.Base;
-using WWI.Core3.Models.Models;
-using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -28,7 +25,7 @@ namespace WWI.Core3.API.Controllers
         public BogusController(IApplicationServices applicationServices, IFakeDataGeneratorService fakeDataGeneratorService)
             : base(applicationServices)
         {
-            this.FakeDataGeneratorService = fakeDataGeneratorService;
+            this.FakeDataGeneratorService = Guard.Against.Null(fakeDataGeneratorService, nameof(fakeDataGeneratorService));
         }
 
         /// <summary>
@@ -39,12 +36,11 @@ namespace WWI.Core3.API.Controllers
         [HttpGet("doctors")]
         public IActionResult GenerateFakeDoctors(int num)
         {
+            num = Guard.Against.NegativeOrZero(num, nameof(num));
+
             var generatedFakeDoctors = FakeDataGeneratorService.GenerateFakeDoctors(num);
             
-            var mappedDoctors = AutoMapper.Map<List<Doctor>, List<Dropdown>>(generatedFakeDoctors.ToList())
-                .Select(doc => doc.DisplayValue);
-                
-            return Ok(mappedDoctors);
+            return Ok(generatedFakeDoctors);
         }
 
         /// <summary>
@@ -60,6 +56,22 @@ namespace WWI.Core3.API.Controllers
             var generatedFakeHopistals = FakeDataGeneratorService.GenerateFakeHospitals(num);
             
             return Ok(generatedFakeHopistals);
+        }
+
+        /// <summary>
+        /// Generates the fake addresses.
+        /// </summary>
+        /// <param name="num">The number.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("address")]
+        public IActionResult GenerateFakeaddress(int num)
+        {
+            num = Guard.Against.NegativeOrZero(num, nameof(num));
+
+            var generatedFakeAddress = FakeDataGeneratorService.GenerateFakeAddress(num)
+                .Select(addr => addr.ToString());
+
+            return Ok(generatedFakeAddress);
         }
 
     }

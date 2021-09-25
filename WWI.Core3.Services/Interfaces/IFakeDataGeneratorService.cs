@@ -8,5 +8,6 @@ namespace WWI.Core3.Services.Interfaces
         IEnumerable<Doctor> GenerateFakeDoctors(int num);
         IEnumerable<Address> GenerateFakeAddress(int num);
         IEnumerable<Hospital> GenerateFakeHospitals(int num);
+        IEnumerable<Speciality> GenerateFakeSpecialities(int num);
     }
 }

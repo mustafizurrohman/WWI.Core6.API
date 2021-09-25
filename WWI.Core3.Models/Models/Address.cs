@@ -99,7 +99,7 @@ namespace WWI.Core3.Models.Models
         /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
         public override string ToString()
         {
-            return this.Street + ", P.O. :" + this.City
+            return this.Street + ", P.O.: " + this.City
                    + ", State: " + this.State
                    + ", PIN:" + this.PIN
                    + ", " + this.Country;

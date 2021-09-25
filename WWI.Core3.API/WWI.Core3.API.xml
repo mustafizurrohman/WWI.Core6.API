@@ -56,6 +56,13 @@
             <param name="num">The number.</param>
             <returns>IActionResult.</returns>
         </member>
+        <member name="M:WWI.Core3.API.Controllers.BogusController.GenerateFakeaddress(System.Int32)">
+            <summary>
+            Generates the fake addresses.
+            </summary>
+            <param name="num">The number.</param>
+            <returns>IActionResult.</returns>
+        </member>
         <member name="T:WWI.Core3.API.Controllers.DoctorController">
             <summary>
             Class DoctorController.
