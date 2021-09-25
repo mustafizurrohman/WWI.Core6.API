@@ -28,6 +28,34 @@
             </summary>
             <param name="applicationServices">The collection of frequently used application services.</param>
         </member>
+        <member name="T:WWI.Core3.API.Controllers.BogusController">
+            <summary>
+            Class BogusController.
+            Implements the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
+            </summary>
+            <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.BogusController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,WWI.Core3.Services.Interfaces.IFakeDataGeneratorService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.BogusController"/> class.
+            </summary>
+            <param name="applicationServices">The application services.</param>
+            <param name="fakeDataGeneratorService">The fake data generator service.</param>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.BogusController.GenerateFakeDoctors(System.Int32)">
+            <summary>
+            Generates the fake doctors.
+            </summary>
+            <param name="num">The number.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.BogusController.GenerateFakeHospitals(System.Int32)">
+            <summary>
+            Generates the fake hospitals.
+            </summary>
+            <param name="num">The number.</param>
+            <returns>IActionResult.</returns>
+        </member>
         <member name="T:WWI.Core3.API.Controllers.DoctorController">
             <summary>
             Class DoctorController.
@@ -196,7 +224,7 @@
             <param name="applicationServices">The database context.</param>
             <param name="htmlFormatterService"></param>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.TestController.Test123">
+        <member name="M:WWI.Core3.API.Controllers.TestController.TesteEnumerableIsEmpty">
             <summary>
             Test123s this instance.
             </summary>
@@ -206,6 +234,21 @@
         <member name="M:WWI.Core3.API.Controllers.TestController.GetHtml">
             <summary>
             Gets the HTML.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.TestController.TestGuardClauses(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Tests the guard clauses.
+            </summary>
+            <param name="positiveNunmber">The positive nunmber.</param>
+            <param name="negativeNumber">The negative number.</param>
+            <param name="notZero">The not zero.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.TestController.TestHumanizer(System.Int32)">
+            <summary>
+            Tests the humanizer.
             </summary>
             <returns>IActionResult.</returns>
         </member>

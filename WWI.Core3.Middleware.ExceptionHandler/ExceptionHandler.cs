@@ -78,13 +78,16 @@ namespace WWI.Core3.Middleware.ExceptionHandler
         /// <returns>Task.</returns>
         private Task HandleExceptionAsync(HttpContext httpContext, Exception ex)
         {
-            if (_hostingEnvironment.IsDevelopment())
-                Log.Error(ex.ToString());
-            else
-                Log.Error(ex.ToString());
-            
             httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            return httpContext.Response.WriteAsync("An internal server error occured. The details have been logged ....");
+
+            if (_hostingEnvironment.IsDevelopment())
+            {
+                Log.Error(ex.ToString());
+                return httpContext.Response.WriteAsync(ex.ToString());
+            }
+
+            Log.Error(ex.ToString());
+            return httpContext.Response.WriteAsync("An internal server error occured. The details have been logged ...");
         }
 
 

@@ -48,6 +48,8 @@ namespace WWI.Core3.API.Installers
 
             serviceCollection.AddTransient<IHTMLFormatterService, HTMLFormatterService>();
 
+            serviceCollection.AddTransient<IFakeDataGeneratorService, FakeDataGeneratorService>();
+
             serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
             serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             serviceCollection.AddValidatorsFromAssembly(typeof(RetryDecorator<>).Assembly);

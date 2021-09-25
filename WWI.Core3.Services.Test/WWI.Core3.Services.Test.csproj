@@ -10,6 +10,7 @@
     <PackageReference Include="AutoFixture" Version="4.14.0" />
     <PackageReference Include="AutoFixture.AutoMoq" Version="4.14.0" />
     <PackageReference Include="AutoFixture.Xunit2" Version="4.14.0" />
+    <PackageReference Include="Bogus" Version="33.1.1" />
     <PackageReference Include="Castle.Core" Version="4.4.1" />
     <PackageReference Include="EntityFrameworkCore.AutoFixture" Version="0.4.12" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />

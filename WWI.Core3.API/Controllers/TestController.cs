@@ -13,6 +13,8 @@
 // ***********************************************************************
 
 
+using Ardalis.GuardClauses;
+using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -42,7 +44,7 @@ namespace WWI.Core3.API.Controllers
         public TestController(IApplicationServices applicationServices, IHTMLFormatterService htmlFormatterService) 
             : base(applicationServices)
         {
-            _htmlFormatter = htmlFormatterService;
+            _htmlFormatter = Guard.Against.Null(htmlFormatterService, nameof(htmlFormatterService));
         }
 
         /// <summary>
@@ -50,8 +52,8 @@ namespace WWI.Core3.API.Controllers
         /// </summary>
         /// <returns>IActionResult.</returns>
         /// <exception cref="NotImplementedException"></exception>
-        [HttpGet]
-        public IActionResult Test123()
+        [HttpGet("enumerable")]
+        public IActionResult TesteEnumerableIsEmpty()
         {
             List<int> list = null;
 
@@ -101,7 +103,35 @@ namespace WWI.Core3.API.Controllers
             
             return File(htmlDocument.ToByteArray(), "application/octet-stream", "doctors.html");
         }
-        
+
+        /// <summary>
+        /// Tests the guard clauses.
+        /// </summary>
+        /// <param name="positiveNunmber">The positive nunmber.</param>
+        /// <param name="negativeNumber">The negative number.</param>
+        /// <param name="notZero">The not zero.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("guard")]
+        public IActionResult TestGuardClauses(int positiveNunmber, int negativeNumber, int notZero)
+        {
+            var pn = Guard.Against.Negative(positiveNunmber, nameof(positiveNunmber));
+            var zr = Guard.Against.Zero(notZero, nameof(notZero));
+
+            return Ok();
+        }
+
+        /// <summary>
+        /// Tests the humanizer.
+        /// </summary>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("humanizer")]
+        public IActionResult TestHumanizer(int num)
+        {
+            var time = DateTime.Now.AddMinutes(num).Humanize();
+
+            return Ok(time);
+        }
+
     }
 
 }
