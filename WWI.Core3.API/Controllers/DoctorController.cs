@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using Ardalis.GuardClauses;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,7 +45,7 @@ namespace WWI.Core3.API.Controllers
         public DoctorController(IApplicationServices applicationServices, IMediator mediator) 
             : base(applicationServices)
         {
-            Mediator = mediator;
+            Mediator = Guard.Against.Null(mediator, nameof(mediator));
         }
 
         

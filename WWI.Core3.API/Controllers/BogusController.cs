@@ -1,7 +1,10 @@
 ﻿using Ardalis.GuardClauses;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using WWI.Core3.API.Controllers.Base;
+using WWI.Core3.Models.Models;
+using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 
@@ -25,7 +28,7 @@ namespace WWI.Core3.API.Controllers
         public BogusController(IApplicationServices applicationServices, IFakeDataGeneratorService fakeDataGeneratorService)
             : base(applicationServices)
         {
-            this.FakeDataGeneratorService = Guard.Against.Null(fakeDataGeneratorService, nameof(fakeDataGeneratorService));
+            FakeDataGeneratorService = Guard.Against.Null(fakeDataGeneratorService, nameof(fakeDataGeneratorService));
         }
 
         /// <summary>
@@ -36,8 +39,6 @@ namespace WWI.Core3.API.Controllers
         [HttpGet("doctors")]
         public IActionResult GenerateFakeDoctors(int num)
         {
-            num = Guard.Against.NegativeOrZero(num, nameof(num));
-
             var generatedFakeDoctors = FakeDataGeneratorService.GenerateFakeDoctors(num);
             
             return Ok(generatedFakeDoctors);
@@ -51,8 +52,6 @@ namespace WWI.Core3.API.Controllers
         [HttpGet("hospitals")]
         public IActionResult GenerateFakeHospitals(int num)
         {
-            num = Guard.Against.NegativeOrZero(num, nameof(num));
-
             var generatedFakeHopistals = FakeDataGeneratorService.GenerateFakeHospitals(num);
             
             return Ok(generatedFakeHopistals);
@@ -64,14 +63,27 @@ namespace WWI.Core3.API.Controllers
         /// <param name="num">The number.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet("address")]
-        public IActionResult GenerateFakeaddress(int num)
+        public IActionResult GenerateFakeAddress(int num)
         {
-            num = Guard.Against.NegativeOrZero(num, nameof(num));
-
             var generatedFakeAddress = FakeDataGeneratorService.GenerateFakeAddress(num)
                 .Select(addr => addr.ToString());
 
             return Ok(generatedFakeAddress);
+        }
+
+        /// <summary>
+        /// Generates the fake specialities.
+        /// </summary>
+        /// <param name="num">The number.</param>
+        /// <returns>IActionResult.</returns>
+        [HttpGet("specialities")]
+        public IActionResult GenerateFakeSpecialities(int num)
+        {
+            var generatedFakeSpecialities = FakeDataGeneratorService.GenerateFakeSpecialities(num);
+
+            var mapped = AutoMapper.Map<IEnumerable<Speciality>, List<Dropdown>>(generatedFakeSpecialities);
+
+            return Ok(mapped);
         }
 
     }

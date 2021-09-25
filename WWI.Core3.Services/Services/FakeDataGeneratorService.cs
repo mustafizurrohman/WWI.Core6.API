@@ -27,10 +27,10 @@ namespace WWI.Core3.Services.Services
 
     /// <summary>
     /// Class FakeDataGeneratorService.
-    /// Implements the <see cref="WWI.Core3.Services.Services.Base.BaseService" />
-    /// Implements the <see cref="WWI.Core3.Services.Interfaces.IFakeDataGeneratorService" />
+    /// Implements the <see cref="BaseService" />
+    /// Implements the <see cref="IFakeDataGeneratorService" />
     /// </summary>
-    /// <seealso cref="WWI.Core3.Services.Services.Base.BaseService" />
+    /// <seealso cref="BaseService" />
     /// <seealso cref="WWI.Core3.Services.Interfaces.IFakeDataGeneratorService" />
     public class FakeDataGeneratorService : BaseService, IFakeDataGeneratorService
     {
@@ -138,6 +138,10 @@ namespace WWI.Core3.Services.Services
             return doctorFaker;
         }
 
+        /// <summary>
+        /// Gets the speciality faker.
+        /// </summary>
+        /// <returns>Faker&lt;Speciality&gt;.</returns>
         private Faker<Speciality> GetSpecialityFaker()
         {
             var specialityFaker = new Faker<Speciality>()
@@ -148,6 +152,10 @@ namespace WWI.Core3.Services.Services
             return specialityFaker;
         }
 
+        /// <summary>
+        /// Gets the speciality list.
+        /// </summary>
+        /// <returns>ReadOnlyCollection&lt;System.String&gt;.</returns>
         private ReadOnlyCollection<string> GetSpecialityList()
         {
             return new List<string>()
