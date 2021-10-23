@@ -107,7 +107,7 @@ namespace WWI.Core3.API.Controllers
         /// <param name="cancellationToken"></param>
         /// <returns>IActionResult.</returns>
         [HttpPut]
-        public async Task<IActionResult> AddDoctorAsync(CreateDoctorCommand doctor, CancellationToken cancellationToken)
+        public async Task<IActionResult> AddDoctorAsync([FromBody] CreateDoctorCommand doctor, CancellationToken cancellationToken)
         {
             var doctorInfo = await Mediator.Send(doctor, cancellationToken);
             return Ok(doctorInfo); 

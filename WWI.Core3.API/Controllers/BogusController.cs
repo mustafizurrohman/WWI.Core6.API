@@ -13,9 +13,9 @@ namespace WWI.Core3.API.Controllers
 
     /// <summary>
     /// Class BogusController.
-    /// Implements the <see cref="WWI.Core3.API.Controllers.Base.BaseAPIController" />
+    /// Implements the <see cref="BaseAPIController" />
     /// </summary>
-    /// <seealso cref="WWI.Core3.API.Controllers.Base.BaseAPIController" />
+    /// <seealso cref="BaseAPIController" />
     public class BogusController : BaseAPIController
     {
         private IFakeDataGeneratorService FakeDataGeneratorService{ get; }
