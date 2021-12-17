@@ -36,11 +36,11 @@
 		<PackageReference Include="MySql.Data" Version="8.0.27" />
 		<PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
 		<PackageReference Include="Scrutor" Version="3.3.0" />
-		<PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
-		<PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.3" />
-		<PackageReference Include="Serilog.Enrichers.Process" Version="2.0.1" />
+		<PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
+		<PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+		<PackageReference Include="Serilog.Enrichers.Process" Version="2.0.2" />
 		<PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
-		<PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
+		<PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
 		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.3" />
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.3" />
