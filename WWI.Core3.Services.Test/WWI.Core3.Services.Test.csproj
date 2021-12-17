@@ -1,31 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<LangVersion>preview</LangVersion>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
 
-    <IsPackable>false</IsPackable>
-  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoFixture" Version="4.14.0" />
+		<PackageReference Include="AutoFixture.AutoMoq" Version="4.14.0" />
+		<PackageReference Include="AutoFixture.Xunit2" Version="4.14.0" />
+		<PackageReference Include="Bogus" Version="33.1.1" />
+		<PackageReference Include="Castle.Core" Version="4.4.1" />
+		<PackageReference Include="EntityFrameworkCore.AutoFixture" Version="0.4.12" />
+		<PackageReference Include="FluentAssertions" Version="5.10.3" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+		<PackageReference Include="MockQueryable.Core" Version="3.1.3" />
+		<PackageReference Include="MockQueryable.Moq" Version="3.1.3" />
+		<PackageReference Include="xunit" Version="2.4.0" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+		<PackageReference Include="coverlet.collector" Version="1.2.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoFixture" Version="4.14.0" />
-    <PackageReference Include="AutoFixture.AutoMoq" Version="4.14.0" />
-    <PackageReference Include="AutoFixture.Xunit2" Version="4.14.0" />
-    <PackageReference Include="Bogus" Version="33.1.1" />
-    <PackageReference Include="Castle.Core" Version="4.4.1" />
-    <PackageReference Include="EntityFrameworkCore.AutoFixture" Version="0.4.12" />
-    <PackageReference Include="FluentAssertions" Version="5.10.3" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
-    <PackageReference Include="MockQueryable.Core" Version="3.1.3" />
-    <PackageReference Include="MockQueryable.Moq" Version="3.1.3" />
-    <PackageReference Include="xunit" Version="2.4.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
-    <PackageReference Include="coverlet.collector" Version="1.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\WWI.Core3.Core\WWI.Core3.Core.csproj" />
-    <ProjectReference Include="..\WWI.Core3.Models\WWI.Core3.Models.csproj" />
-    <ProjectReference Include="..\WWI.Core3.Services\WWI.Core3.Services.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\WWI.Core3.Core\WWI.Core3.Core.csproj" />
+		<ProjectReference Include="..\WWI.Core3.Models\WWI.Core3.Models.csproj" />
+		<ProjectReference Include="..\WWI.Core3.Services\WWI.Core3.Services.csproj" />
+	</ItemGroup>
 
 </Project>

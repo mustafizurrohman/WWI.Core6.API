@@ -1,100 +1,101 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<LangVersion>preview</LangVersion>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\dev\WWI.Core3.API\WWI.Core3.Models\WWI.Core3.Models.xml</DocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>C:\dev\WWI.Core3.API\WWI.Core3.Models\WWI.Core3.Models.xml</DocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Migrations\20200508205105_AddedHopitalAndAddress.cs" />
-    <Compile Remove="Migrations\20200508205105_AddedHopitalAndAddress.Designer.cs" />
-    <Compile Remove="Migrations\20200509052445_HospitalHasManyDoctors.cs" />
-    <Compile Remove="Migrations\20200509052445_HospitalHasManyDoctors.Designer.cs" />
-    <Compile Remove="Migrations\20200509092726_AddedDoctorsSeed.cs" />
-    <Compile Remove="Migrations\20200509092726_AddedDoctorsSeed.Designer.cs" />
-    <Compile Remove="Migrations\20200509092838_AddedDoctorsSeed.cs" />
-    <Compile Remove="Migrations\20200509092838_AddedDoctorsSeed.Designer.cs" />
-    <Compile Remove="Migrations\20200509092948_AddedDoctorsSeed.cs" />
-    <Compile Remove="Migrations\20200509092948_AddedDoctorsSeed.Designer.cs" />
-    <Compile Remove="Migrations\20200509093249_AddedDoctorsSeed.cs" />
-    <Compile Remove="Migrations\20200509093249_AddedDoctorsSeed.Designer.cs" />
-    <Compile Remove="Migrations\20200509093422_AddedDoctorsSeed.cs" />
-    <Compile Remove="Migrations\20200509093422_AddedDoctorsSeed.Designer.cs" />
-    <Compile Remove="Migrations\20200509141924_DoctorSeed.cs" />
-    <Compile Remove="Migrations\20200509141924_DoctorSeed.Designer.cs" />
-    <Compile Remove="Migrations\20200509142315_DoctorSeed.cs" />
-    <Compile Remove="Migrations\20200509142315_DoctorSeed.Designer.cs" />
-    <Compile Remove="Migrations\20200509205143_AddedHospitalDoctorSeed2.cs" />
-    <Compile Remove="Migrations\20200509205143_AddedHospitalDoctorSeed2.Designer.cs" />
-    <Compile Remove="Migrations\20200509205510_AddedHospitalDoctorSeed2.cs" />
-    <Compile Remove="Migrations\20200509205510_AddedHospitalDoctorSeed2.Designer.cs" />
-    <Compile Remove="Migrations\20200509210502_AddedHospitalDoctorSeed2.cs" />
-    <Compile Remove="Migrations\20200509210502_AddedHospitalDoctorSeed2.Designer.cs" />
-    <Compile Remove="Migrations\20200509210957_AddedHospitalDoctorSeed2.cs" />
-    <Compile Remove="Migrations\20200509210957_AddedHospitalDoctorSeed2.Designer.cs" />
-    <Compile Remove="Migrations\20200509211513_AddedHospitalDoctorSeed3.cs" />
-    <Compile Remove="Migrations\20200509211513_AddedHospitalDoctorSeed3.Designer.cs" />
-    <Compile Remove="Migrations\20200509211834_AddedHospitalDoctorSeed3.cs" />
-    <Compile Remove="Migrations\20200509211834_AddedHospitalDoctorSeed3.Designer.cs" />
-    <Compile Remove="Migrations\20200509212210_AddedHospitalDoctorSeed3.cs" />
-    <Compile Remove="Migrations\20200509212210_AddedHospitalDoctorSeed3.Designer.cs" />
-    <Compile Remove="Migrations\20200510065313_AddedHospitalDoctorSeed3.cs" />
-    <Compile Remove="Migrations\20200510065313_AddedHospitalDoctorSeed3.Designer.cs" />
-    <Compile Remove="Migrations\20200510073032_AddedHospitalDoctorSeed3.cs" />
-    <Compile Remove="Migrations\20200510073032_AddedHospitalDoctorSeed3.Designer.cs" />
-    <Compile Remove="Migrations\20200510092630_AddedHospitalDoctorSeed3.cs" />
-    <Compile Remove="Migrations\20200510092630_AddedHospitalDoctorSeed3.Designer.cs" />
-    <Compile Remove="Migrations\20200510094727_AddedHospitalDoctorSeed4.cs" />
-    <Compile Remove="Migrations\20200510094727_AddedHospitalDoctorSeed4.Designer.cs" />
-    <Compile Remove="Migrations\20200510140912_AddedHospitalDoctorSeed4.cs" />
-    <Compile Remove="Migrations\20200510140912_AddedHospitalDoctorSeed4.Designer.cs" />
-    <Compile Remove="Migrations\20200510145014_AddedHospitalDoctorSeed4.cs" />
-    <Compile Remove="Migrations\20200510145014_AddedHospitalDoctorSeed4.Designer.cs" />
-    <Compile Remove="Migrations\20200510150010_AddedHospitalDoctorSeed4.cs" />
-    <Compile Remove="Migrations\20200510150010_AddedHospitalDoctorSeed4.Designer.cs" />
-    <Compile Remove="Migrations\20200510150255_AddedHospitalDoctorSeed4.cs" />
-    <Compile Remove="Migrations\20200510150255_AddedHospitalDoctorSeed4.Designer.cs" />
-    <Compile Remove="Migrations\20200513185415_Init.cs" />
-    <Compile Remove="Migrations\20200513185415_Init.Designer.cs" />
-    <Compile Remove="Migrations\20200513185911_Init.cs" />
-    <Compile Remove="Migrations\20200513185911_Init.Designer.cs" />
-    <Compile Remove="Migrations\20200513190248_Init.cs" />
-    <Compile Remove="Migrations\20200513190248_Init.Designer.cs" />
-    <Compile Remove="Migrations\20200513191034_HospitalDoctorsAdded.cs" />
-    <Compile Remove="Migrations\20200513191034_HospitalDoctorsAdded.Designer.cs" />
-    <Compile Remove="Migrations\20200513191937_HospitalDoctorsAdded.cs" />
-    <Compile Remove="Migrations\20200513191937_HospitalDoctorsAdded.Designer.cs" />
-    <Compile Remove="Migrations\20200513201943_Test2.cs" />
-    <Compile Remove="Migrations\20200513201943_Test2.Designer.cs" />
-    <Compile Remove="Migrations\20200514051848_DoctorSeedUpdated2.cs" />
-    <Compile Remove="Migrations\20200514051848_DoctorSeedUpdated2.Designer.cs" />
-    <Compile Remove="Migrations\20200515132650_AddedHospitalSpecialitySeed2.cs" />
-    <Compile Remove="Migrations\20200515132650_AddedHospitalSpecialitySeed2.Designer.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Migrations\20200508205105_AddedHopitalAndAddress.cs" />
+		<Compile Remove="Migrations\20200508205105_AddedHopitalAndAddress.Designer.cs" />
+		<Compile Remove="Migrations\20200509052445_HospitalHasManyDoctors.cs" />
+		<Compile Remove="Migrations\20200509052445_HospitalHasManyDoctors.Designer.cs" />
+		<Compile Remove="Migrations\20200509092726_AddedDoctorsSeed.cs" />
+		<Compile Remove="Migrations\20200509092726_AddedDoctorsSeed.Designer.cs" />
+		<Compile Remove="Migrations\20200509092838_AddedDoctorsSeed.cs" />
+		<Compile Remove="Migrations\20200509092838_AddedDoctorsSeed.Designer.cs" />
+		<Compile Remove="Migrations\20200509092948_AddedDoctorsSeed.cs" />
+		<Compile Remove="Migrations\20200509092948_AddedDoctorsSeed.Designer.cs" />
+		<Compile Remove="Migrations\20200509093249_AddedDoctorsSeed.cs" />
+		<Compile Remove="Migrations\20200509093249_AddedDoctorsSeed.Designer.cs" />
+		<Compile Remove="Migrations\20200509093422_AddedDoctorsSeed.cs" />
+		<Compile Remove="Migrations\20200509093422_AddedDoctorsSeed.Designer.cs" />
+		<Compile Remove="Migrations\20200509141924_DoctorSeed.cs" />
+		<Compile Remove="Migrations\20200509141924_DoctorSeed.Designer.cs" />
+		<Compile Remove="Migrations\20200509142315_DoctorSeed.cs" />
+		<Compile Remove="Migrations\20200509142315_DoctorSeed.Designer.cs" />
+		<Compile Remove="Migrations\20200509205143_AddedHospitalDoctorSeed2.cs" />
+		<Compile Remove="Migrations\20200509205143_AddedHospitalDoctorSeed2.Designer.cs" />
+		<Compile Remove="Migrations\20200509205510_AddedHospitalDoctorSeed2.cs" />
+		<Compile Remove="Migrations\20200509205510_AddedHospitalDoctorSeed2.Designer.cs" />
+		<Compile Remove="Migrations\20200509210502_AddedHospitalDoctorSeed2.cs" />
+		<Compile Remove="Migrations\20200509210502_AddedHospitalDoctorSeed2.Designer.cs" />
+		<Compile Remove="Migrations\20200509210957_AddedHospitalDoctorSeed2.cs" />
+		<Compile Remove="Migrations\20200509210957_AddedHospitalDoctorSeed2.Designer.cs" />
+		<Compile Remove="Migrations\20200509211513_AddedHospitalDoctorSeed3.cs" />
+		<Compile Remove="Migrations\20200509211513_AddedHospitalDoctorSeed3.Designer.cs" />
+		<Compile Remove="Migrations\20200509211834_AddedHospitalDoctorSeed3.cs" />
+		<Compile Remove="Migrations\20200509211834_AddedHospitalDoctorSeed3.Designer.cs" />
+		<Compile Remove="Migrations\20200509212210_AddedHospitalDoctorSeed3.cs" />
+		<Compile Remove="Migrations\20200509212210_AddedHospitalDoctorSeed3.Designer.cs" />
+		<Compile Remove="Migrations\20200510065313_AddedHospitalDoctorSeed3.cs" />
+		<Compile Remove="Migrations\20200510065313_AddedHospitalDoctorSeed3.Designer.cs" />
+		<Compile Remove="Migrations\20200510073032_AddedHospitalDoctorSeed3.cs" />
+		<Compile Remove="Migrations\20200510073032_AddedHospitalDoctorSeed3.Designer.cs" />
+		<Compile Remove="Migrations\20200510092630_AddedHospitalDoctorSeed3.cs" />
+		<Compile Remove="Migrations\20200510092630_AddedHospitalDoctorSeed3.Designer.cs" />
+		<Compile Remove="Migrations\20200510094727_AddedHospitalDoctorSeed4.cs" />
+		<Compile Remove="Migrations\20200510094727_AddedHospitalDoctorSeed4.Designer.cs" />
+		<Compile Remove="Migrations\20200510140912_AddedHospitalDoctorSeed4.cs" />
+		<Compile Remove="Migrations\20200510140912_AddedHospitalDoctorSeed4.Designer.cs" />
+		<Compile Remove="Migrations\20200510145014_AddedHospitalDoctorSeed4.cs" />
+		<Compile Remove="Migrations\20200510145014_AddedHospitalDoctorSeed4.Designer.cs" />
+		<Compile Remove="Migrations\20200510150010_AddedHospitalDoctorSeed4.cs" />
+		<Compile Remove="Migrations\20200510150010_AddedHospitalDoctorSeed4.Designer.cs" />
+		<Compile Remove="Migrations\20200510150255_AddedHospitalDoctorSeed4.cs" />
+		<Compile Remove="Migrations\20200510150255_AddedHospitalDoctorSeed4.Designer.cs" />
+		<Compile Remove="Migrations\20200513185415_Init.cs" />
+		<Compile Remove="Migrations\20200513185415_Init.Designer.cs" />
+		<Compile Remove="Migrations\20200513185911_Init.cs" />
+		<Compile Remove="Migrations\20200513185911_Init.Designer.cs" />
+		<Compile Remove="Migrations\20200513190248_Init.cs" />
+		<Compile Remove="Migrations\20200513190248_Init.Designer.cs" />
+		<Compile Remove="Migrations\20200513191034_HospitalDoctorsAdded.cs" />
+		<Compile Remove="Migrations\20200513191034_HospitalDoctorsAdded.Designer.cs" />
+		<Compile Remove="Migrations\20200513191937_HospitalDoctorsAdded.cs" />
+		<Compile Remove="Migrations\20200513191937_HospitalDoctorsAdded.Designer.cs" />
+		<Compile Remove="Migrations\20200513201943_Test2.cs" />
+		<Compile Remove="Migrations\20200513201943_Test2.Designer.cs" />
+		<Compile Remove="Migrations\20200514051848_DoctorSeedUpdated2.cs" />
+		<Compile Remove="Migrations\20200514051848_DoctorSeedUpdated2.Designer.cs" />
+		<Compile Remove="Migrations\20200515132650_AddedHospitalSpecialitySeed2.cs" />
+		<Compile Remove="Migrations\20200515132650_AddedHospitalSpecialitySeed2.Designer.cs" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="10.3.1" />
-    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Serilog" Version="2.9.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="10.3.1" />
+		<PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+		<PackageReference Include="Serilog" Version="2.9.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Seed\Generated\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Seed\Generated\" />
+	</ItemGroup>
 
 </Project>
