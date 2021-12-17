@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<LangVersion>preview</LangVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Ardalis.GuardClauses" Version="3.3.0" />
-		<PackageReference Include="AutoMapper" Version="9.0.0" />
+		<PackageReference Include="AutoMapper" Version="10.1.1" />
 		<PackageReference Include="Bogus" Version="34.0.1" />
 		<PackageReference Include="HtmlTableHelper" Version="1.2.2" />
 		<PackageReference Include="MediatR" Version="9.0.0" />

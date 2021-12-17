@@ -102,6 +102,7 @@ namespace WWI.Core3.API.Controllers
         /// Gets the hospitals with speciality by a speciality identifier.
         /// </summary>
         /// <param name="specialityID">The speciality identifier.</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>IActionResult.</returns>
         [HttpGet("{specialityID}/hospital")]
         [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]

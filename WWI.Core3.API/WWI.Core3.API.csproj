@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<LangVersion>preview</LangVersion>
 		<AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
 	</PropertyGroup>
@@ -16,23 +16,24 @@
 
 	<ItemGroup>
 		<PackageReference Include="Ardalis.GuardClauses" Version="3.3.0" />
-		<PackageReference Include="AutoMapper" Version="9.0.0" />
-		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+		<PackageReference Include="AutoMapper" Version="10.1.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
 		<PackageReference Include="Bogus" Version="34.0.1" />
-		<PackageReference Include="EntityFrameworkCore.AutoFixture" Version="0.4.12" />
+		<PackageReference Include="EntityFrameworkCore.AutoFixture" Version="1.0.0" />
 		<PackageReference Include="FluentValidation.AspNetCore" Version="10.3.6" />
 		<PackageReference Include="Humanizer" Version="2.13.14" />
 		<PackageReference Include="MediatR" Version="9.0.0" />
 		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
 		<PackageReference Include="Microsoft.AspNet.WebApi.OData" Version="5.7.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.3">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="6.0.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.3" />
-		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
-		<PackageReference Include="MySql.Data" Version="8.0.20" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.1" />
+		<PackageReference Include="MySql.Data" Version="8.0.27" />
 		<PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
 		<PackageReference Include="Scrutor" Version="3.3.0" />
 		<PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
@@ -40,9 +41,9 @@
 		<PackageReference Include="Serilog.Enrichers.Process" Version="2.0.1" />
 		<PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
 		<PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.4.1" />
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.4.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.3" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -26,31 +26,7 @@ namespace WWI.Core3.Models.Utils
     [SuppressMessage("ReSharper", "PossibleMultipleEnumeration")]
     public static class EnumerableExtensions
     {
-        /*
-        /// <summary>
-        /// Converts an IEnumerable to its CSV representation
-        /// </summary>
-        /// <typeparam name="T">Type</typeparam>
-        /// <param name="list">IEnumerable of Type T to convert to CSV</param>
-        /// <returns>System.String.</returns>
-        public static string ToCsv<T>(this IEnumerable<T> list)
-        {
-            return list.ToCsv();
-        } */
-
-        /// <summary>
-        /// Groups a IEnumerable w.r.t. an attribute
-        /// </summary>
-        /// <typeparam name="TSource">Type of source IEnumerable</typeparam>
-        /// <typeparam name="TKey">Type of attribute of IEnumerable w.r.t. the IEnumerable must be grouped</typeparam>
-        /// <param name="source">Source IEnumerable</param>
-        /// <param name="keySelector">The key selector.</param>
-        /// <returns>IEnumerable&lt;TSource&gt;.</returns>
-        public static IEnumerable<TSource> DistinctBy<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
-        {
-            return source?.GroupBy(keySelector).Select(grp => grp.First());
-        }
-
+        
         /// <summary>
         /// Gets a random element for the IEnumerable
         /// </summary>
