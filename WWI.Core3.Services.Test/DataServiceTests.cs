@@ -50,7 +50,7 @@ namespace WWI.Core3.Services.Test
         // [Theory(Skip = "Not working. Needs to be fixed."), AutoData]
         [Theory]
         [InlineData(2)]
-        public async Task IntroductoryTestAsync(int numberOfHospitalsToRetrieve)
+        public void IntroductoryTest(int numberOfHospitalsToRetrieve)
         {
 
             // Arrange
