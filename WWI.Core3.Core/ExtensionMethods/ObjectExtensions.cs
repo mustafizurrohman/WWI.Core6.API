@@ -12,7 +12,6 @@
 // <summary></summary>
 // ***********************************************************************
 
-using System;
 using System.Reflection;
 
 namespace WWI.Core3.Core.ExtensionMethods

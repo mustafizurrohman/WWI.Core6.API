@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WWI.Core3.Core.Exceptions
+﻿namespace WWI.Core3.Core.Exceptions
 {
     public class AppSettingsValidationException : Exception
     {

@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using Microsoft.OpenApi.Models;
-using System;
 
 namespace WWI.Core3.Models.Validators
 {
