@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using WWI.Core3.Core.ExtensionMethods;
+using ValidationException = FluentValidation.ValidationException;
 
 namespace WWI.Core3.API.ExtensionMethods
 {
