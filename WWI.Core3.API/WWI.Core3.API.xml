@@ -183,6 +183,58 @@
             <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
+        <member name="T:WWI.Core3.API.Controllers.PlaygroundController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.#ctor(WWI.Core3.Services.Interfaces.IFakeDataGeneratorService,WWI.Core3.Services.ServiceCollection.IApplicationServices)">
+            <summary>
+            
+            </summary>
+            <param name="fakeDataGeneratorService"></param>
+            <param name="applicationServices"></param>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.GetNames(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.TestMaxBy(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.LinqChunkTest(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.OverLoadTest(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.ConstantInterpolatedStrings">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.LambdaImprovements">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:WWI.Core3.API.Controllers.SpecialityController">
             <summary>
             Class SpecialityController.
