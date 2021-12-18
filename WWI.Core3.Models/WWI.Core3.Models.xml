@@ -4,153 +4,153 @@
         <name>WWI.Core6.Models</name>
     </assembly>
     <members>
-        <member name="T:WWI.Core3.Models.AppSettings.ApplicationSettings">
+        <member name="T:WWI.Core6.Models.AppSettings.ApplicationSettings">
             <summary>
             Class ApplicationSettings.
             </summary>
         </member>
-        <member name="P:WWI.Core3.Models.AppSettings.ApplicationSettings.OpenApiInfo">
+        <member name="P:WWI.Core6.Models.AppSettings.ApplicationSettings.OpenApiInfo">
             <summary>
             Gets the open API information.
             </summary>
             <value>The open API information.</value>
         </member>
-        <member name="P:WWI.Core3.Models.AppSettings.ApplicationSettings.PerformanceOptions">
+        <member name="P:WWI.Core6.Models.AppSettings.ApplicationSettings.PerformanceOptions">
             <summary>
             Gets the performance options.
             </summary>
             <value>The performance options.</value>
         </member>
-        <member name="P:WWI.Core3.Models.AppSettings.ApplicationSettings.ConnectionString">
+        <member name="P:WWI.Core6.Models.AppSettings.ApplicationSettings.ConnectionString">
             <summary>
             Gets or sets the connection string.
             </summary>
             <value>The connection string.</value>
         </member>
-        <member name="T:WWI.Core3.Models.AppSettings.PerformanceOptions">
+        <member name="T:WWI.Core6.Models.AppSettings.PerformanceOptions">
             <summary>
             Class PerformanceOptions.
             </summary>
         </member>
-        <member name="P:WWI.Core3.Models.AppSettings.PerformanceOptions.UseResponseCompression">
+        <member name="P:WWI.Core6.Models.AppSettings.PerformanceOptions.UseResponseCompression">
             <summary>
             Gets a value indicating whether [use response compression].
             </summary>
             <value><c>true</c> if [use response compression]; otherwise, <c>false</c>.</value>
         </member>
-        <member name="P:WWI.Core3.Models.AppSettings.PerformanceOptions.UseExceptionHandlingMiddleware">
+        <member name="P:WWI.Core6.Models.AppSettings.PerformanceOptions.UseExceptionHandlingMiddleware">
             <summary>
             Gets a value indicating whether [use exception handling middleware].
             </summary>
             <value><c>true</c> if [use exception handling middleware]; otherwise, <c>false</c>.</value>
         </member>
-        <member name="T:WWI.Core3.Models.DbContext.DocAppointmentContext">
+        <member name="T:WWI.Core6.Models.DbContext.DocAppointmentContext">
             <summary>
             Database context
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext.BasePathGeneratedSeed">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext.BasePathGeneratedSeed">
             <summary>
             The base path generated seed
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext.BasePath">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext.BasePath">
             <summary>
             The base path
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext.DoctorFileName">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext.DoctorFileName">
             <summary>
             The doctor file name
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext.AddressesFileName">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext.AddressesFileName">
             <summary>
             The addresses file name
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext.FirstNamesFileName">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext.FirstNamesFileName">
             <summary>
             The first names file name
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext.MiddleNamesFileName">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext.MiddleNamesFileName">
             <summary>
             The middle names file name
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext.LastNamesFileName">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext.LastNamesFileName">
             <summary>
             The last names file name
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext.HospitalsFileName">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext.HospitalsFileName">
             <summary>
             The hospitals file name
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext.SpecialitiesFileName">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext.SpecialitiesFileName">
             <summary>
             The specialities file name
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext.HospitalDoctorsFileName">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext.HospitalDoctorsFileName">
             <summary>
             The hospital doctors file name
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext.HospitalSpecialityFileName">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext.HospitalSpecialityFileName">
             <summary>
             The hospital speciality file name
             </summary>
         </member>
-        <member name="F:WWI.Core3.Models.DbContext.DocAppointmentContext._defaultJsonSerializerSettings">
+        <member name="F:WWI.Core6.Models.DbContext.DocAppointmentContext._defaultJsonSerializerSettings">
             <summary>
             The default json serializer settings
             </summary>
         </member>
-        <member name="M:WWI.Core3.Models.DbContext.DocAppointmentContext.#ctor">
+        <member name="M:WWI.Core6.Models.DbContext.DocAppointmentContext.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.Models.DbContext.DocAppointmentContext"/> class.
+            Initializes a new instance of the <see cref="T:WWI.Core6.Models.DbContext.DocAppointmentContext"/> class.
             </summary>
         </member>
-        <member name="M:WWI.Core3.Models.DbContext.DocAppointmentContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{WWI.Core3.Models.DbContext.DocAppointmentContext})">
+        <member name="M:WWI.Core6.Models.DbContext.DocAppointmentContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{WWI.Core6.Models.DbContext.DocAppointmentContext})">
             <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.Models.DbContext.DocAppointmentContext"/> class.
+            Initializes a new instance of the <see cref="T:WWI.Core6.Models.DbContext.DocAppointmentContext"/> class.
             </summary>
             <param name="options">The options.</param>
         </member>
-        <member name="P:WWI.Core3.Models.DbContext.DocAppointmentContext.Doctors">
+        <member name="P:WWI.Core6.Models.DbContext.DocAppointmentContext.Doctors">
             <summary>
             Doctors Table
             </summary>
             <value>The doctors.</value>
         </member>
-        <member name="P:WWI.Core3.Models.DbContext.DocAppointmentContext.Specialities">
+        <member name="P:WWI.Core6.Models.DbContext.DocAppointmentContext.Specialities">
             <summary>
             Specialities Table
             </summary>
             <value>The specialities.</value>
         </member>
-        <member name="P:WWI.Core3.Models.DbContext.DocAppointmentContext.Addresses">
+        <member name="P:WWI.Core6.Models.DbContext.DocAppointmentContext.Addresses">
             <summary>
             Addresses Table
             </summary>
             <value>The addresses.</value>
         </member>
-        <member name="P:WWI.Core3.Models.DbContext.DocAppointmentContext.Hospitals">
+        <member name="P:WWI.Core6.Models.DbContext.DocAppointmentContext.Hospitals">
             <summary>
             Hospitals Table
             </summary>
             <value>The hospitals.</value>
         </member>
-        <member name="P:WWI.Core3.Models.DbContext.DocAppointmentContext.HospitalDoctors">
+        <member name="P:WWI.Core6.Models.DbContext.DocAppointmentContext.HospitalDoctors">
             <summary>
             Hospital Doctors Table
             </summary>
             <value>The hospital doctors.</value>
         </member>
-        <member name="M:WWI.Core3.Models.DbContext.DocAppointmentContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+        <member name="M:WWI.Core6.Models.DbContext.DocAppointmentContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
             <summary>
             <para>
             Override this method to configure the database (and other options) to be used for this context.
@@ -167,7 +167,7 @@
             <param name="optionsBuilder">A builder used to create or modify options for this context. Databases (and other extensions)
             typically define extension methods on this object that allow you to configure the context.</param>
         </member>
-        <member name="M:WWI.Core3.Models.DbContext.DocAppointmentContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:WWI.Core6.Models.DbContext.DocAppointmentContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
             Override this method to further configure the model that was discovered by convention from the entity types
             exposed in <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1" /> properties on your derived context. The resulting model may be cached
@@ -179,43 +179,816 @@
             <remarks>If a model is explicitly set on the options for this context (via <see cref="M:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel)" />)
             then this method will not be run.</remarks>
         </member>
-        <member name="M:WWI.Core3.Models.DbContext.DocAppointmentContext.GenerateSeedData(System.Boolean)">
+        <member name="M:WWI.Core6.Models.DbContext.DocAppointmentContext.GenerateSeedData(System.Boolean)">
             <summary>
             Generates the seed data.
             </summary>
             <param name="overwrite">if set to <c>true</c> [overwrite].</param>
         </member>
-        <member name="M:WWI.Core3.Models.DbContext.DocAppointmentContext.SeedData(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:WWI.Core6.Models.DbContext.DocAppointmentContext.SeedData(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
             Seeds the data.
             </summary>
             <param name="modelBuilder">The model builder.</param>
         </member>
-        <member name="T:WWI.Core3.Models.EntityConfigurations.HospitalDoctorConfiguration">
+        <member name="T:WWI.Core6.Models.EntityConfigurations.HospitalDoctorConfiguration">
             <summary>
             Class HospitalDoctorConfiguration.
-            Implements the <see cref="T:WWI.Core3.Models.Models.HospitalDoctor" />
+            Implements the <see cref="T:WWI.Core6.Models.Models.HospitalDoctor" />
             </summary>
-            <seealso cref="T:WWI.Core3.Models.Models.HospitalDoctor" />
+            <seealso cref="T:WWI.Core6.Models.Models.HospitalDoctor" />
         </member>
-        <member name="M:WWI.Core3.Models.EntityConfigurations.HospitalDoctorConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{WWI.Core3.Models.Models.HospitalDoctor})">
+        <member name="M:WWI.Core6.Models.EntityConfigurations.HospitalDoctorConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{WWI.Core6.Models.Models.HospitalDoctor})">
             <summary>
             Configures the entity of type <typeparamref name="TEntity" />.
             </summary>
             <param name="builder">The builder to be used to configure the entity type.</param>
         </member>
-        <member name="T:WWI.Core3.Models.EntityConfigurations.HospitalSpecialityConfiguration">
+        <member name="T:WWI.Core6.Models.EntityConfigurations.HospitalSpecialityConfiguration">
             <summary>
             Class HospitalSpecialityConfiguration.
-            Implements the <see cref="T:WWI.Core3.Models.Models.HospitalSpeciality" />
+            Implements the <see cref="T:WWI.Core6.Models.Models.HospitalSpeciality" />
             </summary>
-            <seealso cref="T:WWI.Core3.Models.Models.HospitalSpeciality" />
+            <seealso cref="T:WWI.Core6.Models.Models.HospitalSpeciality" />
         </member>
-        <member name="M:WWI.Core3.Models.EntityConfigurations.HospitalSpecialityConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{WWI.Core3.Models.Models.HospitalSpeciality})">
+        <member name="M:WWI.Core6.Models.EntityConfigurations.HospitalSpecialityConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{WWI.Core6.Models.Models.HospitalSpeciality})">
             <summary>
             Configures the entity of type <typeparamref name="TEntity" />.
             </summary>
             <param name="builder">The builder to be used to configure the entity type.</param>
+        </member>
+        <member name="T:WWI.Core6.Models.Migrations.DocAppointmentContextModelSnapshot">
+            <summary>
+            Class DocAppointmentContextModelSnapshot.
+            Implements the <see cref="T:Microsoft.EntityFrameworkCore.Infrastructure.ModelSnapshot" />
+            </summary>
+            <seealso cref="T:Microsoft.EntityFrameworkCore.Infrastructure.ModelSnapshot" />
+        </member>
+        <member name="M:WWI.Core6.Models.Migrations.DocAppointmentContextModelSnapshot.BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Builds the model.
+            </summary>
+            <param name="modelBuilder">The model builder.</param>
+        </member>
+        <member name="T:WWI.Core6.Models.Models.Address">
+            <summary>
+            Class Address.
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.Models.Models.Address.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.Models.Models.Address" /> class.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Address.AddressID">
+            <summary>
+            Gets or sets the address identifier.
+            </summary>
+            <value>The address identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Address.Street">
+            <summary>
+            Gets or sets the street.
+            </summary>
+            <value>The street.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Address.City">
+            <summary>
+            Gets or sets the city.
+            </summary>
+            <value>The city.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Address.District">
+            <summary>
+            Gets or sets the district.
+            </summary>
+            <value>The district.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Address.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+            <value>The state.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Address.Country">
+            <summary>
+            Gets or sets the country.
+            </summary>
+            <value>The country.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Address.PIN">
+            <summary>
+            Gets or sets the pin.
+            </summary>
+            <value>The pin.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Address.Hospitals">
+            <summary>
+            Gets or sets the hospitals.
+            </summary>
+            <value>The hospitals.</value>
+        </member>
+        <member name="M:WWI.Core6.Models.Models.Address.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+        </member>
+        <member name="T:WWI.Core6.Models.Models.AuditLog">
+            <summary>
+            Class AuditLog.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.AuditLog.ID">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.AuditLog.TableName">
+            <summary>
+            Gets or sets the name of the table.
+            </summary>
+            <value>The name of the table.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.AuditLog.DateTime">
+            <summary>
+            Gets or sets the date time.
+            </summary>
+            <value>The date time.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.AuditLog.KeyValues">
+            <summary>
+            Gets or sets the key values.
+            </summary>
+            <value>The key values.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.AuditLog.NewValues">
+            <summary>
+            Creates new values.
+            </summary>
+            <value>The new values.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.AuditLog.OldValues">
+            <summary>Gets or sets the old values.</summary>
+            <value>The old values.</value>
+        </member>
+        <member name="T:WWI.Core6.Models.Models.Doctor">
+            <summary>
+            Doctor
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.Models.Models.Doctor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.Models.Models.Doctor" /> class.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Doctor.DoctorID">
+            <summary>
+            Gets or sets the doctor identifier.
+            </summary>
+            <value>The doctor identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Doctor.Firstname">
+            <summary>
+            Gets or sets the firstname.
+            </summary>
+            <value>The firstname.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Doctor.Middlename">
+            <summary>
+            Gets or sets the middlename.
+            </summary>
+            <value>The middlename.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Doctor.Lastname">
+            <summary>
+            Gets or sets the lastname.
+            </summary>
+            <value>The lastname.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Doctor.SpecialityID">
+            <summary>
+            Gets or sets the speciality identifier.
+            </summary>
+            <value>The speciality identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Doctor.Speciality">
+            <summary>
+            Gets or sets the speciality.
+            </summary>
+            <value>The speciality.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Doctor.Hospitals">
+            <summary>
+            Gets or sets the hospitals.
+            </summary>
+            <value>The hospitals.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Doctor.FullName">
+            <summary>
+            Gets the full name.
+            </summary>
+            <value>The full name.</value>
+        </member>
+        <member name="T:WWI.Core6.Models.Models.Hospital">
+            <summary>
+            Hospital
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.Models.Models.Hospital.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.Models.Models.Hospital" /> class.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Hospital.HospitalID">
+            <summary>
+            Gets or sets the hospital identifier.
+            </summary>
+            <value>The hospital identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Hospital.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Hospital.AddressID">
+            <summary>
+            Gets or sets the address identifier.
+            </summary>
+            <value>The address identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Hospital.Address">
+            <summary>
+            Gets or sets the address.
+            </summary>
+            <value>The address.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Hospital.Doctors">
+            <summary>
+            Gets or sets the doctors.
+            </summary>
+            <value>The doctors.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Hospital.Specialities">
+            <summary>
+            Gets or sets the specialities.
+            </summary>
+            <value>The specialities.</value>
+        </member>
+        <member name="T:WWI.Core6.Models.Models.HospitalDoctor">
+            <summary>
+            Class HospitalDoctor.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.HospitalDoctor.HospitalDoctorID">
+            <summary>
+            Gets or sets the hospital doctor identifier.
+            </summary>
+            <value>The hospital doctor identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.HospitalDoctor.DoctorID">
+            <summary>
+            Gets or sets the doctor identifier.
+            </summary>
+            <value>The doctor identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.HospitalDoctor.Doctor">
+            <summary>
+            Gets or sets the doctor.
+            </summary>
+            <value>The doctor.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.HospitalDoctor.HospitalID">
+            <summary>
+            Gets or sets the hospital identifier.
+            </summary>
+            <value>The hospital identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.HospitalDoctor.Hospital">
+            <summary>
+            Gets or sets the hospital.
+            </summary>
+            <value>The hospital.</value>
+        </member>
+        <member name="T:WWI.Core6.Models.Models.HospitalSpeciality">
+            <summary>
+            Class HospitalSpeciality.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.HospitalSpeciality.HospitalSpecialityID">
+            <summary>
+            Gets or sets the hospital speciality identifier.
+            </summary>
+            <value>The hospital speciality identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.HospitalSpeciality.SpecialtyID">
+            <summary>
+            Gets or sets the specialty identifier.
+            </summary>
+            <value>The specialty identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.HospitalSpeciality.Speciality">
+            <summary>
+            Gets or sets the speciality.
+            </summary>
+            <value>The speciality.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.HospitalSpeciality.HospitalID">
+            <summary>
+            Gets or sets the hospital identifier.
+            </summary>
+            <value>The hospital identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.HospitalSpeciality.Hospital">
+            <summary>
+            Gets or sets the hospital.
+            </summary>
+            <value>The hospital.</value>
+        </member>
+        <member name="T:WWI.Core6.Models.Models.Speciality">
+            <summary>
+            Class Speciality. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.Models.Models.Speciality.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.Models.Models.Speciality" /> class.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Speciality.SpecialtyID">
+            <summary>
+            Gets or sets the Specialty identifier.
+            </summary>
+            <value>The Specialty identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Speciality.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Speciality.Doctors">
+            <summary>
+            Gets or sets the doctors.
+            </summary>
+            <value>The doctors.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.Models.Speciality.Hospitals">
+            <summary>
+            Gets or sets the hospitals.
+            </summary>
+            <value>The hospitals.</value>
+        </member>
+        <member name="T:WWI.Core6.Models.Records.DoctorRecord">
+            <summary>
+            
+            </summary>
+            <param name="Firstname"></param>
+            <param name="Lastname"></param>
+            <param name="FullName"></param>
+            <param name="Speciality"></param>
+            <param name="Hospitals"></param>
+        </member>
+        <member name="M:WWI.Core6.Models.Records.DoctorRecord.#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="Firstname"></param>
+            <param name="Lastname"></param>
+            <param name="FullName"></param>
+            <param name="Speciality"></param>
+            <param name="Hospitals"></param>
+        </member>
+        <member name="T:WWI.Core6.Models.Seed.Helper.SeedHelper">
+            <summary>
+            Static class to help with generation of seed data
+            </summary>
+        </member>
+        <member name="F:WWI.Core6.Models.Seed.Helper.SeedHelper.BasePathGeneratedSeed">
+            <summary>
+            The base path generated seed
+            </summary>
+        </member>
+        <member name="F:WWI.Core6.Models.Seed.Helper.SeedHelper.BasePath">
+            <summary>
+            The base path
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.Models.Seed.Helper.SeedHelper.SeedGeneratedFileExists(System.String)">
+            <summary>
+            Verifies if the seed file to be generated exists
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Seed.Helper.SeedHelper.GetSourceFileContents(System.String)">
+            <summary>
+            Gets the source file contents.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns>System.String.</returns>
+            <exception cref="T:System.ArgumentException">File does not exist.</exception>
+        </member>
+        <member name="M:WWI.Core6.Models.Seed.Helper.SeedHelper.GetGeneratedFileContents(System.String)">
+            <summary>
+            Gets the generated file contents.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns>System.String.</returns>
+            <exception cref="T:System.ArgumentException">File does not exist.</exception>
+        </member>
+        <member name="M:WWI.Core6.Models.Seed.Helper.SeedHelper.ParseSourceFile``1(System.String)">
+            <summary>
+            Parses the source file.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="fileName">Name of the file.</param>
+            <returns>List&lt;T&gt;.</returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Seed.Helper.SeedHelper.ParseGeneratedFile``1(System.String)">
+            <summary>
+            Parses the generated file.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="fileName">Name of the file.</param>
+            <returns>List&lt;T&gt;.</returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Seed.Helper.SeedHelper.SaveGeneratedFileContent(System.String,System.String)">
+            <summary>
+            Saves the content of the generated file.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <param name="contents">The contents.</param>
+        </member>
+        <member name="M:WWI.Core6.Models.Seed.Helper.SeedHelper.SaveOrOverwriteGeneratedFile(System.String,System.String,System.Boolean)">
+            <summary>
+            Saves the or overwrite generated file.
+            </summary>
+            <param name="filename">The filename.</param>
+            <param name="contents">The contents.</param>
+            <param name="overwrite">if set to <c>true</c> [overwrite].</param>
+        </member>
+        <member name="T:WWI.Core6.Models.Utils.EnumerableExtensions">
+            <summary>
+            Extension methods for IEnumerable
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.EnumerableExtensions.GetRandomElement``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Gets a random element for the IEnumerable
+            </summary>
+            <typeparam name="T">Type of source IEnumerable</typeparam>
+            <param name="source">Source IEnumerable collection</param>
+            <returns>T.</returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.EnumerableExtensions.Shuffle``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Shuffles the specified source.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <returns>IEnumerable&lt;T&gt;.</returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.EnumerableExtensions.GetRandomShuffled``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Gets a random element for the IEnumerable after one shuffle
+            </summary>
+            <typeparam name="T">Type of source IEnumerable</typeparam>
+            <param name="source">Source IEnumerable collection</param>
+            <param name="shuffleTimes">Number of times to shuffle</param>
+            <returns>T.</returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns 'true' if an IEnumerable is empty. False otherwise.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list">The list.</param>
+            <returns><c>true</c> if the specified list is empty; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.EnumerableExtensions.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Partitions the list into specified chunk size.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sourceList">The source list.</param>
+            <param name="chunkSize">Size of the chunk.</param>
+            <returns>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;.</returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.EnumerableExtensions.Partition``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Partitions the specified source list.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sourceList">The source list.</param>
+            <returns>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;.</returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.EnumerableExtensions.Flatten``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Flattens the specified source.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The IEnumerable source.</param>
+            <returns>IEnumerable&lt;T&gt;.</returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.EnumerableExtensions.MaxOrDefault``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Maximum or the default.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable">The enumerable.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns>T.</returns>
+        </member>
+        <member name="T:WWI.Core6.Models.Utils.RandomHelpers">
+            <summary>
+            Generates Cryptographically secure random numbers using RNGCryptoServiceProvider
+            </summary>
+        </member>
+        <member name="F:WWI.Core6.Models.Utils.RandomHelpers.RandomNumberGenerator">
+            <summary>
+            The random number generator
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.RandomHelpers.#cctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.RandomHelpers.Next(System.Int32)">
+            <summary>
+            Get the next random integer
+            </summary>
+            <param name="max">Max value to generate</param>
+            <returns>Random [Int32]</returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.RandomHelpers.Next(System.Int32,System.Int32)">
+            <summary>
+            Returns a random number between 'min' and 'max'
+            </summary>
+            <param name="min">Min value to generate</param>
+            <param name="max">Max value to generate</param>
+            <returns>System.Int32.</returns>
+            <exception cref="T:System.ArgumentException">Max must be greater than Min</exception>
+        </member>
+        <member name="T:WWI.Core6.Models.Utils.StringExtensions">
+            <summary>
+            Class StringExtensions.
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.Models.Utils.StringExtensions.RemoveConsecutiveSpaces(System.String)">
+            <summary>
+            Removes the consecutive spaces.
+            </summary>
+            <param name="input">The input string.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="T:WWI.Core6.Models.Validators.ApplicationSettingsValidator">
+            <summary>
+            Class ApplicationSettingsValidator.
+            Implements the <see cref="T:WWI.Core6.Models.AppSettings.ApplicationSettings" />
+            </summary>
+            <seealso cref="T:WWI.Core6.Models.AppSettings.ApplicationSettings" />
+        </member>
+        <member name="M:WWI.Core6.Models.Validators.ApplicationSettingsValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.Models.Validators.ApplicationSettingsValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:WWI.Core6.Models.Validators.DatabaseConnectionStringValidator">
+            <summary>
+            Class DatabaseConnectionStringValidator.
+            Implements the <see cref="T:System.String" />
+            </summary>
+            <seealso cref="T:System.String" />
+        </member>
+        <member name="M:WWI.Core6.Models.Validators.DatabaseConnectionStringValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.Models.Validators.DatabaseConnectionStringValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:WWI.Core6.Models.Validators.OpenApiInfoValidator">
+            <summary>
+            Class OpenApiInfoValidator.
+            Implements the <see cref="!:FluentValidation.AbstractValidator&lt;Microsoft.OpenApi.Models.OpenApiInfo&gt;" />
+            </summary>
+            <seealso cref="!:FluentValidation.AbstractValidator&lt;Microsoft.OpenApi.Models.OpenApiInfo&gt;" />
+        </member>
+        <member name="M:WWI.Core6.Models.Validators.OpenApiInfoValidator.#ctor">
+            <summary>
+            Values the tuple.
+            </summary>
+            <returns>OpenApiInfo.</returns>
+        </member>
+        <member name="T:WWI.Core6.Models.Validators.PerformanceOptionsValidator">
+            <summary>
+            Class PerformanceOptionsValidator.
+            Implements the <see cref="T:WWI.Core6.Models.AppSettings.PerformanceOptions" />
+            </summary>
+            <seealso cref="T:WWI.Core6.Models.AppSettings.PerformanceOptions" />
+        </member>
+        <member name="M:WWI.Core6.Models.Validators.PerformanceOptionsValidator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.Models.Validators.PerformanceOptionsValidator"/> class.
+            </summary>
+        </member>
+        <member name="T:WWI.Core6.Models.ViewModels.AdvancedHospitalInformation">
+            <summary>
+            Class AdvancedHospitalInformation.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.AdvancedHospitalInformation.HospitalID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.AdvancedHospitalInformation.HospitalName">
+            <summary>
+            Gets or sets the name of the hospital.
+            </summary>
+            <value>The name of the hospital.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.AdvancedHospitalInformation.Address">
+            <summary>
+            Gets or sets the address.
+            </summary>
+            <value>The address.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.AdvancedHospitalInformation.Specialities">
+            <summary>
+            Gets or sets the specialities.
+            </summary>
+            <value>The specialities.</value>
+        </member>
+        <member name="T:WWI.Core6.Models.ViewModels.AuditEntry">
+            <summary>
+            Class AuditEntry.
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.Models.ViewModels.AuditEntry.#ctor(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.Models.ViewModels.AuditEntry"/> class.
+            </summary>
+            <param name="entry">The entry.</param>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.AuditEntry.Entry">
+            <summary>
+            Gets the entry.
+            </summary>
+            <value>The entry.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.AuditEntry.TableName">
+            <summary>
+            Gets or sets the name of the table.
+            </summary>
+            <value>The name of the table.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.AuditEntry.KeyValues">
+            <summary>
+            Gets the key values.
+            </summary>
+            <value>The key values.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.AuditEntry.OldValues">
+            <summary>
+            Gets the old values.
+            </summary>
+            <value>The old values.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.AuditEntry.NewValues">
+            <summary>
+            Creates new values.
+            </summary>
+            <value>The new values.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.AuditEntry.TemporaryProperties">
+            <summary>
+            Gets the temporary properties.
+            </summary>
+            <value>The temporary properties.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.AuditEntry.HasTemporaryProperties">
+            <summary>
+            Gets a value indicating whether this instance has temporary properties.
+            </summary>
+            <value><c>true</c> if this instance has temporary properties; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:WWI.Core6.Models.ViewModels.AuditEntry.ToAudit">
+            <summary>
+            Converts to audit.
+            </summary>
+            <returns>AuditLog.</returns>
+        </member>
+        <member name="T:WWI.Core6.Models.ViewModels.DoctorInfo">
+            <summary>
+            Class DoctorInfo.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.DoctorInfo.DoctorID">
+            <summary>
+            Gets or sets the doctor identifier.
+            </summary>
+            <value>The doctor identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.DoctorInfo.FullName">
+            <summary>
+            Gets or sets the full name.
+            </summary>
+            <value>The full name.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.DoctorInfo.SpecialityName">
+            <summary>
+            Gets or sets the name of the speciality.
+            </summary>
+            <value>The name of the speciality.</value>
+        </member>
+        <member name="T:WWI.Core6.Models.ViewModels.Dropdown">
+            <summary>
+            Class Dropdown.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.Dropdown.ID">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.Dropdown.DisplayValue">
+            <summary>
+            Gets or sets the display value.
+            </summary>
+            <value>The display value.</value>
+        </member>
+        <member name="T:WWI.Core6.Models.ViewModels.HospitalDoctorInformation">
+            <summary>
+            Class HospitalDoctorInformation.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.HospitalDoctorInformation.HospitalID">
+            <summary>
+            Gets or sets the hospital identifier.
+            </summary>
+            <value>The hospital identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.HospitalDoctorInformation.HospitalName">
+            <summary>
+            Gets or sets the name of the hospital.
+            </summary>
+            <value>The name of the hospital.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.HospitalDoctorInformation.Doctors">
+            <summary>
+            Gets or sets the doctors.
+            </summary>
+            <value>The doctors.</value>
+        </member>
+        <member name="T:WWI.Core6.Models.ViewModels.HospitalInformation">
+            <summary>
+            Class HospitalInformation.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.HospitalInformation.HospitalID">
+            <summary>
+            Gets or sets the hospital identifier.
+            </summary>
+            <value>The hospital identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.HospitalInformation.HospitalName">
+            <summary>
+            Gets or sets the name of the hospital.
+            </summary>
+            <value>The name of the hospital.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.HospitalInformation.Specialities">
+            <summary>
+            Gets or sets the specialities.
+            </summary>
+            <value>The specialities.</value>
+        </member>
+        <member name="T:WWI.Core6.Models.ViewModels.SpecialityInformation">
+            <summary>
+            Class SpecialityInformation.
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.SpecialityInformation.SpecialtyID">
+            <summary>
+            Gets or sets the specialty identifier.
+            </summary>
+            <value>The specialty identifier.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.SpecialityInformation.SpecialityName">
+            <summary>
+            Gets or sets the name of the department.
+            </summary>
+            <value>The name of the department.</value>
+        </member>
+        <member name="P:WWI.Core6.Models.ViewModels.SpecialityInformation.DoctorList">
+            <summary>
+            Gets or sets the doctor list.
+            </summary>
+            <value>The doctor list.</value>
         </member>
         <member name="T:WWI.Core3.Models.Migrations.Init">
             <summary>
@@ -255,779 +1028,6 @@
             Builds the target model.
             </summary>
             <param name="modelBuilder">The model builder.</param>
-        </member>
-        <member name="T:WWI.Core3.Models.Migrations.DocAppointmentContextModelSnapshot">
-            <summary>
-            Class DocAppointmentContextModelSnapshot.
-            Implements the <see cref="T:Microsoft.EntityFrameworkCore.Infrastructure.ModelSnapshot" />
-            </summary>
-            <seealso cref="T:Microsoft.EntityFrameworkCore.Infrastructure.ModelSnapshot" />
-        </member>
-        <member name="M:WWI.Core3.Models.Migrations.DocAppointmentContextModelSnapshot.BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <summary>
-            Builds the model.
-            </summary>
-            <param name="modelBuilder">The model builder.</param>
-        </member>
-        <member name="T:WWI.Core3.Models.Models.Address">
-            <summary>
-            Class Address.
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.Models.Models.Address.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.Models.Models.Address" /> class.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Address.AddressID">
-            <summary>
-            Gets or sets the address identifier.
-            </summary>
-            <value>The address identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Address.Street">
-            <summary>
-            Gets or sets the street.
-            </summary>
-            <value>The street.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Address.City">
-            <summary>
-            Gets or sets the city.
-            </summary>
-            <value>The city.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Address.District">
-            <summary>
-            Gets or sets the district.
-            </summary>
-            <value>The district.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Address.State">
-            <summary>
-            Gets or sets the state.
-            </summary>
-            <value>The state.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Address.Country">
-            <summary>
-            Gets or sets the country.
-            </summary>
-            <value>The country.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Address.PIN">
-            <summary>
-            Gets or sets the pin.
-            </summary>
-            <value>The pin.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Address.Hospitals">
-            <summary>
-            Gets or sets the hospitals.
-            </summary>
-            <value>The hospitals.</value>
-        </member>
-        <member name="M:WWI.Core3.Models.Models.Address.ToString">
-            <summary>
-            Returns a <see cref="T:System.String" /> that represents this instance.
-            </summary>
-            <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
-        </member>
-        <member name="T:WWI.Core3.Models.Models.AuditLog">
-            <summary>
-            Class AuditLog.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.AuditLog.ID">
-            <summary>
-            Gets or sets the identifier.
-            </summary>
-            <value>The identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.AuditLog.TableName">
-            <summary>
-            Gets or sets the name of the table.
-            </summary>
-            <value>The name of the table.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.AuditLog.DateTime">
-            <summary>
-            Gets or sets the date time.
-            </summary>
-            <value>The date time.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.AuditLog.KeyValues">
-            <summary>
-            Gets or sets the key values.
-            </summary>
-            <value>The key values.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.AuditLog.NewValues">
-            <summary>
-            Creates new values.
-            </summary>
-            <value>The new values.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.AuditLog.OldValues">
-            <summary>Gets or sets the old values.</summary>
-            <value>The old values.</value>
-        </member>
-        <member name="T:WWI.Core3.Models.Models.Doctor">
-            <summary>
-            Doctor
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.Models.Models.Doctor.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.Models.Models.Doctor" /> class.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Doctor.DoctorID">
-            <summary>
-            Gets or sets the doctor identifier.
-            </summary>
-            <value>The doctor identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Doctor.Firstname">
-            <summary>
-            Gets or sets the firstname.
-            </summary>
-            <value>The firstname.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Doctor.Middlename">
-            <summary>
-            Gets or sets the middlename.
-            </summary>
-            <value>The middlename.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Doctor.Lastname">
-            <summary>
-            Gets or sets the lastname.
-            </summary>
-            <value>The lastname.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Doctor.SpecialityID">
-            <summary>
-            Gets or sets the speciality identifier.
-            </summary>
-            <value>The speciality identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Doctor.Speciality">
-            <summary>
-            Gets or sets the speciality.
-            </summary>
-            <value>The speciality.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Doctor.Hospitals">
-            <summary>
-            Gets or sets the hospitals.
-            </summary>
-            <value>The hospitals.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Doctor.FullName">
-            <summary>
-            Gets the full name.
-            </summary>
-            <value>The full name.</value>
-        </member>
-        <member name="T:WWI.Core3.Models.Models.Hospital">
-            <summary>
-            Hospital
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.Models.Models.Hospital.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.Models.Models.Hospital" /> class.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Hospital.HospitalID">
-            <summary>
-            Gets or sets the hospital identifier.
-            </summary>
-            <value>The hospital identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Hospital.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-            <value>The name.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Hospital.AddressID">
-            <summary>
-            Gets or sets the address identifier.
-            </summary>
-            <value>The address identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Hospital.Address">
-            <summary>
-            Gets or sets the address.
-            </summary>
-            <value>The address.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Hospital.Doctors">
-            <summary>
-            Gets or sets the doctors.
-            </summary>
-            <value>The doctors.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Hospital.Specialities">
-            <summary>
-            Gets or sets the specialities.
-            </summary>
-            <value>The specialities.</value>
-        </member>
-        <member name="T:WWI.Core3.Models.Models.HospitalDoctor">
-            <summary>
-            Class HospitalDoctor.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.HospitalDoctor.HospitalDoctorID">
-            <summary>
-            Gets or sets the hospital doctor identifier.
-            </summary>
-            <value>The hospital doctor identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.HospitalDoctor.DoctorID">
-            <summary>
-            Gets or sets the doctor identifier.
-            </summary>
-            <value>The doctor identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.HospitalDoctor.Doctor">
-            <summary>
-            Gets or sets the doctor.
-            </summary>
-            <value>The doctor.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.HospitalDoctor.HospitalID">
-            <summary>
-            Gets or sets the hospital identifier.
-            </summary>
-            <value>The hospital identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.HospitalDoctor.Hospital">
-            <summary>
-            Gets or sets the hospital.
-            </summary>
-            <value>The hospital.</value>
-        </member>
-        <member name="T:WWI.Core3.Models.Models.HospitalSpeciality">
-            <summary>
-            Class HospitalSpeciality.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.HospitalSpeciality.HospitalSpecialityID">
-            <summary>
-            Gets or sets the hospital speciality identifier.
-            </summary>
-            <value>The hospital speciality identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.HospitalSpeciality.SpecialtyID">
-            <summary>
-            Gets or sets the specialty identifier.
-            </summary>
-            <value>The specialty identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.HospitalSpeciality.Speciality">
-            <summary>
-            Gets or sets the speciality.
-            </summary>
-            <value>The speciality.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.HospitalSpeciality.HospitalID">
-            <summary>
-            Gets or sets the hospital identifier.
-            </summary>
-            <value>The hospital identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.HospitalSpeciality.Hospital">
-            <summary>
-            Gets or sets the hospital.
-            </summary>
-            <value>The hospital.</value>
-        </member>
-        <member name="T:WWI.Core3.Models.Models.Speciality">
-            <summary>
-            Class Speciality. This class cannot be inherited.
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.Models.Models.Speciality.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.Models.Models.Speciality" /> class.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Speciality.SpecialtyID">
-            <summary>
-            Gets or sets the Specialty identifier.
-            </summary>
-            <value>The Specialty identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Speciality.Name">
-            <summary>
-            Gets or sets the name.
-            </summary>
-            <value>The name.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Speciality.Doctors">
-            <summary>
-            Gets or sets the doctors.
-            </summary>
-            <value>The doctors.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.Models.Speciality.Hospitals">
-            <summary>
-            Gets or sets the hospitals.
-            </summary>
-            <value>The hospitals.</value>
-        </member>
-        <member name="T:WWI.Core3.Models.Records.DoctorRecord">
-            <summary>
-            
-            </summary>
-            <param name="Firstname"></param>
-            <param name="Lastname"></param>
-            <param name="FullName"></param>
-            <param name="Speciality"></param>
-            <param name="Hospitals"></param>
-        </member>
-        <member name="M:WWI.Core3.Models.Records.DoctorRecord.#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.List{System.String})">
-            <summary>
-            
-            </summary>
-            <param name="Firstname"></param>
-            <param name="Lastname"></param>
-            <param name="FullName"></param>
-            <param name="Speciality"></param>
-            <param name="Hospitals"></param>
-        </member>
-        <member name="T:WWI.Core3.Models.Seed.Helper.SeedHelper">
-            <summary>
-            Static class to help with generation of seed data
-            </summary>
-        </member>
-        <member name="F:WWI.Core3.Models.Seed.Helper.SeedHelper.BasePathGeneratedSeed">
-            <summary>
-            The base path generated seed
-            </summary>
-        </member>
-        <member name="F:WWI.Core3.Models.Seed.Helper.SeedHelper.BasePath">
-            <summary>
-            The base path
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.Models.Seed.Helper.SeedHelper.SeedGeneratedFileExists(System.String)">
-            <summary>
-            Verifies if the seed file to be generated exists
-            </summary>
-            <param name="fileName">Name of the file.</param>
-            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        </member>
-        <member name="M:WWI.Core3.Models.Seed.Helper.SeedHelper.GetSourceFileContents(System.String)">
-            <summary>
-            Gets the source file contents.
-            </summary>
-            <param name="fileName">Name of the file.</param>
-            <returns>System.String.</returns>
-            <exception cref="T:System.ArgumentException">File does not exist.</exception>
-        </member>
-        <member name="M:WWI.Core3.Models.Seed.Helper.SeedHelper.GetGeneratedFileContents(System.String)">
-            <summary>
-            Gets the generated file contents.
-            </summary>
-            <param name="fileName">Name of the file.</param>
-            <returns>System.String.</returns>
-            <exception cref="T:System.ArgumentException">File does not exist.</exception>
-        </member>
-        <member name="M:WWI.Core3.Models.Seed.Helper.SeedHelper.ParseSourceFile``1(System.String)">
-            <summary>
-            Parses the source file.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="fileName">Name of the file.</param>
-            <returns>List&lt;T&gt;.</returns>
-        </member>
-        <member name="M:WWI.Core3.Models.Seed.Helper.SeedHelper.ParseGeneratedFile``1(System.String)">
-            <summary>
-            Parses the generated file.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="fileName">Name of the file.</param>
-            <returns>List&lt;T&gt;.</returns>
-        </member>
-        <member name="M:WWI.Core3.Models.Seed.Helper.SeedHelper.SaveGeneratedFileContent(System.String,System.String)">
-            <summary>
-            Saves the content of the generated file.
-            </summary>
-            <param name="fileName">Name of the file.</param>
-            <param name="contents">The contents.</param>
-        </member>
-        <member name="M:WWI.Core3.Models.Seed.Helper.SeedHelper.SaveOrOverwriteGeneratedFile(System.String,System.String,System.Boolean)">
-            <summary>
-            Saves the or overwrite generated file.
-            </summary>
-            <param name="filename">The filename.</param>
-            <param name="contents">The contents.</param>
-            <param name="overwrite">if set to <c>true</c> [overwrite].</param>
-        </member>
-        <member name="T:WWI.Core3.Models.Utils.EnumerableExtensions">
-            <summary>
-            Extension methods for IEnumerable
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.EnumerableExtensions.GetRandomElement``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            Gets a random element for the IEnumerable
-            </summary>
-            <typeparam name="T">Type of source IEnumerable</typeparam>
-            <param name="source">Source IEnumerable collection</param>
-            <returns>T.</returns>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.EnumerableExtensions.Shuffle``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            Shuffles the specified source.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="source">The source.</param>
-            <returns>IEnumerable&lt;T&gt;.</returns>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.EnumerableExtensions.GetRandomShuffled``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
-            <summary>
-            Gets a random element for the IEnumerable after one shuffle
-            </summary>
-            <typeparam name="T">Type of source IEnumerable</typeparam>
-            <param name="source">Source IEnumerable collection</param>
-            <param name="shuffleTimes">Number of times to shuffle</param>
-            <returns>T.</returns>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            Returns 'true' if an IEnumerable is empty. False otherwise.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="list">The list.</param>
-            <returns><c>true</c> if the specified list is empty; otherwise, <c>false</c>.</returns>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.EnumerableExtensions.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
-            <summary>
-            Partitions the list into specified chunk size.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="sourceList">The source list.</param>
-            <param name="chunkSize">Size of the chunk.</param>
-            <returns>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;.</returns>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.EnumerableExtensions.Partition``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            Partitions the specified source list.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="sourceList">The source list.</param>
-            <returns>IEnumerable&lt;IEnumerable&lt;T&gt;&gt;.</returns>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.EnumerableExtensions.Flatten``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})">
-            <summary>
-            Flattens the specified source.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="source">The IEnumerable source.</param>
-            <returns>IEnumerable&lt;T&gt;.</returns>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.EnumerableExtensions.MaxOrDefault``1(System.Collections.Generic.IEnumerable{``0},``0)">
-            <summary>
-            Maximum or the default.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="enumerable">The enumerable.</param>
-            <param name="defaultValue">The default value.</param>
-            <returns>T.</returns>
-        </member>
-        <member name="T:WWI.Core3.Models.Utils.RandomHelpers">
-            <summary>
-            Generates Cryptographically secure random numbers using RNGCryptoServiceProvider
-            </summary>
-        </member>
-        <member name="F:WWI.Core3.Models.Utils.RandomHelpers.RandomNumberGenerator">
-            <summary>
-            The random number generator
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.RandomHelpers.#cctor">
-            <summary>
-            Constructor
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.RandomHelpers.Next(System.Int32)">
-            <summary>
-            Get the next random integer
-            </summary>
-            <param name="max">Max value to generate</param>
-            <returns>Random [Int32]</returns>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.RandomHelpers.Next(System.Int32,System.Int32)">
-            <summary>
-            Returns a random number between 'min' and 'max'
-            </summary>
-            <param name="min">Min value to generate</param>
-            <param name="max">Max value to generate</param>
-            <returns>System.Int32.</returns>
-            <exception cref="T:System.ArgumentException">Max must be greater than Min</exception>
-        </member>
-        <member name="T:WWI.Core3.Models.Utils.StringExtensions">
-            <summary>
-            Class StringExtensions.
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.Models.Utils.StringExtensions.RemoveConsecutiveSpaces(System.String)">
-            <summary>
-            Removes the consecutive spaces.
-            </summary>
-            <param name="input">The input string.</param>
-            <returns>System.String.</returns>
-        </member>
-        <member name="T:WWI.Core3.Models.Validators.ApplicationSettingsValidator">
-            <summary>
-            Class ApplicationSettingsValidator.
-            Implements the <see cref="T:WWI.Core3.Models.AppSettings.ApplicationSettings" />
-            </summary>
-            <seealso cref="T:WWI.Core3.Models.AppSettings.ApplicationSettings" />
-        </member>
-        <member name="M:WWI.Core3.Models.Validators.ApplicationSettingsValidator.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.Models.Validators.ApplicationSettingsValidator"/> class.
-            </summary>
-        </member>
-        <member name="T:WWI.Core3.Models.Validators.DatabaseConnectionStringValidator">
-            <summary>
-            Class DatabaseConnectionStringValidator.
-            Implements the <see cref="T:System.String" />
-            </summary>
-            <seealso cref="T:System.String" />
-        </member>
-        <member name="M:WWI.Core3.Models.Validators.DatabaseConnectionStringValidator.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.Models.Validators.DatabaseConnectionStringValidator"/> class.
-            </summary>
-        </member>
-        <member name="T:WWI.Core3.Models.Validators.OpenApiInfoValidator">
-            <summary>
-            Class OpenApiInfoValidator.
-            Implements the <see cref="!:FluentValidation.AbstractValidator&lt;Microsoft.OpenApi.Models.OpenApiInfo&gt;" />
-            </summary>
-            <seealso cref="!:FluentValidation.AbstractValidator&lt;Microsoft.OpenApi.Models.OpenApiInfo&gt;" />
-        </member>
-        <member name="M:WWI.Core3.Models.Validators.OpenApiInfoValidator.#ctor">
-            <summary>
-            Values the tuple.
-            </summary>
-            <returns>OpenApiInfo.</returns>
-        </member>
-        <member name="T:WWI.Core3.Models.Validators.PerformanceOptionsValidator">
-            <summary>
-            Class PerformanceOptionsValidator.
-            Implements the <see cref="T:WWI.Core3.Models.AppSettings.PerformanceOptions" />
-            </summary>
-            <seealso cref="T:WWI.Core3.Models.AppSettings.PerformanceOptions" />
-        </member>
-        <member name="M:WWI.Core3.Models.Validators.PerformanceOptionsValidator.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.Models.Validators.PerformanceOptionsValidator"/> class.
-            </summary>
-        </member>
-        <member name="T:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation">
-            <summary>
-            Class AdvancedHospitalInformation.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation.HospitalID">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation.HospitalName">
-            <summary>
-            Gets or sets the name of the hospital.
-            </summary>
-            <value>The name of the hospital.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation.Address">
-            <summary>
-            Gets or sets the address.
-            </summary>
-            <value>The address.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AdvancedHospitalInformation.Specialities">
-            <summary>
-            Gets or sets the specialities.
-            </summary>
-            <value>The specialities.</value>
-        </member>
-        <member name="T:WWI.Core3.Models.ViewModels.AuditEntry">
-            <summary>
-            Class AuditEntry.
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.Models.ViewModels.AuditEntry.#ctor(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.Models.ViewModels.AuditEntry"/> class.
-            </summary>
-            <param name="entry">The entry.</param>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AuditEntry.Entry">
-            <summary>
-            Gets the entry.
-            </summary>
-            <value>The entry.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AuditEntry.TableName">
-            <summary>
-            Gets or sets the name of the table.
-            </summary>
-            <value>The name of the table.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AuditEntry.KeyValues">
-            <summary>
-            Gets the key values.
-            </summary>
-            <value>The key values.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AuditEntry.OldValues">
-            <summary>
-            Gets the old values.
-            </summary>
-            <value>The old values.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AuditEntry.NewValues">
-            <summary>
-            Creates new values.
-            </summary>
-            <value>The new values.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AuditEntry.TemporaryProperties">
-            <summary>
-            Gets the temporary properties.
-            </summary>
-            <value>The temporary properties.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.AuditEntry.HasTemporaryProperties">
-            <summary>
-            Gets a value indicating whether this instance has temporary properties.
-            </summary>
-            <value><c>true</c> if this instance has temporary properties; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="M:WWI.Core3.Models.ViewModels.AuditEntry.ToAudit">
-            <summary>
-            Converts to audit.
-            </summary>
-            <returns>AuditLog.</returns>
-        </member>
-        <member name="T:WWI.Core3.Models.ViewModels.DoctorInfo">
-            <summary>
-            Class DoctorInfo.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.DoctorInfo.DoctorID">
-            <summary>
-            Gets or sets the doctor identifier.
-            </summary>
-            <value>The doctor identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.DoctorInfo.FullName">
-            <summary>
-            Gets or sets the full name.
-            </summary>
-            <value>The full name.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.DoctorInfo.SpecialityName">
-            <summary>
-            Gets or sets the name of the speciality.
-            </summary>
-            <value>The name of the speciality.</value>
-        </member>
-        <member name="T:WWI.Core3.Models.ViewModels.Dropdown">
-            <summary>
-            Class Dropdown.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.Dropdown.ID">
-            <summary>
-            Gets or sets the identifier.
-            </summary>
-            <value>The identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.Dropdown.DisplayValue">
-            <summary>
-            Gets or sets the display value.
-            </summary>
-            <value>The display value.</value>
-        </member>
-        <member name="T:WWI.Core3.Models.ViewModels.HospitalDoctorInformation">
-            <summary>
-            Class HospitalDoctorInformation.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.HospitalDoctorInformation.HospitalID">
-            <summary>
-            Gets or sets the hospital identifier.
-            </summary>
-            <value>The hospital identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.HospitalDoctorInformation.HospitalName">
-            <summary>
-            Gets or sets the name of the hospital.
-            </summary>
-            <value>The name of the hospital.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.HospitalDoctorInformation.Doctors">
-            <summary>
-            Gets or sets the doctors.
-            </summary>
-            <value>The doctors.</value>
-        </member>
-        <member name="T:WWI.Core3.Models.ViewModels.HospitalInformation">
-            <summary>
-            Class HospitalInformation.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.HospitalInformation.HospitalID">
-            <summary>
-            Gets or sets the hospital identifier.
-            </summary>
-            <value>The hospital identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.HospitalInformation.HospitalName">
-            <summary>
-            Gets or sets the name of the hospital.
-            </summary>
-            <value>The name of the hospital.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.HospitalInformation.Specialities">
-            <summary>
-            Gets or sets the specialities.
-            </summary>
-            <value>The specialities.</value>
-        </member>
-        <member name="T:WWI.Core3.Models.ViewModels.SpecialityInformation">
-            <summary>
-            Class SpecialityInformation.
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.SpecialityInformation.SpecialtyID">
-            <summary>
-            Gets or sets the specialty identifier.
-            </summary>
-            <value>The specialty identifier.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.SpecialityInformation.SpecialityName">
-            <summary>
-            Gets or sets the name of the department.
-            </summary>
-            <value>The name of the department.</value>
-        </member>
-        <member name="P:WWI.Core3.Models.ViewModels.SpecialityInformation.DoctorList">
-            <summary>
-            Gets or sets the doctor list.
-            </summary>
-            <value>The doctor list.</value>
         </member>
     </members>
 </doc>

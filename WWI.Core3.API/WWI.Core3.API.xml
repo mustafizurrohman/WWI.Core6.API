@@ -4,38 +4,475 @@
         <name>WWI.Core6.API</name>
     </assembly>
     <members>
-        <member name="T:WWI.Core3.API.Controllers.Base.BaseAPIController">
+        <member name="T:WWI.Core6.API.Controllers.Base.BaseAPIController">
             <summary>
             Base API Controller
             </summary>
             <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
         </member>
-        <member name="P:WWI.Core3.API.Controllers.Base.BaseAPIController.DbContext">
+        <member name="P:WWI.Core6.API.Controllers.Base.BaseAPIController.DbContext">
             <summary>
             The database context
             </summary>
             <value>The database context.</value>
         </member>
-        <member name="P:WWI.Core3.API.Controllers.Base.BaseAPIController.AutoMapper">
+        <member name="P:WWI.Core6.API.Controllers.Base.BaseAPIController.AutoMapper">
             <summary>
             AutoMapper
             </summary>
             <value>The automatic mapper.</value>
         </member>
-        <member name="M:WWI.Core3.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices)">
+        <member name="M:WWI.Core6.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices)">
             <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" /> class.
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" /> class.
             </summary>
             <param name="applicationServices">The collection of frequently used application services.</param>
+        </member>
+        <member name="T:WWI.Core6.API.Controllers.DoctorController">
+            <summary>
+            Class DoctorController.
+            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+            </summary>
+            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.DoctorController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.DoctorController" /> class.
+            </summary>
+            <param name="applicationServices">The application services.</param>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.DoctorController.GetDoctors(System.Threading.CancellationToken)">
+            <summary>
+            Gets the doctors.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.DoctorController.DoctorsBySpecialty(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets Doctors by specialty.
+            </summary>
+            <param name="specialityID">The specialty identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.DoctorController.DoctorsByHospital(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Doctors the by hospital.
+            </summary>
+            <param name="hospitalID">The hospital identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.DoctorController.AddDoctorAsync(WWI.Core6.Services.MediatR.Commands.CreateDoctorCommand,System.Threading.CancellationToken)">
+            <summary>
+            add doctor as an asynchronous operation.
+            </summary>
+            <param name="doctor">The doctor.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.Controllers.HospitalController">
+            <summary>
+            Class HospitalController.
+            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+            </summary>
+            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.HospitalController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.HospitalController" /> class.
+            </summary>
+            <param name="applicationServices">Application Services</param>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.HospitalController.GetHospitals(System.Threading.CancellationToken)">
+            <summary>
+            Gets the hospitals.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.HospitalController.GetHospitalById(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the hospital by identifier.
+            </summary>
+            <param name="hospitalID">The hospital identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.HospitalController.GetHospitalInfoById(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the hospital information by identifier.
+            </summary>
+            <param name="hospitalID">The hospital identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.HospitalController.GetDoctorsForHospitalById(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the doctors for hospital by identifier.
+            </summary>
+            <param name="hospitalID">The identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.HospitalController.GetSpecialityInfoForHospital(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the speciality information for hospital.
+            </summary>
+            <param name="hospitalID">The hospital identifier.</param>
+            <param name="specialityID">The speciality identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.HospitalController.GetSpecialitiesForHospital(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the speciality information for hospital.
+            </summary>
+            <param name="hospitalID">The hospital identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.HospitalController.GetSpecialitiesDropdownForHospital(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the speciality information for hospital.
+            </summary>
+            <param name="hospitalID">The hospital identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.Controllers.PlaygroundController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.#ctor(WWI.Core6.Services.Interfaces.IFakeDataGeneratorService,WWI.Core6.Services.ServiceCollection.IApplicationServices)">
+            <summary>
+            
+            </summary>
+            <param name="fakeDataGeneratorService"></param>
+            <param name="applicationServices"></param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.GetNames(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.TestMaxBy(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.LinqChunkTest(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.OverLoadTest(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.ConstantInterpolatedStrings">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.LambdaImprovements">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WWI.Core6.API.Controllers.SpecialityController">
+            <summary>
+            Class SpecialityController.
+            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+            </summary>
+            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.SpecialityController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.SpecialityController" /> class.
+            </summary>
+            <param name="applicationServices">Application Services</param>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetSpecialities(System.Threading.CancellationToken)">
+            <summary>
+            Gets the specialities.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetSpecialityByID(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the speciality by identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetDoctorsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the doctors for speciality by identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetHospitalsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the hospitals with speciality by a speciality identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.Controllers.TestController">
+            <summary>
+            Class TestController.
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.TestController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,WWI.Core6.Services.Interfaces.IHTMLFormatterService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.TestController"/> class.
+            </summary>
+            <param name="applicationServices">The database context.</param>
+            <param name="htmlFormatterService"></param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.TestController.TesteEnumerableIsEmpty">
+            <summary>
+            Test123s this instance.
+            </summary>
+            <returns>IActionResult.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.TestController.GetHtml">
+            <summary>
+            Gets the HTML.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.TestController.TestGuardClauses(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Tests the guard clauses.
+            </summary>
+            <param name="positiveNunmber">The positive nunmber.</param>
+            <param name="negativeNumber">The negative number.</param>
+            <param name="notZero">The not zero.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.TestController.TestHumanizer(System.Int32)">
+            <summary>
+            Tests the humanizer.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.ExtensionMethods.ApplicationBuilderExtensions">
+            <summary>
+            Class ApplicationBuilderExtensions.
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.ExtensionMethods.ApplicationBuilderExtensions.ConfigureApplication(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configures the application.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+            <returns>IApplicationBuilder.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.ExtensionMethods.ImplementationTypeSelectorExtensions">
+            <summary>
+            Class ImplementationTypeSelectorExtensions.
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.ExtensionMethods.ImplementationTypeSelectorExtensions.RegisterHandlers(Scrutor.IImplementationTypeSelector,System.Type)">
+            <summary>
+            Registers the handlers.
+            </summary>
+            <param name="selector">The selector.</param>
+            <param name="type">The type.</param>
+            <returns>IImplementationTypeSelector.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.ExtensionMethods.InstallerExtensions">
+            <summary>
+            Class InstallerExtensions.
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.ExtensionMethods.InstallerExtensions.InstallServicesInAssembly(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Installs the services in assembly.
+            </summary>
+            <param name="serviceCollection">The service collection.</param>
+            <param name="configuration">The configuration.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.ExtensionMethods.SwaggerExtensions">
+            <summary>
+            Extensions for Swagger
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.ExtensionMethods.SwaggerExtensions.AddSwaggerDocumentation(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.OpenApi.Models.OpenApiInfo,Microsoft.OpenApi.Models.OpenApiSecurityScheme)">
+            <summary>Adds the swagger documentation.</summary>
+            <param name="services">The services.</param>
+            <param name="info">The information.</param>
+            <param name="apiKeyScheme">The API key scheme.</param>
+            <returns>IServiceCollection.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.ExtensionMethods.SwaggerExtensions.UseSwaggerDocumentation(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.OpenApi.Models.OpenApiInfo)">
+            <summary>
+            Extension method to use swagger documentation
+            </summary>
+            <param name="app"></param>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WWI.Core6.API.Helpers.ApplicationSettingsVerifier">
+            <summary>
+            Class ApplicationSettingsVerifier.
+            </summary>
+        </member>
+        <member name="F:WWI.Core6.API.Helpers.ApplicationSettingsVerifier._info">
+            <summary>
+            The OpenApi information
+            </summary>
+        </member>
+        <member name="F:WWI.Core6.API.Helpers.ApplicationSettingsVerifier._performanceOptions">
+            <summary>
+            The performance options
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.Helpers.ApplicationSettingsVerifier.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Helpers.ApplicationSettingsVerifier"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:WWI.Core6.API.Helpers.ApplicationSettingsVerifier.VerifyApplicationSettings">
+            <summary>
+            Verifies the application settings.
+            </summary>
+            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+            <exception cref="T:WWI.Core6.Core.Exceptions.AppSettingsValidationException"></exception>
+        </member>
+        <member name="T:WWI.Core6.API.Installers.DatabaseInstaller">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:WWI.Core6.API.Installers.DatabaseInstaller.ConsoleLoggerFactory">
+            <summary>
+            ConsoleLoggerFactory
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.Installers.DatabaseInstaller.InstallServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            public DatabaseInstaller
+            </summary>
+            <param name="serviceCollection"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:WWI.Core6.API.Installers.IInstaller">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.Installers.IInstaller.InstallServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="serviceCollection"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:WWI.Core6.API.Installers.ServiceInstaller">
+            <summary>
+            Class ServiceInstaller.
+            Implements the <see cref="T:WWI.Core6.API.Installers.IInstaller" />
+            </summary>
+            <seealso cref="T:WWI.Core6.API.Installers.IInstaller" />
+        </member>
+        <member name="M:WWI.Core6.API.Installers.ServiceInstaller.InstallServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="serviceCollection"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="T:WWI.Core6.API.Program">
+            <summary>
+            The program
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WWI.Core6.API.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">The arguments.</param>
+            <returns>IHostBuilder.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.Startup">
+            <summary>
+            Startup class
+            </summary>
+        </member>
+        <member name="F:WWI.Core6.API.Startup._info">
+            <summary>
+            The OpenApi information
+            </summary>
+        </member>
+        <member name="F:WWI.Core6.API.Startup._openApiSecurityScheme">
+            <summary>
+            The open API security scheme
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.API.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:WWI.Core6.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:WWI.Core6.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">Service Collection</param>
+        </member>
+        <member name="M:WWI.Core6.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">Application Builder</param>
+            <param name="env">Hosting Environment</param>
         </member>
         <member name="T:WWI.Core3.API.Controllers.BogusController">
             <summary>
             Class BogusController.
-            Implements the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
+            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
             </summary>
-            <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
+            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
         </member>
-        <member name="M:WWI.Core3.API.Controllers.BogusController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,WWI.Core3.Services.Interfaces.IFakeDataGeneratorService)">
+        <member name="M:WWI.Core3.API.Controllers.BogusController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,WWI.Core6.Services.Interfaces.IFakeDataGeneratorService)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.BogusController"/> class.
             </summary>
@@ -69,443 +506,6 @@
             </summary>
             <param name="num">The number.</param>
             <returns>IActionResult.</returns>
-        </member>
-        <member name="T:WWI.Core3.API.Controllers.DoctorController">
-            <summary>
-            Class DoctorController.
-            Implements the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
-            </summary>
-            <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.DoctorController" /> class.
-            </summary>
-            <param name="applicationServices">The application services.</param>
-            <param name="mediator"></param>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.GetDoctors(System.Threading.CancellationToken)">
-            <summary>
-            Gets the doctors.
-            </summary>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.DoctorsBySpecialty(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets Doctors by specialty.
-            </summary>
-            <param name="specialityID">The specialty identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.DoctorsByHospital(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Doctors the by hospital.
-            </summary>
-            <param name="hospitalID">The hospital identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.DoctorController.AddDoctorAsync(WWI.Core3.Services.MediatR.Commands.CreateDoctorCommand,System.Threading.CancellationToken)">
-            <summary>
-            add doctor as an asynchronous operation.
-            </summary>
-            <param name="doctor">The doctor.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="T:WWI.Core3.API.Controllers.HospitalController">
-            <summary>
-            Class HospitalController.
-            Implements the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
-            </summary>
-            <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.HospitalController" /> class.
-            </summary>
-            <param name="applicationServices">Application Services</param>
-            <param name="mediator"></param>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitals(System.Threading.CancellationToken)">
-            <summary>
-            Gets the hospitals.
-            </summary>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitalById(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the hospital by identifier.
-            </summary>
-            <param name="hospitalID">The hospital identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetHospitalInfoById(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the hospital information by identifier.
-            </summary>
-            <param name="hospitalID">The hospital identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetDoctorsForHospitalById(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the doctors for hospital by identifier.
-            </summary>
-            <param name="hospitalID">The identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialityInfoForHospital(System.Int32,System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the speciality information for hospital.
-            </summary>
-            <param name="hospitalID">The hospital identifier.</param>
-            <param name="specialityID">The speciality identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialitiesForHospital(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the speciality information for hospital.
-            </summary>
-            <param name="hospitalID">The hospital identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.HospitalController.GetSpecialitiesDropdownForHospital(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the speciality information for hospital.
-            </summary>
-            <param name="hospitalID">The hospital identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="T:WWI.Core3.API.Controllers.PlaygroundController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.#ctor(WWI.Core3.Services.Interfaces.IFakeDataGeneratorService,WWI.Core3.Services.ServiceCollection.IApplicationServices)">
-            <summary>
-            
-            </summary>
-            <param name="fakeDataGeneratorService"></param>
-            <param name="applicationServices"></param>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.GetNames(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="num"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.TestMaxBy(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="num"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.LinqChunkTest(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="num"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.OverLoadTest(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="num"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.ConstantInterpolatedStrings">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.PlaygroundController.LambdaImprovements">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:WWI.Core3.API.Controllers.SpecialityController">
-            <summary>
-            Class SpecialityController.
-            Implements the <see cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
-            </summary>
-            <seealso cref="T:WWI.Core3.API.Controllers.Base.BaseAPIController" />
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.SpecialityController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.SpecialityController" /> class.
-            </summary>
-            <param name="applicationServices">Application Services</param>
-            <param name="mediator"></param>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.SpecialityController.GetSpecialities(System.Threading.CancellationToken)">
-            <summary>
-            Gets the specialities.
-            </summary>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.SpecialityController.GetSpecialityByID(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the speciality by identifier.
-            </summary>
-            <param name="specialityID">The speciality identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.SpecialityController.GetDoctorsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the doctors for speciality by identifier.
-            </summary>
-            <param name="specialityID">The speciality identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.SpecialityController.GetHospitalsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the hospitals with speciality by a speciality identifier.
-            </summary>
-            <param name="specialityID">The speciality identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="T:WWI.Core3.API.Controllers.TestController">
-            <summary>
-            Class TestController.
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.TestController.#ctor(WWI.Core3.Services.ServiceCollection.IApplicationServices,WWI.Core3.Services.Interfaces.IHTMLFormatterService)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.TestController"/> class.
-            </summary>
-            <param name="applicationServices">The database context.</param>
-            <param name="htmlFormatterService"></param>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.TestController.TesteEnumerableIsEmpty">
-            <summary>
-            Test123s this instance.
-            </summary>
-            <returns>IActionResult.</returns>
-            <exception cref="T:System.NotImplementedException"></exception>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.TestController.GetHtml">
-            <summary>
-            Gets the HTML.
-            </summary>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.TestController.TestGuardClauses(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Tests the guard clauses.
-            </summary>
-            <param name="positiveNunmber">The positive nunmber.</param>
-            <param name="negativeNumber">The negative number.</param>
-            <param name="notZero">The not zero.</param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.TestController.TestHumanizer(System.Int32)">
-            <summary>
-            Tests the humanizer.
-            </summary>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="T:WWI.Core3.API.ExtensionMethods.ApplicationBuilderExtensions">
-            <summary>
-            Class ApplicationBuilderExtensions.
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.ExtensionMethods.ApplicationBuilderExtensions.ConfigureApplication(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
-            <summary>
-            Configures the application.
-            </summary>
-            <param name="app">The application.</param>
-            <param name="env">The env.</param>
-            <returns>IApplicationBuilder.</returns>
-        </member>
-        <member name="T:WWI.Core3.API.ExtensionMethods.ImplementationTypeSelectorExtensions">
-            <summary>
-            Class ImplementationTypeSelectorExtensions.
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.ExtensionMethods.ImplementationTypeSelectorExtensions.RegisterHandlers(Scrutor.IImplementationTypeSelector,System.Type)">
-            <summary>
-            Registers the handlers.
-            </summary>
-            <param name="selector">The selector.</param>
-            <param name="type">The type.</param>
-            <returns>IImplementationTypeSelector.</returns>
-        </member>
-        <member name="T:WWI.Core3.API.ExtensionMethods.InstallerExtensions">
-            <summary>
-            Class InstallerExtensions.
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.ExtensionMethods.InstallerExtensions.InstallServicesInAssembly(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            Installs the services in assembly.
-            </summary>
-            <param name="serviceCollection">The service collection.</param>
-            <param name="configuration">The configuration.</param>
-            <returns>IServiceCollection.</returns>
-        </member>
-        <member name="T:WWI.Core3.API.ExtensionMethods.SwaggerExtensions">
-            <summary>
-            Extensions for Swagger
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.ExtensionMethods.SwaggerExtensions.AddSwaggerDocumentation(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.OpenApi.Models.OpenApiInfo,Microsoft.OpenApi.Models.OpenApiSecurityScheme)">
-            <summary>Adds the swagger documentation.</summary>
-            <param name="services">The services.</param>
-            <param name="info">The information.</param>
-            <param name="apiKeyScheme">The API key scheme.</param>
-            <returns>IServiceCollection.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.ExtensionMethods.SwaggerExtensions.UseSwaggerDocumentation(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.OpenApi.Models.OpenApiInfo)">
-            <summary>
-            Extension method to use swagger documentation
-            </summary>
-            <param name="app"></param>
-            <param name="info"></param>
-            <returns></returns>
-        </member>
-        <member name="T:WWI.Core3.API.Helpers.ApplicationSettingsVerifier">
-            <summary>
-            Class ApplicationSettingsVerifier.
-            </summary>
-        </member>
-        <member name="F:WWI.Core3.API.Helpers.ApplicationSettingsVerifier._info">
-            <summary>
-            The OpenApi information
-            </summary>
-        </member>
-        <member name="F:WWI.Core3.API.Helpers.ApplicationSettingsVerifier._performanceOptions">
-            <summary>
-            The performance options
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.Helpers.ApplicationSettingsVerifier.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Helpers.ApplicationSettingsVerifier"/> class.
-            </summary>
-            <param name="configuration">The configuration.</param>
-        </member>
-        <member name="M:WWI.Core3.API.Helpers.ApplicationSettingsVerifier.VerifyApplicationSettings">
-            <summary>
-            Verifies the application settings.
-            </summary>
-            <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-            <exception cref="T:WWI.Core3.Core.Exceptions.AppSettingsValidationException"></exception>
-        </member>
-        <member name="T:WWI.Core3.API.Installers.DatabaseInstaller">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:WWI.Core3.API.Installers.DatabaseInstaller.ConsoleLoggerFactory">
-            <summary>
-            ConsoleLoggerFactory
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.Installers.DatabaseInstaller.InstallServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            public DatabaseInstaller
-            </summary>
-            <param name="serviceCollection"></param>
-            <param name="configuration"></param>
-        </member>
-        <member name="T:WWI.Core3.API.Installers.IInstaller">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.Installers.IInstaller.InstallServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            
-            </summary>
-            <param name="serviceCollection"></param>
-            <param name="configuration"></param>
-        </member>
-        <member name="T:WWI.Core3.API.Installers.ServiceInstaller">
-            <summary>
-            Class ServiceInstaller.
-            Implements the <see cref="T:WWI.Core3.API.Installers.IInstaller" />
-            </summary>
-            <seealso cref="T:WWI.Core3.API.Installers.IInstaller" />
-        </member>
-        <member name="M:WWI.Core3.API.Installers.ServiceInstaller.InstallServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            
-            </summary>
-            <param name="serviceCollection"></param>
-            <param name="configuration"></param>
-        </member>
-        <member name="T:WWI.Core3.API.Program">
-            <summary>
-            The program
-            </summary>
-        </member>
-        <member name="M:WWI.Core3.API.Program.Main(System.String[])">
-            <summary>
-            Defines the entry point of the application.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="M:WWI.Core3.API.Program.CreateHostBuilder(System.String[])">
-            <summary>
-            Creates the host builder.
-            </summary>
-            <param name="args">The arguments.</param>
-            <returns>IHostBuilder.</returns>
-        </member>
-        <member name="T:WWI.Core3.API.Startup">
-            <summary>
-            Startup class
-            </summary>
-        </member>
-        <member name="F:WWI.Core3.API.Startup._info">
-            <summary>
-            The OpenApi information
-            </summary>
-        </member>
-        <member name="F:WWI.Core3.API.Startup._openApiSecurityScheme">
-            <summary>
-            The open API security scheme
-            </summary>
-        </member>
-        <member name="P:WWI.Core3.API.Startup.Configuration">
-            <summary>
-            Gets the configuration.
-            </summary>
-            <value>The configuration.</value>
-        </member>
-        <member name="M:WWI.Core3.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            Constructor
-            </summary>
-            <param name="configuration">The configuration.</param>
-        </member>
-        <member name="M:WWI.Core3.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            This method gets called by the runtime. Use this method to add services to the container.
-            </summary>
-            <param name="services">Service Collection</param>
-        </member>
-        <member name="M:WWI.Core3.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
-            <summary>
-            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-            </summary>
-            <param name="app">Application Builder</param>
-            <param name="env">Hosting Environment</param>
         </member>
     </members>
 </doc>
