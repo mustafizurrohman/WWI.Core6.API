@@ -1,5 +1,5 @@
 ﻿// public readonly record struct Doctor(double X, double Y, double Z);
-namespace WWI.Core3.Models.Records;
+namespace WWI.Core6.Models.Records;
 
 /// <summary>
 /// 

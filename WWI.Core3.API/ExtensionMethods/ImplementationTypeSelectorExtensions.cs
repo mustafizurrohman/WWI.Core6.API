@@ -1,7 +1,7 @@
 ﻿using Scrutor;
-using WWI.Core3.Services.MediatR.Decorators;
+using WWI.Core6.Services.MediatR.Decorators;
 
-namespace WWI.Core3.API.ExtensionMethods
+namespace WWI.Core6.API.ExtensionMethods
 {
     /// <summary>
     /// Class ImplementationTypeSelectorExtensions.

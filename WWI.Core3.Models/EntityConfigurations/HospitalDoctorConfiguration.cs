@@ -11,11 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using WWI.Core3.Models.Models;
+using WWI.Core6.Models.Models;
 
-namespace WWI.Core3.Models.EntityConfigurations
+namespace WWI.Core6.Models.EntityConfigurations
 {
     /// <summary>
     /// Class HospitalDoctorConfiguration.

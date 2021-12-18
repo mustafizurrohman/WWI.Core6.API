@@ -12,12 +12,12 @@
 // <summary></summary>
 // ***********************************************************************
 
-using JetBrains.Annotations;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
+using Microsoft.AspNetCore.Http;
 
-namespace WWI.Core3.Middleware.Base
+namespace WWI.Core6.Middleware.Base
 {
     /// <summary>
     /// Base Middleware: All Middleware inherit this

@@ -1,10 +1,10 @@
 ﻿using AutoFixture;
 using AutoFixture.Xunit2;
 using FluentAssertions;
-using WWI.Core3.Core.ExtensionMethods;
+using WWI.Core6.Core.ExtensionMethods;
 using Xunit;
 
-namespace WWI.Core3.Core.Tests.ExtensionMethods
+namespace WWI.Core6.Core.Tests.ExtensionMethods
 {
 
     /// <summary>

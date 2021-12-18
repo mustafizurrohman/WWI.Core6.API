@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using WWI.Core3.Models.AppSettings;
+using WWI.Core6.Models.AppSettings;
 
-namespace WWI.Core3.Models.Validators
+namespace WWI.Core6.Models.Validators
 {
     /// <summary>
     /// Class PerformanceOptionsValidator.

@@ -13,9 +13,9 @@
 // ***********************************************************************
 
 using AutoMapper;
-using WWI.Core3.Models.DbContext;
+using WWI.Core6.Models.DbContext;
 
-namespace WWI.Core3.Services.ServiceCollection
+namespace WWI.Core6.Services.ServiceCollection
 {
     /// <summary>
     /// Class ApplicationServices.

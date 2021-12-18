@@ -12,9 +12,9 @@
 // <summary></summary>
 // ***********************************************************************
 
-using WWI.Core3.Models.Models;
+using WWI.Core6.Models.Models;
 
-namespace WWI.Core3.Models.ViewModels
+namespace WWI.Core6.Models.ViewModels
 {
     /// <summary>
     /// Class AdvancedHospitalInformation.

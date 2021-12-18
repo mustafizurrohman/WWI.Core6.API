@@ -13,10 +13,10 @@
 // ***********************************************************************
 
 using System.Diagnostics.CodeAnalysis;
-using WWI.Core3.Core.Helpers;
+using WWI.Core6.Core.Helpers;
 
 // ReSharper disable MemberCanBePrivate.Global
-namespace WWI.Core3.Core.ExtensionMethods
+namespace WWI.Core6.Core.ExtensionMethods
 {
     /// <summary>
     /// Extension methods for IEnumerable

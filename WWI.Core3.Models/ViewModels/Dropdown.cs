@@ -1,4 +1,4 @@
-﻿namespace WWI.Core3.Models.ViewModels
+﻿namespace WWI.Core6.Models.ViewModels
 {
 
     /// <summary>

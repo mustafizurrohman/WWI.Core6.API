@@ -1,7 +1,7 @@
 ﻿using AutoFixture;
 using AutoFixture.Xunit2;
 
-namespace WWI.Core3.Services.Test.Customizations
+namespace WWI.Core6.Services.Tests.Customizations
 {
     public class AutoDomainDataWithInMemoryContextAttribute : AutoDataAttribute
     {

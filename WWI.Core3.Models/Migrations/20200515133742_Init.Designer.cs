@@ -16,7 +16,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WWI.Core3.Models.DbContext;
+using WWI.Core6.Models.DbContext;
 
 namespace WWI.Core3.Models.Migrations
 {

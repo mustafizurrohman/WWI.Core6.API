@@ -12,12 +12,12 @@
 // <summary></summary>
 // ***********************************************************************
 
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using System.IO;
 
-namespace WWI.Core3.API.ExtensionMethods
+namespace WWI.Core6.API.ExtensionMethods
 {
     /// <summary>
     /// Extensions for Swagger

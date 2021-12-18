@@ -14,9 +14,9 @@
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WWI.Core3.API.Installers;
+using WWI.Core6.API.Installers;
 
-namespace WWI.Core3.API.ExtensionMethods
+namespace WWI.Core6.API.ExtensionMethods
 {
 
     /// <summary>

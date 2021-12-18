@@ -14,7 +14,7 @@
 
 using System.Security.Cryptography;
 
-namespace WWI.Core3.Core.Helpers
+namespace WWI.Core6.Core.Helpers
 {
     /// <summary>
     /// Generates Cryptographically secure random numbers using RNGCryptoServiceProvider

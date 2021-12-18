@@ -1,4 +1,4 @@
-﻿namespace WWI.Core3.Services.Interfaces
+﻿namespace WWI.Core6.Services.Interfaces
 {
     /// <summary>
     /// Interface IHTMLFormatterService

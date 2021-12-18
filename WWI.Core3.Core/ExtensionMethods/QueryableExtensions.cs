@@ -12,12 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
+using System.Reflection;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using System.Reflection;
+
 // ReSharper disable MemberCanBePrivate.Global
 
-namespace WWI.Core3.Core.ExtensionMethods
+namespace WWI.Core6.Core.ExtensionMethods
 {
     /// <summary>
     /// Extension methods for IQueryable

@@ -16,11 +16,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using WWI.Core3.Core.Exceptions;
+using WWI.Core6.Core.Exceptions;
 
 // ReSharper disable ClassNeverInstantiated.Global
 
-namespace WWI.Core3.API
+namespace WWI.Core6.API
 {
     /// <summary>
     /// The program

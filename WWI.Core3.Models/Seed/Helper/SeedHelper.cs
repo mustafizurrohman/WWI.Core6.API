@@ -11,12 +11,13 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using Newtonsoft.Json;
-using Serilog;
+
 using System.IO;
 using System.Text;
+using Newtonsoft.Json;
+using Serilog;
 
-namespace WWI.Core3.Models.Seed.Helper
+namespace WWI.Core6.Models.Seed.Helper
 {
 
     /// <summary>

@@ -14,12 +14,14 @@
 
 using JetBrains.Annotations;
 using Microsoft.Extensions.Caching.Memory;
-using WWI.Core3.Services.Interfaces;
-using WWI.Core3.Services.ServiceCollection;
-using WWI.Core3.Services.Services.Base;
+using WWI.Core6.Models.ViewModels;
+using WWI.Core6.Services.Interfaces;
+using WWI.Core6.Services.ServiceCollection;
+using WWI.Core6.Services.Services.Base;
+
 // ReSharper disable InvertIf
 
-namespace WWI.Core3.Services.Services
+namespace WWI.Core6.Services.Services
 {
     /// <summary>
     /// Class CachedDataService.

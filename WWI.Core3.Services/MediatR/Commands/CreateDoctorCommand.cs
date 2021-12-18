@@ -1,4 +1,6 @@
-﻿namespace WWI.Core3.Services.MediatR.Commands
+﻿using WWI.Core6.Models.ViewModels;
+
+namespace WWI.Core6.Services.MediatR.Commands
 {
     public class CreateDoctorCommand : IRequest<DoctorInfo>
     {

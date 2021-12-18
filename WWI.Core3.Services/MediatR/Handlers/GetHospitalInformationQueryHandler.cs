@@ -1,8 +1,9 @@
-﻿using WWI.Core3.Services.Interfaces;
-using WWI.Core3.Services.MediatR.Queries;
-using WWI.Core3.Services.ServiceCollection;
+﻿using WWI.Core6.Models.ViewModels;
+using WWI.Core6.Services.Interfaces;
+using WWI.Core6.Services.MediatR.Queries;
+using WWI.Core6.Services.ServiceCollection;
 
-namespace WWI.Core3.Services.MediatR.Handlers
+namespace WWI.Core6.Services.MediatR.Handlers
 {
     public class GetHospitalInformationQueryHandler : HandlerBase, IRequestHandler<GetHospitalInformationQuery, HospitalInformation>
     {

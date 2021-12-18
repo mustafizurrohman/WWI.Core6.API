@@ -1,6 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace WWI.Core3.Models.AppSettings
+namespace WWI.Core6.Models.AppSettings
 {
 
     /// <summary>

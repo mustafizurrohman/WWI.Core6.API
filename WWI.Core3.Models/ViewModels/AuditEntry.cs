@@ -14,10 +14,11 @@
 
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Newtonsoft.Json;
-using WWI.Core3.Models.Models;
+using WWI.Core6.Models.Models;
+
 // ReSharper disable MemberCanBePrivate.Global
 
-namespace WWI.Core3.Models.ViewModels
+namespace WWI.Core6.Models.ViewModels
 {
     /// <summary>
     /// Class AuditEntry.

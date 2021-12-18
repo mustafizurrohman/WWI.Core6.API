@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using WWI.Core3.Core.AutoMapper;
+using WWI.Core6.Core.AutoMapper;
 
-namespace WWI.Core3.Services.Test.Automapper
+namespace WWI.Core6.Services.Tests.Automapper
 {
     public static class AutomapperSingleton
     {

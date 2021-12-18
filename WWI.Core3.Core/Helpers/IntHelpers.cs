@@ -14,7 +14,7 @@
 
 using System.Security.Cryptography;
 
-namespace WWI.Core3.Core.Helpers
+namespace WWI.Core6.Core.Helpers
 {
     /// <summary>
     /// Utility functions for integers

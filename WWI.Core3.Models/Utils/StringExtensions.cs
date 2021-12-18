@@ -14,7 +14,7 @@
 
 using System.Text.RegularExpressions;
 
-namespace WWI.Core3.Models.Utils
+namespace WWI.Core6.Models.Utils
 {
     /// <summary>
     /// Class StringExtensions.

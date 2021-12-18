@@ -2,7 +2,7 @@
 using AutoFixture.AutoMoq;
 using EntityFrameworkCore.AutoFixture.InMemory;
 
-namespace WWI.Core3.Services.Test.Customizations
+namespace WWI.Core6.Services.Tests.Customizations
 {
     public class DomainDataWithInMemoryContextCustomization : CompositeCustomization
     {

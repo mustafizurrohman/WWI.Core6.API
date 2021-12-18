@@ -15,9 +15,10 @@
 using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
+
 // ReSharper disable MemberCanBePrivate.Global
 
-namespace WWI.Core3.Core.ExtensionMethods
+namespace WWI.Core6.Core.ExtensionMethods
 {
     /// <summary>
     /// Extension methods for string

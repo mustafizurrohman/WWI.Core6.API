@@ -11,9 +11,10 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System.Security.Cryptography;
 
-namespace WWI.Core3.Models.Utils
+namespace WWI.Core6.Models.Utils
 {
     /// <summary>
     /// Generates Cryptographically secure random numbers using RNGCryptoServiceProvider

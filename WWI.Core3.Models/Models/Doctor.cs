@@ -12,12 +12,12 @@
 // <summary></summary>
 // ***********************************************************************
 
-using JetBrains.Annotations;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using WWI.Core3.Models.Utils;
+using JetBrains.Annotations;
+using WWI.Core6.Models.Utils;
 
-namespace WWI.Core3.Models.Models
+namespace WWI.Core6.Models.Models
 {
     /// <summary>
     /// Doctor

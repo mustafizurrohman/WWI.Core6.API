@@ -12,10 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
-using WWI.Core3.Core.ExtensionMethods;
+using WWI.Core6.Core.ExtensionMethods;
+
 // ReSharper disable MemberCanBePrivate.Global
 
-namespace WWI.Core3.Core.Helpers
+namespace WWI.Core6.Core.Helpers
 {
     /// <summary>
     /// Helper functions for strings

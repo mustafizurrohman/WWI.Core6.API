@@ -12,12 +12,12 @@
 // <summary></summary>
 // ***********************************************************************
 
-using AutoMapper;
 using System.Web.Http.OData;
-using WWI.Core3.Models.DbContext;
-using WWI.Core3.Services.ServiceCollection;
+using AutoMapper;
+using WWI.Core6.Models.DbContext;
+using WWI.Core6.Services.ServiceCollection;
 
-namespace WWI.Core3.API.Controllers.Base
+namespace WWI.Core6.API.Controllers.Base
 {
 
     /// <summary>

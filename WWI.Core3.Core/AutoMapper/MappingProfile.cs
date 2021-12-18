@@ -14,11 +14,11 @@
 
 using AutoMapper;
 using JetBrains.Annotations;
-using WWI.Core3.Core.ExtensionMethods;
-using WWI.Core3.Models.Models;
-using WWI.Core3.Models.ViewModels;
+using WWI.Core6.Core.ExtensionMethods;
+using WWI.Core6.Models.Models;
+using WWI.Core6.Models.ViewModels;
 
-namespace WWI.Core3.Core.AutoMapper
+namespace WWI.Core6.Core.AutoMapper
 {
 
     /// <summary>
@@ -91,7 +91,7 @@ namespace WWI.Core3.Core.AutoMapper
                     src => src.MapFrom(hos => hos.Doctors.Select(d => d.Doctor)));
 
             // Doctor -> DoctorInfo
-            CreateMap<Models.Models.Doctor, DoctorInfo>()
+            CreateMap<Doctor, DoctorInfo>()
                 .ForMember(dst => dst.FullName,
                     src => src.MapFrom(doc => doc.FullName))
                 .ForMember(dst => dst.SpecialityName,
@@ -112,7 +112,7 @@ namespace WWI.Core3.Core.AutoMapper
                     src => src.MapFrom(s => s.Name));
 
             // Doctor -> Dropdown
-            CreateMap<Models.Models.Doctor, Dropdown>()
+            CreateMap<Doctor, Dropdown>()
                 .ForMember(dst => dst.ID,
                     src => src.MapFrom(s => s.DoctorID))
                 .ForMember(dst => dst.DisplayValue,

@@ -12,7 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace WWI.Core3.Models.Models
+namespace WWI.Core6.Models.Models
 {
     /// <summary>
     /// Class AuditLog.

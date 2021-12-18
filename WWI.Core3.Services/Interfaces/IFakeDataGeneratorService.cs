@@ -12,7 +12,9 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace WWI.Core3.Services.Interfaces
+using WWI.Core6.Models.Models;
+
+namespace WWI.Core6.Services.Interfaces
 {
     /// <summary>
     /// Interface IFakeDataGeneratorService
@@ -24,7 +26,7 @@ namespace WWI.Core3.Services.Interfaces
         /// </summary>
         /// <param name="num">The number.</param>
         /// <returns>IEnumerable&lt;Doctor&gt;.</returns>
-        IEnumerable<Models.Models.Doctor> GenerateFakeDoctors(int num);
+        IEnumerable<Doctor> GenerateFakeDoctors(int num);
 
         /// <summary>
         /// Generates the fake address.

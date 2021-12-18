@@ -13,9 +13,9 @@
 // ***********************************************************************
 
 using HtmlTableHelper;
-using WWI.Core3.Services.Interfaces;
+using WWI.Core6.Services.Interfaces;
 
-namespace WWI.Core3.Services.Services
+namespace WWI.Core6.Services.Services
 {
     /// <summary>
     /// Class HTMLFormatterService.

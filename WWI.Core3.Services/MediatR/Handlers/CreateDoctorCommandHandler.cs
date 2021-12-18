@@ -1,9 +1,11 @@
 ﻿using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
-using WWI.Core3.Services.MediatR.Commands;
-using WWI.Core3.Services.ServiceCollection;
+using WWI.Core6.Models.Models;
+using WWI.Core6.Models.ViewModels;
+using WWI.Core6.Services.MediatR.Commands;
+using WWI.Core6.Services.ServiceCollection;
 
-namespace WWI.Core3.Services.MediatR.Handlers
+namespace WWI.Core6.Services.MediatR.Handlers
 {
     public class CreateDoctorCommandHandler : HandlerBase, IRequestHandler<CreateDoctorCommand, DoctorInfo>
     {
@@ -15,7 +17,7 @@ namespace WWI.Core3.Services.MediatR.Handlers
 
         public async Task<DoctorInfo> Handle(CreateDoctorCommand request, CancellationToken cancellationToken)
         {
-            var doctor = new Models.Models.Doctor()
+            var doctor = new Doctor()
             {
                 DoctorID =  0,
                 Firstname = request.Firstname,

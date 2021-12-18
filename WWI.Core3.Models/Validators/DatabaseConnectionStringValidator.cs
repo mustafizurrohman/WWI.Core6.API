@@ -1,8 +1,8 @@
-﻿using FluentValidation;
+﻿using System.Data;
+using FluentValidation;
 using Microsoft.Data.SqlClient;
-using System.Data;
 
-namespace WWI.Core3.Models.Validators
+namespace WWI.Core6.Models.Validators
 {
     /// <summary>
     /// Class DatabaseConnectionStringValidator.

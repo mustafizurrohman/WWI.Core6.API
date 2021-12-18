@@ -1,7 +1,7 @@
-﻿using AutoFixture.Kernel;
-using System.Reflection;
+﻿using System.Reflection;
+using AutoFixture.Kernel;
 
-namespace WWI.Core3.Services.Test.Customizations
+namespace WWI.Core6.Services.Tests.Customizations
 {
     public class IgnoredVirtualMembersSpecimenBuilder : ISpecimenBuilder
     {

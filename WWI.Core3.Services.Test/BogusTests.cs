@@ -1,9 +1,9 @@
 ﻿using Bogus;
 using FluentAssertions;
-using WWI.Core3.Models.Models;
+using WWI.Core6.Models.Models;
 using Xunit;
 
-namespace WWI.Core3.Services.Test
+namespace WWI.Core6.Services.Tests
 {
     public class BogusTests
     {
@@ -11,7 +11,7 @@ namespace WWI.Core3.Services.Test
         [InlineData(10)]
         public void GenerateDoctors(int numberOfDoctors)
         {
-            var doctorsFaker = new Faker<Models.Models.Doctor>()
+            var doctorsFaker = new Faker<Doctor>()
                 .StrictMode(false)
                 .RuleFor(doc => doc.Firstname, fake => fake.Name.FirstName())
                 .RuleFor(doc => doc.Lastname, fake => fake.Name.LastName())

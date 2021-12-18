@@ -12,12 +12,13 @@
 // <summary></summary>
 // ***********************************************************************
 
-using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using System.Reflection;
+using Microsoft.EntityFrameworkCore;
+
 // ReSharper disable UnusedMember.Global
 
-namespace WWI.Core3.Core.ExtensionMethods
+namespace WWI.Core6.Core.ExtensionMethods
 {
     /// <summary>
     /// Extension methods for DbSet

@@ -12,14 +12,15 @@
 // <summary></summary>
 // ***********************************************************************
 
-using Bogus;
 using System.Collections.ObjectModel;
-using WWI.Core3.Models.Utils;
-using WWI.Core3.Services.Interfaces;
-using WWI.Core3.Services.ServiceCollection;
-using WWI.Core3.Services.Services.Base;
+using Bogus;
+using WWI.Core6.Models.Models;
+using WWI.Core6.Models.Utils;
+using WWI.Core6.Services.Interfaces;
+using WWI.Core6.Services.ServiceCollection;
+using WWI.Core6.Services.Services.Base;
 
-namespace WWI.Core3.Services.Services
+namespace WWI.Core6.Services.Services
 {
 
     /// <summary>
@@ -28,7 +29,7 @@ namespace WWI.Core3.Services.Services
     /// Implements the <see cref="IFakeDataGeneratorService" />
     /// </summary>
     /// <seealso cref="BaseService" />
-    /// <seealso cref="WWI.Core3.Services.Interfaces.IFakeDataGeneratorService" />
+    /// <seealso cref="IFakeDataGeneratorService" />
     public class FakeDataGeneratorService : BaseService, IFakeDataGeneratorService
     {
         /// <summary>
@@ -46,7 +47,7 @@ namespace WWI.Core3.Services.Services
         /// </summary>
         /// <param name="num">The number.</param>
         /// <returns>IEnumerable&lt;Doctor&gt;.</returns>
-        public IEnumerable<Models.Models.Doctor> GenerateFakeDoctors(int num)
+        public IEnumerable<Doctor> GenerateFakeDoctors(int num)
         {
             num = Guard.Against.NegativeOrZero(num, nameof(num));
             return GetDoctorFaker().Generate(num);
@@ -120,9 +121,9 @@ namespace WWI.Core3.Services.Services
         /// Gets the doctor faker.
         /// </summary>
         /// <returns>Faker&lt;Doctor&gt;.</returns>
-        private Faker<Models.Models.Doctor> GetDoctorFaker()
+        private Faker<Doctor> GetDoctorFaker()
         {
-            var doctorFaker = new Faker<Models.Models.Doctor>()
+            var doctorFaker = new Faker<Doctor>()
                 .StrictMode(false)
                 .RuleFor(doc => doc.DoctorID, fake => fake.IndexFaker + 1)
                 .RuleFor(doc => doc.Firstname, fake => fake.Name.FirstName())

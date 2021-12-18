@@ -18,10 +18,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using WWI.Core3.API.ExtensionMethods;
-using WWI.Core3.API.Helpers;
+using WWI.Core6.API.ExtensionMethods;
+using WWI.Core6.API.Helpers;
 
-namespace WWI.Core3.API
+namespace WWI.Core6.API
 {
     /// <summary>
     /// Startup class

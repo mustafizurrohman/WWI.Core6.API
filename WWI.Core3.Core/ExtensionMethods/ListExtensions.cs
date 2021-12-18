@@ -12,12 +12,12 @@
 // <summary></summary>
 // ***********************************************************************
 
-using Newtonsoft.Json;
 using System.IO;
 using System.Reflection;
-using WWI.Core3.Core.Helpers;
+using Newtonsoft.Json;
+using WWI.Core6.Core.Helpers;
 
-namespace WWI.Core3.Core.ExtensionMethods
+namespace WWI.Core6.Core.ExtensionMethods
 {
     /// <summary>
     /// Extension methods for IList

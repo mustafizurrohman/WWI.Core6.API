@@ -15,7 +15,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
-namespace WWI.Core3.Core.ExtensionMethods
+namespace WWI.Core6.Core.ExtensionMethods
 {
     /// <summary>
     /// Extension methods for Datetime

@@ -2,23 +2,23 @@
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WWI.Core3.API.ExtensionMethods;
-using WWI.Core3.Core.AutoMapper;
-using WWI.Core3.Services.Interfaces;
-using WWI.Core3.Services.MediatR.Decorators;
-using WWI.Core3.Services.MediatR.Handlers;
-using WWI.Core3.Services.MediatR.PipelineBehaviours;
-using WWI.Core3.Services.ServiceCollection;
-using WWI.Core3.Services.Services;
-using WWI.Core3.Services.Services.Shared;
+using WWI.Core6.API.ExtensionMethods;
+using WWI.Core6.Core.AutoMapper;
+using WWI.Core6.Services.Interfaces;
+using WWI.Core6.Services.MediatR.Decorators;
+using WWI.Core6.Services.MediatR.Handlers;
+using WWI.Core6.Services.MediatR.PipelineBehaviours;
+using WWI.Core6.Services.ServiceCollection;
+using WWI.Core6.Services.Services;
+using WWI.Core6.Services.Services.Shared;
 
-namespace WWI.Core3.API.Installers
+namespace WWI.Core6.API.Installers
 {
     /// <summary>
     /// Class ServiceInstaller.
-    /// Implements the <see cref="WWI.Core3.API.Installers.IInstaller" />
+    /// Implements the <see cref="IInstaller" />
     /// </summary>
-    /// <seealso cref="WWI.Core3.API.Installers.IInstaller" />
+    /// <seealso cref="IInstaller" />
     public class ServiceInstaller : IInstaller
     {
 

@@ -11,18 +11,19 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Reflection;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Serilog;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using System.Reflection;
-using WWI.Core3.Models.Models;
-using WWI.Core3.Models.Seed.Helper;
-using WWI.Core3.Models.Utils;
+using WWI.Core6.Models.Models;
+using WWI.Core6.Models.Seed.Helper;
+using WWI.Core6.Models.Utils;
 
-namespace WWI.Core3.Models.DbContext
+namespace WWI.Core6.Models.DbContext
 {
     /// <summary>
     /// Database context

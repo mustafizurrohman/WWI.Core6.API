@@ -11,12 +11,13 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using WWI.Core3.Models.DbContext;
+using WWI.Core6.Models.DbContext;
 
-namespace WWI.Core3.Models.Migrations
+namespace WWI.Core6.Models.Migrations
 {
     /// <summary>
     /// Class DocAppointmentContextModelSnapshot.

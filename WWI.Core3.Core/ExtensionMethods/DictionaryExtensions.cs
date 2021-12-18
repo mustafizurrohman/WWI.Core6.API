@@ -12,7 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace WWI.Core3.Core.ExtensionMethods
+namespace WWI.Core6.Core.ExtensionMethods
 {
     /// <summary>
     /// Extension Methods for Dictionary

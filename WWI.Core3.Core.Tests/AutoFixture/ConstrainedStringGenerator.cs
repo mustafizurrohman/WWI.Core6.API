@@ -1,4 +1,4 @@
-﻿namespace WWI.Core3.Core.Tests.AutoFixture
+﻿namespace WWI.Core6.Core.Tests.AutoFixture
 {
 
     /// <summary>

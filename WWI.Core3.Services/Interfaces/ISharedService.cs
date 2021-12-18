@@ -12,7 +12,9 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace WWI.Core3.Services.Interfaces
+using WWI.Core6.Models.ViewModels;
+
+namespace WWI.Core6.Services.Interfaces
 {
 
     /// <summary>

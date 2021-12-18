@@ -12,11 +12,11 @@
 // <summary></summary>
 // ***********************************************************************
 
-using JetBrains.Annotations;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using JetBrains.Annotations;
 
-namespace WWI.Core3.Models.Models
+namespace WWI.Core6.Models.Models
 {
     /// <summary>
     /// Class HospitalDoctor.

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace WWI.Core3.API.Installers
+namespace WWI.Core6.API.Installers
 {
     /// <summary>
     /// 

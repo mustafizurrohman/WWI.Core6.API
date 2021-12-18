@@ -1,6 +1,6 @@
 ﻿using AutoFixture;
 
-namespace WWI.Core3.Services.Test.Customizations
+namespace WWI.Core6.Services.Tests.Customizations
 {
     public class IgnoredVirtualMembersCustomization : ICustomization
     {

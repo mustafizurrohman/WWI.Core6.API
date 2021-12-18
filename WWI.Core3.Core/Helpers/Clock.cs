@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace WWI.Core3.Core.Helpers
+namespace WWI.Core6.Core.Helpers
 {
     /// <summary>
     /// This class provides a high resolution clock by using the new API available in <c>Windows 8</c>/ 

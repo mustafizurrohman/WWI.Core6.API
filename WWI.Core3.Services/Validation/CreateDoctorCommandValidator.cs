@@ -1,7 +1,7 @@
-﻿using WWI.Core3.Models.DbContext;
-using WWI.Core3.Services.MediatR.Commands;
+﻿using WWI.Core6.Models.DbContext;
+using WWI.Core6.Services.MediatR.Commands;
 
-namespace WWI.Core3.Services.Validation
+namespace WWI.Core6.Services.Validation
 {
     public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorCommand>
     {

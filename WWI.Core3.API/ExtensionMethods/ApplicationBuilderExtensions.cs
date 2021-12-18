@@ -1,16 +1,16 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Net;
+using System.Text;
+using System.Text.Json;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using System.Net;
-using System.Text;
-using System.Text.Json;
-using WWI.Core3.Core.ExtensionMethods;
+using WWI.Core6.Core.ExtensionMethods;
 using ValidationException = FluentValidation.ValidationException;
 
-namespace WWI.Core3.API.ExtensionMethods
+namespace WWI.Core6.API.ExtensionMethods
 {
     /// <summary>
     /// Class ApplicationBuilderExtensions.

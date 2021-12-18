@@ -12,15 +12,15 @@
 // <summary></summary>
 // ***********************************************************************
 
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Serilog;
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using WWI.Core3.Middleware.Base;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Serilog;
+using WWI.Core6.Middleware.Base;
 
-namespace WWI.Core3.Middleware.ExceptionHandler
+namespace WWI.Core6.Middleware.ExceptionHandler
 {
     /// <summary>
     /// Exception Handler Middleware

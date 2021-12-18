@@ -12,7 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace WWI.Core3.Core.Helpers
+namespace WWI.Core6.Core.Helpers
 {
     /// <summary>
     /// Utility functions for characters

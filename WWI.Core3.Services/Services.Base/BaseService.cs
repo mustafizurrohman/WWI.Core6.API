@@ -13,10 +13,10 @@
 // ***********************************************************************
 
 using AutoMapper;
-using WWI.Core3.Models.DbContext;
-using WWI.Core3.Services.ServiceCollection;
+using WWI.Core6.Models.DbContext;
+using WWI.Core6.Services.ServiceCollection;
 
-namespace WWI.Core3.Services.Services.Base
+namespace WWI.Core6.Services.Services.Base
 {
     /// <summary>
     /// Class BaseService.

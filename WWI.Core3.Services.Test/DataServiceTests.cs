@@ -20,18 +20,18 @@ using EntityFrameworkCore.AutoFixture.InMemory;
 using FluentAssertions;
 using MockQueryable.Moq;
 using Moq;
-using WWI.Core3.Core.ExtensionMethods;
-using WWI.Core3.Models.DbContext;
-using WWI.Core3.Models.Models;
-using WWI.Core3.Models.ViewModels;
-using WWI.Core3.Services.ServiceCollection;
-using WWI.Core3.Services.Services;
-using WWI.Core3.Services.Services.Shared;
-using WWI.Core3.Services.Test.Automapper;
-using WWI.Core3.Services.Test.Customizations;
+using WWI.Core6.Core.ExtensionMethods;
+using WWI.Core6.Models.DbContext;
+using WWI.Core6.Models.Models;
+using WWI.Core6.Models.ViewModels;
+using WWI.Core6.Services.ServiceCollection;
+using WWI.Core6.Services.Services;
+using WWI.Core6.Services.Services.Shared;
+using WWI.Core6.Services.Tests.Automapper;
+using WWI.Core6.Services.Tests.Customizations;
 using Xunit;
 
-namespace WWI.Core3.Services.Test
+namespace WWI.Core6.Services.Tests
 {
 
     // TODO: Finish this

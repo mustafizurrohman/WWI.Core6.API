@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using WWI.Core3.Core.Exceptions;
-using WWI.Core3.Models.AppSettings;
-using WWI.Core3.Models.Validators;
+using WWI.Core6.Core.Exceptions;
+using WWI.Core6.Models.AppSettings;
+using WWI.Core6.Models.Validators;
 using ValidationResult  = FluentValidation.Results.ValidationResult;
 
-namespace WWI.Core3.API.Helpers
+namespace WWI.Core6.API.Helpers
 {
 
     /// <summary>

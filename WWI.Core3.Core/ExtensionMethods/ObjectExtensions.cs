@@ -14,7 +14,7 @@
 
 using System.Reflection;
 
-namespace WWI.Core3.Core.ExtensionMethods
+namespace WWI.Core6.Core.ExtensionMethods
 {
     /// <summary>
     /// Class ObjectExtensions.

@@ -1,6 +1,6 @@
 ﻿using Polly;
 
-namespace WWI.Core3.Services.MediatR.Decorators
+namespace WWI.Core6.Services.MediatR.Decorators
 {
     public class RetryDecorator<TNotification> : INotificationHandler<TNotification>
         where TNotification : INotification

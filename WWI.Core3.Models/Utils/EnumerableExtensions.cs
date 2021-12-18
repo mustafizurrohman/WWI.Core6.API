@@ -13,9 +13,10 @@
 // ***********************************************************************
 
 using System.Diagnostics.CodeAnalysis;
+
 // ReSharper disable MemberCanBePrivate.Global
 
-namespace WWI.Core3.Models.Utils
+namespace WWI.Core6.Models.Utils
 {
     /// <summary>
     /// Extension methods for IEnumerable
