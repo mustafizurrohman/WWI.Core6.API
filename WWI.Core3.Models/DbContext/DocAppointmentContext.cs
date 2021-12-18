@@ -114,7 +114,7 @@ namespace WWI.Core3.Models.DbContext
         /// Doctors Table
         /// </summary>
         /// <value>The doctors.</value>
-        public virtual DbSet<Doctor> Doctors { get; [UsedImplicitly] set; }
+        public virtual DbSet<Models.Doctor> Doctors { get; [UsedImplicitly] set; }
 
         /// <summary>
         /// Specialities Table
@@ -221,7 +221,7 @@ namespace WWI.Core3.Models.DbContext
                 .Shuffle()
                 .ToList();
 
-            var doctorList = new List<Doctor>();
+            var doctorList = new List<Models.Doctor>();
 
             for (int i = 1; i < 500; i++)
                 doctorList.Add(GetRandomDoctor(i));
@@ -231,9 +231,9 @@ namespace WWI.Core3.Models.DbContext
             SeedHelper.SaveOrOverwriteGeneratedFile(DoctorFileName, doctorListJsonString, true);
 
             // Local function
-            Doctor GetRandomDoctor(int doctorID)
+            Models.Doctor GetRandomDoctor(int doctorID)
             {
-                return new Doctor
+                return new Models.Doctor
                 {
                     DoctorID = doctorID,
                     SpecialityID = specialityList.GetRandomShuffled().SpecialtyID,
@@ -347,14 +347,14 @@ namespace WWI.Core3.Models.DbContext
         private void SeedData(ModelBuilder modelBuilder)
         {
             List<Speciality> specialityList = SeedHelper.ParseGeneratedFile<Speciality>(SpecialitiesFileName);
-            List<Doctor> doctorList = SeedHelper.ParseGeneratedFile<Doctor>(DoctorFileName);
+            List<Models.Doctor> doctorList = SeedHelper.ParseGeneratedFile<Models.Doctor>(DoctorFileName);
             List<Address> addressList = SeedHelper.ParseGeneratedFile<Address>(AddressesFileName);
             List<Hospital> hospitalList = SeedHelper.ParseGeneratedFile<Hospital>(HospitalsFileName);
             List<HospitalDoctor> hospitalDoctorList = SeedHelper.ParseGeneratedFile<HospitalDoctor>(HospitalDoctorsFileName);
             List<HospitalSpeciality> hospitalSpecialityList = SeedHelper.ParseGeneratedFile<HospitalSpeciality>(HospitalSpecialityFileName);
 
             modelBuilder.Entity<Speciality>().HasData(specialityList);
-            modelBuilder.Entity<Doctor>().HasData(doctorList);
+            modelBuilder.Entity<Models.Doctor>().HasData(doctorList);
             modelBuilder.Entity<Address>().HasData(addressList);
             modelBuilder.Entity<Hospital>().HasData(hospitalList);
             modelBuilder.Entity<HospitalDoctor>().HasData(hospitalDoctorList);

@@ -46,7 +46,7 @@ namespace WWI.Core3.Services.Services
         /// </summary>
         /// <param name="num">The number.</param>
         /// <returns>IEnumerable&lt;Doctor&gt;.</returns>
-        public IEnumerable<Doctor> GenerateFakeDoctors(int num)
+        public IEnumerable<Models.Models.Doctor> GenerateFakeDoctors(int num)
         {
             num = Guard.Against.NegativeOrZero(num, nameof(num));
             return GetDoctorFaker().Generate(num);
@@ -120,9 +120,9 @@ namespace WWI.Core3.Services.Services
         /// Gets the doctor faker.
         /// </summary>
         /// <returns>Faker&lt;Doctor&gt;.</returns>
-        private Faker<Doctor> GetDoctorFaker()
+        private Faker<Models.Models.Doctor> GetDoctorFaker()
         {
-            var doctorFaker = new Faker<Doctor>()
+            var doctorFaker = new Faker<Models.Models.Doctor>()
                 .StrictMode(false)
                 .RuleFor(doc => doc.DoctorID, fake => fake.IndexFaker + 1)
                 .RuleFor(doc => doc.Firstname, fake => fake.Name.FirstName())

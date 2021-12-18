@@ -91,7 +91,7 @@ namespace WWI.Core3.Core.AutoMapper
                     src => src.MapFrom(hos => hos.Doctors.Select(d => d.Doctor)));
 
             // Doctor -> DoctorInfo
-            CreateMap<Doctor, DoctorInfo>()
+            CreateMap<Models.Models.Doctor, DoctorInfo>()
                 .ForMember(dst => dst.FullName,
                     src => src.MapFrom(doc => doc.FullName))
                 .ForMember(dst => dst.SpecialityName,
@@ -112,7 +112,7 @@ namespace WWI.Core3.Core.AutoMapper
                     src => src.MapFrom(s => s.Name));
 
             // Doctor -> Dropdown
-            CreateMap<Doctor, Dropdown>()
+            CreateMap<Models.Models.Doctor, Dropdown>()
                 .ForMember(dst => dst.ID,
                     src => src.MapFrom(s => s.DoctorID))
                 .ForMember(dst => dst.DisplayValue,

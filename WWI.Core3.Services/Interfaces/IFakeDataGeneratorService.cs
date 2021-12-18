@@ -24,7 +24,7 @@ namespace WWI.Core3.Services.Interfaces
         /// </summary>
         /// <param name="num">The number.</param>
         /// <returns>IEnumerable&lt;Doctor&gt;.</returns>
-        IEnumerable<Doctor> GenerateFakeDoctors(int num);
+        IEnumerable<Models.Models.Doctor> GenerateFakeDoctors(int num);
 
         /// <summary>
         /// Generates the fake address.

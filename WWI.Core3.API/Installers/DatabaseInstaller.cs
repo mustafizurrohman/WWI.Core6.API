@@ -11,10 +11,13 @@ namespace WWI.Core3.API.Installers
     /// </summary>
     public class DatabaseInstaller : IInstaller
     {
+
+        #if DEBUG
         /// <summary>
         /// ConsoleLoggerFactory
         /// </summary>
         private static readonly ILoggerFactory ConsoleLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
+        #endif
 
         /// <summary>
         /// public DatabaseInstaller
