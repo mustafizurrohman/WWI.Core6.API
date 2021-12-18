@@ -15,7 +15,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using System;
 using System.IO;
 
 namespace WWI.Core3.API.ExtensionMethods

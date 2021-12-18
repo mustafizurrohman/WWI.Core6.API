@@ -16,7 +16,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using System;
 using WWI.Core3.Core.Exceptions;
 
 // ReSharper disable ClassNeverInstantiated.Global

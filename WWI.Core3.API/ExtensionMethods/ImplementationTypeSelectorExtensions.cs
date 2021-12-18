@@ -1,5 +1,4 @@
 ﻿using Scrutor;
-using System;
 using WWI.Core3.Services.MediatR.Decorators;
 
 namespace WWI.Core3.API.ExtensionMethods

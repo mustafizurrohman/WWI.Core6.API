@@ -14,7 +14,6 @@
 
 using AutoFixture.Xunit2;
 using FluentAssertions;
-using System.Linq;
 using WWI.Core3.Core.ExtensionMethods;
 using Xunit;
 

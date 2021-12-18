@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WWI.Core3.Core.Tests.AutoFixture
+﻿namespace WWI.Core3.Core.Tests.AutoFixture
 {
 
     /// <summary>

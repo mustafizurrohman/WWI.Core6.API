@@ -11,7 +11,6 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
 
 namespace WWI.Core3.Models.Models
 {

@@ -11,7 +11,6 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
 using System.Security.Cryptography;
 
 namespace WWI.Core3.Models.Utils

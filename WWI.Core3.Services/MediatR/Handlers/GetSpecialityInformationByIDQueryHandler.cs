@@ -1,9 +1,4 @@
-﻿using Ardalis.GuardClauses;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using System.Threading;
-using System.Threading.Tasks;
-using WWI.Core3.Models.ViewModels;
+﻿using Microsoft.EntityFrameworkCore;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.MediatR.Queries;
 using WWI.Core3.Services.ServiceCollection;

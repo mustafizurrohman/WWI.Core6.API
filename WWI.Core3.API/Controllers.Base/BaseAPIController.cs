@@ -12,9 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-using Ardalis.GuardClauses;
 using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
 using System.Web.Http.OData;
 using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.ServiceCollection;

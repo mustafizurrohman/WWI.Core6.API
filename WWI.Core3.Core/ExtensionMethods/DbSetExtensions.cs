@@ -13,12 +13,8 @@
 // ***********************************************************************
 
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Threading.Tasks;
 // ReSharper disable UnusedMember.Global
 
 namespace WWI.Core3.Core.ExtensionMethods

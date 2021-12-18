@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace WWI.Core3.Services.Interfaces
+﻿namespace WWI.Core3.Services.Interfaces
 {
     /// <summary>
     /// Interface IHTMLFormatterService

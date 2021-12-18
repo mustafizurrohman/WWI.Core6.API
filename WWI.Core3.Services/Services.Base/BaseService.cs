@@ -12,7 +12,6 @@
 // <summary></summary>
 // ***********************************************************************
 
-using Ardalis.GuardClauses;
 using AutoMapper;
 using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.ServiceCollection;

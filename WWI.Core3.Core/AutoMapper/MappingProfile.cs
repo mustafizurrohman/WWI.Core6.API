@@ -14,7 +14,6 @@
 
 using AutoMapper;
 using JetBrains.Annotations;
-using System.Linq;
 using WWI.Core3.Core.ExtensionMethods;
 using WWI.Core3.Models.Models;
 using WWI.Core3.Models.ViewModels;

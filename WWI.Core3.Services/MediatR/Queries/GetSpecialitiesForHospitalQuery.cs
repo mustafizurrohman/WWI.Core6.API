@@ -1,8 +1,4 @@
-﻿using MediatR;
-using System.Collections.Generic;
-using WWI.Core3.Models.ViewModels;
-
-namespace WWI.Core3.Services.MediatR.Queries
+﻿namespace WWI.Core3.Services.MediatR.Queries
 {
     public class GetSpecialitiesForHospitalQuery : IRequest<List<SpecialityInformation>>
     {

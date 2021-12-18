@@ -1,10 +1,5 @@
 ﻿using AutoMapper.QueryableExtensions;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System.Threading;
-using System.Threading.Tasks;
-using WWI.Core3.Models.Models;
-using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.MediatR.Commands;
 using WWI.Core3.Services.ServiceCollection;
 

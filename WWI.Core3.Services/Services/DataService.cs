@@ -12,13 +12,8 @@
 // <summary></summary>
 // ***********************************************************************
 
-using Ardalis.GuardClauses;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using WWI.Core3.Models.ViewModels;
 using WWI.Core3.Services.Interfaces;
 using WWI.Core3.Services.ServiceCollection;
 using WWI.Core3.Services.Services.Base;

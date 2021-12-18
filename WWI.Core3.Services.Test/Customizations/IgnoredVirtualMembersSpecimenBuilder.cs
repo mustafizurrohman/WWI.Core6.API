@@ -1,5 +1,4 @@
 ﻿using AutoFixture.Kernel;
-using System;
 using System.Reflection;
 
 namespace WWI.Core3.Services.Test.Customizations

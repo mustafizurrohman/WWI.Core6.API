@@ -13,7 +13,6 @@
 // ***********************************************************************
 
 using HtmlTableHelper;
-using System.Collections.Generic;
 using WWI.Core3.Services.Interfaces;
 
 namespace WWI.Core3.Services.Services

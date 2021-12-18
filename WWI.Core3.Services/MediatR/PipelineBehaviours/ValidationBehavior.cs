@@ -1,11 +1,4 @@
-﻿using FluentValidation;
-using MediatR;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace WWI.Core3.Services.MediatR.PipelineBehaviours
+﻿namespace WWI.Core3.Services.MediatR.PipelineBehaviours
 {
     public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>

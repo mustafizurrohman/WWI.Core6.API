@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-using System.Linq;
-using WWI.Core3.Models.DbContext;
+﻿using WWI.Core3.Models.DbContext;
 using WWI.Core3.Services.MediatR.Commands;
 
 namespace WWI.Core3.Services.Validation

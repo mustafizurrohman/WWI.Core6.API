@@ -12,8 +12,6 @@
 // <summary></summary>
 // ***********************************************************************
 
-using WWI.Core3.Models.ViewModels;
-
 namespace WWI.Core3.Services.Interfaces
 {
 
