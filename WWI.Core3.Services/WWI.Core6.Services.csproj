@@ -17,7 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\WWI.Core3.Models\WWI.Core3.Models.csproj" />
+		<ProjectReference Include="..\WWI.Core3.Models\WWI.Core6.Models.csproj" />
 	</ItemGroup>
 
 </Project>

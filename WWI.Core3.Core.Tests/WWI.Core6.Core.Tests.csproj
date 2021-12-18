@@ -31,7 +31,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\WWI.Core3.Core\WWI.Core3.Core.csproj" />
+		<ProjectReference Include="..\WWI.Core3.Core\WWI.Core6.Core.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -47,9 +47,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\WWI.Core3.Core\WWI.Core3.Core.csproj" />
-		<ProjectReference Include="..\WWI.Core3.Models\WWI.Core3.Models.csproj" />
-		<ProjectReference Include="..\WWI.Core3.Services\WWI.Core3.Services.csproj" />
+		<ProjectReference Include="..\WWI.Core3.Core\WWI.Core6.Core.csproj" />
+		<ProjectReference Include="..\WWI.Core3.Models\WWI.Core6.Models.csproj" />
+		<ProjectReference Include="..\WWI.Core3.Services\WWI.Core6.Services.csproj" />
 	</ItemGroup>
 
 

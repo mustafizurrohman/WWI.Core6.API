@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>WWI.Core3.Models</name>
+        <name>WWI.Core6.Models</name>
     </assembly>
     <members>
         <member name="T:WWI.Core3.Models.AppSettings.ApplicationSettings">
@@ -579,6 +579,26 @@
             Gets or sets the hospitals.
             </summary>
             <value>The hospitals.</value>
+        </member>
+        <member name="T:WWI.Core3.Models.Records.DoctorRecord">
+            <summary>
+            
+            </summary>
+            <param name="Firstname"></param>
+            <param name="Lastname"></param>
+            <param name="FullName"></param>
+            <param name="Speciality"></param>
+            <param name="Hospitals"></param>
+        </member>
+        <member name="M:WWI.Core3.Models.Records.DoctorRecord.#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="Firstname"></param>
+            <param name="Lastname"></param>
+            <param name="FullName"></param>
+            <param name="Speciality"></param>
+            <param name="Hospitals"></param>
         </member>
         <member name="T:WWI.Core3.Models.Seed.Helper.SeedHelper">
             <summary>

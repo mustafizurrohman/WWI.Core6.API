@@ -15,8 +15,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\WWI.Core3.Middleware.ExceptionHandler\WWI.Core3.Middleware.ExceptionHandler.csproj" />
-		<ProjectReference Include="..\WWI.Core3.Models\WWI.Core3.Models.csproj" />
+		<ProjectReference Include="..\WWI.Core3.Middleware.ExceptionHandler\WWI.Core6.Middleware.ExceptionHandler.csproj" />
+		<ProjectReference Include="..\WWI.Core3.Models\WWI.Core6.Models.csproj" />
 	</ItemGroup>
 
 </Project>
