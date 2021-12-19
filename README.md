@@ -1,7 +1,7 @@
-WebAPI using Web Api 3.1
+WebAPI using Web Api 6
 
 - Custom Exception Handler Middleware
-- Logging using **Serilog**
+- Structured Logging using **Serilog**
 
 - **Clean Coding** and **SOLID** principles
 
