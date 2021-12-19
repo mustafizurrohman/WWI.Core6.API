@@ -12,7 +12,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\WWI.Core3.Middleware.Base\WWI.Core6.Middleware.Base.csproj" />
+		<ProjectReference Include="..\WWI.Core6.Middleware.Base\WWI.Core6.Middleware.Base.csproj" />
 	</ItemGroup>
 
 </Project>

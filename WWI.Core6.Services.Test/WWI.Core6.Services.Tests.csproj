@@ -29,9 +29,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\WWI.Core3.Core\WWI.Core6.Core.csproj" />
-		<ProjectReference Include="..\WWI.Core3.Models\WWI.Core6.Models.csproj" />
-		<ProjectReference Include="..\WWI.Core3.Services\WWI.Core6.Services.csproj" />
+		<ProjectReference Include="..\WWI.Core6.Core\WWI.Core6.Core.csproj" />
+		<ProjectReference Include="..\WWI.Core6.Models\WWI.Core6.Models.csproj" />
+		<ProjectReference Include="..\WWI.Core6.Services\WWI.Core6.Services.csproj" />
 	</ItemGroup>
 
 </Project>
