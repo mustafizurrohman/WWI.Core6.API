@@ -31,11 +31,11 @@ namespace WWI.Core6.Models.Seed.Helper
         /// <summary>
         /// The base path generated seed
         /// </summary>
-        private const string BasePathGeneratedSeed = "../WWI.Core3.Models/Seed/Generated/";
+        private const string BasePathGeneratedSeed = "../WWI.Core6.Models/Seed/Generated/";
         /// <summary>
         /// The base path
         /// </summary>
-        private const string BasePath = "../WWI.Core3.Models/Seed/";
+        private const string BasePath = "../WWI.Core6.Models/Seed/";
 
         #endregion
 

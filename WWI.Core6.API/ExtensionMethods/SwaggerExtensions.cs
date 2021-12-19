@@ -56,7 +56,7 @@ namespace WWI.Core6.API.ExtensionMethods
                     Type = SecuritySchemeType.Http
                 });
 
-                var xmlFile = "WWI.Core3.API.xml";
+                var xmlFile = "WWI.Core6.API.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
