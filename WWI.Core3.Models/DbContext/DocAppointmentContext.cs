@@ -90,7 +90,7 @@ namespace WWI.Core6.Models.DbContext
         /// <summary>
         /// The default json serializer settings
         /// </summary>
-        private readonly JsonSerializerSettings _defaultJsonSerializerSettings = new JsonSerializerSettings { Formatting = Formatting.Indented };
+        private readonly JsonSerializerSettings _defaultJsonSerializerSettings = new() { Formatting = Formatting.Indented };
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DocAppointmentContext"/> class.

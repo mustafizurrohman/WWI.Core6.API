@@ -45,13 +45,15 @@ namespace WWI.Core6.Core.ExtensionMethods
         /// <param name="applicationBuilder">The application builder.</param>
         public static void MigrateDatabase(this IApplicationBuilder applicationBuilder)
         {
-            using IServiceScope serviceScope = applicationBuilder.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
+            using IServiceScope serviceScope = applicationBuilder.ApplicationServices.GetService<IServiceScopeFactory>()?.CreateScope();
+            
+            if (serviceScope != null)
             {
                 using var context = serviceScope.ServiceProvider.GetService<DocAppointmentContext>();
                 try
                 {
                     Log.Information("Starting to migrate database ...");
-                    context.Database.Migrate();
+                    if (context != null) context.Database.Migrate();
                 }
                 catch (Exception ex)
                 {
@@ -63,6 +65,7 @@ namespace WWI.Core6.Core.ExtensionMethods
                     Log.Information("Database Migration completed ...");
                 }
             }
+            
         }
 
     }

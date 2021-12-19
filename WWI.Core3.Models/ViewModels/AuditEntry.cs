@@ -50,25 +50,25 @@ namespace WWI.Core6.Models.ViewModels
         /// Gets the key values.
         /// </summary>
         /// <value>The key values.</value>
-        public Dictionary<string, object> KeyValues { get; } = new Dictionary<string, object>();
+        public Dictionary<string, object> KeyValues { get; } = new();
 
         /// <summary>
         /// Gets the old values.
         /// </summary>
         /// <value>The old values.</value>
-        public Dictionary<string, object> OldValues { get; } = new Dictionary<string, object>();
+        public Dictionary<string, object> OldValues { get; } = new();
 
         /// <summary>
         /// Creates new values.
         /// </summary>
         /// <value>The new values.</value>
-        public Dictionary<string, object> NewValues { get; } = new Dictionary<string, object>();
+        public Dictionary<string, object> NewValues { get; } = new();
 
         /// <summary>
         /// Gets the temporary properties.
         /// </summary>
         /// <value>The temporary properties.</value>
-        public List<PropertyEntry> TemporaryProperties { get; } = new List<PropertyEntry>();
+        public List<PropertyEntry> TemporaryProperties { get; } = new();
 
         /// <summary>
         /// Gets a value indicating whether this instance has temporary properties.

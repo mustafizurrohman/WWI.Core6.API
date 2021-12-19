@@ -19,12 +19,12 @@ namespace WWI.Core6.API.Helpers
         /// <summary>
         /// The OpenApi information
         /// </summary>
-        private readonly OpenApiInfo _info = new OpenApiInfo();
+        private readonly OpenApiInfo _info = new();
         
         /// <summary>
         /// The performance options
         /// </summary>
-        private readonly PerformanceOptions _performanceOptions = new PerformanceOptions();
+        private readonly PerformanceOptions _performanceOptions = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationSettingsVerifier"/> class.

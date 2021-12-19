@@ -78,9 +78,9 @@ namespace WWI.Core6.API.ExtensionMethods
                 appBuilder.Run(async context =>
                 {
                     var errorFeature = context.Features.Get<IExceptionHandlerFeature>();
-                    var exception = errorFeature.Error;
+                    var exception = errorFeature?.Error ?? new Exception();
 
-                    if (!(exception is ValidationException validationException))
+                    if (exception is not ValidationException validationException)
                         throw exception;
                     
                     var errorText = JsonSerializer.Serialize(validationException.Errors);

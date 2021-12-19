@@ -14,11 +14,9 @@ namespace WWI.Core6.Core.Helpers
         private readonly long _maxIdleTime = TimeSpan.FromSeconds(10).Ticks;
         private const long TicksMultiplier = 1000 * TimeSpan.TicksPerMillisecond;
 
-        private readonly ThreadLocal<DateTime> _startTime =
-            new ThreadLocal<DateTime>(() => DateTime.UtcNow, false);
+        private readonly ThreadLocal<DateTime> _startTime = new(() => DateTime.UtcNow, false);
 
-        private readonly ThreadLocal<double> _startTimestamp =
-            new ThreadLocal<double>(() => Stopwatch.GetTimestamp(), false);
+        private readonly ThreadLocal<double> _startTimestamp = new(() => Stopwatch.GetTimestamp(), false);
 
 
         [DllImport("Kernel32.dll", CallingConvention = CallingConvention.Winapi)]

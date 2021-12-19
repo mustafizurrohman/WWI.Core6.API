@@ -31,12 +31,12 @@ namespace WWI.Core6.API
         /// <summary>
         /// The OpenApi information
         /// </summary>
-        private readonly OpenApiInfo _info = new OpenApiInfo();
+        private readonly OpenApiInfo _info = new();
 
         /// <summary>
         /// The open API security scheme
         /// </summary>
-        private readonly OpenApiSecurityScheme _openApiSecurityScheme = new OpenApiSecurityScheme();
+        private readonly OpenApiSecurityScheme _openApiSecurityScheme = new();
         
         /// <summary>
         /// Gets the configuration.
