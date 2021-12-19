@@ -64,7 +64,7 @@ namespace WWI.Core6.API.Helpers
             ApplicationSettingsValidator validator = new ApplicationSettingsValidator();
             ValidationResult validationResult =  validator.Validate(applicationSettings);
 
-            if (validationResult.Errors.Count <= 0) 
+            if (validationResult.Errors.Count == 0) 
                 return;
             
             var errors = validationResult.Errors

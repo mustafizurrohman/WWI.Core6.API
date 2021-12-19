@@ -35,7 +35,11 @@ namespace WWI.Core6.API.Installers
                 #if DEBUG
                 options.EnableSensitiveDataLogging()
                     .UseLoggerFactory(ConsoleLoggerFactory);
-                #endif
+                // https://docs.microsoft.com/en-in/ef/core/querying/single-split-queries
+                // .UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)
+                // Throws an exception. Will be helpful for performance optimization
+                // .ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning));
+#endif
 
             });
         }

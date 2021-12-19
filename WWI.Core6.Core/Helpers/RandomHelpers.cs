@@ -38,7 +38,9 @@ namespace WWI.Core6.Core.Helpers
         /// </summary>
         static RandomHelpers()
         {
+#pragma warning disable SYSLIB0023 // Type or member is obsolete
             RandomNumberGenerator = new RNGCryptoServiceProvider();
+#pragma warning restore SYSLIB0023 // Type or member is obsolete
         }
 
         #endregion

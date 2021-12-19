@@ -93,6 +93,9 @@ namespace WWI.Core6.Services.Services
                 .ProjectTo<HospitalDoctorInformation>(AutoMapper.ConfigurationProvider)
                 .SingleOrDefaultAsync(cancellationToken);
 
+            if (doctorsForHospital is null)
+                return null;
+
             doctorsForHospital.Doctors = doctorsForHospital.Doctors
                 .OrderBy(doc => doc.SpecialityName)
                 .ToList();

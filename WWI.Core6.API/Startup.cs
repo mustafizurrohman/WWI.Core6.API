@@ -65,7 +65,9 @@ namespace WWI.Core6.API
             services.InstallServicesInAssembly(Configuration)
                 .AddSwaggerDocumentation(_info, _openApiSecurityScheme);
 
-            ApplicationSettingsVerifier applicationSettingsVerifier = new ApplicationSettingsVerifier(Configuration);
+            Log.Information("Validating Application Settings ...");
+
+            ApplicationSettingsVerifier applicationSettingsVerifier = new(Configuration);
             applicationSettingsVerifier.VerifyApplicationSettings();
 
             Log.Information("Application Settings sucessfully validated ...");

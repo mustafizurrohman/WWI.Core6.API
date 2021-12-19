@@ -1,4 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using JetBrains.Annotations;
+using Microsoft.OpenApi.Models;
 
 namespace WWI.Core6.Models.AppSettings
 {
@@ -12,19 +13,22 @@ namespace WWI.Core6.Models.AppSettings
         /// Gets the open API information.
         /// </summary>
         /// <value>The open API information.</value>
-        public OpenApiInfo OpenApiInfo { get; set; }
+        [UsedImplicitly]
+        public OpenApiInfo OpenApiInfo { get; init; }
 
         /// <summary>
         /// Gets the performance options.
         /// </summary>
         /// <value>The performance options.</value>
-        public PerformanceOptions PerformanceOptions { get; set;  }
+        [UsedImplicitly]
+        public PerformanceOptions PerformanceOptions { get; init; }
 
         /// <summary>
         /// Gets or sets the connection string.
         /// </summary>
         /// <value>The connection string.</value>
-        public string ConnectionString { get; set; }
+        [UsedImplicitly]
+        public string ConnectionString { get; init; }
     }
 
 }
