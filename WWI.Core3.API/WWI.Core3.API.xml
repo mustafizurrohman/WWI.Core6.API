@@ -28,6 +28,48 @@
             </summary>
             <param name="applicationServices">The collection of frequently used application services.</param>
         </member>
+        <member name="T:WWI.Core6.API.Controllers.BogusController">
+            <summary>
+            Class BogusController.
+            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+            </summary>
+            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.BogusController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,WWI.Core6.Services.Interfaces.IFakeDataGeneratorService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.BogusController"/> class.
+            </summary>
+            <param name="applicationServices">The application services.</param>
+            <param name="fakeDataGeneratorService">The fake data generator service.</param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.BogusController.GenerateFakeDoctors(System.Int32)">
+            <summary>
+            Generates the fake doctors.
+            </summary>
+            <param name="num">The number.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.BogusController.GenerateFakeHospitals(System.Int32)">
+            <summary>
+            Generates the fake hospitals.
+            </summary>
+            <param name="num">The number.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.BogusController.GenerateFakeAddress(System.Int32)">
+            <summary>
+            Generates the fake addresses.
+            </summary>
+            <param name="num">The number.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.BogusController.GenerateFakeSpecialities(System.Int32)">
+            <summary>
+            Generates the fake specialities.
+            </summary>
+            <param name="num">The number.</param>
+            <returns>IActionResult.</returns>
+        </member>
         <member name="T:WWI.Core6.API.Controllers.DoctorController">
             <summary>
             Class DoctorController.
@@ -464,48 +506,6 @@
             </summary>
             <param name="app">Application Builder</param>
             <param name="env">Hosting Environment</param>
-        </member>
-        <member name="T:WWI.Core3.API.Controllers.BogusController">
-            <summary>
-            Class BogusController.
-            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
-            </summary>
-            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.BogusController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,WWI.Core6.Services.Interfaces.IFakeDataGeneratorService)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core3.API.Controllers.BogusController"/> class.
-            </summary>
-            <param name="applicationServices">The application services.</param>
-            <param name="fakeDataGeneratorService">The fake data generator service.</param>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.BogusController.GenerateFakeDoctors(System.Int32)">
-            <summary>
-            Generates the fake doctors.
-            </summary>
-            <param name="num">The number.</param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.BogusController.GenerateFakeHospitals(System.Int32)">
-            <summary>
-            Generates the fake hospitals.
-            </summary>
-            <param name="num">The number.</param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.BogusController.GenerateFakeAddress(System.Int32)">
-            <summary>
-            Generates the fake addresses.
-            </summary>
-            <param name="num">The number.</param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core3.API.Controllers.BogusController.GenerateFakeSpecialities(System.Int32)">
-            <summary>
-            Generates the fake specialities.
-            </summary>
-            <param name="num">The number.</param>
-            <returns>IActionResult.</returns>
         </member>
     </members>
 </doc>
