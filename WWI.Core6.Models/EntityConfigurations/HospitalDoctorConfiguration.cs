@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Models
+// Assembly         : WWI.Core6.Models
 // Author           : Mustafizur Rohman
 // Created          : 08-29-2021
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 08-29-2021
 // ***********************************************************************
-// <copyright file="HospitalDoctorConfiguration.cs" company="WWI.Core3.Models">
+// <copyright file="HospitalDoctorConfiguration.cs" company="WWI.Core6.Models">
 //     Copyright (c) Personal. All rights reserved.
 // </copyright>
 // <summary></summary>

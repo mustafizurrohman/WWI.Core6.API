@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Middleware.ExceptionHandler
+// Assembly         : WWI.Core6.Middleware.ExceptionHandler
 // Author           : Mustafizur Rohman
 // Created          : 05-02-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 05-02-2020
 // ***********************************************************************
-// <copyright file="ExceptionHandler.cs" company="WWI.Core3.Middleware.ExceptionHandler">
+// <copyright file="ExceptionHandler.cs" company="WWI.Core6.Middleware.ExceptionHandler">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>

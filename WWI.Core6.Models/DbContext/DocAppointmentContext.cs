@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Models
+// Assembly         : WWI.Core6.Models
 // Author           : Mustafizur Rohman
 // Created          : 05-01-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 05-15-2020
 // ***********************************************************************
-// <copyright file="DocAppointmentContext.cs" company="WWI.Core3.Models">
+// <copyright file="DocAppointmentContext.cs" company="WWI.Core6.Models">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>
@@ -35,12 +35,12 @@ namespace WWI.Core6.Models.DbContext
         /// <summary>
         /// The base path generated seed
         /// </summary>
-        private const string BasePathGeneratedSeed = "../WWI.Core3.Models/Seed/Generated";
+        private const string BasePathGeneratedSeed = "../WWI.Core6.Models/Seed/Generated";
 
         /// <summary>
         /// The base path
         /// </summary>
-        private const string BasePath = "../WWI.Core3.Models/Seed/";
+        private const string BasePath = "../WWI.Core6.Models/Seed/";
 
         /// <summary>
         /// The doctor file name

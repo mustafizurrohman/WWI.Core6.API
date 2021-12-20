@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Models
+// Assembly         : WWI.Core6.Models
 // Author           : Mustafizur Rohman
 // Created          : 05-15-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 05-15-2020
 // ***********************************************************************
-// <copyright file="DocAppointmentContextModelSnapshot.cs" company="WWI.Core3.Models">
+// <copyright file="DocAppointmentContextModelSnapshot.cs" company="WWI.Core6.Models">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>
@@ -39,7 +39,7 @@ namespace WWI.Core6.Models.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WWI.Core3.Models.Models.Address", b =>
+            modelBuilder.Entity("WWI.Core6.Models.Models.Address", b =>
                 {
                     b.Property<int>("AddressID")
                         .ValueGeneratedOnAdd()
@@ -228,7 +228,7 @@ namespace WWI.Core6.Models.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WWI.Core3.Models.Models.Doctor", b =>
+            modelBuilder.Entity("WWI.Core6.Models.Models.Doctor", b =>
                 {
                     b.Property<int>("DoctorID")
                         .ValueGeneratedOnAdd()
@@ -4252,7 +4252,7 @@ namespace WWI.Core6.Models.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WWI.Core3.Models.Models.Hospital", b =>
+            modelBuilder.Entity("WWI.Core6.Models.Models.Hospital", b =>
                 {
                     b.Property<int>("HospitalID")
                         .ValueGeneratedOnAdd()
@@ -4365,7 +4365,7 @@ namespace WWI.Core6.Models.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WWI.Core3.Models.Models.HospitalDoctor", b =>
+            modelBuilder.Entity("WWI.Core6.Models.Models.HospitalDoctor", b =>
                 {
                     b.Property<int>("HospitalDoctorID")
                         .ValueGeneratedOnAdd()
@@ -64384,7 +64384,7 @@ namespace WWI.Core6.Models.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WWI.Core3.Models.Models.HospitalSpeciality", b =>
+            modelBuilder.Entity("WWI.Core6.Models.Models.HospitalSpeciality", b =>
                 {
                     b.Property<int>("HospitalSpecialityID")
                         .ValueGeneratedOnAdd()
@@ -64943,7 +64943,7 @@ namespace WWI.Core6.Models.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WWI.Core3.Models.Models.Speciality", b =>
+            modelBuilder.Entity("WWI.Core6.Models.Models.Speciality", b =>
                 {
                     b.Property<int>("SpecialtyID")
                         .ValueGeneratedOnAdd()
@@ -65052,48 +65052,48 @@ namespace WWI.Core6.Models.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WWI.Core3.Models.Models.Doctor", b =>
+            modelBuilder.Entity("WWI.Core6.Models.Models.Doctor", b =>
                 {
-                    b.HasOne("WWI.Core3.Models.Models.Speciality", "Speciality")
+                    b.HasOne("WWI.Core6.Models.Models.Speciality", "Speciality")
                         .WithMany("Doctors")
                         .HasForeignKey("SpecialityID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WWI.Core3.Models.Models.Hospital", b =>
+            modelBuilder.Entity("WWI.Core6.Models.Models.Hospital", b =>
                 {
-                    b.HasOne("WWI.Core3.Models.Models.Address", "Address")
+                    b.HasOne("WWI.Core6.Models.Models.Address", "Address")
                         .WithMany("Hospitals")
                         .HasForeignKey("AddressID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WWI.Core3.Models.Models.HospitalDoctor", b =>
+            modelBuilder.Entity("WWI.Core6.Models.Models.HospitalDoctor", b =>
                 {
-                    b.HasOne("WWI.Core3.Models.Models.Doctor", "Doctor")
+                    b.HasOne("WWI.Core6.Models.Models.Doctor", "Doctor")
                         .WithMany("Hospitals")
                         .HasForeignKey("DoctorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WWI.Core3.Models.Models.Hospital", "Hospital")
+                    b.HasOne("WWI.Core6.Models.Models.Hospital", "Hospital")
                         .WithMany("Doctors")
                         .HasForeignKey("HospitalID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WWI.Core3.Models.Models.HospitalSpeciality", b =>
+            modelBuilder.Entity("WWI.Core6.Models.Models.HospitalSpeciality", b =>
                 {
-                    b.HasOne("WWI.Core3.Models.Models.Hospital", "Hospital")
+                    b.HasOne("WWI.Core6.Models.Models.Hospital", "Hospital")
                         .WithMany("Specialities")
                         .HasForeignKey("HospitalID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WWI.Core3.Models.Models.Speciality", "Speciality")
+                    b.HasOne("WWI.Core6.Models.Models.Speciality", "Speciality")
                         .WithMany("Hospitals")
                         .HasForeignKey("SpecialtyID")
                         .OnDelete(DeleteBehavior.Cascade)

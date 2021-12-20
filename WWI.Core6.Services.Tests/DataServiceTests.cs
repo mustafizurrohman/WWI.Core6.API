@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Services.Tests
+// Assembly         : WWI.Core6.Services.Tests
 // Author           : Mustafizur Rohman
 // Created          : 10-03-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 10-03-2020
 // ***********************************************************************
-// <copyright file="DataServiceTests.cs" company="WWI.Core3.Services.Tests">
+// <copyright file="DataServiceTests.cs" company="WWI.Core6.Services.Tests">
 //     Copyright (c) Personal. All rights reserved.
 // </copyright>
 // <summary></summary>

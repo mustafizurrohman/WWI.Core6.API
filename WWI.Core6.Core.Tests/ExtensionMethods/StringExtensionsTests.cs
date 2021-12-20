@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Core.Tests
+// Assembly         : WWI.Core6.Core.Tests
 // Author           : Mustafizur Rohman
 // Created          : 07-03-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 07-03-2020
 // ***********************************************************************
-// <copyright file="StringExtensionsTests.cs" company="WWI.Core3.Core.Tests">
+// <copyright file="StringExtensionsTests.cs" company="WWI.Core6.Core.Tests">
 //     Copyright (c) Personal. All rights reserved.
 // </copyright>
 // <summary></summary>

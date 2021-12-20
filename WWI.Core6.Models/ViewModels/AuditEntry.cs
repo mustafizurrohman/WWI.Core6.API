@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Models
+// Assembly         : WWI.Core6.Models
 // Author           : Mustafizur Rohman
 // Created          : 06-28-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 06-28-2020
 // ***********************************************************************
-// <copyright file="AuditEntry.cs" company="WWI.Core3.Models">
+// <copyright file="AuditEntry.cs" company="WWI.Core6.Models">
 //     Copyright (c) Personal. All rights reserved.
 // </copyright>
 // <summary></summary>

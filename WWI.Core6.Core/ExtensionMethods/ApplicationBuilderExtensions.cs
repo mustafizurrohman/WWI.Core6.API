@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Core
+// Assembly         : WWI.Core6.Core
 // Author           : Mustafizur Rohman
 // Created          : 05-02-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 05-16-2020
 // ***********************************************************************
-// <copyright file="ApplicationBuilderExtensions.cs" company="WWI.Core3.Core">
+// <copyright file="ApplicationBuilderExtensions.cs" company="WWI.Core6.Core">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>

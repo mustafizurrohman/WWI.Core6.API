@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.API
+// Assembly         : WWI.Core6.API
 // Author           : Mustafizur Rohman
 // Created          : 09-13-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 09-13-2020
 // ***********************************************************************
-// <copyright file="TestController.cs" company="WWI.Core3.API">
+// <copyright file="TestController.cs" company="WWI.Core6.API">
 //     Copyright (c) Personal. All rights reserved.
 // </copyright>
 // <summary></summary>

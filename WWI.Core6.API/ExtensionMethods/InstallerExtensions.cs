@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.API
+// Assembly         : WWI.Core6.API
 // Author           : Mustafizur Rohman
 // Created          : 08-18-2021
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 08-20-2021
 // ***********************************************************************
-// <copyright file="InstallerExtensions.cs" company="WWI.Core3.API">
+// <copyright file="InstallerExtensions.cs" company="WWI.Core6.API">
 //     Copyright (c) Personal. All rights reserved.
 // </copyright>
 // <summary></summary>

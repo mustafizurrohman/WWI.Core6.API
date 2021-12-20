@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Services
+// Assembly         : WWI.Core6.Services
 // Author           : Mustafizur Rohman
 // Created          : 09-16-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 09-17-2020
 // ***********************************************************************
-// <copyright file="IApplicationServices.cs" company="WWI.Core3.Services">
+// <copyright file="IApplicationServices.cs" company="WWI.Core6.Services">
 //     Copyright (c) Personal. All rights reserved.
 // </copyright>
 // <summary></summary>

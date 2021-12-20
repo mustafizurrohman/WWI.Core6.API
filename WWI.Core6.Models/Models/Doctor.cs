@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Models
+// Assembly         : WWI.Core6.Models
 // Author           : Mustafizur Rohman
 // Created          : 05-08-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 05-15-2020
 // ***********************************************************************
-// <copyright file="Doctor.cs" company="WWI.Core3.Models">
+// <copyright file="Doctor.cs" company="WWI.Core6.Models">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>

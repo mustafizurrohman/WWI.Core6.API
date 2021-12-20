@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.API
+// Assembly         : WWI.Core6.API
 // Author           : Mustafizur Rohman
 // Created          : 05-17-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 05-19-2020
 // ***********************************************************************
-// <copyright file="DoctorController.cs" company="WWI.Core3.API">
+// <copyright file="DoctorController.cs" company="WWI.Core6.API">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>

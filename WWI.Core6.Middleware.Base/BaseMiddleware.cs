@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Middleware.Base
+// Assembly         : WWI.Core6.Middleware.Base
 // Author           : Mustafizur Rohman
 // Created          : 05-02-2020
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 05-02-2020
 // ***********************************************************************
-// <copyright file="BaseMiddleware.cs" company="WWI.Core3.Middleware.Base">
+// <copyright file="BaseMiddleware.cs" company="WWI.Core6.Middleware.Base">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>

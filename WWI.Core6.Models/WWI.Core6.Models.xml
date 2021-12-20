@@ -990,7 +990,7 @@
             </summary>
             <value>The doctor list.</value>
         </member>
-        <member name="T:WWI.Core3.Models.Migrations.Init">
+        <member name="T:WWI.Core6.Models.Migrations.Init">
             <summary>
             Class Init.
             Implements the <see cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" />
@@ -1002,7 +1002,7 @@
             </summary>
             <seealso cref="T:Microsoft.EntityFrameworkCore.Migrations.Migration" />
         </member>
-        <member name="M:WWI.Core3.Models.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:WWI.Core6.Models.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <summary>
             <para>
             Builds the operations that will migrate the database 'up'.
@@ -1017,13 +1017,13 @@
             </summary>
             <param name="migrationBuilder">The <see cref="T:Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder" /> that will build the operations.</param>
         </member>
-        <member name="M:WWI.Core3.Models.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:WWI.Core6.Models.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <summary>
             Downs the specified migration builder.
             </summary>
             <param name="migrationBuilder">The migration builder.</param>
         </member>
-        <member name="M:WWI.Core3.Models.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:WWI.Core6.Models.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
             Builds the target model.
             </summary>

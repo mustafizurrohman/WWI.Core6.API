@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "WWI.Core3.API": {
+    "WWI.Core6.API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

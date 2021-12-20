@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Services
+// Assembly         : WWI.Core6.Services
 // Author           : Mustafizur Rohman
 // Created          : 08-28-2021
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 08-28-2021
 // ***********************************************************************
-// <copyright file="CachedDataService.cs" company="WWI.Core3.Services">
+// <copyright file="CachedDataService.cs" company="WWI.Core6.Services">
 //     Copyright (c) Personal. All rights reserved.
 // </copyright>
 // <summary></summary>

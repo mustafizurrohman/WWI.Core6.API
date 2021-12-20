@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
-// Assembly         : WWI.Core3.Services
+// Assembly         : WWI.Core6.Services
 // Author           : Mustafizur Rohman
 // Created          : 09-25-2021
 //
 // Last Modified By : Mustafizur Rohman
 // Last Modified On : 09-26-2021
 // ***********************************************************************
-// <copyright file="IFakeDataGeneratorService.cs" company="WWI.Core3.Services">
+// <copyright file="IFakeDataGeneratorService.cs" company="WWI.Core6.Services">
 //     Copyright (c) Personal. All rights reserved.
 // </copyright>
 // <summary></summary>
