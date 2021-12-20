@@ -13,10 +13,25 @@
 // ***********************************************************************
 
 using AutoFixture;
-using AutoFixture.Xunit2;
+using AutoFixture.AutoMoq;
+using AutoFixture.Kernel;
+using AutoMapper;
+using EntityFrameworkCore.AutoFixture.InMemory;
+using FluentAssertions;
+using MockQueryable.Moq;
+using Moq;
+using WWI.Core6.Core.ExtensionMethods;
+using WWI.Core6.Models.DbContext;
+using WWI.Core6.Models.Models;
+using WWI.Core6.Models.ViewModels;
+using WWI.Core6.Services.ServiceCollection;
+using WWI.Core6.Services.Services;
+using WWI.Core6.Services.Services.Shared;
+using WWI.Core6.Services.Tests.Automapper;
+using WWI.Core6.Services.Tests.Customizations;
 using Xunit;
 
-namespace WWI.Core3.Services.Tests
+namespace WWI.Core6.Services.Tests
 {
 
     // TODO: Finish this
@@ -28,39 +43,79 @@ namespace WWI.Core3.Services.Tests
         /// <summary>
         /// introductory test as an asynchronous operation.
         /// </summary>
-        /// <param name="fixture">The fixture.</param>
         /// <param name="numberOfHospitalsToRetrieve">The number of hospitals to retrieve.</param>
-        [Theory, AutoData]
-        public void IntroductoryTestAsync(IFixture fixture, int numberOfHospitalsToRetrieve)
+        // [Theory(Skip = "Not working. Needs to be fixed."), AutoData]
+        [Theory]
+        [InlineData(2)]
+        public void IntroductoryTest(int numberOfHospitalsToRetrieve)
         {
 
             // Arrange
-            // fixture = fixture.Customize(new AutoMoqCustomization());
+            var fixture = new Fixture()
+                .Customize(new AutoMoqCustomization());
+            fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList()
+                .ForEach(b => fixture.Behaviors.Remove(b));
+            fixture.Behaviors.Add(new OmitOnRecursionBehavior(1));
 
-            //var hospitals = fixture.CreateMany<Hospital>(numberOfHospitalsToRetrieve).AsQueryable();
+            fixture.Customizations.Add(
+                new TypeRelay(
+                    typeof(IConfigurationProvider),
+                    typeof(MapperConfiguration)));
 
-            //var dbContext = fixture.Freeze<Mock<DocAppointmentContext>>();
-            //dbContext.Setup(dbc => dbc.Hospitals.AsQueryable()).Returns(hospitals);
+            var hospitals = fixture.CreateMany<Hospital>(numberOfHospitalsToRetrieve);
 
-            //var id = hospitals.ToList().GetRandomShuffled().HospitalID;
+            var hospitalsMock = hospitals.AsQueryable().BuildMockDbSet();
 
-            // var dataService2 = Mock<IDataService>();
+            var dbContextMock = new Mock<DocAppointmentContext>();
+
+            var autoMapper = new Mock<IMapper>();
+
+            var hospitalInformationList =
+                AutomapperSingleton.AutoMapper.Map<IEnumerable<Hospital>, IEnumerable<HospitalInformation>>(hospitals);
+
+            //autoMapper.Setup(m => m.ProjectTo<HospitalInformation>(It.IsAny<IQueryable<Hospital>>()))
+            //    .Returns(hospitalInformationList);
+
+            var applicationServiceMock = new Mock<ApplicationServices>(dbContextMock.Object, autoMapper.Object);
+            var sharedServiceMock = new Mock<SharedService>(dbContextMock.Object, autoMapper.Object);
+
+            var dataService = new Mock<DataService>(applicationServiceMock.Object, sharedServiceMock.Object);
+
+            var randomId = hospitalsMock.Object.ToList().GetRandomShuffled().HospitalID;
 
             // Act
-            // var retrievedHospital = await dataService.GetHospitalInformationByIDAsync(id);
-
-            // Assert
-            //retrievedHospital.HospitalID
-            //    .Should()
-            //    .Be(id);
-
+            //var retrivedHospital = await dataService.Object.GetHospitalInformationByIDAsync(randomId);
 
         }
 
-        private object Mock<T>()
+        // DocAppointmentContext docAppointmentContext
+        [Theory(Skip = "Not working. Needs to be fixed."), AutoDomainDataWithInMemoryContext]
+#pragma warning disable xUnit1006 // Theory methods should have parameters
+        public async Task TestInMemoryDatabase()
+#pragma warning restore xUnit1006 // Theory methods should have parameters
         {
-            throw new System.NotImplementedException();
+            var fixture = new Fixture().Customize(new InMemoryContextCustomization());
+
+            fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList()
+                .ForEach(b => fixture.Behaviors.Remove(b));
+            fixture.Behaviors.Add(new OmitOnRecursionBehavior(1));
+
+            var hospital = fixture.Create<Hospital>();
+
+
+            await using var docAppointmentContext = fixture.Create<DocAppointmentContext>();
+            await docAppointmentContext.Database.EnsureCreatedAsync();
+
+            await docAppointmentContext.Hospitals.AddAsync(hospital);
+            await docAppointmentContext.SaveChangesAsync();
+
+            docAppointmentContext.Hospitals.Should().Contain(x => x.Name == hospital.Name);
+
+            
+
         }
+
+
     }
 
 }
