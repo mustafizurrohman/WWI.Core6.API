@@ -15,12 +15,10 @@
 
 using Humanizer;
 using Microsoft.EntityFrameworkCore;
-using WWI.Core6.API.Controllers.Base;
 using WWI.Core6.Core.ExtensionMethods;
 using WWI.Core6.Services.Interfaces;
-using WWI.Core6.Services.ServiceCollection;
 
-namespace WWI.Core6.API.Controllers
+namespace WWI.Core6.API.Controllers.Demos
 {
     /// <summary>
     /// Class TestController.

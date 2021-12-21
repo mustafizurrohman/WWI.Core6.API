@@ -15,7 +15,6 @@
 using System.Web.Http.OData;
 using AutoMapper;
 using WWI.Core6.Models.DbContext;
-using WWI.Core6.Services.ServiceCollection;
 
 namespace WWI.Core6.API.Controllers.Base
 {

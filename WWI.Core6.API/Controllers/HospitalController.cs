@@ -12,12 +12,6 @@
 // <summary></summary>
 // ***********************************************************************
 
-using Microsoft.AspNetCore.Http;
-using WWI.Core6.API.Controllers.Base;
-using WWI.Core6.Models.ViewModels;
-using WWI.Core6.Services.MediatR.Queries;
-using WWI.Core6.Services.ServiceCollection;
-
 namespace WWI.Core6.API.Controllers
 {
 
@@ -40,23 +34,7 @@ namespace WWI.Core6.API.Controllers
         {
             Mediator = Guard.Against.Null(mediator, nameof(mediator));
         }
-
-        /// <summary>
-        /// Gets the hospitals.
-        /// </summary>
-        /// <returns>IActionResult.</returns>
-        [HttpGet("dropdown")]
-        [ProducesResponseType(typeof(List<Dropdown>), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> GetHospitals(CancellationToken cancellationToken)
-        {
-            var query = new GetAllHospitalsQuery();
-            var hospitals = await Mediator.Send(query, cancellationToken);
-            
-            return Ok(hospitals);
-        }
-
-
+        
         /// <summary>
         /// Gets the hospital by identifier.
         /// </summary>

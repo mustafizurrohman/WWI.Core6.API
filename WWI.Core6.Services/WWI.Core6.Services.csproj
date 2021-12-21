@@ -20,4 +20,8 @@
 		<ProjectReference Include="..\WWI.Core6.Models\WWI.Core6.Models.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="MediatR\Queries\Dropdown\" />
+	</ItemGroup>
+
 </Project>

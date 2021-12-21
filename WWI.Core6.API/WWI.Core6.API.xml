@@ -28,46 +28,130 @@
             </summary>
             <param name="applicationServices">The collection of frequently used application services.</param>
         </member>
-        <member name="T:WWI.Core6.API.Controllers.BogusController">
+        <member name="T:WWI.Core6.API.Controllers.Demos.BogusController">
             <summary>
             Class BogusController.
             Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
             </summary>
             <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
         </member>
-        <member name="M:WWI.Core6.API.Controllers.BogusController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,WWI.Core6.Services.Interfaces.IFakeDataGeneratorService)">
+        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,WWI.Core6.Services.Interfaces.IFakeDataGeneratorService)">
             <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.BogusController"/> class.
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.Demos.BogusController"/> class.
             </summary>
             <param name="applicationServices">The application services.</param>
             <param name="fakeDataGeneratorService">The fake data generator service.</param>
         </member>
-        <member name="M:WWI.Core6.API.Controllers.BogusController.GenerateFakeDoctors(System.Int32)">
+        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeDoctors(System.Int32)">
             <summary>
             Generates the fake doctors.
             </summary>
             <param name="num">The number.</param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core6.API.Controllers.BogusController.GenerateFakeHospitals(System.Int32)">
+        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeHospitals(System.Int32)">
             <summary>
             Generates the fake hospitals.
             </summary>
             <param name="num">The number.</param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core6.API.Controllers.BogusController.GenerateFakeAddress(System.Int32)">
+        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeAddress(System.Int32)">
             <summary>
             Generates the fake addresses.
             </summary>
             <param name="num">The number.</param>
             <returns>IActionResult.</returns>
         </member>
-        <member name="M:WWI.Core6.API.Controllers.BogusController.GenerateFakeSpecialities(System.Int32)">
+        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeSpecialities(System.Int32)">
             <summary>
             Generates the fake specialities.
             </summary>
             <param name="num">The number.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.Controllers.Demos.SpecialityController">
+            <summary>
+            Class SpecialityController.
+            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+            </summary>
+            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.SpecialityController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.Demos.SpecialityController" /> class.
+            </summary>
+            <param name="applicationServices">Application Services</param>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.SpecialityController.GetSpecialities(System.Threading.CancellationToken)">
+            <summary>
+            Gets the specialities.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.SpecialityController.GetSpecialityByID(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the speciality by identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.SpecialityController.GetDoctorsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the doctors for speciality by identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.SpecialityController.GetHospitalsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the hospitals with speciality by a speciality identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.Controllers.Demos.TestController">
+            <summary>
+            Class TestController.
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.TestController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,WWI.Core6.Services.Interfaces.IHTMLFormatterService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.Demos.TestController"/> class.
+            </summary>
+            <param name="applicationServices">The database context.</param>
+            <param name="htmlFormatterService"></param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.TestController.TesteEnumerableIsEmpty">
+            <summary>
+            Test123s this instance.
+            </summary>
+            <returns>IActionResult.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.TestController.GetHtml">
+            <summary>
+            Gets the HTML.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.TestController.TestGuardClauses(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Tests the guard clauses.
+            </summary>
+            <param name="positiveNunmber">The positive nunmber.</param>
+            <param name="negativeNumber">The negative number.</param>
+            <param name="notZero">The not zero.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.TestController.TestHumanizer(System.Int32)">
+            <summary>
+            Tests the humanizer.
+            </summary>
             <returns>IActionResult.</returns>
         </member>
         <member name="T:WWI.Core6.API.Controllers.DoctorController">
@@ -114,6 +198,35 @@
             <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>
+        <member name="T:WWI.Core6.API.Controllers.DropdownController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.API.Controllers.DropdownController.Mediator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.DropdownController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
+            <summary>
+            
+            </summary>
+            <param name="applicationServices"></param>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.DropdownController.GetAllDoctorsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the hospitals.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.DropdownController.GetAllHospitalsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets the hospitals.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
         <member name="T:WWI.Core6.API.Controllers.HospitalController">
             <summary>
             Class HospitalController.
@@ -127,12 +240,6 @@
             </summary>
             <param name="applicationServices">Application Services</param>
             <param name="mediator"></param>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.HospitalController.GetHospitals(System.Threading.CancellationToken)">
-            <summary>
-            Gets the hospitals.
-            </summary>
-            <returns>IActionResult.</returns>
         </member>
         <member name="M:WWI.Core6.API.Controllers.HospitalController.GetHospitalById(System.Int32,System.Threading.CancellationToken)">
             <summary>
@@ -234,90 +341,6 @@
             
             </summary>
             <returns></returns>
-        </member>
-        <member name="T:WWI.Core6.API.Controllers.SpecialityController">
-            <summary>
-            Class SpecialityController.
-            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
-            </summary>
-            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.SpecialityController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.SpecialityController" /> class.
-            </summary>
-            <param name="applicationServices">Application Services</param>
-            <param name="mediator"></param>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetSpecialities(System.Threading.CancellationToken)">
-            <summary>
-            Gets the specialities.
-            </summary>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetSpecialityByID(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the speciality by identifier.
-            </summary>
-            <param name="specialityID">The speciality identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetDoctorsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the doctors for speciality by identifier.
-            </summary>
-            <param name="specialityID">The speciality identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetHospitalsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the hospitals with speciality by a speciality identifier.
-            </summary>
-            <param name="specialityID">The speciality identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="T:WWI.Core6.API.Controllers.TestController">
-            <summary>
-            Class TestController.
-            </summary>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.TestController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,WWI.Core6.Services.Interfaces.IHTMLFormatterService)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.TestController"/> class.
-            </summary>
-            <param name="applicationServices">The database context.</param>
-            <param name="htmlFormatterService"></param>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.TestController.TesteEnumerableIsEmpty">
-            <summary>
-            Test123s this instance.
-            </summary>
-            <returns>IActionResult.</returns>
-            <exception cref="T:System.NotImplementedException"></exception>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.TestController.GetHtml">
-            <summary>
-            Gets the HTML.
-            </summary>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.TestController.TestGuardClauses(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Tests the guard clauses.
-            </summary>
-            <param name="positiveNunmber">The positive nunmber.</param>
-            <param name="negativeNumber">The negative number.</param>
-            <param name="notZero">The not zero.</param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.TestController.TestHumanizer(System.Int32)">
-            <summary>
-            Tests the humanizer.
-            </summary>
-            <returns>IActionResult.</returns>
         </member>
         <member name="T:WWI.Core6.API.ExtensionMethods.ApplicationBuilderExtensions">
             <summary>

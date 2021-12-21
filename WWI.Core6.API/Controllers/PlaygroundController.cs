@@ -1,6 +1,4 @@
-﻿using WWI.Core6.API.Controllers.Base;
-using WWI.Core6.Services.Interfaces;
-using WWI.Core6.Services.ServiceCollection;
+﻿using WWI.Core6.Services.Interfaces;
 
 namespace WWI.Core6.API.Controllers
 {

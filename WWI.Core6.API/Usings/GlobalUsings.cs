@@ -8,3 +8,9 @@ global using Bogus;
 global using MediatR;
 global using Ardalis.GuardClauses;
 global using Microsoft.AspNetCore.Mvc;
+
+global using Microsoft.AspNetCore.Http;
+global using WWI.Core6.API.Controllers.Base;
+global using WWI.Core6.Models.ViewModels;
+global using WWI.Core6.Services.MediatR.Queries;
+global using WWI.Core6.Services.ServiceCollection;

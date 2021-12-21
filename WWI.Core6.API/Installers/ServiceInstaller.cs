@@ -8,7 +8,6 @@ using WWI.Core6.Services.Interfaces;
 using WWI.Core6.Services.MediatR.Decorators;
 using WWI.Core6.Services.MediatR.Handlers;
 using WWI.Core6.Services.MediatR.PipelineBehaviours;
-using WWI.Core6.Services.ServiceCollection;
 using WWI.Core6.Services.Services;
 using WWI.Core6.Services.Services.Shared;
 
