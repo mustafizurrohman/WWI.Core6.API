@@ -1,23 +1,20 @@
-﻿using WWI.Core6.Models.ViewModels;
-using WWI.Core6.Services.Interfaces;
-using WWI.Core6.Services.MediatR.Queries;
-using WWI.Core6.Services.ServiceCollection;
+﻿using WWI.Core6.Services.Interfaces;
 
 namespace WWI.Core6.Services.MediatR.Handlers
 {
     public class GetAdvancedHospitalInformationQueryHandler : HandlerBase, IRequestHandler<GetAdvancedHospitalInformationQuery, AdvancedHospitalInformation>
     {
-        private readonly IDataService DataService;
+        private readonly IDataService _dataService;
 
         public GetAdvancedHospitalInformationQueryHandler(IApplicationServices applicationServices, IDataService dataService)
             : base(applicationServices)
         {
-            DataService = Guard.Against.Null(dataService, nameof(dataService));
+            _dataService = Guard.Against.Null(dataService, nameof(dataService));
         }
 
         public async Task<AdvancedHospitalInformation> Handle(GetAdvancedHospitalInformationQuery request, CancellationToken cancellationToken)
         {
-            return await DataService.GetAdvancedHospitalInformationAsync(request.HospitalID, cancellationToken);
+            return await _dataService.GetAdvancedHospitalInformationAsync(request.HospitalID, cancellationToken);
         }
     }
 }

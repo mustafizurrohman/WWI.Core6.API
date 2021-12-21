@@ -14,9 +14,7 @@
 
 using JetBrains.Annotations;
 using Microsoft.Extensions.Caching.Memory;
-using WWI.Core6.Models.ViewModels;
 using WWI.Core6.Services.Interfaces;
-using WWI.Core6.Services.ServiceCollection;
 using WWI.Core6.Services.Services.Base;
 
 // ReSharper disable InvertIf

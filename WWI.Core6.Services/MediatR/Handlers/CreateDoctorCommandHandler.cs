@@ -1,9 +1,6 @@
-﻿using AutoMapper.QueryableExtensions;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using WWI.Core6.Models.Models;
-using WWI.Core6.Models.ViewModels;
 using WWI.Core6.Services.MediatR.Commands;
-using WWI.Core6.Services.ServiceCollection;
 
 namespace WWI.Core6.Services.MediatR.Handlers
 {

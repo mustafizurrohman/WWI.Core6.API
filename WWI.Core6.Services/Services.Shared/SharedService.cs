@@ -12,10 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-using AutoMapper.QueryableExtensions;
-using WWI.Core6.Models.ViewModels;
 using WWI.Core6.Services.Interfaces;
-using WWI.Core6.Services.ServiceCollection;
 using WWI.Core6.Services.Services.Base;
 
 namespace WWI.Core6.Services.Services.Shared

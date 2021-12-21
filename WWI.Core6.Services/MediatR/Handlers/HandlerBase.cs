@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using WWI.Core6.Models.DbContext;
-using WWI.Core6.Services.ServiceCollection;
 
 namespace WWI.Core6.Services.MediatR.Handlers
 {

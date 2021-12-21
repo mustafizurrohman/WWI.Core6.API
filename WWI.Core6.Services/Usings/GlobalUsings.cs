@@ -7,3 +7,9 @@ global using System.Collections.Generic;
 global using MediatR;
 global using FluentValidation;
 global using Ardalis.GuardClauses;
+
+global using WWI.Core6.Models.ViewModels;
+global using WWI.Core6.Services.MediatR.Queries;
+global using WWI.Core6.Services.ServiceCollection;
+
+global using AutoMapper.QueryableExtensions;
