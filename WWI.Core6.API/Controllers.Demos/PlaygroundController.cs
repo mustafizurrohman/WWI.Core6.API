@@ -1,6 +1,6 @@
 ﻿using WWI.Core6.Services.Interfaces;
 
-namespace WWI.Core6.API.Controllers
+namespace WWI.Core6.API.Controllers.Demos
 {
     /// <summary>
     /// 

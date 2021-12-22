@@ -28,47 +28,57 @@
             </summary>
             <param name="applicationServices">The collection of frequently used application services.</param>
         </member>
-        <member name="T:WWI.Core6.API.Controllers.Demos.BogusController">
+        <member name="T:WWI.Core6.API.Controllers.PlaygroundController">
             <summary>
-            Class BogusController.
-            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+            
             </summary>
-            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
         </member>
-        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,WWI.Core6.Services.Interfaces.IFakeDataGeneratorService)">
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.#ctor(WWI.Core6.Services.Interfaces.IFakeDataGeneratorService,WWI.Core6.Services.ServiceCollection.IApplicationServices)">
             <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.Demos.BogusController"/> class.
+            
             </summary>
-            <param name="applicationServices">The application services.</param>
-            <param name="fakeDataGeneratorService">The fake data generator service.</param>
+            <param name="fakeDataGeneratorService"></param>
+            <param name="applicationServices"></param>
         </member>
-        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeDoctors(System.Int32)">
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.GetNames(System.Int32)">
             <summary>
-            Generates the fake doctors.
+            
             </summary>
-            <param name="num">The number.</param>
-            <returns>IActionResult.</returns>
+            <param name="num"></param>
+            <returns></returns>
         </member>
-        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeHospitals(System.Int32)">
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.TestMaxBy(System.Int32)">
             <summary>
-            Generates the fake hospitals.
+            
             </summary>
-            <param name="num">The number.</param>
-            <returns>IActionResult.</returns>
+            <param name="num"></param>
+            <returns></returns>
         </member>
-        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeAddress(System.Int32)">
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.LinqChunkTest(System.Int32)">
             <summary>
-            Generates the fake addresses.
+            
             </summary>
-            <param name="num">The number.</param>
-            <returns>IActionResult.</returns>
+            <param name="num"></param>
+            <returns></returns>
         </member>
-        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeSpecialities(System.Int32)">
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.OverLoadTest(System.Int32)">
             <summary>
-            Generates the fake specialities.
+            
             </summary>
-            <param name="num">The number.</param>
-            <returns>IActionResult.</returns>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.ConstantInterpolatedStrings">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.LambdaImprovements">
+            <summary>
+            
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:WWI.Core6.API.Controllers.Demos.SpecialityController">
             <summary>
@@ -152,6 +162,48 @@
             <summary>
             Tests the humanizer.
             </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.Controllers.Demos.BogusController">
+            <summary>
+            Class BogusController.
+            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+            </summary>
+            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,WWI.Core6.Services.Interfaces.IFakeDataGeneratorService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.Demos.BogusController"/> class.
+            </summary>
+            <param name="applicationServices">The application services.</param>
+            <param name="fakeDataGeneratorService">The fake data generator service.</param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeDoctors(System.Int32)">
+            <summary>
+            Generates the fake doctors.
+            </summary>
+            <param name="num">The number.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeHospitals(System.Int32)">
+            <summary>
+            Generates the fake hospitals.
+            </summary>
+            <param name="num">The number.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeAddress(System.Int32)">
+            <summary>
+            Generates the fake addresses.
+            </summary>
+            <param name="num">The number.</param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Demos.BogusController.GenerateFakeSpecialities(System.Int32)">
+            <summary>
+            Generates the fake specialities.
+            </summary>
+            <param name="num">The number.</param>
             <returns>IActionResult.</returns>
         </member>
         <member name="T:WWI.Core6.API.Controllers.DoctorController">
@@ -289,58 +341,6 @@
             <param name="hospitalID">The hospital identifier.</param>
             <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
-        </member>
-        <member name="T:WWI.Core6.API.Controllers.PlaygroundController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.#ctor(WWI.Core6.Services.Interfaces.IFakeDataGeneratorService,WWI.Core6.Services.ServiceCollection.IApplicationServices)">
-            <summary>
-            
-            </summary>
-            <param name="fakeDataGeneratorService"></param>
-            <param name="applicationServices"></param>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.GetNames(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="num"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.TestMaxBy(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="num"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.LinqChunkTest(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="num"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.OverLoadTest(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="num"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.ConstantInterpolatedStrings">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.PlaygroundController.LambdaImprovements">
-            <summary>
-            
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:WWI.Core6.API.ExtensionMethods.ApplicationBuilderExtensions">
             <summary>

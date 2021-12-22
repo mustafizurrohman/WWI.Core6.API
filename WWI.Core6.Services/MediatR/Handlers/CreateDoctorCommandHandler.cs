@@ -14,7 +14,7 @@ namespace WWI.Core6.Services.MediatR.Handlers
 
         public async Task<DoctorInfo> Handle(CreateDoctorCommand request, CancellationToken cancellationToken)
         {
-            var doctor = new Doctor()
+            var doctor = new Doctor
             {
                 DoctorID =  0,
                 Firstname = request.Firstname,

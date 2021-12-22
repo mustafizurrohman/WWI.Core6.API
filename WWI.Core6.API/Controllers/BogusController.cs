@@ -1,7 +1,7 @@
 ﻿using WWI.Core6.Models.Models;
 using WWI.Core6.Services.Interfaces;
 
-namespace WWI.Core6.API.Controllers.Demos
+namespace WWI.Core6.API.Controllers
 {
 
     /// <summary>

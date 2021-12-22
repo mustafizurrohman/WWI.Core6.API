@@ -40,7 +40,7 @@
                 s += GuidStringGenerator.CreateAnonymous();
                         
             if (s.Length > this._maximumLength)
-                s = s.Substring(0, this._maximumLength);
+                s = s[..this._maximumLength];
             
             return s;
         }
