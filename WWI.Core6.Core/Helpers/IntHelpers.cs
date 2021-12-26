@@ -30,7 +30,7 @@ namespace WWI.Core6.Core.Helpers
         /// <returns>System.Int32.</returns>
         public static int GetRandomNumber(int min, int max)
         {
-            RNGCryptoServiceProvider randomProvider = new RNGCryptoServiceProvider();
+            RNGCryptoServiceProvider randomProvider = new();
 
             uint scale = uint.MaxValue;
             while (scale == uint.MaxValue)

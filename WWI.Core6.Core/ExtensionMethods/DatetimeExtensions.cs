@@ -196,7 +196,9 @@ namespace WWI.Core6.Core.ExtensionMethods
         {
             var now = DateTime.Now;
 
-            return InBetween(dateTime, now.StartOfDay(), now.EndOfDay(), true);
+            return dateTime.Year == now.Year
+                   && dateTime.Month == now.Year
+                   && dateTime.Day == now.Day;
         }
 
         /// <summary>
@@ -208,7 +210,8 @@ namespace WWI.Core6.Core.ExtensionMethods
         {
             var now = DateTime.Now;
 
-            return InBetween(dateTime, now.StartOfMonth(), now.EndOfMonth(), true);
+            return dateTime.Year == now.Year 
+                   && dateTime.Month == now.Year;
         }
 
         /// <summary>
@@ -218,9 +221,7 @@ namespace WWI.Core6.Core.ExtensionMethods
         /// <returns><c>true</c> if [is current year] [the specified date time]; otherwise, <c>false</c>.</returns>
         public static bool IsCurrentYear(this DateTime dateTime)
         {
-            var now = DateTime.Now;
-
-            return InBetween(dateTime, now.StartOfYear(), now.EndOfYear(), true);
+            return dateTime.Year == DateTime.Now.Year;
         }
 
         /// <summary>

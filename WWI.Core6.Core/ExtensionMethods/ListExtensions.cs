@@ -101,7 +101,8 @@ namespace WWI.Core6.Core.ExtensionMethods
                     // This is the row+col intersection (the value)
                     string whatToWrite = Convert.ToString(item.GetType()
                         .GetProperty(pi.Name)
-                        ?.GetValue(item, null)).Replace(',', ' ') + ';';
+                        ?.GetValue(item, null))
+                        ?.Replace(',', ' ') + ';';
 
                     stringToWrite += whatToWrite;
                 }
@@ -144,9 +145,7 @@ namespace WWI.Core6.Core.ExtensionMethods
         /// <param name="secondIndex">Second index</param>
         private static void Swap<T>(this IList<T> source, int firstIndex, int secondIndex)
         {
-            var temp = source[firstIndex];
-            source[firstIndex] = source[secondIndex];
-            source[secondIndex] = temp;
+            (source[firstIndex], source[secondIndex]) = (source[secondIndex], source[firstIndex]);
         }
 
         #endregion
