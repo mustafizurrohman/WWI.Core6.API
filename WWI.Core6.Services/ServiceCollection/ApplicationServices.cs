@@ -39,11 +39,10 @@ namespace WWI.Core6.Services.ServiceCollection
         /// </summary>
         /// <param name="dbContext">The database context.</param>
         /// <param name="mapper">The mapper.</param>
-        public ApplicationServices(DocAppointmentContext dbContext,
-            IMapper mapper)
+        public ApplicationServices(DocAppointmentContext dbContext, IMapper mapper)
         {
-            this.DbContext = dbContext;
-            this.AutoMapper = mapper;
+            DbContext = Guard.Against.Null(dbContext, nameof(dbContext));
+            AutoMapper = Guard.Against.Null(mapper, nameof(mapper));
         }
     }
 }

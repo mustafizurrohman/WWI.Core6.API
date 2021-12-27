@@ -40,7 +40,7 @@ public abstract class BaseAPIController : ControllerBase
     /// <summary>
     /// AutoMapper
     /// </summary>
-    /// <value>The automatic mapper.</value>
+    /// <value>AutoMapper</value>
     // ReSharper disable once MemberCanBePrivate.Global
     protected IMapper AutoMapper { get; }
 

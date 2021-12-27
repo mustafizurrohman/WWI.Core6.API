@@ -27,13 +27,7 @@ public class DropdownController : BaseAPIController
     [HttpGet("doctors")]
     public async Task<IActionResult> GetAllDoctorsAsync(CancellationToken cancellationToken)
     {
-        var doctors = await DbContext
-            .Doctors
-            .OrderBy(doc => doc.Lastname)
-            .ThenBy(doc => doc.Firstname)
-            .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
-            .ToListAsync(cancellationToken);
-            
+        var doctors = await Mediator.Send(new GetAllDoctorsQuery(), cancellationToken); 
         return Ok(doctors);
     }
 
@@ -44,10 +38,24 @@ public class DropdownController : BaseAPIController
     [HttpGet("hospitals")]
     public async Task<IActionResult> GetAllHospitalsAsync(CancellationToken cancellationToken)
     {
-        var query = new GetAllHospitalsQuery();
-        var hospitals = await Mediator.Send(query, cancellationToken);
-            
+        var hospitals = await Mediator.Send(new GetAllHospitalsQuery(), cancellationToken);
         return Ok(hospitals);
+    }
+
+    /// <summary>
+    /// Gets the specialities
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    [HttpGet("specialities")]
+    public async Task<IActionResult> GetAllSpecialities(CancellationToken cancellationToken)
+    {
+        var specialities = await DbContext
+            .Specialities
+            .ProjectTo<Dropdown>(AutoMapper.ConfigurationProvider)
+            .ToListAsync(cancellationToken);
+
+        return Ok(specialities);
     }
 
 }

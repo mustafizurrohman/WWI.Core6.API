@@ -20,7 +20,7 @@
             <summary>
             AutoMapper
             </summary>
-            <value>The automatic mapper.</value>
+            <value>AutoMapper</value>
         </member>
         <member name="P:WWI.Core6.API.Controllers.Base.BaseAPIController.Mediator">
             <summary>
@@ -285,6 +285,13 @@
             Gets the hospitals.
             </summary>
             <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.DropdownController.GetAllSpecialities(System.Threading.CancellationToken)">
+            <summary>
+            Gets the specialities
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
         </member>
         <member name="T:WWI.Core6.API.Controllers.HospitalController">
             <summary>
