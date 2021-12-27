@@ -15,43 +15,40 @@
 using WWI.Core6.Services.Interfaces;
 using WWI.Core6.Services.Services.Base;
 
-namespace WWI.Core6.Services.Services.Shared
+namespace WWI.Core6.Services.Services.Shared;
+
+/// <summary>
+/// Class SharedService.
+/// Implements the <see cref="ISharedService" />
+/// </summary>
+/// <seealso cref="ISharedService" />
+public class SharedService : BaseService, ISharedService
 {
 
     /// <summary>
-    /// Class SharedService.
-    /// Implements the <see cref="ISharedService" />
+    /// 
     /// </summary>
-    /// <seealso cref="ISharedService" />
-    public class SharedService : BaseService, ISharedService
+    /// <param name="applicationServices"></param>
+    public SharedService(IApplicationServices applicationServices) : base(applicationServices)
     {
+    }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="applicationServices"></param>
-        public SharedService(IApplicationServices applicationServices) : base(applicationServices)
-        {
-        }
+    /// <summary>
+    /// Gets the hospital information.
+    /// </summary>
+    /// <returns>IQueryable&lt;HospitalInformation&gt;.</returns>
+    public IQueryable<HospitalInformation> GetHospitalInformation()
+    {
+        return DbContext.Hospitals
+            .ProjectTo<HospitalInformation>(AutoMapper.ConfigurationProvider)
+            .AsQueryable();
+    }
 
-        /// <summary>
-        /// Gets the hospital information.
-        /// </summary>
-        /// <returns>IQueryable&lt;HospitalInformation&gt;.</returns>
-        public IQueryable<HospitalInformation> GetHospitalInformation()
-        {
-            return DbContext.Hospitals
-                .ProjectTo<HospitalInformation>(AutoMapper.ConfigurationProvider)
-                .AsQueryable();
-        }
-
-        public IQueryable<AdvancedHospitalInformation> GetAdvancedHospitalInformation()
-        {
-            return DbContext.Hospitals
-                .ProjectTo<AdvancedHospitalInformation>(AutoMapper.ConfigurationProvider)
-                .AsQueryable();
-        }
-
+    public IQueryable<AdvancedHospitalInformation> GetAdvancedHospitalInformation()
+    {
+        return DbContext.Hospitals
+            .ProjectTo<AdvancedHospitalInformation>(AutoMapper.ConfigurationProvider)
+            .AsQueryable();
     }
 
 }

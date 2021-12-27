@@ -15,27 +15,24 @@
 using AutoMapper;
 using WWI.Core6.Models.DbContext;
 
-namespace WWI.Core6.Services.ServiceCollection
+namespace WWI.Core6.Services.ServiceCollection;
+
+/// <summary>
+/// Interface IApplicationServices
+/// </summary>
+public interface IApplicationServices
 {
 
     /// <summary>
-    /// Interface IApplicationServices
+    /// The database context
     /// </summary>
-    public interface IApplicationServices
-    {
+    /// <value>The database context.</value>
+    DocAppointmentContext DbContext { get; }
 
-        /// <summary>
-        /// The database context
-        /// </summary>
-        /// <value>The database context.</value>
-        DocAppointmentContext DbContext { get; }
-
-        /// <summary>
-        /// AutoMapper
-        /// </summary>
-        /// <value>The automatic mapper.</value>
-        IMapper AutoMapper { get; }
-
-    }
+    /// <summary>
+    /// AutoMapper
+    /// </summary>
+    /// <value>The automatic mapper.</value>
+    IMapper AutoMapper { get; }
 
 }

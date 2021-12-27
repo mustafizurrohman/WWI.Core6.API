@@ -1,12 +1,11 @@
-﻿namespace WWI.Core6.Services.MediatR.Queries
-{
-    public class GetHospitalInformationQuery : IRequest<HospitalInformation>
-    {
-        public int HospitalID { get; }
+﻿namespace WWI.Core6.Services.MediatR.Queries;
 
-        public GetHospitalInformationQuery(int hospitalID)
-        {
-            HospitalID = hospitalID;
-        }
+public class GetHospitalInformationQuery : IRequest<HospitalInformation>
+{
+    public int HospitalID { get; }
+
+    public GetHospitalInformationQuery(int hospitalID)
+    {
+        HospitalID = hospitalID;
     }
 }

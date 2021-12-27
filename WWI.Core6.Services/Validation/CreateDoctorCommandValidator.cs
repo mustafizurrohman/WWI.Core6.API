@@ -3,46 +3,45 @@ using WWI.Core6.Models.DbContext;
 using WWI.Core6.Services.MediatR.Commands;
 using WWI.Core6.Services.Validation.Custom;
 
-namespace WWI.Core6.Services.Validation
+namespace WWI.Core6.Services.Validation;
+
+public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorCommand>
 {
-    public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorCommand>
+    private DocAppointmentContext DbContext { get; }
+
+    // Dependency Injection also for Input Validation!
+    public CreateDoctorCommandValidator(DocAppointmentContext docAppointmentContext)
     {
-        private DocAppointmentContext DbContext { get; }
+        DbContext = docAppointmentContext;
+        SetValidationRules();
+    }
 
-        // Dependency Injection also for Input Validation!
-        public CreateDoctorCommandValidator(DocAppointmentContext docAppointmentContext)
-        {
-            DbContext = docAppointmentContext;
-            SetValidationRules();
-        }
+    private void SetValidationRules()
+    {
+        RuleFor(prop => prop.Firstname)
+            .MustBeValidName();
 
-        private void SetValidationRules()
-        {
-            RuleFor(prop => prop.Firstname)
-                .MustBeValidName();
+        RuleFor(prop => prop.Middlename)
+            .MaximumLength(30)
+            .NotStartWithWhiteSpace()
+            .NotEndWithWhiteSpace()
+            .NotContainNumbersOrSpecialCharacters();
 
-            RuleFor(prop => prop.Middlename)
-                .MaximumLength(30)
-                .NotStartWithWhiteSpace()
-                .NotEndWithWhiteSpace()
-                .NotContainNumbersOrSpecialCharacters();
+        RuleFor(prop => prop.Lastname)
+            .MustBeValidName();
 
-            RuleFor(prop => prop.Lastname)
-                .MustBeValidName();
-
-            RuleFor(prop => prop.SpecialityID)
-                .NotEmpty()
-                .NotNull()
-                .MustAsync(BeValidSpecialityID);
-
-        }
-        
-        private Task<bool> BeValidSpecialityID(int specialityID, CancellationToken cancellationToken)
-        {
-            return DbContext.Specialities.AnyAsync(s => s.SpecialtyID == specialityID, cancellationToken);
-        }
-        
-
+        RuleFor(prop => prop.SpecialityID)
+            .NotEmpty()
+            .NotNull()
+            .MustAsync(BeValidSpecialityID);
 
     }
+        
+    private Task<bool> BeValidSpecialityID(int specialityID, CancellationToken cancellationToken)
+    {
+        return DbContext.Specialities.AnyAsync(s => s.SpecialtyID == specialityID, cancellationToken);
+    }
+        
+
+
 }

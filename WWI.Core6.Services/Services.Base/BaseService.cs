@@ -15,35 +15,34 @@
 using AutoMapper;
 using WWI.Core6.Models.DbContext;
 
-namespace WWI.Core6.Services.Services.Base
+namespace WWI.Core6.Services.Services.Base;
+
+/// <summary>
+/// Class BaseService.
+/// </summary>
+public abstract class BaseService
 {
     /// <summary>
-    /// Class BaseService.
+    /// The database context
     /// </summary>
-    public abstract class BaseService
+    protected DocAppointmentContext DbContext { get; }
+
+    /// <summary>
+    /// AutoMapper
+    /// </summary>
+    /// <value>The automatic mapper.</value>
+    protected IMapper AutoMapper { get; }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BaseService" /> class.
+    /// </summary>
+    /// <param name="applicationServices">The application services.</param>
+    protected BaseService(IApplicationServices applicationServices)
     {
-        /// <summary>
-        /// The database context
-        /// </summary>
-        protected DocAppointmentContext DbContext { get; }
-
-        /// <summary>
-        /// AutoMapper
-        /// </summary>
-        /// <value>The automatic mapper.</value>
-        protected IMapper AutoMapper { get; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseService" /> class.
-        /// </summary>
-        /// <param name="applicationServices">The application services.</param>
-        protected BaseService(IApplicationServices applicationServices)
-        {
-            DbContext = Guard.Against.Null(applicationServices.DbContext, nameof(applicationServices.DbContext));
-            AutoMapper = Guard.Against.Null(applicationServices.AutoMapper, nameof(applicationServices.AutoMapper));
-        }
-
-
-
+        DbContext = Guard.Against.Null(applicationServices.DbContext, nameof(applicationServices.DbContext));
+        AutoMapper = Guard.Against.Null(applicationServices.AutoMapper, nameof(applicationServices.AutoMapper));
     }
+
+
+
 }

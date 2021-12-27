@@ -15,34 +15,33 @@
 using AutoMapper;
 using WWI.Core6.Models.DbContext;
 
-namespace WWI.Core6.Services.ServiceCollection
+namespace WWI.Core6.Services.ServiceCollection;
+
+/// <summary>
+/// Class ApplicationServices.
+/// </summary>
+public class ApplicationServices : IApplicationServices
 {
     /// <summary>
-    /// Class ApplicationServices.
+    /// The database context
     /// </summary>
-    public class ApplicationServices : IApplicationServices
+    /// <value>The database context.</value>
+    public DocAppointmentContext DbContext { get; }
+
+    /// <summary>
+    /// AutoMapper
+    /// </summary>
+    /// <value>The automatic mapper.</value>
+    public IMapper AutoMapper { get; }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ApplicationServices"/> class.
+    /// </summary>
+    /// <param name="dbContext">The database context.</param>
+    /// <param name="mapper">The mapper.</param>
+    public ApplicationServices(DocAppointmentContext dbContext, IMapper mapper)
     {
-        /// <summary>
-        /// The database context
-        /// </summary>
-        /// <value>The database context.</value>
-        public DocAppointmentContext DbContext { get; }
-
-        /// <summary>
-        /// AutoMapper
-        /// </summary>
-        /// <value>The automatic mapper.</value>
-        public IMapper AutoMapper { get; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationServices"/> class.
-        /// </summary>
-        /// <param name="dbContext">The database context.</param>
-        /// <param name="mapper">The mapper.</param>
-        public ApplicationServices(DocAppointmentContext dbContext, IMapper mapper)
-        {
-            DbContext = Guard.Against.Null(dbContext, nameof(dbContext));
-            AutoMapper = Guard.Against.Null(mapper, nameof(mapper));
-        }
+        DbContext = Guard.Against.Null(dbContext, nameof(dbContext));
+        AutoMapper = Guard.Against.Null(mapper, nameof(mapper));
     }
 }

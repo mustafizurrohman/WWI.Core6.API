@@ -13,6 +13,7 @@
 // ***********************************************************************
 
 using System.IO;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
@@ -56,7 +57,7 @@ public static class SwaggerExtensions
                 Type = SecuritySchemeType.Http
             });
 
-            var xmlFile = "WWI.Core6.API.xml";
+            var xmlFile = Assembly.GetEntryAssembly()?.GetName().Name + ".xml";
             var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             c.IncludeXmlComments(xmlPath);
         });

@@ -1,13 +1,12 @@
-﻿namespace WWI.Core6.Services.MediatR.Queries
+﻿namespace WWI.Core6.Services.MediatR.Queries;
+
+public class GetDoctorByHospitalQuery : IRequest<List<Dropdown>>
 {
-    public class GetDoctorByHospitalQuery : IRequest<List<Dropdown>>
+    public int HospitalID { get;  }
+
+    public GetDoctorByHospitalQuery(int hospitalID)
     {
-        public int HospitalID { get;  }
-
-        public GetDoctorByHospitalQuery(int hospitalID)
-        {
-            HospitalID = hospitalID;
-        }
-
+        HospitalID = hospitalID;
     }
+
 }
