@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 
 namespace WWI.Core6.Models.AppSettings
 {

@@ -12,30 +12,28 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace WWI.Core6.Models.ViewModels
+namespace WWI.Core6.Models.ViewModels;
+
+/// <summary>
+/// Class HospitalInformation.
+/// </summary>
+public class HospitalInformation
 {
+    /// <summary>
+    /// Gets or sets the hospital identifier.
+    /// </summary>
+    /// <value>The hospital identifier.</value>
+    public int HospitalID { get; set; }
 
     /// <summary>
-    /// Class HospitalInformation.
+    /// Gets or sets the name of the hospital.
     /// </summary>
-    public class HospitalInformation
-    {
-        /// <summary>
-        /// Gets or sets the hospital identifier.
-        /// </summary>
-        /// <value>The hospital identifier.</value>
-        public int HospitalID { get; set; }
+    /// <value>The name of the hospital.</value>
+    public string HospitalName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the hospital.
-        /// </summary>
-        /// <value>The name of the hospital.</value>
-        public string HospitalName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the specialities.
-        /// </summary>
-        /// <value>The specialities.</value>
-        public IEnumerable<string> Specialities { get; set; }
-    }
+    /// <summary>
+    /// Gets or sets the specialities.
+    /// </summary>
+    /// <value>The specialities.</value>
+    public IEnumerable<string> Specialities { get; set; }
 }

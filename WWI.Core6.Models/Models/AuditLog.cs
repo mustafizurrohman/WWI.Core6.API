@@ -12,49 +12,48 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace WWI.Core6.Models.Models
+namespace WWI.Core6.Models.Models;
+
+/// <summary>
+/// Class AuditLog.
+/// </summary>
+// ReSharper disable once PartialTypeWithSinglePart
+public sealed partial class AuditLog
 {
+
     /// <summary>
-    /// Class AuditLog.
+    /// Gets or sets the identifier.
     /// </summary>
-    // ReSharper disable once PartialTypeWithSinglePart
-    public sealed partial class AuditLog
-    {
+    /// <value>The identifier.</value>
+    public int ID { get; set; }
 
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>The identifier.</value>
-        public int ID { get; set; }
+    /// <summary>
+    /// Gets or sets the name of the table.
+    /// </summary>
+    /// <value>The name of the table.</value>
+    public string TableName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the table.
-        /// </summary>
-        /// <value>The name of the table.</value>
-        public string TableName { get; set; }
+    /// <summary>
+    /// Gets or sets the date time.
+    /// </summary>
+    /// <value>The date time.</value>
+    public DateTime DateTime { get; set; }
 
-        /// <summary>
-        /// Gets or sets the date time.
-        /// </summary>
-        /// <value>The date time.</value>
-        public DateTime DateTime { get; set; }
+    /// <summary>
+    /// Gets or sets the key values.
+    /// </summary>
+    /// <value>The key values.</value>
+    public string KeyValues { get; set; }
 
-        /// <summary>
-        /// Gets or sets the key values.
-        /// </summary>
-        /// <value>The key values.</value>
-        public string KeyValues { get; set; }
-
-        /// <summary>
-        /// Creates new values.
-        /// </summary>
-        /// <value>The new values.</value>
-        public string NewValues { get; set; }
+    /// <summary>
+    /// Creates new values.
+    /// </summary>
+    /// <value>The new values.</value>
+    public string NewValues { get; set; }
 
 
-        /// <summary>Gets or sets the old values.</summary>
-        /// <value>The old values.</value>
-        public string OldValues { get; set; }
+    /// <summary>Gets or sets the old values.</summary>
+    /// <value>The old values.</value>
+    public string OldValues { get; set; }
 
-    }
 }

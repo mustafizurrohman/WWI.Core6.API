@@ -14,39 +14,38 @@
 
 using WWI.Core6.Models.Models;
 
-namespace WWI.Core6.Services.Interfaces
+namespace WWI.Core6.Services.Interfaces;
+
+/// <summary>
+/// Interface IFakeDataGeneratorService
+/// </summary>
+public interface IFakeDataGeneratorService
 {
     /// <summary>
-    /// Interface IFakeDataGeneratorService
+    /// Generates the fake doctors.
     /// </summary>
-    public interface IFakeDataGeneratorService
-    {
-        /// <summary>
-        /// Generates the fake doctors.
-        /// </summary>
-        /// <param name="num">The number.</param>
-        /// <returns>IEnumerable&lt;Doctor&gt;.</returns>
-        IEnumerable<Doctor> GenerateFakeDoctors(int num);
+    /// <param name="num">The number.</param>
+    /// <returns>IEnumerable&lt;Doctor&gt;.</returns>
+    IEnumerable<Doctor> GenerateFakeDoctors(int num);
 
-        /// <summary>
-        /// Generates the fake address.
-        /// </summary>
-        /// <param name="num">The number.</param>
-        /// <returns>IEnumerable&lt;Address&gt;.</returns>
-        IEnumerable<Address> GenerateFakeAddress(int num);
+    /// <summary>
+    /// Generates the fake address.
+    /// </summary>
+    /// <param name="num">The number.</param>
+    /// <returns>IEnumerable&lt;Address&gt;.</returns>
+    IEnumerable<Address> GenerateFakeAddress(int num);
         
-        /// <summary>
-        /// Generates the fake hospitals.
-        /// </summary>
-        /// <param name="num">The number.</param>
-        /// <returns>IEnumerable&lt;Hospital&gt;.</returns>
-        IEnumerable<Hospital> GenerateFakeHospitals(int num);
+    /// <summary>
+    /// Generates the fake hospitals.
+    /// </summary>
+    /// <param name="num">The number.</param>
+    /// <returns>IEnumerable&lt;Hospital&gt;.</returns>
+    IEnumerable<Hospital> GenerateFakeHospitals(int num);
         
-        /// <summary>
-        /// Generates the fake specialities.
-        /// </summary>
-        /// <param name="num">The number.</param>
-        /// <returns>IEnumerable&lt;Speciality&gt;.</returns>
-        IEnumerable<Speciality> GenerateFakeSpecialities(int num);
-    }
+    /// <summary>
+    /// Generates the fake specialities.
+    /// </summary>
+    /// <param name="num">The number.</param>
+    /// <returns>IEnumerable&lt;Speciality&gt;.</returns>
+    IEnumerable<Speciality> GenerateFakeSpecialities(int num);
 }

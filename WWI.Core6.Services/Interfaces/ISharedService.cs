@@ -12,27 +12,24 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace WWI.Core6.Services.Interfaces
+namespace WWI.Core6.Services.Interfaces;
+
+/// <summary>
+/// Interface ISharedService
+/// </summary>
+public interface ISharedService
 {
 
     /// <summary>
-    /// Interface ISharedService
+    /// Gets the hospital information.
     /// </summary>
-    public interface ISharedService
-    {
+    /// <returns>IQueryable&lt;HospitalInformation&gt;.</returns>
+    IQueryable<HospitalInformation> GetHospitalInformation();
 
-        /// <summary>
-        /// Gets the hospital information.
-        /// </summary>
-        /// <returns>IQueryable&lt;HospitalInformation&gt;.</returns>
-        IQueryable<HospitalInformation> GetHospitalInformation();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        IQueryable<AdvancedHospitalInformation> GetAdvancedHospitalInformation();
-
-    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    IQueryable<AdvancedHospitalInformation> GetAdvancedHospitalInformation();
 
 }

@@ -14,38 +14,35 @@
 
 using WWI.Core6.Models.Models;
 
-namespace WWI.Core6.Models.ViewModels
+namespace WWI.Core6.Models.ViewModels;
+
+/// <summary>
+/// Class AdvancedHospitalInformation.
+/// </summary>
+public class AdvancedHospitalInformation
 {
     /// <summary>
-    /// Class AdvancedHospitalInformation.
+    /// 
     /// </summary>
-    public class AdvancedHospitalInformation
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        public int HospitalID { get; set; }
+    public int HospitalID { get; set; }
 
-        /// <summary>
-        /// Gets or sets the name of the hospital.
-        /// </summary>
-        /// <value>The name of the hospital.</value>
-        public string HospitalName { get; set; }
+    /// <summary>
+    /// Gets or sets the name of the hospital.
+    /// </summary>
+    /// <value>The name of the hospital.</value>
+    public string HospitalName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the address.
-        /// </summary>
-        /// <value>The address.</value>
-        public Address Address { get; set; }
+    /// <summary>
+    /// Gets or sets the address.
+    /// </summary>
+    /// <value>The address.</value>
+    public Address Address { get; set; }
 
 
-        /// <summary>
-        /// Gets or sets the specialities.
-        /// </summary>
-        /// <value>The specialities.</value>
-        public IEnumerable<SpecialityInformation> Specialities { get; set; }
-
-    }
-
+    /// <summary>
+    /// Gets or sets the specialities.
+    /// </summary>
+    /// <value>The specialities.</value>
+    public IEnumerable<SpecialityInformation> Specialities { get; set; }
 
 }

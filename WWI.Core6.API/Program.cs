@@ -19,7 +19,6 @@ using Serilog;
 using WWI.Core6.Core.Exceptions;
 
 // ReSharper disable ClassNeverInstantiated.Global
-
 namespace WWI.Core6.API
 {
     /// <summary>

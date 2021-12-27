@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace WWI.Core6.Models.AppSettings
+﻿namespace WWI.Core6.Models.AppSettings
 {
     /// <summary>
     /// Class PerformanceOptions.

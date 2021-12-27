@@ -12,56 +12,52 @@
 // <summary></summary>
 // ***********************************************************************
 
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using JetBrains.Annotations;
+namespace WWI.Core6.Models.Models;
 
-namespace WWI.Core6.Models.Models
+/// <summary>
+/// Class Speciality. This class cannot be inherited.
+/// </summary>
+// ReSharper disable once PartialTypeWithSinglePart
+public sealed partial class Speciality
 {
+
     /// <summary>
-    /// Class Speciality. This class cannot be inherited.
+    /// Initializes a new instance of the <see cref="Speciality" /> class.
     /// </summary>
-    // ReSharper disable once PartialTypeWithSinglePart
-    public sealed partial class Speciality
+    public Speciality()
     {
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Speciality" /> class.
-        /// </summary>
-        public Speciality()
-        {
-            Doctors = new List<Doctor>();
-        }
-
-        /// <summary>
-        /// Gets or sets the Specialty identifier.
-        /// </summary>
-        /// <value>The Specialty identifier.</value>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("ID")]
-        public int SpecialtyID { get; [UsedImplicitly] set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>The name.</value>
-        [MaxLength(100)]
-        public string Name { get; [UsedImplicitly] set; }
-
-        /// <summary>
-        /// Gets or sets the doctors.
-        /// </summary>
-        /// <value>The doctors.</value>
-        // ReSharper disable once MemberCanBePrivate.Global
-        // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
-        public IEnumerable<Doctor> Doctors { get; set; }
-
-        /// <summary>
-        /// Gets or sets the hospitals.
-        /// </summary>
-        /// <value>The hospitals.</value>
-        public IEnumerable<HospitalSpeciality> Hospitals { get; [UsedImplicitly] set; }
-
+        Doctors = new List<Doctor>();
+        Hospitals = new List<HospitalSpeciality>();
     }
+
+    /// <summary>
+    /// Gets or sets the Specialty identifier.
+    /// </summary>
+    /// <value>The Specialty identifier.</value>
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("ID")]
+    public int SpecialtyID { get; [UsedImplicitly] set; }
+
+    /// <summary>
+    /// Gets or sets the name.
+    /// </summary>
+    /// <value>The name.</value>
+    [MaxLength(100)]
+    public string Name { get; [UsedImplicitly] set; }
+
+    /// <summary>
+    /// Gets or sets the doctors.
+    /// </summary>
+    /// <value>The doctors.</value>
+    // ReSharper disable once MemberCanBePrivate.Global
+    // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
+    public IEnumerable<Doctor> Doctors { get; set; }
+
+    /// <summary>
+    /// Gets or sets the hospitals.
+    /// </summary>
+    /// <value>The hospitals.</value>
+    public IEnumerable<HospitalSpeciality> Hospitals { get; [UsedImplicitly] set; }
+
 }
