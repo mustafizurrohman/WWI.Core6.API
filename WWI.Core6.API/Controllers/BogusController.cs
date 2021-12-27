@@ -1,83 +1,81 @@
 ﻿using WWI.Core6.Models.Models;
 using WWI.Core6.Services.Interfaces;
 
-namespace WWI.Core6.API.Controllers
+namespace WWI.Core6.API.Controllers;
+
+/// <summary>
+/// Class BogusController.
+/// Implements the <see cref="BaseAPIController" />
+/// </summary>
+/// <seealso cref="BaseAPIController" />
+public class BogusController : BaseAPIController
 {
+    private IFakeDataGeneratorService FakeDataGeneratorService{ get; }
 
     /// <summary>
-    /// Class BogusController.
-    /// Implements the <see cref="BaseAPIController" />
+    /// Initializes a new instance of the <see cref="BogusController"/> class.
     /// </summary>
-    /// <seealso cref="BaseAPIController" />
-    public class BogusController : BaseAPIController
+    /// <param name="applicationServices">The application services.</param>
+    /// <param name="fakeDataGeneratorService">The fake data generator service.</param>
+    public BogusController(IApplicationServices applicationServices, IFakeDataGeneratorService fakeDataGeneratorService)
+        : base(applicationServices)
     {
-        private IFakeDataGeneratorService FakeDataGeneratorService{ get; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BogusController"/> class.
-        /// </summary>
-        /// <param name="applicationServices">The application services.</param>
-        /// <param name="fakeDataGeneratorService">The fake data generator service.</param>
-        public BogusController(IApplicationServices applicationServices, IFakeDataGeneratorService fakeDataGeneratorService)
-            : base(applicationServices)
-        {
-            FakeDataGeneratorService = Guard.Against.Null(fakeDataGeneratorService, nameof(fakeDataGeneratorService));
-        }
-
-        /// <summary>
-        /// Generates the fake doctors.
-        /// </summary>
-        /// <param name="num">The number.</param>
-        /// <returns>IActionResult.</returns>
-        [HttpGet("doctors")]
-        public IActionResult GenerateFakeDoctors(int num)
-        {
-            var generatedFakeDoctors = FakeDataGeneratorService.GenerateFakeDoctors(num);
-            
-            return Ok(generatedFakeDoctors);
-        }
-
-        /// <summary>
-        /// Generates the fake hospitals.
-        /// </summary>
-        /// <param name="num">The number.</param>
-        /// <returns>IActionResult.</returns>
-        [HttpGet("hospitals")]
-        public IActionResult GenerateFakeHospitals(int num)
-        {
-            var generatedFakeHopistals = FakeDataGeneratorService.GenerateFakeHospitals(num);
-            
-            return Ok(generatedFakeHopistals);
-        }
-
-        /// <summary>
-        /// Generates the fake addresses.
-        /// </summary>
-        /// <param name="num">The number.</param>
-        /// <returns>IActionResult.</returns>
-        [HttpGet("address")]
-        public IActionResult GenerateFakeAddress(int num)
-        {
-            var generatedFakeAddress = FakeDataGeneratorService.GenerateFakeAddress(num)
-                .Select(addr => addr.ToString());
-
-            return Ok(generatedFakeAddress);
-        }
-
-        /// <summary>
-        /// Generates the fake specialities.
-        /// </summary>
-        /// <param name="num">The number.</param>
-        /// <returns>IActionResult.</returns>
-        [HttpGet("specialities")]
-        public IActionResult GenerateFakeSpecialities(int num)
-        {
-            var generatedFakeSpecialities = FakeDataGeneratorService.GenerateFakeSpecialities(num);
-
-            var mapped = AutoMapper.Map<IEnumerable<Speciality>, List<Dropdown>>(generatedFakeSpecialities);
-
-            return Ok(mapped);
-        }
-
+        FakeDataGeneratorService = Guard.Against.Null(fakeDataGeneratorService, nameof(fakeDataGeneratorService));
     }
+
+    /// <summary>
+    /// Generates the fake doctors.
+    /// </summary>
+    /// <param name="num">The number.</param>
+    /// <returns>IActionResult.</returns>
+    [HttpGet("doctors")]
+    public IActionResult GenerateFakeDoctors(int num)
+    {
+        var generatedFakeDoctors = FakeDataGeneratorService.GenerateFakeDoctors(num);
+            
+        return Ok(generatedFakeDoctors);
+    }
+
+    /// <summary>
+    /// Generates the fake hospitals.
+    /// </summary>
+    /// <param name="num">The number.</param>
+    /// <returns>IActionResult.</returns>
+    [HttpGet("hospitals")]
+    public IActionResult GenerateFakeHospitals(int num)
+    {
+        var generatedFakeHopistals = FakeDataGeneratorService.GenerateFakeHospitals(num);
+            
+        return Ok(generatedFakeHopistals);
+    }
+
+    /// <summary>
+    /// Generates the fake addresses.
+    /// </summary>
+    /// <param name="num">The number.</param>
+    /// <returns>IActionResult.</returns>
+    [HttpGet("address")]
+    public IActionResult GenerateFakeAddress(int num)
+    {
+        var generatedFakeAddress = FakeDataGeneratorService.GenerateFakeAddress(num)
+            .Select(addr => addr.ToString());
+
+        return Ok(generatedFakeAddress);
+    }
+
+    /// <summary>
+    /// Generates the fake specialities.
+    /// </summary>
+    /// <param name="num">The number.</param>
+    /// <returns>IActionResult.</returns>
+    [HttpGet("specialities")]
+    public IActionResult GenerateFakeSpecialities(int num)
+    {
+        var generatedFakeSpecialities = FakeDataGeneratorService.GenerateFakeSpecialities(num);
+
+        var mapped = AutoMapper.Map<IEnumerable<Speciality>, List<Dropdown>>(generatedFakeSpecialities);
+
+        return Ok(mapped);
+    }
+
 }

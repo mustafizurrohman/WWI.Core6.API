@@ -11,65 +11,64 @@ using WWI.Core6.Services.MediatR.PipelineBehaviours;
 using WWI.Core6.Services.Services;
 using WWI.Core6.Services.Services.Shared;
 
-namespace WWI.Core6.API.Installers
+namespace WWI.Core6.API.Installers;
+
+/// <summary>
+/// Class ServiceInstaller.
+/// Implements the <see cref="IInstaller" />
+/// </summary>
+/// <seealso cref="IInstaller" />
+public class ServiceInstaller : IInstaller
 {
+
     /// <summary>
-    /// Class ServiceInstaller.
-    /// Implements the <see cref="IInstaller" />
+    /// 
     /// </summary>
-    /// <seealso cref="IInstaller" />
-    public class ServiceInstaller : IInstaller
+    /// <param name="serviceCollection"></param>
+    /// <param name="configuration"></param>
+    public void InstallServices(IServiceCollection serviceCollection, IConfiguration configuration)
     {
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="serviceCollection"></param>
-        /// <param name="configuration"></param>
-        public void InstallServices(IServiceCollection serviceCollection, IConfiguration configuration)
+        var mapperConfig = new MapperConfiguration(mc =>
         {
+            mc.AddProfile(new MappingProfile());
+        });
 
-            var mapperConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new MappingProfile());
-            });
+        IMapper mapper = mapperConfig.CreateMapper();
+        serviceCollection.AddSingleton(mapper);
 
-            IMapper mapper = mapperConfig.CreateMapper();
-            serviceCollection.AddSingleton(mapper);
+        serviceCollection.AddTransient<IApplicationServices, ApplicationServices>();
 
-            serviceCollection.AddTransient<IApplicationServices, ApplicationServices>();
+        serviceCollection.AddTransient<IDataService, DataService>();
+        serviceCollection.Decorate<IDataService, CachedDataService>();
 
-            serviceCollection.AddTransient<IDataService, DataService>();
-            serviceCollection.Decorate<IDataService, CachedDataService>();
+        serviceCollection.AddTransient<ISharedService, SharedService>();
 
-            serviceCollection.AddTransient<ISharedService, SharedService>();
+        serviceCollection.AddTransient<IHTMLFormatterService, HTMLFormatterService>();
 
-            serviceCollection.AddTransient<IHTMLFormatterService, HTMLFormatterService>();
+        serviceCollection.AddTransient<IFakeDataGeneratorService, FakeDataGeneratorService>();
 
-            serviceCollection.AddTransient<IFakeDataGeneratorService, FakeDataGeneratorService>();
+        serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
+        serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        serviceCollection.AddValidatorsFromAssembly(typeof(RetryDecorator<>).Assembly);
 
-            serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
-            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-            serviceCollection.AddValidatorsFromAssembly(typeof(RetryDecorator<>).Assembly);
+        serviceCollection.Scan(scan =>
+        {
+            scan.FromAssembliesOf(typeof(HandlerBase))
+                .RegisterHandlers(typeof(INotificationHandler<>));
+        });
 
-            serviceCollection.Scan(scan =>
-            {
-                scan.FromAssembliesOf(typeof(HandlerBase))
-                    .RegisterHandlers(typeof(INotificationHandler<>));
-            });
+        // TODO: Make this work!
+        // serviceCollection.Decorate(typeof(INotificationHandler<>), typeof(RetryDecorator<>));
 
-            // TODO: Make this work!
-            // serviceCollection.Decorate(typeof(INotificationHandler<>), typeof(RetryDecorator<>));
+        serviceCollection.AddOptions();
 
-            serviceCollection.AddOptions();
+        serviceCollection.AddMvc()
+            .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 
-            serviceCollection.AddMvc()
-                .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+        serviceCollection.AddMemoryCache();
 
-            serviceCollection.AddMemoryCache();
+        serviceCollection.AddControllers();
 
-            serviceCollection.AddControllers();
-
-        }
     }
 }

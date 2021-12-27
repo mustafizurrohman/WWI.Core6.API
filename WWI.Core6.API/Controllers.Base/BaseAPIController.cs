@@ -16,51 +16,48 @@ using System.Web.Http.OData;
 using AutoMapper;
 using WWI.Core6.Models.DbContext;
 
-namespace WWI.Core6.API.Controllers.Base
+namespace WWI.Core6.API.Controllers.Base;
+
+/// <summary>
+/// Base API Controller
+/// </summary>
+/// <seealso cref="ControllerBase" />
+[ApiController]
+[Route("[controller]")]
+[Produces("application/json")]
+[EnableQuery]
+public abstract class BaseAPIController : ControllerBase
 {
 
+    #region  -- Attributes -- 
+
     /// <summary>
-    /// Base API Controller
+    /// The database context
     /// </summary>
-    /// <seealso cref="ControllerBase" />
-    [ApiController]
-    [Route("[controller]")]
-    [Produces("application/json")]
-    [EnableQuery]
-    public abstract class BaseAPIController : ControllerBase
+    /// <value>The database context.</value>
+    protected DocAppointmentContext DbContext { get; }
+
+    /// <summary>
+    /// AutoMapper
+    /// </summary>
+    /// <value>The automatic mapper.</value>
+    // ReSharper disable once MemberCanBePrivate.Global
+    protected IMapper AutoMapper { get; }
+
+    #endregion
+
+    #region -- Constructor -- 
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BaseAPIController" /> class.
+    /// </summary>
+    /// <param name="applicationServices">The collection of frequently used application services.</param>
+    protected BaseAPIController(IApplicationServices applicationServices)
     {
-
-        #region  -- Attributes -- 
-
-        /// <summary>
-        /// The database context
-        /// </summary>
-        /// <value>The database context.</value>
-        protected DocAppointmentContext DbContext { get; }
-
-        /// <summary>
-        /// AutoMapper
-        /// </summary>
-        /// <value>The automatic mapper.</value>
-        // ReSharper disable once MemberCanBePrivate.Global
-        protected IMapper AutoMapper { get; }
-
-        #endregion
-
-        #region -- Constructor -- 
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseAPIController" /> class.
-        /// </summary>
-        /// <param name="applicationServices">The collection of frequently used application services.</param>
-        protected BaseAPIController(IApplicationServices applicationServices)
-        {
-            DbContext = Guard.Against.Null(applicationServices.DbContext, nameof(applicationServices.DbContext));
-            AutoMapper = Guard.Against.Null(applicationServices.AutoMapper, nameof(applicationServices.AutoMapper));
-        }
-
-        #endregion
-
+        DbContext = Guard.Against.Null(applicationServices.DbContext, nameof(applicationServices.DbContext));
+        AutoMapper = Guard.Against.Null(applicationServices.AutoMapper, nameof(applicationServices.AutoMapper));
     }
+
+    #endregion
 
 }

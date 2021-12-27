@@ -1,33 +1,32 @@
 ﻿using AutoMapper;
 using WWI.Core6.Core.AutoMapper;
 
-namespace WWI.Core6.Services.Tests.Automapper
+namespace WWI.Core6.Services.Tests.Automapper;
+
+public static class AutomapperSingleton
 {
-    public static class AutomapperSingleton
+    /// <summary>
+    /// The automatic mapper
+    /// </summary>
+    private static IMapper _autoMapper;
+
+    public static IMapper AutoMapper
     {
-        /// <summary>
-        /// The automatic mapper
-        /// </summary>
-        private static IMapper _autoMapper;
-
-        public static IMapper AutoMapper
+        get
         {
-            get
+            if (_autoMapper != null) return _autoMapper;
+
+            var mappingConfig = new MapperConfiguration(mc =>
             {
-                if (_autoMapper != null) return _autoMapper;
-
-                var mappingConfig = new MapperConfiguration(mc =>
-                {
-                    mc.AddProfile<MappingProfile>();
-                });
+                mc.AddProfile<MappingProfile>();
+            });
 
 
-                IMapper mapper = mappingConfig.CreateMapper();
-                _autoMapper = mapper;
+            IMapper mapper = mappingConfig.CreateMapper();
+            _autoMapper = mapper;
 
-                return _autoMapper;
-            }
+            return _autoMapper;
         }
-
     }
+
 }

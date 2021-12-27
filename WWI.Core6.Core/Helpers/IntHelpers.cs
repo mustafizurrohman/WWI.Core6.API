@@ -14,48 +14,47 @@
 
 using System.Security.Cryptography;
 
-namespace WWI.Core6.Core.Helpers
+namespace WWI.Core6.Core.Helpers;
+
+/// <summary>
+/// Utility functions for integers
+/// </summary>
+public static class IntHelpers
 {
+
     /// <summary>
-    /// Utility functions for integers
+    /// Generates a cryptographically secure random number between min and max
     /// </summary>
-    public static class IntHelpers
+    /// <param name="min">Lower bound</param>
+    /// <param name="max">Upper bound</param>
+    /// <returns>System.Int32.</returns>
+    public static int GetRandomNumber(int min, int max)
     {
+        RNGCryptoServiceProvider randomProvider = new();
 
-        /// <summary>
-        /// Generates a cryptographically secure random number between min and max
-        /// </summary>
-        /// <param name="min">Lower bound</param>
-        /// <param name="max">Upper bound</param>
-        /// <returns>System.Int32.</returns>
-        public static int GetRandomNumber(int min, int max)
+        uint scale = uint.MaxValue;
+        while (scale == uint.MaxValue)
         {
-            RNGCryptoServiceProvider randomProvider = new();
+            // Get four random bytes.
+            byte[] fourBytes = new byte[4];
+            randomProvider.GetBytes(fourBytes);
 
-            uint scale = uint.MaxValue;
-            while (scale == uint.MaxValue)
-            {
-                // Get four random bytes.
-                byte[] fourBytes = new byte[4];
-                randomProvider.GetBytes(fourBytes);
-
-                // Convert that into an uint.
-                scale = BitConverter.ToUInt32(fourBytes, 0);
-            }
-
-            // Add min to the scaled difference between max and min.
-            return (int)(min + (max - min) * (scale / (double)uint.MaxValue));
+            // Convert that into an uint.
+            scale = BitConverter.ToUInt32(fourBytes, 0);
         }
 
-        /// <summary>
-        /// Generates a cryptographically secure random number between 0 and max
-        /// </summary>
-        /// <param name="max">Upper bound</param>
-        /// <returns>System.Int32.</returns>
-        public static int GetRandomNumber(int max)
-        {
-            return GetRandomNumber(0, max);
-        }
-
+        // Add min to the scaled difference between max and min.
+        return (int)(min + (max - min) * (scale / (double)uint.MaxValue));
     }
+
+    /// <summary>
+    /// Generates a cryptographically secure random number between 0 and max
+    /// </summary>
+    /// <param name="max">Upper bound</param>
+    /// <returns>System.Int32.</returns>
+    public static int GetRandomNumber(int max)
+    {
+        return GetRandomNumber(0, max);
+    }
+
 }

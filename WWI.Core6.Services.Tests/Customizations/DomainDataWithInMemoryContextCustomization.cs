@@ -2,16 +2,15 @@
 using AutoFixture.AutoMoq;
 using EntityFrameworkCore.AutoFixture.InMemory;
 
-namespace WWI.Core6.Services.Tests.Customizations
+namespace WWI.Core6.Services.Tests.Customizations;
+
+public class DomainDataWithInMemoryContextCustomization : CompositeCustomization
 {
-    public class DomainDataWithInMemoryContextCustomization : CompositeCustomization
+    public DomainDataWithInMemoryContextCustomization()
+        : base(
+            new IgnoredVirtualMembersCustomization(),
+            new InMemoryContextCustomization(),
+            new AutoMoqCustomization())
     {
-        public DomainDataWithInMemoryContextCustomization()
-            : base(
-                new IgnoredVirtualMembersCustomization(),
-                new InMemoryContextCustomization(),
-                new AutoMoqCustomization())
-        {
-        }
     }
 }

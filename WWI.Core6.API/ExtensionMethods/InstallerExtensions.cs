@@ -16,36 +16,34 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WWI.Core6.API.Installers;
 
-namespace WWI.Core6.API.ExtensionMethods
+namespace WWI.Core6.API.ExtensionMethods;
+
+/// <summary>
+/// Class InstallerExtensions.
+/// </summary>
+public static class InstallerExtensions
 {
 
     /// <summary>
-    /// Class InstallerExtensions.
+    /// Installs the services in assembly.
     /// </summary>
-    public static class InstallerExtensions
+    /// <param name="serviceCollection">The service collection.</param>
+    /// <param name="configuration">The configuration.</param>
+    /// <returns>IServiceCollection.</returns>
+    public static IServiceCollection InstallServicesInAssembly(this IServiceCollection serviceCollection, IConfiguration configuration)
     {
+        var installers = typeof(Startup)
+            .Assembly
+            .ExportedTypes
+            .Where(typ => typeof(IInstaller).IsAssignableFrom(typ)
+                          && !typ.IsInterface
+                          && !typ.IsAbstract)
+            .Select(Activator.CreateInstance)
+            .Cast<IInstaller>()
+            .ToList();
 
-        /// <summary>
-        /// Installs the services in assembly.
-        /// </summary>
-        /// <param name="serviceCollection">The service collection.</param>
-        /// <param name="configuration">The configuration.</param>
-        /// <returns>IServiceCollection.</returns>
-        public static IServiceCollection InstallServicesInAssembly(this IServiceCollection serviceCollection, IConfiguration configuration)
-        {
-            var installers = typeof(Startup)
-                .Assembly
-                .ExportedTypes
-                .Where(typ => typeof(IInstaller).IsAssignableFrom(typ)
-                        && !typ.IsInterface
-                        && !typ.IsAbstract)
-                .Select(Activator.CreateInstance)
-                .Cast<IInstaller>()
-                .ToList();
+        installers.ForEach(installer => installer.InstallServices(serviceCollection, configuration));
 
-            installers.ForEach(installer => installer.InstallServices(serviceCollection, configuration));
-
-            return serviceCollection;
-        }
+        return serviceCollection;
     }
 }

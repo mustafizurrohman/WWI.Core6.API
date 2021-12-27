@@ -17,71 +17,70 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace WWI.Core6.API.ExtensionMethods
+namespace WWI.Core6.API.ExtensionMethods;
+
+/// <summary>
+/// Extensions for Swagger
+/// </summary>
+public static class SwaggerExtensions
 {
-    /// <summary>
-    /// Extensions for Swagger
-    /// </summary>
-    public static class SwaggerExtensions
+
+    /// <summary>Adds the swagger documentation.</summary>
+    /// <param name="services">The services.</param>
+    /// <param name="info">The information.</param>
+    /// <param name="apiKeyScheme">The API key scheme.</param>
+    /// <returns>IServiceCollection.</returns>
+    // ReSharper disable once UnusedMethodReturnValue.Global
+    public static IServiceCollection AddSwaggerDocumentation(this IServiceCollection services, OpenApiInfo info, OpenApiSecurityScheme apiKeyScheme)
     {
-
-        /// <summary>Adds the swagger documentation.</summary>
-        /// <param name="services">The services.</param>
-        /// <param name="info">The information.</param>
-        /// <param name="apiKeyScheme">The API key scheme.</param>
-        /// <returns>IServiceCollection.</returns>
-        // ReSharper disable once UnusedMethodReturnValue.Global
-        public static IServiceCollection AddSwaggerDocumentation(this IServiceCollection services, OpenApiInfo info, OpenApiSecurityScheme apiKeyScheme)
+        services.AddSwaggerGen(c =>
         {
-            services.AddSwaggerGen(c =>
+            c.SwaggerDoc(info?.Version, new OpenApiInfo
             {
-                c.SwaggerDoc(info?.Version, new OpenApiInfo
+                Version = info?.Version,
+                Title = info?.Title,
+                Description = info?.Description,
+                TermsOfService = info?.TermsOfService,
+                Contact = new OpenApiContact()
                 {
-                    Version = info?.Version,
-                    Title = info?.Title,
-                    Description = info?.Description,
-                    TermsOfService = info?.TermsOfService,
-                    Contact = new OpenApiContact()
-                    {
-                        Name = info?.Contact?.Name,
-                        Email = info?.Contact?.Email,
-                        Url = info?.Contact?.Url
-                    }
-                });
-
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Description = apiKeyScheme?.Description,
-                    Name = apiKeyScheme?.Name,
-                    Type = SecuritySchemeType.Http
-                });
-
-                var xmlFile = "WWI.Core6.API.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
+                    Name = info?.Contact?.Name,
+                    Email = info?.Contact?.Email,
+                    Url = info?.Contact?.Url
+                }
             });
 
-            return services;
-        }
-
-        /// <summary>
-        /// Extension method to use swagger documentation
-        /// </summary>
-        /// <param name="app"></param>
-        /// <param name="info"></param>
-        /// <returns></returns>
-        // ReSharper disable once UnusedMethodReturnValue.Global
-        public static IApplicationBuilder UseSwaggerDocumentation(this IApplicationBuilder app, OpenApiInfo info)
-        {
-            app.UseSwagger();
-
-            app.UseSwaggerUI(c =>
+            c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
-                c.SwaggerEndpoint("/swagger/" + info?.Version + "/swagger.json", info?.Title + " v" + info?.Version);
-                c.DisplayRequestDuration();
+                Description = apiKeyScheme?.Description,
+                Name = apiKeyScheme?.Name,
+                Type = SecuritySchemeType.Http
             });
 
-            return app;
-        }
+            var xmlFile = "WWI.Core6.API.xml";
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+            c.IncludeXmlComments(xmlPath);
+        });
+
+        return services;
+    }
+
+    /// <summary>
+    /// Extension method to use swagger documentation
+    /// </summary>
+    /// <param name="app"></param>
+    /// <param name="info"></param>
+    /// <returns></returns>
+    // ReSharper disable once UnusedMethodReturnValue.Global
+    public static IApplicationBuilder UseSwaggerDocumentation(this IApplicationBuilder app, OpenApiInfo info)
+    {
+        app.UseSwagger();
+
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/" + info?.Version + "/swagger.json", info?.Title + " v" + info?.Version);
+            c.DisplayRequestDuration();
+        });
+
+        return app;
     }
 }

@@ -31,91 +31,88 @@ using WWI.Core6.Services.Tests.Automapper;
 using WWI.Core6.Services.Tests.Customizations;
 using Xunit;
 
-namespace WWI.Core6.Services.Tests
+namespace WWI.Core6.Services.Tests;
+
+// TODO: Finish this
+/// <summary>
+/// Class DataServiceTests.
+/// </summary>
+public class DataServiceTests
 {
-
-    // TODO: Finish this
     /// <summary>
-    /// Class DataServiceTests.
+    /// introductory test as an asynchronous operation.
     /// </summary>
-    public class DataServiceTests
+    /// <param name="numberOfHospitalsToRetrieve">The number of hospitals to retrieve.</param>
+    // [Theory(Skip = "Not working. Needs to be fixed."), AutoData]
+    [Theory]
+    [InlineData(2)]
+    public void IntroductoryTest(int numberOfHospitalsToRetrieve)
     {
-        /// <summary>
-        /// introductory test as an asynchronous operation.
-        /// </summary>
-        /// <param name="numberOfHospitalsToRetrieve">The number of hospitals to retrieve.</param>
-        // [Theory(Skip = "Not working. Needs to be fixed."), AutoData]
-        [Theory]
-        [InlineData(2)]
-        public void IntroductoryTest(int numberOfHospitalsToRetrieve)
-        {
 
-            // Arrange
-            var fixture = new Fixture()
-                .Customize(new AutoMoqCustomization());
-            fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList()
-                .ForEach(b => fixture.Behaviors.Remove(b));
-            fixture.Behaviors.Add(new OmitOnRecursionBehavior(1));
+        // Arrange
+        var fixture = new Fixture()
+            .Customize(new AutoMoqCustomization());
+        fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList()
+            .ForEach(b => fixture.Behaviors.Remove(b));
+        fixture.Behaviors.Add(new OmitOnRecursionBehavior(1));
 
-            fixture.Customizations.Add(
-                new TypeRelay(
-                    typeof(IConfigurationProvider),
-                    typeof(MapperConfiguration)));
+        fixture.Customizations.Add(
+            new TypeRelay(
+                typeof(IConfigurationProvider),
+                typeof(MapperConfiguration)));
 
-            var hospitals = fixture.CreateMany<Hospital>(numberOfHospitalsToRetrieve);
+        var hospitals = fixture.CreateMany<Hospital>(numberOfHospitalsToRetrieve);
 
-            var hospitalsMock = hospitals.AsQueryable().BuildMockDbSet();
+        var hospitalsMock = hospitals.AsQueryable().BuildMockDbSet();
 
-            var dbContextMock = new Mock<DocAppointmentContext>();
+        var dbContextMock = new Mock<DocAppointmentContext>();
 
-            var autoMapper = new Mock<IMapper>();
+        var autoMapper = new Mock<IMapper>();
 
-            var hospitalInformationList =
-                AutomapperSingleton.AutoMapper.Map<IEnumerable<Hospital>, IEnumerable<HospitalInformation>>(hospitals);
+        var hospitalInformationList =
+            AutomapperSingleton.AutoMapper.Map<IEnumerable<Hospital>, IEnumerable<HospitalInformation>>(hospitals);
 
-            //autoMapper.Setup(m => m.ProjectTo<HospitalInformation>(It.IsAny<IQueryable<Hospital>>()))
-            //    .Returns(hospitalInformationList);
+        //autoMapper.Setup(m => m.ProjectTo<HospitalInformation>(It.IsAny<IQueryable<Hospital>>()))
+        //    .Returns(hospitalInformationList);
 
-            var applicationServiceMock = new Mock<ApplicationServices>(dbContextMock.Object, autoMapper.Object);
-            var sharedServiceMock = new Mock<SharedService>(dbContextMock.Object, autoMapper.Object);
+        var applicationServiceMock = new Mock<ApplicationServices>(dbContextMock.Object, autoMapper.Object);
+        var sharedServiceMock = new Mock<SharedService>(dbContextMock.Object, autoMapper.Object);
 
-            var dataService = new Mock<DataService>(applicationServiceMock.Object, sharedServiceMock.Object);
+        var dataService = new Mock<DataService>(applicationServiceMock.Object, sharedServiceMock.Object);
 
-            var randomId = hospitalsMock.Object.ToList().GetRandomShuffled().HospitalID;
+        var randomId = hospitalsMock.Object.ToList().GetRandomShuffled().HospitalID;
 
-            // Act
-            //var retrivedHospital = await dataService.Object.GetHospitalInformationByIDAsync(randomId);
+        // Act
+        //var retrivedHospital = await dataService.Object.GetHospitalInformationByIDAsync(randomId);
 
-        }
+    }
 
-        // DocAppointmentContext docAppointmentContext
-        [Theory(Skip = "Not working. Needs to be fixed."), AutoDomainDataWithInMemoryContext]
+    // DocAppointmentContext docAppointmentContext
+    [Theory(Skip = "Not working. Needs to be fixed."), AutoDomainDataWithInMemoryContext]
 #pragma warning disable xUnit1006 // Theory methods should have parameters
-        public async Task TestInMemoryDatabase()
+    public async Task TestInMemoryDatabase()
 #pragma warning restore xUnit1006 // Theory methods should have parameters
-        {
-            var fixture = new Fixture().Customize(new InMemoryContextCustomization());
+    {
+        var fixture = new Fixture().Customize(new InMemoryContextCustomization());
 
-            fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList()
-                .ForEach(b => fixture.Behaviors.Remove(b));
-            fixture.Behaviors.Add(new OmitOnRecursionBehavior(1));
+        fixture.Behaviors.OfType<ThrowingRecursionBehavior>().ToList()
+            .ForEach(b => fixture.Behaviors.Remove(b));
+        fixture.Behaviors.Add(new OmitOnRecursionBehavior(1));
 
-            var hospital = fixture.Create<Hospital>();
+        var hospital = fixture.Create<Hospital>();
 
 
-            await using var docAppointmentContext = fixture.Create<DocAppointmentContext>();
-            await docAppointmentContext.Database.EnsureCreatedAsync();
+        await using var docAppointmentContext = fixture.Create<DocAppointmentContext>();
+        await docAppointmentContext.Database.EnsureCreatedAsync();
 
-            await docAppointmentContext.Hospitals.AddAsync(hospital);
-            await docAppointmentContext.SaveChangesAsync();
+        await docAppointmentContext.Hospitals.AddAsync(hospital);
+        await docAppointmentContext.SaveChangesAsync();
 
-            docAppointmentContext.Hospitals.Should().Contain(x => x.Name == hospital.Name);
+        docAppointmentContext.Hospitals.Should().Contain(x => x.Name == hospital.Name);
 
             
 
-        }
-
-
     }
+
 
 }

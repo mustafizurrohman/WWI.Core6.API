@@ -9,99 +9,98 @@ using Serilog;
 using WWI.Core6.Core.ExtensionMethods;
 using ValidationException = FluentValidation.ValidationException;
 
-namespace WWI.Core6.API.ExtensionMethods
+namespace WWI.Core6.API.ExtensionMethods;
+
+/// <summary>
+/// Class ApplicationBuilderExtensions.
+/// </summary>
+public static class ApplicationBuilderExtensions
 {
     /// <summary>
-    /// Class ApplicationBuilderExtensions.
+    /// Configures the application.
     /// </summary>
-    public static class ApplicationBuilderExtensions
+    /// <param name="app">The application.</param>
+    /// <param name="env">The env.</param>
+    /// <returns>IApplicationBuilder.</returns>
+    public static IApplicationBuilder ConfigureApplication(this IApplicationBuilder app, IWebHostEnvironment env)
     {
-        /// <summary>
-        /// Configures the application.
-        /// </summary>
-        /// <param name="app">The application.</param>
-        /// <param name="env">The env.</param>
-        /// <returns>IApplicationBuilder.</returns>
-        public static IApplicationBuilder ConfigureApplication(this IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-                app.UseDeveloperExceptionPage();            
+        if (env.IsDevelopment())
+            app.UseDeveloperExceptionPage();            
 
-            #region -- NWebSec Options --
+        #region -- NWebSec Options --
 
-            if (!env.IsDevelopment())
-                app.UseHsts(opts => opts.MaxAge(365).Preload());
+        if (!env.IsDevelopment())
+            app.UseHsts(opts => opts.MaxAge(365).Preload());
             
 
-            // Ensure that site content is not being embedded in an IFrame on other sites 
-            //  - used for avoid click-jacking attacks.
-            app.UseXfo(options => options.SameOrigin());
+        // Ensure that site content is not being embedded in an IFrame on other sites 
+        //  - used for avoid click-jacking attacks.
+        app.UseXfo(options => options.SameOrigin());
 
-            // Blocks any content sniffing that could happen that might change an innocent MIME type (e.g. text/css) 
-            // into something executable that could do some real damage.
-            app.UseXContentTypeOptions();
+        // Blocks any content sniffing that could happen that might change an innocent MIME type (e.g. text/css) 
+        // into something executable that could do some real damage.
+        app.UseXContentTypeOptions();
 
-            app.UseReferrerPolicy(opts => opts.NoReferrer());
+        app.UseReferrerPolicy(opts => opts.NoReferrer());
 
-            #endregion
+        #endregion
            
-            app.UseHttpsRedirection();
+        app.UseHttpsRedirection();
 
-            app.UseCustomExceptionHandler();
-            app.UseFluentValidationExceptionHandler();
+        app.UseCustomExceptionHandler();
+        app.UseFluentValidationExceptionHandler();
             
-            app.UseSerilogRequestLogging();
+        app.UseSerilogRequestLogging();
 
-            app.UseRouting();
+        app.UseRouting();
 
-            app.UseAuthorization();
+        app.UseAuthorization();
 
-            app.MigrateDatabase();
+        app.MigrateDatabase();
 
-            app.UseCors(options =>
-            {
-                options.AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowAnyOrigin();
-            });
-
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-
-            return app;
-        }
-
-        private static void UseFluentValidationExceptionHandler(this IApplicationBuilder applicationBuilder)
+        app.UseCors(options =>
         {
-            applicationBuilder.UseExceptionHandler(appBuilder =>
-            {
-                appBuilder.Run(async context =>
-                {
-                    var errorFeature = context.Features.Get<IExceptionHandlerFeature>();
-                    var exception = errorFeature?.Error ?? new Exception();
+            options.AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowAnyOrigin();
+        });
 
-                    if (exception is not ValidationException validationException)
-                        throw exception;
+        app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-                    var errors = validationException.Errors
-                        .Select(err => new
-                        {
-                            err.PropertyName,
-                            err.AttemptedValue,
-                            err.ErrorMessage
-                        })
-                        .ToList();
-
-                    var errorText = JsonSerializer.Serialize(errors);
-
-                    context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
-                    context.Response.ContentType = "application/json";
-
-                    await context.Response.WriteAsync(errorText, Encoding.UTF8);
-
-                });
-            });
-        }
-
-
+        return app;
     }
+
+    private static void UseFluentValidationExceptionHandler(this IApplicationBuilder applicationBuilder)
+    {
+        applicationBuilder.UseExceptionHandler(appBuilder =>
+        {
+            appBuilder.Run(async context =>
+            {
+                var errorFeature = context.Features.Get<IExceptionHandlerFeature>();
+                var exception = errorFeature?.Error ?? new Exception();
+
+                if (exception is not ValidationException validationException)
+                    throw exception;
+
+                var errors = validationException.Errors
+                    .Select(err => new
+                    {
+                        err.PropertyName,
+                        err.AttemptedValue,
+                        err.ErrorMessage
+                    })
+                    .ToList();
+
+                var errorText = JsonSerializer.Serialize(errors);
+
+                context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
+                context.Response.ContentType = "application/json";
+
+                await context.Response.WriteAsync(errorText, Encoding.UTF8);
+
+            });
+        });
+    }
+
+
 }

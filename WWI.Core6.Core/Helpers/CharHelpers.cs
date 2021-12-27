@@ -12,65 +12,64 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace WWI.Core6.Core.Helpers
+namespace WWI.Core6.Core.Helpers;
+
+/// <summary>
+/// Utility functions for characters
+/// </summary>
+public static class CharHelpers
 {
+
     /// <summary>
-    /// Utility functions for characters
+    /// Returns a random uppercase character
     /// </summary>
-    public static class CharHelpers
+    /// <returns>System.Char.</returns>
+    public static char GetRandomUppercaseCharacter()
     {
+        var chars = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        /// <summary>
-        /// Returns a random uppercase character
-        /// </summary>
-        /// <returns>System.Char.</returns>
-        public static char GetRandomUppercaseCharacter()
-        {
-            var chars = @"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var randomNumber = IntHelpers.GetRandomNumber(chars.Length);
 
-            var randomNumber = IntHelpers.GetRandomNumber(chars.Length);
-
-            return chars[randomNumber];
-        }
-
-        /// <summary>
-        /// Returns a random lowercase character
-        /// </summary>
-        /// <returns>System.Char.</returns>
-        public static char GetRandomLowercaseCharacter()
-        {
-            var chars = @"abcdefghijklmnopqrstuvwxyz";
-
-            var randomNumber = IntHelpers.GetRandomNumber(chars.Length);
-
-            return chars[randomNumber];
-        }
-
-        /// <summary>
-        /// Returns a random lowercase character
-        /// </summary>
-        /// <returns>System.Char.</returns>
-        public static char GetRandomSpecialCharacter()
-        {
-            var chars = @"!§$%&/()=_?#";
-
-            var randomNumber = IntHelpers.GetRandomNumber(chars.Length);
-
-            return chars[randomNumber];
-        }
-
-        /// <summary>
-        /// Returns a random character
-        /// </summary>
-        /// <returns>System.Char.</returns>
-        public static char GetRandomCharacter()
-        {
-            var chars = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!§$%&/()=_?#1234567890";
-
-            var randomNumber = IntHelpers.GetRandomNumber(chars.Length);
-
-            return chars[randomNumber];
-        }
-
+        return chars[randomNumber];
     }
+
+    /// <summary>
+    /// Returns a random lowercase character
+    /// </summary>
+    /// <returns>System.Char.</returns>
+    public static char GetRandomLowercaseCharacter()
+    {
+        var chars = @"abcdefghijklmnopqrstuvwxyz";
+
+        var randomNumber = IntHelpers.GetRandomNumber(chars.Length);
+
+        return chars[randomNumber];
+    }
+
+    /// <summary>
+    /// Returns a random lowercase character
+    /// </summary>
+    /// <returns>System.Char.</returns>
+    public static char GetRandomSpecialCharacter()
+    {
+        var chars = @"!§$%&/()=_?#";
+
+        var randomNumber = IntHelpers.GetRandomNumber(chars.Length);
+
+        return chars[randomNumber];
+    }
+
+    /// <summary>
+    /// Returns a random character
+    /// </summary>
+    /// <returns>System.Char.</returns>
+    public static char GetRandomCharacter()
+    {
+        var chars = @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!§$%&/()=_?#1234567890";
+
+        var randomNumber = IntHelpers.GetRandomNumber(chars.Length);
+
+        return chars[randomNumber];
+    }
+
 }

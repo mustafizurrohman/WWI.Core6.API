@@ -18,108 +18,106 @@ using WWI.Core6.Core.ExtensionMethods;
 using WWI.Core6.Models.Models;
 using WWI.Core6.Models.ViewModels;
 
-namespace WWI.Core6.Core.AutoMapper
+namespace WWI.Core6.Core.AutoMapper;
+
+/// <summary>
+/// Class MappingProfile.
+/// Implements the <see cref="Profile" />
+/// </summary>
+/// <seealso cref="Profile" />
+[UsedImplicitly]
+public class MappingProfile : Profile
 {
 
     /// <summary>
-    /// Class MappingProfile.
-    /// Implements the <see cref="Profile" />
+    /// Initializes a new instance of the <see cref="MappingProfile" /> class.
     /// </summary>
-    /// <seealso cref="Profile" />
-    [UsedImplicitly]
-    public class MappingProfile : Profile
+    public MappingProfile()
+    {
+        CreateMappings();
+    }
+
+    /// <summary>
+    /// Creates the mappings.
+    /// </summary>
+    // ReSharper disable once TooManyDeclarations
+    private void CreateMappings()
     {
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MappingProfile" /> class.
-        /// </summary>
-        public MappingProfile()
-        {
-            CreateMappings();
-        }
+        // Hospital -> HospitalInformation
+        CreateMap<Hospital, HospitalInformation>()
+            .ForMember(dst => dst.HospitalID,
+                src => src.MapFrom(hos => hos.HospitalID))
+            .ForMember(dst => dst.HospitalName,
+                src => src.MapFrom(hos => hos.Name))
+            .ForMember(dst => dst.Specialities,
+                src => src.MapFrom(hos => hos.Specialities.Select(s => s.Speciality.Name).ToList()));
 
-        /// <summary>
-        /// Creates the mappings.
-        /// </summary>
-        // ReSharper disable once TooManyDeclarations
-        private void CreateMappings()
-        {
+        // Hospital -> AdvancedHospitalInformation
+        CreateMap<Hospital, AdvancedHospitalInformation>()
+            .ForMember(dst => dst.HospitalID,
+                src => src.MapFrom(hos => hos.HospitalID))                
+            .ForMember(dst => dst.HospitalName,
+                src => src.MapFrom(hos => hos.Name))
+            .ForMember(dst => dst.Address,
+                src => src.MapFrom(hos => hos.Address))
+            .ForMember(dst => dst.Specialities,
+                src => src.MapFrom(hos => hos.Specialities.Select(s => s.Speciality)));
 
-            // Hospital -> HospitalInformation
-            CreateMap<Hospital, HospitalInformation>()
-                .ForMember(dst => dst.HospitalID,
-                    src => src.MapFrom(hos => hos.HospitalID))
-                .ForMember(dst => dst.HospitalName,
-                    src => src.MapFrom(hos => hos.Name))
-                .ForMember(dst => dst.Specialities,
-                    src => src.MapFrom(hos => hos.Specialities.Select(s => s.Speciality.Name).ToList()));
+        // Speciality -> SpecialityInformation
+        CreateMap<Speciality, SpecialityInformation>()
+            .ForMember(dst => dst.SpecialtyID,
+                src => src.MapFrom(s => s.SpecialtyID))
+            .ForMember(dst => dst.SpecialityName,
+                src => src.MapFrom(s => s.Name))
+            .ForMember(dst => dst.DoctorList,
+                src => src.MapFrom(s => s.Doctors.Select(d => d.FullName)));
 
-            // Hospital -> AdvancedHospitalInformation
-            CreateMap<Hospital, AdvancedHospitalInformation>()
-                .ForMember(dst => dst.HospitalID,
-                    src => src.MapFrom(hos => hos.HospitalID))                
-                .ForMember(dst => dst.HospitalName,
-                    src => src.MapFrom(hos => hos.Name))
-                .ForMember(dst => dst.Address,
-                    src => src.MapFrom(hos => hos.Address))
-                .ForMember(dst => dst.Specialities,
-                    src => src.MapFrom(hos => hos.Specialities.Select(s => s.Speciality)));
+        // SpecialityInformation -> Dropdown
+        CreateMap<SpecialityInformation, Dropdown>()
+            .ForMember(dst => dst.ID,
+                src => src.MapFrom(s => s.SpecialtyID))
+            .ForMember(dst => dst.DisplayValue,
+                src => src.MapFrom(s => s.SpecialityName));
 
-            // Speciality -> SpecialityInformation
-            CreateMap<Speciality, SpecialityInformation>()
-                .ForMember(dst => dst.SpecialtyID,
-                    src => src.MapFrom(s => s.SpecialtyID))
-                .ForMember(dst => dst.SpecialityName,
-                    src => src.MapFrom(s => s.Name))
-                .ForMember(dst => dst.DoctorList,
-                    src => src.MapFrom(s => s.Doctors.Select(d => d.FullName)));
+        // Hospital -> HospitalDoctorInformation
+        CreateMap<Hospital, HospitalDoctorInformation>()
+            .ForMember(dst => dst.HospitalID,
+                src => src.MapFrom(hos => hos.HospitalID))
+            .ForMember(dst => dst.HospitalName,
+                src => src.MapFrom(hos => hos.Name))
+            .ForMember(dst => dst.Doctors,
+                src => src.MapFrom(hos => hos.Doctors.Select(d => d.Doctor)));
 
-            // SpecialityInformation -> Dropdown
-            CreateMap<SpecialityInformation, Dropdown>()
-                .ForMember(dst => dst.ID,
-                    src => src.MapFrom(s => s.SpecialtyID))
-                .ForMember(dst => dst.DisplayValue,
-                    src => src.MapFrom(s => s.SpecialityName));
+        // Doctor -> DoctorInfo
+        CreateMap<Doctor, DoctorInfo>()
+            .ForMember(dst => dst.FullName,
+                src => src.MapFrom(doc => doc.FullName))
+            .ForMember(dst => dst.SpecialityName,
+                src => src.MapFrom(doc => doc.Speciality.Name));
 
-            // Hospital -> HospitalDoctorInformation
-            CreateMap<Hospital, HospitalDoctorInformation>()
-                .ForMember(dst => dst.HospitalID,
-                    src => src.MapFrom(hos => hos.HospitalID))
-                .ForMember(dst => dst.HospitalName,
-                    src => src.MapFrom(hos => hos.Name))
-                .ForMember(dst => dst.Doctors,
-                    src => src.MapFrom(hos => hos.Doctors.Select(d => d.Doctor)));
+        // Speciality -> Dropdown
+        CreateMap<Speciality, Dropdown>()
+            .ForMember(dst => dst.ID,
+                src => src.MapFrom(s => s.SpecialtyID))
+            .ForMember(dst => dst.DisplayValue,
+                src => src.MapFrom(s => s.Name));
 
-            // Doctor -> DoctorInfo
-            CreateMap<Doctor, DoctorInfo>()
-                .ForMember(dst => dst.FullName,
-                    src => src.MapFrom(doc => doc.FullName))
-                .ForMember(dst => dst.SpecialityName,
-                    src => src.MapFrom(doc => doc.Speciality.Name));
+        // Hospital -> Dropdown
+        CreateMap<Hospital, Dropdown>()
+            .ForMember(dst => dst.ID,
+                src => src.MapFrom(s => s.HospitalID))
+            .ForMember(dst => dst.DisplayValue,
+                src => src.MapFrom(s => s.Name));
 
-            // Speciality -> Dropdown
-            CreateMap<Speciality, Dropdown>()
-                .ForMember(dst => dst.ID,
-                    src => src.MapFrom(s => s.SpecialtyID))
-                .ForMember(dst => dst.DisplayValue,
-                    src => src.MapFrom(s => s.Name));
+        // Doctor -> Dropdown
+        CreateMap<Doctor, Dropdown>()
+            .ForMember(dst => dst.ID,
+                src => src.MapFrom(s => s.DoctorID))
+            .ForMember(dst => dst.DisplayValue,
+                src => src.MapFrom(s => (s.Firstname + " " + s.Middlename + " " + s.Lastname).RemoveConsequtiveSpaces()));
 
-            // Hospital -> Dropdown
-            CreateMap<Hospital, Dropdown>()
-                .ForMember(dst => dst.ID,
-                    src => src.MapFrom(s => s.HospitalID))
-                .ForMember(dst => dst.DisplayValue,
-                    src => src.MapFrom(s => s.Name));
-
-            // Doctor -> Dropdown
-            CreateMap<Doctor, Dropdown>()
-                .ForMember(dst => dst.ID,
-                    src => src.MapFrom(s => s.DoctorID))
-                .ForMember(dst => dst.DisplayValue,
-                    src => src.MapFrom(s => (s.Firstname + " " + s.Middlename + " " + s.Lastname).RemoveConsequtiveSpaces()));
-
-
-        }
 
     }
+
 }
