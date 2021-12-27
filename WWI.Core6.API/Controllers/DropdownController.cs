@@ -13,17 +13,11 @@ public class DropdownController : BaseAPIController
     /// <summary>
     /// 
     /// </summary>
-    private  IMediator Mediator { get; }
-
-    /// <summary>
-    /// 
-    /// </summary>
     /// <param name="applicationServices"></param>
     /// <param name="mediator"></param>
     public DropdownController(IApplicationServices applicationServices, IMediator mediator)
-        : base(applicationServices)
+        : base(applicationServices, mediator)
     {
-        Mediator = Guard.Against.Null(mediator, nameof(mediator));
     }
 
     /// <summary>

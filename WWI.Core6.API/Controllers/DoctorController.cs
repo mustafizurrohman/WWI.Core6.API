@@ -23,17 +23,14 @@ namespace WWI.Core6.API.Controllers;
 /// <seealso cref="BaseAPIController" />
 public class DoctorController : BaseAPIController
 {
-    private  IMediator Mediator { get; }
-
     /// <summary>
     /// Initializes a new instance of the <see cref="DoctorController" /> class.
     /// </summary>
     /// <param name="applicationServices">The application services.</param>
     /// <param name="mediator"></param>
     public DoctorController(IApplicationServices applicationServices, IMediator mediator) 
-        : base(applicationServices)
+        : base(applicationServices, mediator)
     {
-        Mediator = Guard.Against.Null(mediator, nameof(mediator));
     }
 
         

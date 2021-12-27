@@ -50,7 +50,7 @@ public class Startup
     /// <param name="configuration">The configuration.</param>
     public Startup(IConfiguration configuration)
     {
-        Configuration = configuration;
+        Configuration = Guard.Against.Null(configuration, nameof(configuration));
     }
 
     /// <summary>

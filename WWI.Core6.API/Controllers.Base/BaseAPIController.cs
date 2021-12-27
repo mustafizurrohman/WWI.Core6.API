@@ -44,6 +44,11 @@ public abstract class BaseAPIController : ControllerBase
     // ReSharper disable once MemberCanBePrivate.Global
     protected IMapper AutoMapper { get; }
 
+    /// <summary>
+    /// Mediator
+    /// </summary>
+    protected IMediator Mediator { get; }
+
     #endregion
 
     #region -- Constructor -- 
@@ -56,6 +61,17 @@ public abstract class BaseAPIController : ControllerBase
     {
         DbContext = Guard.Against.Null(applicationServices.DbContext, nameof(applicationServices.DbContext));
         AutoMapper = Guard.Against.Null(applicationServices.AutoMapper, nameof(applicationServices.AutoMapper));
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="applicationServices"></param>
+    /// <param name="mediator"></param>
+    protected BaseAPIController(IApplicationServices applicationServices, IMediator mediator)
+        : this(applicationServices)
+    {
+        Mediator = Guard.Against.Null(mediator, nameof(mediator));
     }
 
     #endregion

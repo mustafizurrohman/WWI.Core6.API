@@ -22,11 +22,23 @@
             </summary>
             <value>The automatic mapper.</value>
         </member>
+        <member name="P:WWI.Core6.API.Controllers.Base.BaseAPIController.Mediator">
+            <summary>
+            Mediator
+            </summary>
+        </member>
         <member name="M:WWI.Core6.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" /> class.
             </summary>
             <param name="applicationServices">The collection of frequently used application services.</param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.Base.BaseAPIController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
+            <summary>
+            
+            </summary>
+            <param name="applicationServices"></param>
+            <param name="mediator"></param>
         </member>
         <member name="T:WWI.Core6.API.Controllers.Demos.PlaygroundController">
             <summary>
@@ -251,11 +263,6 @@
             <returns>IActionResult.</returns>
         </member>
         <member name="T:WWI.Core6.API.Controllers.DropdownController">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:WWI.Core6.API.Controllers.DropdownController.Mediator">
             <summary>
             
             </summary>
