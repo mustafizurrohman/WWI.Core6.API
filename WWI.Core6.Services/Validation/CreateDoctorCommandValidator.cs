@@ -1,5 +1,7 @@
-﻿using WWI.Core6.Models.DbContext;
+﻿using Microsoft.EntityFrameworkCore;
+using WWI.Core6.Models.DbContext;
 using WWI.Core6.Services.MediatR.Commands;
+using WWI.Core6.Services.Validation.Custom;
 
 namespace WWI.Core6.Services.Validation
 {
@@ -17,37 +19,30 @@ namespace WWI.Core6.Services.Validation
         private void SetValidationRules()
         {
             RuleFor(prop => prop.Firstname)
-                .NotEmpty()
-                .NotNull()
-                .Must(BeValidName);
+                .MustBeValidName();
 
             RuleFor(prop => prop.Middlename)
-                .Must(BeValidName);
+                .MaximumLength(30)
+                .NotStartWithWhiteSpace()
+                .NotEndWithWhiteSpace()
+                .NotContainNumbersOrSpecialCharacters();
 
             RuleFor(prop => prop.Lastname)
-                .NotEmpty()
-                .NotNull()
-                .Must(BeValidName);
+                .MustBeValidName();
 
             RuleFor(prop => prop.SpecialityID)
                 .NotEmpty()
                 .NotNull()
-                .Must(BeValidSpecialityID);
+                .MustAsync(BeValidSpecialityID);
 
-        }
-
-        private bool BeValidSpecialityID(int specialityID)
-        {
-            return DbContext.Specialities.Any(s => s.SpecialtyID == specialityID);
         }
         
-        private bool BeValidName(string name)
+        private Task<bool> BeValidSpecialityID(int specialityID, CancellationToken cancellationToken)
         {
-            if (string.IsNullOrWhiteSpace(name))
-                return true;
-
-            return !name.Any(char.IsDigit);
+            return DbContext.Specialities.AnyAsync(s => s.SpecialtyID == specialityID, cancellationToken);
         }
+        
+
 
     }
 }

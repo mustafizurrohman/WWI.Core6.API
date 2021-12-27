@@ -81,8 +81,17 @@ namespace WWI.Core6.API.ExtensionMethods
 
                     if (exception is not ValidationException validationException)
                         throw exception;
-                    
-                    var errorText = JsonSerializer.Serialize(validationException.Errors);
+
+                    var errors = validationException.Errors
+                        .Select(err => new
+                        {
+                            err.PropertyName,
+                            err.AttemptedValue,
+                            err.ErrorMessage
+                        })
+                        .ToList();
+
+                    var errorText = JsonSerializer.Serialize(errors);
 
                     context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
                     context.Response.ContentType = "application/json";

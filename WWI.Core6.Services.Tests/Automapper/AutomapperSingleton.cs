@@ -18,7 +18,6 @@ namespace WWI.Core6.Services.Tests.Automapper
 
                 var mappingConfig = new MapperConfiguration(mc =>
                 {
-                    // mc.AddProfile(new MappingProfile());
                     mc.AddProfile<MappingProfile>();
                 });
 
@@ -26,9 +25,7 @@ namespace WWI.Core6.Services.Tests.Automapper
                 IMapper mapper = mappingConfig.CreateMapper();
                 _autoMapper = mapper;
 
-
                 return _autoMapper;
-
             }
         }
 
