@@ -2,20 +2,6 @@
 
 public static class CustomValidators
 {
-    public static IRuleBuilderOptions<T, string> MustBeValidName<T>(this IRuleBuilder<T, string> rule)
-    {
-        return rule
-            .NotEmpty()
-            .WithMessage("'{PropertyName}' should not be empty")
-            .NotNull()
-            .WithMessage("'{PropertyName}' should not be null")
-            .MaximumLength(30)
-            .WithMessage("'{PropertyName}' cannot have more than 30 characters")
-            .NotContainNumbersOrSpecialCharacters()
-            .NotStartWithWhiteSpace()
-            .NotEndWithWhiteSpace();
-    }
-
     public static IRuleBuilderOptions<T, string> NotStartWithWhiteSpace<T>(this IRuleBuilder<T, string> ruleBuilder)     
     {         
         return ruleBuilder.Must(m => m != null && !m.StartsWith(" "))
@@ -33,10 +19,6 @@ public static class CustomValidators
         return ruleBuilder.Must(NotContainNumbers)
             .WithMessage("'{PropertyName}' must not contain numbers");
 
-        bool NotContainNumbers(string name)
-        {
-            return !name.Any(char.IsDigit);
-        }
-    } 
-        
+        bool NotContainNumbers(string name) => !name.Any(char.IsDigit);
+    }
 }

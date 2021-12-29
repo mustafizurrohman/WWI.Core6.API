@@ -22,17 +22,13 @@ public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorComman
             .MustBeValidName();
 
         RuleFor(prop => prop.Middlename)
-            .MaximumLength(30)
-            .NotStartWithWhiteSpace()
-            .NotEndWithWhiteSpace()
-            .NotContainNumbersOrSpecialCharacters();
+            .MustBeValidMiddleName();
 
         RuleFor(prop => prop.Lastname)
             .MustBeValidName();
 
         RuleFor(prop => prop.SpecialityID)
-            .NotEmpty()
-            .NotNull()
+            .MustNotBeNullOrEmpty()
             .MustAsync(BeValidSpecialityID);
 
     }
@@ -41,7 +37,5 @@ public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorComman
     {
         return DbContext.Specialities.AnyAsync(s => s.SpecialtyID == specialityID, cancellationToken);
     }
-        
-
 
 }
