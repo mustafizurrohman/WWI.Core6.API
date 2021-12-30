@@ -1,11 +1,21 @@
-﻿using FluentValidation.Validators;
+﻿using FluentValidation;
+using FluentValidation.Validators;
 
-namespace WWI.Core6.Services.Validation.Custom;
+namespace WWI.Core6.Models.Validators.Custom;
 
+/// <summary>
+/// 
+/// </summary>
+/// <typeparam name="T"></typeparam>
+/// <typeparam name="TCollectionElement"></typeparam>
 public class ListCountValidator<T, TCollectionElement> : PropertyValidator<T, IList<TCollectionElement>> {
     
     private readonly int _max;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="max"></param>
     public ListCountValidator(int max) {
         _max = max;
     }
@@ -23,6 +33,11 @@ public class ListCountValidator<T, TCollectionElement> : PropertyValidator<T, IL
     public override string Name 
         => "ListCountValidator";
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="errorCode"></param>
+    /// <returns></returns>
     protected override string GetDefaultMessageTemplate(string errorCode)
         => "{PropertyName} must contain fewer than {MaxElements} items.";
 }
