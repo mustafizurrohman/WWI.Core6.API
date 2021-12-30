@@ -796,35 +796,6 @@
             Initializes a new instance of the <see cref="T:WWI.Core6.Models.Validators.ApplicationSettingsValidator"/> class.
             </summary>
         </member>
-        <member name="T:WWI.Core6.Models.Validators.Custom.CustomValidators">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:WWI.Core6.Models.Validators.Custom.CustomValidators.NotStartWithWhiteSpace``1(FluentValidation.IRuleBuilder{``0,System.String})">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="ruleBuilder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core6.Models.Validators.Custom.CustomValidators.NotEndWithWhiteSpace``1(FluentValidation.IRuleBuilder{``0,System.String})">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="ruleBuilder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WWI.Core6.Models.Validators.Custom.CustomValidators.NotContainNumbersOrSpecialCharacters``1(FluentValidation.IRuleBuilder{``0,System.String})">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="ruleBuilder"></param>
-            <returns></returns>
-        </member>
         <member name="T:WWI.Core6.Models.Validators.Custom.ListCountValidator`2">
             <summary>
             
@@ -837,6 +808,19 @@
             
             </summary>
             <param name="max"></param>
+        </member>
+        <member name="M:WWI.Core6.Models.Validators.Custom.ListCountValidator`2.IsValid(FluentValidation.ValidationContext{`0},System.Collections.Generic.IList{`1})">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="P:WWI.Core6.Models.Validators.Custom.ListCountValidator`2.Name">
+            <summary>
+            
+            </summary>
         </member>
         <member name="M:WWI.Core6.Models.Validators.Custom.ListCountValidator`2.GetDefaultMessageTemplate(System.String)">
             <summary>
@@ -883,6 +867,38 @@
             <typeparam name="T"></typeparam>
             <typeparam name="TProperty"></typeparam>
             <param name="rule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Validators.Custom.ValidatorExtensions.NotStartWithWhiteSpace``1(FluentValidation.IRuleBuilder{``0,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ruleBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Validators.Custom.ValidatorExtensions.NotEndWithWhiteSpace``1(FluentValidation.IRuleBuilder{``0,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ruleBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Validators.Custom.ValidatorExtensions.NotStartOrEndWithWhiteSpace``1(FluentValidation.IRuleBuilder{``0,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ruleBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WWI.Core6.Models.Validators.Custom.ValidatorExtensions.NotContainNumbersOrSpecialCharacters``1(FluentValidation.IRuleBuilder{``0,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ruleBuilder"></param>
             <returns></returns>
         </member>
         <member name="T:WWI.Core6.Models.Validators.DatabaseConnectionStringValidator">

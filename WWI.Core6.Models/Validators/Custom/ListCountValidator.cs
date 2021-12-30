@@ -20,6 +20,12 @@ public class ListCountValidator<T, TCollectionElement> : PropertyValidator<T, IL
         _max = max;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="context"></param>
+    /// <param name="list"></param>
+    /// <returns></returns>
     public override bool IsValid(ValidationContext<T> context, IList<TCollectionElement> list) {
         
         if(list != null && list.Count >= _max) {
@@ -30,8 +36,10 @@ public class ListCountValidator<T, TCollectionElement> : PropertyValidator<T, IL
         return true;
     }
 
-    public override string Name 
-        => "ListCountValidator";
+    /// <summary>
+    /// 
+    /// </summary>
+    public override string Name => "ListCountValidator";
 
     /// <summary>
     /// 
