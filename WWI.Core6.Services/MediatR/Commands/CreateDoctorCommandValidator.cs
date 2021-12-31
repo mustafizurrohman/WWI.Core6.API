@@ -28,7 +28,8 @@ public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorComman
 
         RuleFor(prop => prop.SpecialityID)
             .MustNotBeNullOrEmpty()
-            .MustAsync(BeValidSpecialityID);
+            .MustAsync(BeValidSpecialityID)
+                .WithMessage("Invalid '{PropertyName}'.");
 
     }
         

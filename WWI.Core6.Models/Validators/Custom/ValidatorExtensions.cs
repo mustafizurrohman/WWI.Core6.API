@@ -45,7 +45,6 @@ public static class ValidatorExtensions
     public static IRuleBuilderOptions<T, string> MustBeValidMiddleName<T>(this IRuleBuilder<T, string> rule)
     {
         return rule
-            .MustNotBeNullOrEmpty()
             .MaximumLength(30)
             .WithMessage("'{PropertyName}' cannot have more than 30 characters")
             .NotStartOrEndWithWhiteSpace()

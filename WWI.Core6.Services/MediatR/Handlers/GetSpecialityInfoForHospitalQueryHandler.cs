@@ -20,7 +20,7 @@ public class GetSpecialityInfoForHospitalQueryHandler : HandlerBase, IRequestHan
             .Where(hos => hos.HospitalID == request.HospitalID)
             .SingleOrDefaultAsync(cancellationToken);
 
-        var specialityInformation = advancedHospitalInformation.Specialities
+        var specialityInformation = advancedHospitalInformation?.Specialities
             .FirstOrDefault(sp => sp.SpecialtyID == request.SpecialityID);
             
         return specialityInformation;

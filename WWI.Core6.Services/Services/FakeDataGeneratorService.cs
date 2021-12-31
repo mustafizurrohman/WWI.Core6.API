@@ -127,7 +127,7 @@ public class FakeDataGeneratorService : BaseService, IFakeDataGeneratorService
             .RuleFor(doc => doc.Firstname, fake => fake.Name.FirstName())
             .RuleFor(doc => doc.Lastname, fake => fake.Name.LastName())
             .RuleFor(doc => doc.SpecialityID, fake => fake.UniqueIndex)
-            .RuleFor(doc => doc.Middlename, fake => string.Empty)
+            .RuleFor(doc => doc.Middlename, _ => string.Empty)
             .RuleFor(doc => doc.Speciality, GetSpecialityFaker());
 
         return doctorFaker;
@@ -142,7 +142,7 @@ public class FakeDataGeneratorService : BaseService, IFakeDataGeneratorService
         var specialityFaker = new Faker<Speciality>()
             .StrictMode(false)
             .RuleFor(sp => sp.SpecialtyID, fake => fake.IndexFaker + 1)
-            .RuleFor(sp => sp.Name, fake => GetSpecialityList().GetRandomElement());
+            .RuleFor(sp => sp.Name, _ => GetSpecialityList().GetRandomElement());
 
         return specialityFaker;
     }

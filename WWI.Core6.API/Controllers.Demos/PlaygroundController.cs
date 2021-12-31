@@ -45,7 +45,7 @@ public class PlaygroundController : BaseAPIController
         var faker = new Faker();
             
         var maxByValue = Enumerable.Range(0, num)
-            .Select(x => new
+            .Select(_ => new
             {
                 Name = faker.Name.FirstName() + " " + faker.Name.LastName(),
                 Age = faker.Random.Number(50, 70)
@@ -83,7 +83,7 @@ public class PlaygroundController : BaseAPIController
         num = Guard.Against.NegativeOrZero(num, nameof(num));
 
         var randomNumbers = Enumerable.Range(1, num)
-            .Select(x => new Faker().Random.Number(10, 100))
+            .Select(_ => new Faker().Random.Number(10, 100))
             .ToList();
 
         var numberslessThan10 = randomNumbers.FirstOrDefault(x => x < 10, -1);
