@@ -77,7 +77,7 @@ public static class ValidatorExtensions
     public static IRuleBuilderOptions<T, string> NotStartWithWhiteSpace<T>(this IRuleBuilder<T, string> ruleBuilder)     
     {         
         return ruleBuilder.Must(m => m != null && !m.StartsWith(" "))
-            .WithMessage("'{PropertyName}' must not start with whitespace");     
+            .WithMessage("'{PropertyName}' must not start with whitespace.");     
     }
 
     /// <summary>
@@ -89,7 +89,7 @@ public static class ValidatorExtensions
     public static IRuleBuilderOptions<T, string> NotEndWithWhiteSpace<T>(this IRuleBuilder<T, string> ruleBuilder)     
     {         
         return ruleBuilder.Must(m => m != null && !m.EndsWith(" "))
-            .WithMessage("'{PropertyName}' must not end with whitespace");     
+            .WithMessage("'{PropertyName}' must not end with whitespace.");     
     }
 
     /// <summary>
