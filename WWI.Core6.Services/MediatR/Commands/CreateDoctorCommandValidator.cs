@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System.Diagnostics.CodeAnalysis;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using WWI.Core6.Models.DbContext;
 using WWI.Core6.Models.Validators.Custom;
@@ -43,6 +44,7 @@ public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorComman
         return DbContext.Specialities.AnyAsync(s => s.SpecialtyID == specialityID, cancellationToken);
     }
 
+    [SuppressMessage("ReSharper", "SpecifyStringComparison")]
     private bool BeUniqueName(string firstName, string middleName, string lastName, int specialityID)
     {
         var nameIsPresent = DbContext.Doctors

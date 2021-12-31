@@ -911,6 +911,14 @@
             <param name="ruleBuilder"></param>
             <returns></returns>
         </member>
+        <member name="M:WWI.Core6.Models.Validators.Custom.ValidatorExtensions.NotContainConsequitiveSpaces``1(FluentValidation.IRuleBuilder{``0,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ruleBuilder"></param>
+            <returns></returns>
+        </member>
         <member name="T:WWI.Core6.Models.Validators.DatabaseConnectionStringValidator">
             <summary>
             Class DatabaseConnectionStringValidator.

@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System.Text.RegularExpressions;
+using FluentValidation;
 using FluentValidation.Validators;
 
 namespace WWI.Core6.Models.Validators.Custom;
@@ -33,7 +34,8 @@ public static class ValidatorExtensions
             .MaximumLength(30)
             .WithMessage("'{PropertyName}' cannot have more than 30 characters")
             .NotContainNumbersOrSpecialCharacters()
-            .NotStartOrEndWithWhiteSpace();
+            .NotStartOrEndWithWhiteSpace()
+            .NotContainConsequitiveSpaces();
     }
 
     /// <summary>
@@ -48,7 +50,8 @@ public static class ValidatorExtensions
             .MaximumLength(30)
             .WithMessage("'{PropertyName}' cannot have more than 30 characters")
             .NotStartOrEndWithWhiteSpace()
-            .NotContainNumbersOrSpecialCharacters();
+            .NotContainNumbersOrSpecialCharacters()
+            .NotContainConsequitiveSpaces();
     }
 
     /// <summary>
@@ -115,7 +118,25 @@ public static class ValidatorExtensions
         return ruleBuilder.Must(NotContainNumbers)
             .WithMessage("'{PropertyName}' must not contain numbers");
 
-        bool NotContainNumbers(string name) => !name.Any(char.IsDigit);
+        bool NotContainNumbers(string name) => !name.Any(char.IsLetterOrDigit);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="ruleBuilder"></param>
+    /// <returns></returns>
+    public static IRuleBuilderOptions<T, string> NotContainConsequitiveSpaces<T>(this IRuleBuilder<T, string> ruleBuilder)
+    {
+        return ruleBuilder.Must(NotHaveConsequitiveSpaces)
+            .WithMessage("'{PropertyName}' must mot contain more than 1 consequitive spaces");
+
+        bool NotHaveConsequitiveSpaces(string inputString)
+        {
+            Regex regex = new(@"\s{2,}");
+            return !regex.IsMatch(inputString);
+        }
     }
 
 }
