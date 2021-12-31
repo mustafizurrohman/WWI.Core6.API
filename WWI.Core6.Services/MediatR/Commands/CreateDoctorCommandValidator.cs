@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using WWI.Core6.Models.DbContext;
 using WWI.Core6.Models.Validators.Custom;
 
@@ -31,10 +32,27 @@ public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorComman
             .MustAsync(BeValidSpecialityID)
                 .WithMessage("Invalid '{PropertyName}'.");
 
+        RuleFor(prop => new { prop.Firstname, prop.Middlename, prop.Lastname, prop.SpecialityID })
+            .Must(prop => BeUniqueName(prop.Firstname, prop.Middlename, prop.Lastname, prop.SpecialityID))
+                .WithMessage("Doctor is already present in database");
+
     }
         
     private Task<bool> BeValidSpecialityID(int specialityID, CancellationToken cancellationToken)
     {
         return DbContext.Specialities.AnyAsync(s => s.SpecialtyID == specialityID, cancellationToken);
     }
+
+    private bool BeUniqueName(string firstName, string middleName, string lastName, int specialityID)
+    {
+        var nameIsPresent = DbContext.Doctors
+            .Where(doc => doc.Firstname.ToLower() == firstName.ToLower())
+            .Where(doc => doc.Middlename.ToLower() == middleName.ToLower())
+            .Where(doc => doc.Lastname.ToLower() == lastName.ToLower())
+            .Any(doc => doc.SpecialityID == specialityID);
+
+        return !nameIsPresent;
+
+    }
+
 }

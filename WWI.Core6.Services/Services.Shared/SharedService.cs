@@ -44,6 +44,10 @@ public class SharedService : BaseService, ISharedService
             .AsQueryable();
     }
 
+    /// <summary>
+    /// Get advanced information about hospital
+    /// </summary>
+    /// <returns></returns>
     public IQueryable<AdvancedHospitalInformation> GetAdvancedHospitalInformation()
     {
         return DbContext.Hospitals
@@ -51,4 +55,14 @@ public class SharedService : BaseService, ISharedService
             .AsQueryable();
     }
 
+    /// <summary>
+    /// Gets information about a doctor
+    /// </summary>
+    /// <returns></returns>
+    public IQueryable<DoctorInfo> GetInformationAboutDoctor()
+    {
+        return DbContext.Doctors
+            .ProjectTo<DoctorInfo>(AutoMapper.ConfigurationProvider)
+            .AsQueryable();
+    }
 }

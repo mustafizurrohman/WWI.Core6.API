@@ -27,9 +27,15 @@ public interface ISharedService
     IQueryable<HospitalInformation> GetHospitalInformation();
 
     /// <summary>
-    /// 
+    /// Get advanced information about hospital
     /// </summary>
     /// <returns></returns>
     IQueryable<AdvancedHospitalInformation> GetAdvancedHospitalInformation();
+
+    /// <summary>
+    /// Gets information about a doctor
+    /// </summary>
+    /// <returns></returns>
+    IQueryable<DoctorInfo> GetInformationAboutDoctor();
 
 }
