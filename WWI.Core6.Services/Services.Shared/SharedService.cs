@@ -13,6 +13,7 @@
 // ***********************************************************************
 
 using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
 using WWI.Core6.Services.Interfaces;
 using WWI.Core6.Services.Services.Base;
 
@@ -75,6 +76,18 @@ public class SharedService : BaseService, ISharedService
             .Where(doc => doc.Middlename.ToLower() == middleName.ToLower())
             .Where(doc => doc.Lastname.ToLower() == lastName.ToLower())
             .Any(doc => doc.SpecialityID == specialityID);
+
+        return !nameIsPresent;
+    }
+
+    [SuppressMessage("ReSharper", "SpecifyStringComparison")]
+    public async Task<bool> BeUniqueNameAsync(string firstName, string middleName, string lastName, int specialityID)
+    {
+        var nameIsPresent = await DbContext.Doctors
+            .Where(doc => doc.Firstname.ToLower() == firstName.ToLower())
+            .Where(doc => doc.Middlename.ToLower() == middleName.ToLower())
+            .Where(doc => doc.Lastname.ToLower() == lastName.ToLower())
+            .AnyAsync(doc => doc.SpecialityID == specialityID);
 
         return !nameIsPresent;
     }

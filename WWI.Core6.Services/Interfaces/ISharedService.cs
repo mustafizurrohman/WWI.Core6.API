@@ -48,4 +48,14 @@ public interface ISharedService
     /// <returns></returns>
     bool BeUniqueName(string firstName, string middleName, string lastName, int specialityID);
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="firstName"></param>
+    /// <param name="middleName"></param>
+    /// <param name="lastName"></param>
+    /// <param name="specialityID"></param>
+    /// <returns></returns>
+    Task<bool> BeUniqueNameAsync(string firstName, string middleName, string lastName, int specialityID);
+
 }

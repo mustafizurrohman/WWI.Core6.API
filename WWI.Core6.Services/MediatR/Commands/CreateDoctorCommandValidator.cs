@@ -40,11 +40,16 @@ public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorComman
             .Must(prop => SharedService.BeUniqueName(prop.Firstname, prop.Middlename, prop.Lastname, prop.SpecialityID))
                 .WithMessage("Doctor is already present in database");
 
+        RuleFor(prop => new { prop.Firstname, prop.Middlename, prop.Lastname, prop.SpecialityID })
+            .MustAsync(async (prop, _) => await SharedService.BeUniqueNameAsync(prop.Firstname, prop.Middlename, prop.Lastname, prop.SpecialityID))
+            .WithMessage("Doctor is already present in database");
+
     }
         
     private Task<bool> BeValidSpecialityID(int specialityID, CancellationToken cancellationToken)
     {
         return DbContext.Specialities.AnyAsync(s => s.SpecialtyID == specialityID, cancellationToken);
     }
-    
+
+
 }
