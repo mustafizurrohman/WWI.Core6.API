@@ -69,7 +69,7 @@ public class SharedService : BaseService, ISharedService
     }
 
     [SuppressMessage("ReSharper", "SpecifyStringComparison")]
-    public bool BeUniqueName(string firstName, string middleName, string lastName, int specialityID)
+    public bool IsUniqueDoctorName(string firstName, string middleName, string lastName, int specialityID)
     {
         var nameIsPresent = DbContext.Doctors
             .Where(doc => doc.Firstname.ToLower() == firstName.ToLower())
@@ -81,7 +81,7 @@ public class SharedService : BaseService, ISharedService
     }
 
     [SuppressMessage("ReSharper", "SpecifyStringComparison")]
-    public async Task<bool> BeUniqueNameAsync(string firstName, string middleName, string lastName, int specialityID)
+    public async Task<bool> IsUniqueDoctorNameAsync(string firstName, string middleName, string lastName, int specialityID)
     {
         var nameIsPresent = await DbContext.Doctors
             .Where(doc => doc.Firstname.ToLower() == firstName.ToLower())

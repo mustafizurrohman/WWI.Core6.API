@@ -46,7 +46,7 @@ public interface ISharedService
     /// <param name="lastName"></param>
     /// <param name="specialityID"></param>
     /// <returns></returns>
-    bool BeUniqueName(string firstName, string middleName, string lastName, int specialityID);
+    bool IsUniqueDoctorName(string firstName, string middleName, string lastName, int specialityID);
 
     /// <summary>
     /// 
@@ -56,6 +56,6 @@ public interface ISharedService
     /// <param name="lastName"></param>
     /// <param name="specialityID"></param>
     /// <returns></returns>
-    Task<bool> BeUniqueNameAsync(string firstName, string middleName, string lastName, int specialityID);
+    Task<bool> IsUniqueDoctorNameAsync(string firstName, string middleName, string lastName, int specialityID);
 
 }
