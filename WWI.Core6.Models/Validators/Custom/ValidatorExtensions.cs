@@ -63,9 +63,9 @@ public static class ValidatorExtensions
     {
         return rule
             .SetValidator(new NotEmptyValidator<T, TProperty>())
-                .WithMessage("'{PropertyName}' cannot be empty.")
+                .WithMessage("'{PropertyName}' must not be empty.")
             .SetValidator(new NotNullValidator<T, TProperty>())
-                .WithMessage("'{PropertyName}' cannot be Null.");
+                .WithMessage("'{PropertyName}' must not be Null.");
     }
 
     /// <summary>
@@ -77,7 +77,7 @@ public static class ValidatorExtensions
     public static IRuleBuilderOptions<T, string> NotStartWithWhiteSpace<T>(this IRuleBuilder<T, string> ruleBuilder)     
     {         
         return ruleBuilder.Must(m => m != null && !m.StartsWith(" "))
-            .WithMessage("'{PropertyName}' should not start with whitespace");     
+            .WithMessage("'{PropertyName}' must not start with whitespace");     
     }
 
     /// <summary>
@@ -89,7 +89,7 @@ public static class ValidatorExtensions
     public static IRuleBuilderOptions<T, string> NotEndWithWhiteSpace<T>(this IRuleBuilder<T, string> ruleBuilder)     
     {         
         return ruleBuilder.Must(m => m != null && !m.EndsWith(" "))
-            .WithMessage("'{PropertyName}' should not end with whitespace");     
+            .WithMessage("'{PropertyName}' must not end with whitespace");     
     }
 
     /// <summary>

@@ -48,7 +48,7 @@ public static class ApplicationBuilderExtensions
         app.UseHttpsRedirection();
 
         app.UseCustomExceptionHandler();
-        app.UseFluentValidationExceptionHandler();
+        // app.UseFluentValidationExceptionHandler();
             
         app.UseSerilogRequestLogging();
 
