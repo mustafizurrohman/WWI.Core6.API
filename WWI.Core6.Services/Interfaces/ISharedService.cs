@@ -38,4 +38,14 @@ public interface ISharedService
     /// <returns></returns>
     IQueryable<DoctorInfo> GetInformationAboutDoctor();
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="firstName"></param>
+    /// <param name="middleName"></param>
+    /// <param name="lastName"></param>
+    /// <param name="specialityID"></param>
+    /// <returns></returns>
+    bool BeUniqueName(string firstName, string middleName, string lastName, int specialityID);
+
 }

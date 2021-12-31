@@ -92,6 +92,8 @@ public class DoctorController : BaseAPIController
     /// <param name="cancellationToken"></param>
     /// <returns>IActionResult.</returns>
     [HttpPut]
+    [ProducesResponseType(typeof(DoctorInfo), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> AddDoctorAsync([FromBody] CreateDoctorCommand doctor, CancellationToken cancellationToken)
     {
         var doctorInfo = await Mediator.Send(doctor, cancellationToken);

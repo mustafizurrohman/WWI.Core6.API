@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using System.Diagnostics.CodeAnalysis;
 using WWI.Core6.Services.Interfaces;
 using WWI.Core6.Services.Services.Base;
 
@@ -64,5 +65,17 @@ public class SharedService : BaseService, ISharedService
         return DbContext.Doctors
             .ProjectTo<DoctorInfo>(AutoMapper.ConfigurationProvider)
             .AsQueryable();
+    }
+
+    [SuppressMessage("ReSharper", "SpecifyStringComparison")]
+    public bool BeUniqueName(string firstName, string middleName, string lastName, int specialityID)
+    {
+        var nameIsPresent = DbContext.Doctors
+            .Where(doc => doc.Firstname.ToLower() == firstName.ToLower())
+            .Where(doc => doc.Middlename.ToLower() == middleName.ToLower())
+            .Where(doc => doc.Lastname.ToLower() == lastName.ToLower())
+            .Any(doc => doc.SpecialityID == specialityID);
+
+        return !nameIsPresent;
     }
 }

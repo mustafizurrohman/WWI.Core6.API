@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.RegularExpressions;
 using FluentValidation;
 using FluentValidation.Validators;
 
@@ -7,10 +8,11 @@ namespace WWI.Core6.Models.Validators.Custom;
 /// <summary>
 /// 
 /// </summary>
+[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 public static class ValidatorExtensions
 {
     /// <summary>
-    /// 
+    /// Check if a list has more than a specified number of elements
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TElement"></typeparam>
@@ -22,7 +24,7 @@ public static class ValidatorExtensions
     }
 
     /// <summary>
-    /// 
+    /// Checks if a name is valid
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="rule"></param>
@@ -39,7 +41,7 @@ public static class ValidatorExtensions
     }
 
     /// <summary>
-    /// 
+    /// Checks if a middle name is valid
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="rule"></param>
@@ -55,7 +57,7 @@ public static class ValidatorExtensions
     }
 
     /// <summary>
-    /// 
+    /// Check if a property is Null or Empty
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TProperty"></typeparam>
@@ -72,7 +74,7 @@ public static class ValidatorExtensions
     }
 
     /// <summary>
-    /// 
+    /// Checks if a property starts with a white space
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="ruleBuilder"></param>
@@ -84,7 +86,7 @@ public static class ValidatorExtensions
     }
 
     /// <summary>
-    /// 
+    /// Checks if a property ends with a white space
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="ruleBuilder"></param>
@@ -96,7 +98,7 @@ public static class ValidatorExtensions
     }
 
     /// <summary>
-    /// 
+    /// Check if a property starts or ends with a white space 
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="ruleBuilder"></param>
@@ -108,21 +110,19 @@ public static class ValidatorExtensions
     }
 
     /// <summary>
-    /// 
+    /// Checks if a property contains a digit or special character
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="ruleBuilder"></param>
     /// <returns></returns>
     public static IRuleBuilderOptions<T, string> NotContainNumbersOrSpecialCharacters<T>(this IRuleBuilder<T, string> ruleBuilder)
     {
-        return ruleBuilder.Must(NotContainNumbers)
+        return ruleBuilder.Must(name => !name.Any(char.IsDigit))
             .WithMessage("'{PropertyName}' must not contain numbers");
-
-        bool NotContainNumbers(string name) => !name.Any(char.IsLetterOrDigit);
     }
 
     /// <summary>
-    /// 
+    /// Checks if a property contains consequitive spaces
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="ruleBuilder"></param>

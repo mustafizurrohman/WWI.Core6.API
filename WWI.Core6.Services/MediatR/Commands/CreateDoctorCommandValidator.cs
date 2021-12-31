@@ -3,17 +3,20 @@ using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using WWI.Core6.Models.DbContext;
 using WWI.Core6.Models.Validators.Custom;
+using WWI.Core6.Services.Interfaces;
 
 namespace WWI.Core6.Services.MediatR.Commands;
 
 public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorCommand>
 {
     private DocAppointmentContext DbContext { get; }
+    private ISharedService SharedService { get; }
 
     // Dependency Injection also for Input Validation!
-    public CreateDoctorCommandValidator(DocAppointmentContext docAppointmentContext)
+    public CreateDoctorCommandValidator(DocAppointmentContext docAppointmentContext, ISharedService sharedService)
     {
         DbContext = docAppointmentContext;
+        SharedService = sharedService;
         SetValidationRules();
     }
 
@@ -34,7 +37,7 @@ public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorComman
                 .WithMessage("Invalid '{PropertyName}'.");
 
         RuleFor(prop => new { prop.Firstname, prop.Middlename, prop.Lastname, prop.SpecialityID })
-            .Must(prop => BeUniqueName(prop.Firstname, prop.Middlename, prop.Lastname, prop.SpecialityID))
+            .Must(prop => SharedService.BeUniqueName(prop.Firstname, prop.Middlename, prop.Lastname, prop.SpecialityID))
                 .WithMessage("Doctor is already present in database");
 
     }
@@ -43,18 +46,5 @@ public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorComman
     {
         return DbContext.Specialities.AnyAsync(s => s.SpecialtyID == specialityID, cancellationToken);
     }
-
-    [SuppressMessage("ReSharper", "SpecifyStringComparison")]
-    private bool BeUniqueName(string firstName, string middleName, string lastName, int specialityID)
-    {
-        var nameIsPresent = DbContext.Doctors
-            .Where(doc => doc.Firstname.ToLower() == firstName.ToLower())
-            .Where(doc => doc.Middlename.ToLower() == middleName.ToLower())
-            .Where(doc => doc.Lastname.ToLower() == lastName.ToLower())
-            .Any(doc => doc.SpecialityID == specialityID);
-
-        return !nameIsPresent;
-
-    }
-
+    
 }
