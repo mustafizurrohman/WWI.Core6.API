@@ -129,14 +129,9 @@ public static class ValidatorExtensions
     /// <returns></returns>
     public static IRuleBuilderOptions<T, string> NotContainConsequitiveSpaces<T>(this IRuleBuilder<T, string> ruleBuilder)
     {
-        return ruleBuilder.Must(NotHaveConsequitiveSpaces)
+        return ruleBuilder.Matches(new Regex(@"\s{2,}"))
             .WithMessage("'{PropertyName}' must mot contain more than 1 consequitive spaces");
-
-        bool NotHaveConsequitiveSpaces(string inputString)
-        {
-            Regex regex = new(@"\s{2,}");
-            return !regex.IsMatch(inputString);
-        }
+        
     }
 
 }

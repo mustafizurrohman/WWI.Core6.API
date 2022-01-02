@@ -1,12 +1,3 @@
 ﻿namespace WWI.Core6.Services.MediatR.Queries;
 
-public class GetDoctorsBySpecialityQuery : IRequest<List<Dropdown>>
-{
-    public int SpecialityID { get; }
-
-    public GetDoctorsBySpecialityQuery(int specialityID)
-    {
-        this.SpecialityID = specialityID;
-    }
-
-}
+public record GetDoctorsBySpecialityQuery(int SpecialityID) : IRequest<List<Dropdown>>;

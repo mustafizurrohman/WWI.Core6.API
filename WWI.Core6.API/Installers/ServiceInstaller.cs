@@ -9,6 +9,7 @@ using WWI.Core6.Services;
 using WWI.Core6.Services.Interfaces;
 using WWI.Core6.Services.MediatR.Decorators;
 using WWI.Core6.Services.MediatR.Handlers;
+using WWI.Core6.Services.MediatR.PipelineBehaviours;
 using WWI.Core6.Services.Services;
 using WWI.Core6.Services.Services.Shared;
 
@@ -50,7 +51,7 @@ public class ServiceInstaller : IInstaller
         serviceCollection.AddTransient<IFakeDataGeneratorService, FakeDataGeneratorService>();
 
         serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
-        // serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         serviceCollection.AddValidatorsFromAssembly(typeof(RetryDecorator<>).Assembly);
 
         serviceCollection.Scan(scan =>
@@ -65,8 +66,8 @@ public class ServiceInstaller : IInstaller
         serviceCollection.AddOptions();
 
         serviceCollection.AddMvc()
-            .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null)
-            .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Core6ServicesMarker>());
+            .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+            // .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Core6ServicesMarker>());
 
         serviceCollection.AddMemoryCache();
 

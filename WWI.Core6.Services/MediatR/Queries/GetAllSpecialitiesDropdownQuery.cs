@@ -1,9 +1,3 @@
 ﻿namespace WWI.Core6.Services.MediatR.Queries;
 
-public class GetAllSpecialitiesDropdownQuery : IRequest<List<Dropdown>>
-{
-    public GetAllSpecialitiesDropdownQuery()
-    {
-
-    }
-}
+public record GetAllSpecialitiesDropdownQuery : IRequest<List<Dropdown>>;
