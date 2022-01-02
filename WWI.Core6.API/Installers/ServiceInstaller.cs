@@ -51,7 +51,7 @@ public class ServiceInstaller : IInstaller
         serviceCollection.AddTransient<IFakeDataGeneratorService, FakeDataGeneratorService>();
 
         serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
-        serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        // serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         serviceCollection.AddValidatorsFromAssembly(typeof(RetryDecorator<>).Assembly);
 
         serviceCollection.Scan(scan =>
@@ -66,8 +66,8 @@ public class ServiceInstaller : IInstaller
         serviceCollection.AddOptions();
 
         serviceCollection.AddMvc()
-            .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
-            // .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Core6ServicesMarker>());
+            .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null)
+            .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Core6ServicesMarker>());
 
         serviceCollection.AddMemoryCache();
 
