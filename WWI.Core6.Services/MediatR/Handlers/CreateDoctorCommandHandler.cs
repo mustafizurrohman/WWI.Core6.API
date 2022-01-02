@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WWI.Core6.Models.Models;
-using WWI.Core6.Services.Interfaces;
+﻿using WWI.Core6.Models.Models;
 using WWI.Core6.Services.MediatR.Commands;
 
 namespace WWI.Core6.Services.MediatR.Handlers;

@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WWI.Core6.Services.Interfaces;
-
-namespace WWI.Core6.Services.MediatR.Handlers;
+﻿namespace WWI.Core6.Services.MediatR.Handlers;
 
 public class GetSpecialityInfoForHospitalQueryHandler : HandlerBase, IRequestHandler<GetSpecialityInfoForHospitalQuery, SpecialityInformation>
 {

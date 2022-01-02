@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-
-namespace WWI.Core6.Services.MediatR.Handlers;
+﻿namespace WWI.Core6.Services.MediatR.Handlers;
 
 public class GetAllDoctorsQueryHandler : HandlerBase, IRequestHandler<GetAllDoctorsQuery, List<Dropdown>>
 {

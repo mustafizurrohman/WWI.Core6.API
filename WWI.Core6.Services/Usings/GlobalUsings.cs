@@ -13,3 +13,6 @@ global using WWI.Core6.Services.MediatR.Queries;
 global using WWI.Core6.Services.ServiceCollection;
 
 global using AutoMapper.QueryableExtensions;
+
+global using Microsoft.EntityFrameworkCore;
+global using WWI.Core6.Services.Interfaces;
