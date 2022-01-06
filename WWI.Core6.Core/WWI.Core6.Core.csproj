@@ -4,6 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<LangVersion>preview</LangVersion>
 		<UserSecretsId>6417d6df-92b9-4768-985a-c47dd8d3e272</UserSecretsId>
+		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
 	<ItemGroup>

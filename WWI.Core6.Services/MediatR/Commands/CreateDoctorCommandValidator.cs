@@ -32,7 +32,7 @@ public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorComman
             .MustAsync(BeValidSpecialityID)
                 .WithMessage("Invalid '{PropertyName}'.");
 
-        RuleFor(prop => new { prop.Firstname, prop.Middlename, prop.Lastname, prop.SpecialityID })
+        RuleFor(prop => prop)
             .MustAsync(async (prop, _) => await SharedService.IsUniqueDoctorNameAsync(prop.Firstname, prop.Middlename, prop.Lastname, prop.SpecialityID))
             .WithMessage("Doctor is already present in database");
 
