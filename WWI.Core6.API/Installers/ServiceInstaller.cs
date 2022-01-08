@@ -53,8 +53,11 @@ public class ServiceInstaller : IInstaller
         serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
         // serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         // serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
+        serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(RetryBehaviour<,>));
         serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(TimingBehaviour<,>));
-        serviceCollection.AddValidatorsFromAssembly(typeof(RetryDecorator<>).Assembly);
+        
+        serviceCollection.AddValidatorsFromAssembly(typeof(Core6ServicesMarker).Assembly);
+        
 
         serviceCollection.Scan(scan =>
         {

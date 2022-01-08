@@ -1,4 +1,6 @@
-﻿namespace WWI.Core6.Services.MediatR.Handlers;
+﻿using Serilog;
+
+namespace WWI.Core6.Services.MediatR.Handlers;
 
 public class GetAllDoctorsQueryHandler : HandlerBase, IRequestHandler<GetAllDoctorsQuery, List<Dropdown>>
 {

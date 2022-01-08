@@ -1,8 +1,5 @@
 ﻿using System.Diagnostics;
-using Microsoft.Extensions.Logging;
 using Serilog;
-using Serilog.Core;
-using ILogger = Serilog.ILogger;
 
 namespace WWI.Core6.Services.MediatR.PipelineBehaviours;
 
