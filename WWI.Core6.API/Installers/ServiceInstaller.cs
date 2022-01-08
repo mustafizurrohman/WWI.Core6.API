@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using WWI.Core6.API.ExtensionMethods;
 using WWI.Core6.Core.AutoMapper;
 using WWI.Core6.Services;
 using WWI.Core6.Services.Interfaces;
-using WWI.Core6.Services.MediatR.Decorators;
 using WWI.Core6.Services.MediatR.Handlers;
 using WWI.Core6.Services.MediatR.PipelineBehaviours;
 using WWI.Core6.Services.Services;
@@ -58,7 +55,6 @@ public class ServiceInstaller : IInstaller
         
         serviceCollection.AddValidatorsFromAssembly(typeof(Core6ServicesMarker).Assembly);
         
-
         serviceCollection.Scan(scan =>
         {
             scan.FromAssembliesOf(typeof(Core6ServicesMarker))

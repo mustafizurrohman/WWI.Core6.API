@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.OpenApi.Models;
-using Serilog;
+﻿using Microsoft.OpenApi.Models;
 using WWI.Core6.Core.Exceptions;
 using WWI.Core6.Models.AppSettings;
 using WWI.Core6.Models.Validators;

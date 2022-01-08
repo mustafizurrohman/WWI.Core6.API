@@ -1,9 +1,4 @@
-﻿using System.Reflection;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Extensions.Logging;
-using Serilog;
-
-namespace WWI.Core6.Services.MediatR.PipelineBehaviours;
+﻿namespace WWI.Core6.Services.MediatR.PipelineBehaviours;
 
 // https://garywoodfine.com/how-to-use-mediatr-pipeline-behaviours/
 public class LoggingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>

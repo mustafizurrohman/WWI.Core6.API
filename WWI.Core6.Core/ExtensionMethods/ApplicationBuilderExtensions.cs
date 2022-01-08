@@ -15,7 +15,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
 using WWI.Core6.Middleware.ExceptionHandler;
 using WWI.Core6.Models.DbContext;
 

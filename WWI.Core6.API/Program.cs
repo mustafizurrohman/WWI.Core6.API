@@ -12,10 +12,6 @@
 // <summary></summary>
 // ***********************************************************************
 
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Serilog;
 using WWI.Core6.Core.Exceptions;
 
 // ReSharper disable ClassNeverInstantiated.Global

@@ -1,11 +1,7 @@
 ﻿using System.Net;
 using System.Text;
 using System.Text.Json;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using Serilog;
 using WWI.Core6.Core.ExtensionMethods;
 using ValidationException = FluentValidation.ValidationException;
 

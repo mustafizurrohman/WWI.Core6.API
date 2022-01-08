@@ -15,3 +15,5 @@ global using WWI.Core6.API.Controllers.Base;
 global using WWI.Core6.Models.ViewModels;
 global using WWI.Core6.Services.MediatR.Queries;
 global using WWI.Core6.Services.ServiceCollection;
+
+global using Serilog;

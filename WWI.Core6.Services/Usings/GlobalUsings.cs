@@ -16,3 +16,5 @@ global using AutoMapper.QueryableExtensions;
 
 global using Microsoft.EntityFrameworkCore;
 global using WWI.Core6.Services.Interfaces;
+
+global using Serilog;

@@ -1,5 +1,4 @@
 ﻿using Polly;
-using Serilog;
 
 namespace WWI.Core6.Services.MediatR.PipelineBehaviours;
 

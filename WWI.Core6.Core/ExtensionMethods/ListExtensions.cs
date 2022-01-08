@@ -12,7 +12,6 @@
 // <summary></summary>
 // ***********************************************************************
 
-using System.IO;
 using System.Reflection;
 using Newtonsoft.Json;
 using WWI.Core6.Core.Helpers;
