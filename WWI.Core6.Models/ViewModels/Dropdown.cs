@@ -8,6 +8,7 @@ public class Dropdown
 
     /// <summary>
     /// Gets or sets the identifier.
+    /// Using init because it does not makes sense to modify what we got from database
     /// </summary>
     /// <value>The identifier.</value>
     [UsedImplicitly]
@@ -15,6 +16,7 @@ public class Dropdown
 
     /// <summary>
     /// Gets or sets the display value.
+    /// Using init because it does not makes sense to modify what we got from database
     /// </summary>
     /// <value>The display value.</value>
     [UsedImplicitly]

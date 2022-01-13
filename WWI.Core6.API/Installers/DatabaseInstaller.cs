@@ -30,6 +30,7 @@ public class DatabaseInstaller : IInstaller
             options.UseSqlServer(connectionString);
 
 #if DEBUG
+            // We must not print the queries during production
             options.EnableSensitiveDataLogging()
                 .UseLoggerFactory(ConsoleLoggerFactory);
             // https://docs.microsoft.com/en-in/ef/core/querying/single-split-queries

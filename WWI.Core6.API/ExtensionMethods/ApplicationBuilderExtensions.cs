@@ -68,6 +68,10 @@ public static class ApplicationBuilderExtensions
         return app;
     }
 
+    /// <summary>
+    /// Not used anymore but it could be a way to handle validation errors
+    /// </summary>
+    /// <param name="applicationBuilder"></param>
     private static void UseFluentValidationExceptionHandler(this IApplicationBuilder applicationBuilder)
     {
         applicationBuilder.UseExceptionHandler(appBuilder =>

@@ -190,6 +190,7 @@
             then this method will not be run.</remarks>
         </member>
         <member name="M:WWI.Core6.Models.DbContext.DocAppointmentContext.GenerateSeedData(System.Boolean)">
+            Bogus library is perfect to generate seeds and can be done in-memory
             <summary>
             Generates the seed data.
             </summary>
@@ -1074,12 +1075,14 @@
         <member name="P:WWI.Core6.Models.ViewModels.Dropdown.ID">
             <summary>
             Gets or sets the identifier.
+            Using init because it does not makes sense to modify what we got from database
             </summary>
             <value>The identifier.</value>
         </member>
         <member name="P:WWI.Core6.Models.ViewModels.Dropdown.DisplayValue">
             <summary>
             Gets or sets the display value.
+            Using init because it does not makes sense to modify what we got from database
             </summary>
             <value>The display value.</value>
         </member>

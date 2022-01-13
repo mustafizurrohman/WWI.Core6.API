@@ -46,10 +46,9 @@ public static class DbSetExtensions
     /// <exception cref="Exception"></exception>
     public static async Task AddOrUpdateAsync<T>(this DbSet<T> dbSet, T data) where T : class
     {
-        if (data == null)
-        {
+        if (data is null)
             return;
-        }
+        
 
         var context = dbSet.GetContext();
         var ids = context.Model.FindEntityType(typeof(T)).FindPrimaryKey().Properties.Select(x => x.Name);
@@ -96,17 +95,16 @@ public static class DbSetExtensions
     /// <exception cref="Exception"></exception>
     public static void AddOrUpdate<T>(this DbSet<T> dbSet, Expression<Func<T, object>> key, T data) where T : class
     {
-        if (data == null)
-        {
+        if (data is null)
             return;
-        }
+        
 
         var context = dbSet.GetContext();
         var ids = context.Model.FindEntityType(typeof(T)).FindPrimaryKey().Properties.Select(x => x.Name);
         var t = typeof(T);
         var keyObject = key.Compile()(data);
         PropertyInfo[] keyFields = keyObject.GetType().GetProperties().Select(p => t.GetProperty(p.Name)).ToArray();
-        if (keyFields == null)
+        if (keyFields is null)
         {
             throw new Exception($"{t.FullName} does not have a KeyAttribute field. Unable to exec AddOrUpdate call.");
         }

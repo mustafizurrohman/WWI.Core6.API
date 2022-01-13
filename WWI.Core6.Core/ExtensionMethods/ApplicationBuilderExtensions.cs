@@ -45,7 +45,7 @@ public static class ApplicationBuilderExtensions
     {
         using IServiceScope serviceScope = applicationBuilder.ApplicationServices.GetService<IServiceScopeFactory>()?.CreateScope();
 
-        if (serviceScope == null) 
+        if (serviceScope is null) 
             return;
             
         using var context = serviceScope.ServiceProvider.GetService<DocAppointmentContext>();
