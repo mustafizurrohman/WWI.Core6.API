@@ -32,12 +32,14 @@ public class CreateDoctorCommandValidator : AbstractValidator<CreateDoctorComman
             .MustAsync(BeValidSpecialityID)
                 .WithMessage("Invalid '{PropertyName}'.");
 
+        // Will depend on the use case in a real project. This is just to demonstrate that we can use a service in fluent validation for validating input
         RuleFor(prop => prop)
             .MustAsync(async (prop, _) => await SharedService.IsUniqueDoctorNameAsync(prop.Firstname, prop.Middlename, prop.Lastname, prop.SpecialityID))
             .WithMessage("Doctor is already present in database");
 
     }
         
+    // Demonstrates that we can use dependency injection to validate input
     private Task<bool> BeValidSpecialityID(int specialityID, CancellationToken cancellationToken)
     {
         return DbContext.Specialities.AnyAsync(s => s.SpecialtyID == specialityID, cancellationToken);

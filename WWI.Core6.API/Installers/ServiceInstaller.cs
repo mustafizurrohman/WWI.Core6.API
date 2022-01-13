@@ -36,6 +36,7 @@ public class ServiceInstaller : IInstaller
         IMapper mapper = mapperConfig.CreateMapper();
         serviceCollection.AddSingleton(mapper);
 
+        // Scrutor can be used here
         serviceCollection.AddTransient<IApplicationServices, ApplicationServices>();
 
         serviceCollection.AddTransient<IDataService, DataService>();
@@ -48,7 +49,11 @@ public class ServiceInstaller : IInstaller
         serviceCollection.AddTransient<IFakeDataGeneratorService, FakeDataGeneratorService>();
 
         serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
+        
+        // Injected during MVC
         // serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
+
         // serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
         serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(RetryBehaviour<,>));
         serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(TimingBehaviour<,>));
@@ -62,6 +67,7 @@ public class ServiceInstaller : IInstaller
         });
 
         // TODO: Make this work!
+        // Implemented with a pipeline behaviour. Explore this possibility later
         // serviceCollection.Decorate(typeof(INotificationHandler<>), typeof(RetryDecorator<>));
 
         serviceCollection.AddOptions();
