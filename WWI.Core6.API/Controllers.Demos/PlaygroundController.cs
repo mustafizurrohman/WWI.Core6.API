@@ -3,7 +3,7 @@
 namespace WWI.Core6.API.Controllers.Demos;
 
 /// <summary>
-/// 
+/// Demo controller to experiment with new features in .NET Core 6 and C# 10
 /// </summary>
 public class PlaygroundController : BaseAPIController
 {

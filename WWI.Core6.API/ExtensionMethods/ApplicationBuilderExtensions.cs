@@ -52,8 +52,10 @@ public static class ApplicationBuilderExtensions
 
         app.UseAuthorization();
 
+        // Database migration using EF Core
         app.MigrateDatabase();
 
+        // Must be configurable in a real application
         app.UseCors(options =>
         {
             options.AllowAnyHeader()

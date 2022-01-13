@@ -12,7 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
-namespace WWI.Core6.API.Controllers.Demos;
+namespace WWI.Core6.API.Controllers;
 
 /// <summary>
 /// Class SpecialityController.

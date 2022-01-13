@@ -36,7 +36,7 @@ public class ServiceInstaller : IInstaller
         IMapper mapper = mapperConfig.CreateMapper();
         serviceCollection.AddSingleton(mapper);
 
-        // Scrutor can be used here
+        // TODO: Scrutor can be used here
         serviceCollection.AddTransient<IApplicationServices, ApplicationServices>();
 
         serviceCollection.AddTransient<IDataService, DataService>();
@@ -68,6 +68,7 @@ public class ServiceInstaller : IInstaller
 
         // TODO: Make this work!
         // Implemented with a pipeline behaviour. Explore this possibility later
+        // and investage the advantages and disadvantages
         // serviceCollection.Decorate(typeof(INotificationHandler<>), typeof(RetryDecorator<>));
 
         serviceCollection.AddOptions();

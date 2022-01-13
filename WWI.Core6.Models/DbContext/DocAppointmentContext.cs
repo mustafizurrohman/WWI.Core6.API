@@ -179,6 +179,7 @@ namespace WWI.Core6.Models.DbContext
             OnModelCreatingPartial(modelBuilder);
         }
 
+        /// Bogus library is perfect to generate seeds and can be done in-memory
         /// <summary>
         /// Generates the seed data.
         /// </summary>

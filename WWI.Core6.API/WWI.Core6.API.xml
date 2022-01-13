@@ -42,7 +42,7 @@
         </member>
         <member name="T:WWI.Core6.API.Controllers.Demos.PlaygroundController">
             <summary>
-            
+            Demo controller to experiment with new features in .NET Core 6 and C# 10
             </summary>
         </member>
         <member name="M:WWI.Core6.API.Controllers.Demos.PlaygroundController.#ctor(WWI.Core6.Services.Interfaces.IFakeDataGeneratorService,WWI.Core6.Services.ServiceCollection.IApplicationServices)">
@@ -92,53 +92,9 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:WWI.Core6.API.Controllers.Demos.SpecialityController">
-            <summary>
-            Class SpecialityController.
-            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
-            </summary>
-            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.Demos.SpecialityController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
-            <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.Demos.SpecialityController" /> class.
-            </summary>
-            <param name="applicationServices">Application Services</param>
-            <param name="mediator"></param>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.Demos.SpecialityController.GetSpecialities(System.Threading.CancellationToken)">
-            <summary>
-            Gets the specialities.
-            </summary>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.Demos.SpecialityController.GetSpecialityByID(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the speciality by identifier.
-            </summary>
-            <param name="specialityID">The speciality identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.Demos.SpecialityController.GetDoctorsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the doctors for speciality by identifier.
-            </summary>
-            <param name="specialityID">The speciality identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
-        <member name="M:WWI.Core6.API.Controllers.Demos.SpecialityController.GetHospitalsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
-            <summary>
-            Gets the hospitals with speciality by a speciality identifier.
-            </summary>
-            <param name="specialityID">The speciality identifier.</param>
-            <param name="cancellationToken"></param>
-            <returns>IActionResult.</returns>
-        </member>
         <member name="T:WWI.Core6.API.Controllers.Demos.TestController">
             <summary>
-            Class TestController.
+            Class TestController for testing misc functions
             </summary>
         </member>
         <member name="M:WWI.Core6.API.Controllers.Demos.TestController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,WWI.Core6.Services.Interfaces.IHTMLFormatterService)">
@@ -353,6 +309,50 @@
             Gets the speciality information for hospital.
             </summary>
             <param name="hospitalID">The hospital identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="T:WWI.Core6.API.Controllers.SpecialityController">
+            <summary>
+            Class SpecialityController.
+            Implements the <see cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+            </summary>
+            <seealso cref="T:WWI.Core6.API.Controllers.Base.BaseAPIController" />
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.SpecialityController.#ctor(WWI.Core6.Services.ServiceCollection.IApplicationServices,MediatR.IMediator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Controllers.SpecialityController" /> class.
+            </summary>
+            <param name="applicationServices">Application Services</param>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetSpecialities(System.Threading.CancellationToken)">
+            <summary>
+            Gets the specialities.
+            </summary>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetSpecialityByID(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the speciality by identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetDoctorsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the doctors for speciality by identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
+            <param name="cancellationToken"></param>
+            <returns>IActionResult.</returns>
+        </member>
+        <member name="M:WWI.Core6.API.Controllers.SpecialityController.GetHospitalsForSpecialityByID(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets the hospitals with speciality by a speciality identifier.
+            </summary>
+            <param name="specialityID">The speciality identifier.</param>
             <param name="cancellationToken"></param>
             <returns>IActionResult.</returns>
         </member>

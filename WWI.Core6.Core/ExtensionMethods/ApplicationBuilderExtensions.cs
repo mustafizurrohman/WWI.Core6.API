@@ -51,7 +51,7 @@ public static class ApplicationBuilderExtensions
         using var context = serviceScope.ServiceProvider.GetService<DocAppointmentContext>();
         try
         {
-            Log.Information("Starting to migrate database ...");
+            Log.Information("Starting database migration ...");
             context?.Database.Migrate();
         }
         catch (Exception ex)

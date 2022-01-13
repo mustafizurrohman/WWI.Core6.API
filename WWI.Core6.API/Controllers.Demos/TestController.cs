@@ -21,7 +21,7 @@ using WWI.Core6.Services.Interfaces;
 namespace WWI.Core6.API.Controllers.Demos;
 
 /// <summary>
-/// Class TestController.
+/// Class TestController for testing misc functions
 /// </summary>
 public class TestController : BaseAPIController
 {
