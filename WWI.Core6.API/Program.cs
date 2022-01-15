@@ -61,7 +61,7 @@ public static class Program
 
             Log.Fatal("An unexpected error occured during application startup ... ");
             Log.Fatal("Application cannot start ... ");
-            Log.Fatal(ex);
+            Log.Fatal(ex.ToString());
 
             Log.Information("Press ENTER to exit the application ...");
         }
