@@ -22,7 +22,12 @@ namespace WWI.Core6.API.Helpers
         /// <summary>
         /// The performance options
         /// </summary>
-        private readonly PerformanceOptions _performanceOptions = new();
+        private PerformanceOptions _performanceOptions = new();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private MediatRPipelineOptions _pipelineOptions = new();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationSettingsUtility"/> class.
@@ -53,11 +58,22 @@ namespace WWI.Core6.API.Helpers
                 throw new AppSettingsValidationException(ex.Message);
             }
 
-            ApplicationSettings applicationSettings = new ApplicationSettings()
+            try
+            {
+                Configuration.GetSection("MediatRPipelines").Bind(_pipelineOptions);
+            }
+            catch (InvalidOperationException ex)
+            {
+                Log.Error("Invalid boolean values for Pipeline Options in appsettings file. Valid values are 'true' and 'false'.");
+                throw new AppSettingsValidationException(ex.Message);
+            }
+
+            ApplicationSettings applicationSettings = new()
             {
                 OpenApiInfo = _info,
                 PerformanceOptions = _performanceOptions,
-                ConnectionString = Configuration.GetConnectionString("AppointmentDb")
+                ConnectionString = Configuration.GetConnectionString("AppointmentDb"),
+                MediatRPipelineOptions = _pipelineOptions
             };
 
             return applicationSettings;
@@ -72,7 +88,7 @@ namespace WWI.Core6.API.Helpers
         {
             applicationSettings ??= GetApplicationSettings(); 
 
-            ApplicationSettingsValidator validator = new ApplicationSettingsValidator();
+            ApplicationSettingsValidator validator = new();
             ValidationResult validationResult =  validator.Validate(applicationSettings);
 
             if (validationResult.Errors.Count == 0) 

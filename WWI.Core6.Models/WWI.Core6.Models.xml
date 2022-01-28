@@ -27,6 +27,36 @@
             </summary>
             <value>The connection string.</value>
         </member>
+        <member name="P:WWI.Core6.Models.AppSettings.ApplicationSettings.MediatRPipelineOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WWI.Core6.Models.AppSettings.MediatRPipelineOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.AppSettings.MediatRPipelineOptions.EnableLoggingBehaviour">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.AppSettings.MediatRPipelineOptions.EnableRetryBehaviour">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.AppSettings.MediatRPipelineOptions.EnableTimingBehaviour">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WWI.Core6.Models.AppSettings.MediatRPipelineOptions.EnableValidationBehaviour">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:WWI.Core6.Models.AppSettings.PerformanceOptions">
             <summary>
             Class PerformanceOptions.

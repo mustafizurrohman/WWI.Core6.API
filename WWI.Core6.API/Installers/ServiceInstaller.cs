@@ -2,6 +2,7 @@
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using WWI.Core6.API.ExtensionMethods;
+using WWI.Core6.API.Helpers;
 using WWI.Core6.Core.AutoMapper;
 using WWI.Core6.Services;
 using WWI.Core6.Services.Interfaces;
@@ -50,13 +51,7 @@ public class ServiceInstaller : IInstaller
 
         serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
         
-        // Injected during MVC
-        // serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-
-
-        // serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
-        serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(RetryBehaviour<,>));
-        serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(TimingBehaviour<,>));
+        ConfigureMediatRPipeline(serviceCollection, configuration);
         
         serviceCollection.AddValidatorsFromAssembly(typeof(Core6ServicesMarker).Assembly);
         
@@ -82,4 +77,24 @@ public class ServiceInstaller : IInstaller
         serviceCollection.AddControllers();
 
     }
+
+    private void ConfigureMediatRPipeline(IServiceCollection serviceCollection, IConfiguration configuration)
+    {
+        var applicationSettings = new ApplicationSettingsUtility(configuration).GetApplicationSettings();
+
+        var mediatRSettings = applicationSettings.MediatRPipelineOptions;
+
+        // Injected during MVC
+        // serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
+        if (mediatRSettings.EnableLoggingBehaviour)
+            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
+        
+        if (mediatRSettings.EnableRetryBehaviour)
+            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(RetryBehaviour<,>));
+        
+        if (mediatRSettings.EnableTimingBehaviour)
+            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(TimingBehaviour<,>));
+    }
+
 }

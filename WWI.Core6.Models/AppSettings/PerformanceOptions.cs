@@ -10,14 +10,14 @@
         /// </summary>
         /// <value><c>true</c> if [use response compression]; otherwise, <c>false</c>.</value>
         [UsedImplicitly]
-        public bool UseResponseCompression { get; }
+        public bool UseResponseCompression { get; init; }
 
         /// <summary>
         /// Gets a value indicating whether [use exception handling middleware].
         /// </summary>
         /// <value><c>true</c> if [use exception handling middleware]; otherwise, <c>false</c>.</value>
         [UsedImplicitly]
-        public bool UseExceptionHandlingMiddleware { get;  }
+        public bool UseExceptionHandlingMiddleware { get; init; }
 
     }
 }

@@ -436,6 +436,11 @@
             The performance options
             </summary>
         </member>
+        <member name="F:WWI.Core6.API.Helpers.ApplicationSettingsUtility._pipelineOptions">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:WWI.Core6.API.Helpers.ApplicationSettingsUtility.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Initializes a new instance of the <see cref="T:WWI.Core6.API.Helpers.ApplicationSettingsUtility"/> class.

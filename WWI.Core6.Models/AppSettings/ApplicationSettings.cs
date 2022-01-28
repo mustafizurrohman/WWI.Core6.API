@@ -28,6 +28,11 @@ namespace WWI.Core6.Models.AppSettings
         /// <value>The connection string.</value>
         [UsedImplicitly]
         public string ConnectionString { get; init; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public MediatRPipelineOptions MediatRPipelineOptions { get; init; }
     }
 
 }
