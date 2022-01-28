@@ -421,28 +421,35 @@
             <param name="info"></param>
             <returns></returns>
         </member>
-        <member name="T:WWI.Core6.API.Helpers.ApplicationSettingsVerifier">
+        <member name="T:WWI.Core6.API.Helpers.ApplicationSettingsUtility">
             <summary>
-            Class ApplicationSettingsVerifier.
+            Class ApplicationSettingsUtility.
             </summary>
         </member>
-        <member name="F:WWI.Core6.API.Helpers.ApplicationSettingsVerifier._info">
+        <member name="F:WWI.Core6.API.Helpers.ApplicationSettingsUtility._info">
             <summary>
             The OpenApi information
             </summary>
         </member>
-        <member name="F:WWI.Core6.API.Helpers.ApplicationSettingsVerifier._performanceOptions">
+        <member name="F:WWI.Core6.API.Helpers.ApplicationSettingsUtility._performanceOptions">
             <summary>
             The performance options
             </summary>
         </member>
-        <member name="M:WWI.Core6.API.Helpers.ApplicationSettingsVerifier.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:WWI.Core6.API.Helpers.ApplicationSettingsUtility.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
-            Initializes a new instance of the <see cref="T:WWI.Core6.API.Helpers.ApplicationSettingsVerifier"/> class.
+            Initializes a new instance of the <see cref="T:WWI.Core6.API.Helpers.ApplicationSettingsUtility"/> class.
             </summary>
             <param name="configuration">The configuration.</param>
         </member>
-        <member name="M:WWI.Core6.API.Helpers.ApplicationSettingsVerifier.VerifyApplicationSettings">
+        <member name="M:WWI.Core6.API.Helpers.ApplicationSettingsUtility.GetApplicationSettings">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+            <exception cref="T:WWI.Core6.Core.Exceptions.AppSettingsValidationException"></exception>
+        </member>
+        <member name="M:WWI.Core6.API.Helpers.ApplicationSettingsUtility.VerifyApplicationSettings(WWI.Core6.Models.AppSettings.ApplicationSettings)">
             <summary>
             Verifies the application settings.
             </summary>

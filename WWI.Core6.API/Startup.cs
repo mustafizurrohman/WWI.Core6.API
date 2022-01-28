@@ -62,8 +62,8 @@ public class Startup
 
         Log.Information("Validating Application Settings ...");
 
-        ApplicationSettingsVerifier applicationSettingsVerifier = new(Configuration);
-        applicationSettingsVerifier.VerifyApplicationSettings();
+        ApplicationSettingsUtility applicationSettingsUtility = new(Configuration);
+        applicationSettingsUtility.VerifyApplicationSettings();
 
         Log.Information("Application Settings sucessfully validated ...");
     }

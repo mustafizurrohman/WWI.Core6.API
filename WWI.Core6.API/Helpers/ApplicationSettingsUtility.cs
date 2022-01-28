@@ -8,9 +8,9 @@ namespace WWI.Core6.API.Helpers
 {
 
     /// <summary>
-    /// Class ApplicationSettingsVerifier.
+    /// Class ApplicationSettingsUtility.
     /// </summary>
-    public class ApplicationSettingsVerifier
+    public class ApplicationSettingsUtility
     {
         private IConfiguration Configuration { get; }
         
@@ -25,20 +25,21 @@ namespace WWI.Core6.API.Helpers
         private readonly PerformanceOptions _performanceOptions = new();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationSettingsVerifier"/> class.
+        /// Initializes a new instance of the <see cref="ApplicationSettingsUtility"/> class.
         /// </summary>
         /// <param name="configuration">The configuration.</param>
-        public ApplicationSettingsVerifier(IConfiguration configuration)
+        public ApplicationSettingsUtility(IConfiguration configuration)
         {
             this.Configuration = configuration;
         }
 
         /// <summary>
-        /// Verifies the application settings.
+        /// 
         /// </summary>
-        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <returns></returns>
         /// <exception cref="AppSettingsValidationException"></exception>
-        public void VerifyApplicationSettings()
+        // ReSharper disable once MemberCanBePrivate.Global
+        public ApplicationSettings GetApplicationSettings()
         {
             Configuration.GetSection("Swagger").Bind(_info);
 
@@ -58,6 +59,18 @@ namespace WWI.Core6.API.Helpers
                 PerformanceOptions = _performanceOptions,
                 ConnectionString = Configuration.GetConnectionString("AppointmentDb")
             };
+
+            return applicationSettings;
+        }
+
+        /// <summary>
+        /// Verifies the application settings.
+        /// </summary>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="AppSettingsValidationException"></exception>
+        public void VerifyApplicationSettings(ApplicationSettings applicationSettings = null)
+        {
+            applicationSettings ??= GetApplicationSettings(); 
 
             ApplicationSettingsValidator validator = new ApplicationSettingsValidator();
             ValidationResult validationResult =  validator.Validate(applicationSettings);

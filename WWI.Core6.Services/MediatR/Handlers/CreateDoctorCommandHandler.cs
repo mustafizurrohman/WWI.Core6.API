@@ -13,6 +13,10 @@ public class CreateDoctorCommandHandler : HandlerBase, IRequestHandler<CreateDoc
         SharedService  = sharedService;
     }
 
+    // We can write pure business logic code here because by the time the execution reaches here
+    // The inputs are already validated 
+    // If this still fails for some reason it will be retried using 
+    // the polly retry policy configured for the pipeline
     public async Task<DoctorInfo> Handle(CreateDoctorCommand request, CancellationToken cancellationToken)
     {
         var doctor = new Doctor
