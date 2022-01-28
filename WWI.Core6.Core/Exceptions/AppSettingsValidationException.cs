@@ -1,4 +1,6 @@
-﻿namespace WWI.Core6.Core.Exceptions
+﻿using WWI.Core6.Core.ExtensionMethods;
+
+namespace WWI.Core6.Core.Exceptions
 {
     public class AppSettingsValidationException : Exception
     {
@@ -8,5 +10,17 @@
         {
 
         }
+
+        public AppSettingsValidationException(FluentValidation.Results.ValidationResult validationResult) 
+            : base(GetErrors(validationResult))
+        {
+        
+        }
+
+        public static string GetErrors(FluentValidation.Results.ValidationResult validationResult)
+        {
+            return validationResult.ToErrorString();
+        }
+
     }
 }

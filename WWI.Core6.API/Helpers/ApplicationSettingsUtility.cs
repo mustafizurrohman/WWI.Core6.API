@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 using WWI.Core6.Core.Exceptions;
+using WWI.Core6.Core.ExtensionMethods;
 using WWI.Core6.Models.AppSettings;
 using WWI.Core6.Models.Validators;
 using ValidationResult  = FluentValidation.Results.ValidationResult;
@@ -91,19 +92,17 @@ namespace WWI.Core6.API.Helpers
             ApplicationSettingsValidator validator = new();
             ValidationResult validationResult =  validator.Validate(applicationSettings);
 
-            if (validationResult.Errors.Count == 0) 
+            if (validationResult.IsValid)
                 return;
-            
-            var errors = validationResult.Errors
-                .Select((e, index) => (index + 1) + "- " + e)
-                .Aggregate((e1, e2) => e1 + Environment.NewLine + e2);
+
+            var errors = validationResult.ToErrorString();
 
             Log.Fatal("Invalid app settings. Please refer to the errors below");
             Log.Error(Environment.NewLine + Environment.NewLine + errors + Environment.NewLine);
             Log.Fatal("Please correct the app settings before starting the application again!!!");
             Log.Fatal("Application will now terminate ...");
 
-            throw new AppSettingsValidationException(errors);
+            throw new AppSettingsValidationException(validationResult);
 
         }
 
