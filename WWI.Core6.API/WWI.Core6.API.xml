@@ -361,12 +361,13 @@
             Class ApplicationBuilderExtensions.
             </summary>
         </member>
-        <member name="M:WWI.Core6.API.ExtensionMethods.ApplicationBuilderExtensions.ConfigureApplication(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+        <member name="M:WWI.Core6.API.ExtensionMethods.ApplicationBuilderExtensions.ConfigureApplication(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Configures the application.
             </summary>
             <param name="app">The application.</param>
             <param name="env">The env.</param>
+            <param name="configuration"></param>
             <returns>IApplicationBuilder.</returns>
         </member>
         <member name="M:WWI.Core6.API.ExtensionMethods.ApplicationBuilderExtensions.UseFluentValidationExceptionHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder)">

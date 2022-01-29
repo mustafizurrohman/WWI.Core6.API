@@ -39,6 +39,7 @@ namespace WWI.Core6.API.Helpers
             this.Configuration = configuration;
         }
 
+
         /// <summary>
         /// 
         /// </summary>

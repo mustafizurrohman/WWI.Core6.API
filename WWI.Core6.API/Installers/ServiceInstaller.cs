@@ -50,9 +50,7 @@ public class ServiceInstaller : IInstaller
         serviceCollection.AddTransient<IFakeDataGeneratorService, FakeDataGeneratorService>();
 
         serviceCollection.AddMediatR(typeof(HandlerBase).Assembly);
-        
-        ConfigureMediatRPipeline(serviceCollection, configuration);
-        
+                      
         serviceCollection.AddValidatorsFromAssembly(typeof(Core6ServicesMarker).Assembly);
         
         serviceCollection.Scan(scan =>
@@ -61,17 +59,16 @@ public class ServiceInstaller : IInstaller
                 .RegisterHandlers(typeof(INotificationHandler<>));
         });
 
-        // TODO: Make this work!
-        // Implemented with a pipeline behaviour. Explore this possibility later
-        // and investage the advantages and disadvantages
-        // serviceCollection.Decorate(typeof(INotificationHandler<>), typeof(RetryDecorator<>));
+
 
         serviceCollection.AddOptions();
 
         serviceCollection.AddMvc()
-            .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null)
-            .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Core6ServicesMarker>());
+            .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 
+        // Must be called after MVC is added
+        ConfigureMediatRPipeline(serviceCollection, configuration);
+                          
         serviceCollection.AddMemoryCache();
 
         serviceCollection.AddControllers();
@@ -84,8 +81,10 @@ public class ServiceInstaller : IInstaller
 
         var mediatRSettings = applicationSettings.MediatRPipelineOptions;
 
-        // Injected during MVC
-        // serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        if (mediatRSettings.EnableValidationBehaviour)
+            serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        else 
+            serviceCollection.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Core6ServicesMarker>());
 
         if (mediatRSettings.EnableLoggingBehaviour)
             serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
@@ -95,6 +94,11 @@ public class ServiceInstaller : IInstaller
         
         if (mediatRSettings.EnableTimingBehaviour)
             serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(TimingBehaviour<,>));
+
+        // TODO: Make this work!
+        // Implemented with a pipeline behaviour. Explore this possibility later
+        // and investage the advantages and disadvantages
+        // serviceCollection.Decorate(typeof(INotificationHandler<>), typeof(RetryDecorator<>));
     }
 
 }

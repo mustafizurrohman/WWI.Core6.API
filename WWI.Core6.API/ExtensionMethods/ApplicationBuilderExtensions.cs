@@ -2,6 +2,7 @@
 using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.Diagnostics;
+using WWI.Core6.API.Helpers;
 using WWI.Core6.Core.ExtensionMethods;
 using ValidationException = FluentValidation.ValidationException;
 
@@ -17,8 +18,9 @@ public static class ApplicationBuilderExtensions
     /// </summary>
     /// <param name="app">The application.</param>
     /// <param name="env">The env.</param>
+    /// <param name="configuration"></param>
     /// <returns>IApplicationBuilder.</returns>
-    public static IApplicationBuilder ConfigureApplication(this IApplicationBuilder app, IWebHostEnvironment env)
+    public static IApplicationBuilder ConfigureApplication(this IApplicationBuilder app, IWebHostEnvironment env, IConfiguration configuration)
     {
         if (env.IsDevelopment())
             app.UseDeveloperExceptionPage();            
@@ -44,7 +46,11 @@ public static class ApplicationBuilderExtensions
         app.UseHttpsRedirection();
 
         app.UseCustomExceptionHandler();
-        // app.UseFluentValidationExceptionHandler();
+
+        var applicationSettings = new ApplicationSettingsUtility(configuration).GetApplicationSettings();
+
+        if (!applicationSettings.MediatRPipelineOptions.EnableValidationBehaviour)
+          app.UseFluentValidationExceptionHandler();
             
         app.UseSerilogRequestLogging();
 

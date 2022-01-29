@@ -76,7 +76,7 @@ public class Startup
     // ReSharper disable once UnusedMember.Global
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        app.ConfigureApplication(env)
+        app.ConfigureApplication(env, Configuration)
             .UseSwaggerDocumentation(_info)
             .UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
